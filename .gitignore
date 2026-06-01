@@ -35,6 +35,7 @@ Thumbs.db
 # User-generated profiles (must survive updates)
 # The data/profiles/ directory is created by ProfileManager at runtime
 data/profiles/*.yaml
+data/backup/
 
 # Claude Code
 .claude/
