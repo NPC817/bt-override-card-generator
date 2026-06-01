@@ -1,0 +1,86 @@
+{
+  "chassis": "Archer",
+  "variant": "ARC-2R",
+  "tech": "IS",
+  "omni": false,
+  "gunnery": 4,
+  "piloting": 5,
+  "weapons": [
+    {
+      "weapon_key": "mlas",
+      "tic": 1,
+      "location": "LA",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "mlas",
+      "tic": 1,
+      "location": "RA",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "lrm20",
+      "tic": 2,
+      "location": "T",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "lrm20",
+      "tic": 2,
+      "location": "T",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "mlas",
+      "tic": 3,
+      "location": "(R) T",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "mlas",
+      "tic": 3,
+      "location": "(R) T",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_key": "ammo",
+      "location": "T",
+      "subtype": "LRM",
+      "uses": 0.0
+    }
+  ],
+  "unit_type": "BattleMech",
+  "motive_type": "Biped",
+  "tonnage": 70,
+  "walk_mp": 4,
+  "jump_mp": 0,
+  "sinks": 10,
+  "has_dhs": false,
+  "armor": {
+    "HD": 9,
+    "LA": 22,
+    "RA": 22,
+    "LT": 24,
+    "CT": 33,
+    "RT": 24,
+    "LL": 26,
+    "RL": 26,
+    "LTR": 6,
+    "CTR": 10,
+    "RTR": 6
+  }
+}

@@ -1,0 +1,160 @@
+#Saved from version 0.50.11 on 2025-12-12
+<UnitType>
+AeroSpaceFighter
+</UnitType>
+
+<Name>
+Issedone
+</Name>
+
+<Model>
+A
+</Model>
+
+<mul id:>
+7651
+</mul id:>
+
+<year>
+2871
+</year>
+
+<originalBuildYear>
+2871
+</originalBuildYear>
+
+<type>
+Clan Level 2
+</type>
+
+<role>
+Fire Support
+</role>
+
+<quirks>
+obsolete:2950
+</quirks>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<SafeThrust>
+7
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+11
+</heatsinks>
+
+<sink_type>
+0
+</sink_type>
+
+<fuel>
+400
+</fuel>
+
+<engine_type>
+0
+</engine_type>
+
+<clan_engine>
+false
+</clan_engine>
+
+<armor_type>
+0
+</armor_type>
+
+<armor_tech_rating>
+0
+</armor_tech_rating>
+
+<armor_tech_level>
+2
+</armor_tech_level>
+
+<omni>
+1
+</omni>
+
+<armor>
+44
+23
+23
+30
+</armor>
+
+<Nose Equipment>
+CLERLargeLaser
+CLERSmallLaser
+CLLRM10
+</Nose Equipment>
+
+<Left Wing Equipment>
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+</Right Wing Equipment>
+
+<Aft Equipment>
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+Clan Ammo LRM-10
+CLCASE
+</Fuselage Equipment>
+
+<capabilities>
+<p>The Issedone faced the same fundamental engineering challenges that plagued early aerospace innovations, including Land-Air Mechs and primitive aerospace fighters. Its GM 150 fusion engine provides adequate thrust for a thirty-ton light fighter, while seven and a half tons of Carbondale III armor offers modest protection that can be quickly compromised by concentrated fire from reckless pilots. The design's true saving grace lies in its nine tons of available pod space, an impressive figure for such a light airframe that allows technicians to configure the fighter for virtually any tactical role using advanced Clan weaponry. This flexibility, combined with the F-50/C frame's inherent durability, makes the Issedone remarkably easy to maintain under field conditions. Techs have long appreciated its straightforward systems architecture, inherited from its Spad lineage, which permits rapid turnaround times between sorties and the ability to keep flying when more sophisticated designs are grounded for lack of specialized components.</p>
+</capabilities>
+
+<overview>
+<p>The Issedone holds the distinction of being the first OmniFighter ever produced, developed by Clan Snow Raven approximately seventeen years after Clan Coyote introduced the revolutionary OmniMech concept. Rather than designing an entirely new airframe, Snow Raven technicians based their work on the proven Spad aerospace fighter, allowing for rapid development and deployment. While the Issedone succeeded as a technology demonstrator and validated the OmniFighter concept, it proved notably inferior in combat performance to the Ravens' existing Issus and Chaeroneas conventional fighters. Despite these limitations, the design's ruggedness and remarkable ease of maintenance ensured it would perform yeoman service for nearly a century before fading into obsolescence. In a testament to the soundness of its basic engineering, Clan Sea Fox has since reintroduced the Issedone for sale in tertiary markets, where it continues to find steady buyers among Periphery nations seeking affordable Clan technology.</p>
+</overview>
+
+<deployment>
+<p>This variant emphasizes versatility through a mixed-range weapons suite. An ER large laser provides primary striking power, supported by an LRM-10 launcher with a single ton of CASE-protected ammunition for stand-off attacks. An ER small laser rounds out the loadout for close-range defense.</p>
+</deployment>
+
+<history>
+<p>The Issedone debuted to considerable acclaim within Clan Snow Raven, representing a significant technological achievement as the first successful application of OmniPod technology to aerospace fighters. However, the rapid introduction of the superior Avar OmniFighter soon after dampened enthusiasm for the design among front-line warriors, and the Issedone might have been consigned to obscurity as a mere historical footnote.</p>
+
+<p>The fighter would justify its existence during the Hellgate crisis of 2897, when Clan Steel Viper captured the Snow Ravens' agro-domes on that harsh world. Facing the impossible choice between importing food for their civilian population or weapons to defend against continued Viper incursions, the Ravens found themselves operating under severe logistical constraints. In these deprived conditions, the Issedone thrived where more capable but maintenance-intensive fighters failed. Starting from a single Point, Issedones gradually became the Ravens' fighter of choice on Hellgate, eventually fielding a full Trinary. As more advanced fighters were grounded for lack of spare parts, the rugged Issedones maintained an extraordinarily high combat tempo, launching near-daily operations against Steel Viper positions. Over eighteen months of escalating conflict, the Vipers committed increasingly sophisticated assets from vintage SLDF fighters to modern Clan designs, yet none could overcome the combination of Hellgate's hostile environment and the Issedone's relentless operational availability. When the Ravens finally withdrew from Hellgate in 2899, the Steel Vipers could muster only a pair of Spads to harass the retreating DropShips, a fitting tribute to the enduring legacy of the Issedone's original Spad-based design philosophy.</p>
+
+<p>Following Clan Snow Raven's relocation to the Inner Sphere and their merger with the Outworlds Alliance, the Issedone largely faded from front-line service with the Ravens themselves. However, Clan Sea Fox recognized the design's continuing value and resumed production at their facilities, marketing the OmniFighter to Periphery nations and smaller powers unable to afford more advanced Clan aerospace assets. The Sea Fox merchants have introduced new configurations specifically tailored for Inner Sphere buyers, incorporating equipment sourced from local vendors to ease maintenance and supply concerns. Mercenary units have proven particularly receptive customers, employing Issedones in force-multiplier roles such as artillery spotting, harassment operations behind enemy lines, and precision strike missions using the C variant's targeting capabilities. This commercial success in secondary markets validates the original Snow Raven design philosophy prioritizing reliability and maintainability over raw performance.</p>
+</history>
+
+<manufacturer>
+Crest Foundries
+</manufacturer>
+
+<primaryFactory>
+Lum
+</primaryFactory>
+
+<systemManufacturers>
+CHASSIS:F-50/C
+ENGINE:GM 150
+ARMOR:Carbondale III
+COMMUNICATIONS:CMDSTAT 500-A
+TARGETING:Scope Paint v2.41
+</systemManufacturers>
+
+<source>
+TR:GC
+</source>
+
+<tonnage>
+30.0
+</tonnage>
+
+

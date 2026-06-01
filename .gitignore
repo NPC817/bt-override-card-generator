@@ -1,0 +1,36 @@
+# Virtual environments
+.venv/
+.venv_build/
+
+# PyInstaller build output
+build/
+dist/
+*.spec.tmp.*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Editor temp files
+*.tmp.*
+
+# Old version marker
+6.0
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# User-generated profiles (must survive updates)
+# The data/profiles/ directory is created by ProfileManager at runtime
+data/profiles/*.yaml
+
+# Claude Code
+.claude/

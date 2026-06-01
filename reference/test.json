@@ -1,0 +1,20 @@
+{
+  "chassis": "Dave",
+  "variant": "",
+  "tech": "IS",
+  "omni": false,
+  "gunnery": 4,
+  "piloting": 5,
+  "weapons": [],
+  "equipment": [],
+  "unit_type": "Infantry",
+  "squad_size": 7,
+  "squad_count": 4,
+  "ground_mp": 1,
+  "armor_per_trooper": 1,
+  "motion_type_key": "Foot",
+  "weapon_type": "mg",
+  "trooper_equipment": "",
+  "armor_kit": "",
+  "field_guns": []
+}

@@ -1,0 +1,915 @@
+# Equipment data structure converted from card_gen.js
+# Each entry represents a piece of equipment that can be installed on units
+
+ammo:
+  name: "Ammo"
+  fullname: "Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+  subtypes:
+    AC: "Autocannon"
+    Gauss: "Gauss"
+    HAG: "Hyper-Assault Gauss"
+    LBX: "LB-X AC"
+    MG: "Machine Gun"
+    RAC: "Rotary AC"
+    UAC: "Ultra AC"
+    ATM: "ATM"
+    LRM: "LRM"
+    LRT: "LRT"
+    SLRM: "Streak LRM"
+    MML: "MML"
+    MRM: "MRM"
+    SRM: "SRM"
+    SRT: "SRT"
+    SSRM: "Streak SRM"
+    Narc: "Narc"
+    ArrowIV: "Arrow IV"
+    Artillery: "Artillery"
+    Flamer: "Flamer"
+    TBolt: "Thunderbolt"
+    Bomb: "Bomb"
+
+ammolimited:
+  name: "Ammo"
+  fullname: "Ammo (Limited)"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+  isLimited: true
+  subtypes:
+    AC: "Autocannon"
+    Gauss: "Gauss"
+    HAG: "Hyper-Assault Gauss"
+    LBX: "LB-X AC"
+    MG: "Machine Gun"
+    RAC: "Rotary AC"
+    UAC: "Ultra AC"
+    ATM: "ATM"
+    LRM: "LRM"
+    LRT: "LRT"
+    SLRM: "Streak LRM"
+    MML: "MML"
+    MRM: "MRM"
+    SRM: "SRM"
+    SRT: "SRT"
+    SSRM: "Streak SRM"
+    Narc: "Narc"
+    ArrowIV: "Arrow IV"
+    Artillery: "Artillery"
+    Flamer: "Flamer"
+    TBolt: "Thunderbolt"
+
+case:
+  name: "CASE"
+  fullname: "CASE"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+
+freecase:
+  name: "CASE"
+  fullname: "Built-in CASE"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+freecase:
+  name: "CASE"
+  fullname: "Built-in CASE"
+  tech: "Clan"
+  hasLoc: false
+  fixedLocation: "All"
+  omit: false
+
+case2:
+  name: "CASE II"
+  fullname: "CASE II"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+
+ams:
+  name: "AMS"
+  fullname: "Anti-Missile System"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+lams:
+  name: "LAMS"
+  fullname: "Laser AMS"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+aiv:
+  name: "Artemis IV"
+  fullname: "Artemis IV FCS"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+av:
+  name: "Artemis V"
+  fullname: "Artemis V FCS"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+apollo:
+  name: "Apollo FCS"
+  fullname: "Apollo FCS"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+probe:
+  name: "Beagle Probe"
+  fullname: "Beagle Active Probe"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+bhprobe:
+  name: "Bloodhound Probe"
+  fullname: "Bloodhound Active Probe"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+cprobe:
+  name: "Active Probe"
+  fullname: "Active Probe"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+lprobe:
+  name: "Light Probe"
+  fullname: "Light Active Probe"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+clprobe:
+  name: "Light Probe"
+  fullname: "Light Active Probe"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+ecm:
+  name: "ECM"
+  fullname: "Guardian ECM Suite"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+cecm:
+  name: "ECM"
+  fullname: "ECM Suite"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+aecm:
+  name: "Angel ECM"
+  fullname: "Angel ECM Suite"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+cews:
+  name: "Active Probe, ECM"
+  fullname: "Watchdog CEWS"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+c3s:
+  name: "C3S"
+  fullname: "C3 Slave Unit"
+  tech: "IS"
+  hasLoc: true
+  omit: false
+
+c3m:
+  name: "C3M"
+  fullname: "C3 Master Unit"
+  tech: "IS"
+  hasLoc: true
+  omit: false
+
+c3bm:
+  name: "C3BM"
+  fullname: "C3 Boosted Master Unit"
+  tech: "IS"
+  hasLoc: true
+  omit: false
+
+c3bs:
+  name: "C3BS"
+  fullname: "C3 Boosted Slave Unit"
+  tech: "IS"
+  hasLoc: true
+  omit: false
+
+c3i:
+  name: "C3i"
+  fullname: "C3 Computer (Improved)"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+tag:
+  name: "TAG"
+  fullname: "Target Acquistion Gear"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+ltag:
+  name: "L-TAG"
+  fullname: "Light Target Acquistion Gear"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+tc:
+  name: "Targeting Computer"
+  fullname: "Targeting Computer"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+jump:
+  name: "Jump Jets"
+  fullname: "Jump Jets"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+ijump:
+  name: "Improved Jump Jets"
+  fullname: "Improved Jump Jets"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+mechjumpbooster:
+  name: "Jump Boosters"
+  fullname: "Mechanical Jump Boosters"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+umu:
+  name: "UMU"
+  fullname: "Underwater Maneuvering Unit"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+masc:
+  name: "MASC"
+  fullname: "MASC"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+supercharger:
+  name: "Supercharger"
+  fullname: "Supercharger"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+tsm:
+  name: "TSM"
+  fullname: "Triple-Strength Myomer"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+aes:
+  name: "AES"
+  fullname: "Acutator Enhancement System"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+
+partwing:
+  name: "Partial Wing"
+  fullname: "Partial Wing"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+xle:
+  name: "XL Engine"
+  fullname: "XL Fusion Engine"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+cxle:
+  name: "cXL Engine"
+  fullname: "Clan XL Fusion Engine"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+xxle:
+  name: "XXL Engine"
+  fullname: "XXL Fusion Engine"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+cxxle:
+  name: "cXXL Engine"
+  fullname: "Clan XXL Fusion Engine"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+lfe:
+  name: "Light Engine"
+  fullname: "Light Fusion Engine"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+hdgyro:
+  name: "HD Gyro"
+  fullname: "Heavy-Duty Gyro"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+lasrefl:
+  name: "Reflective Armor"
+  fullname: "Laser-Reflective Armor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+reactive:
+  name: "Reactive Armor"
+  fullname: "Reactive Armor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+ballreinf:
+  name: "Ballistic-Reinforced Armor"
+  fullname: "Ballistic-Reinforced Armor"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+stealth:
+  name: "Stealth Armor"
+  fullname: "Stealth Armor"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+hardened:
+  name: "Hardened Armor"
+  fullname: "Hardened Armor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+ferolam:
+  name: "Ferro-Lam Armor"
+  fullname: "Ferro-Lamellor Armor"
+  tech: "Clan"
+  hasLoc: false
+  omit: false
+
+composite:
+  name: "Composite Structure"
+  fullname: "Composite Structure"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+reinforced:
+  name: "Reinforced Structure"
+  fullname: "Reinforced Structure"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+ppccapacitor:
+  name: "PPC Capacitor"
+  fullname: "PPC Capacitor"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+
+armcomp:
+  name: "Armored Components"
+  fullname: "Armored Components"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+
+smcp:
+  name: "Small Cockpit"
+  fullname: "Small Cockpit"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+tmcp:
+  name: "Torso Cockpit"
+  fullname: "Torso-Mounted Cockpit"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+cpod:
+  name: "Coolant Pods"
+  fullname: "Coolant Pods"
+  tech: "Mixed"
+  hasLoc: false
+  isLimited: true
+  omit: false
+
+apod:
+  name: "A-Pods"
+  fullname: "Anti-Personnel Pods"
+  tech: "Mixed"
+  hasLoc: false
+  isLimited: true
+  omit: false
+
+bpod:
+  name: "B-Pods"
+  fullname: "Anti-Battle Armor Pods"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+mpod:
+  name: "M-Pods"
+  fullname: "Anti-BattleMech Pods"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+turret:
+  name: "Turret"
+  fullname: "Turret"
+  tech: "Mixed"
+  hasLoc: true
+  omit: false
+
+troopspace:
+  name: "IT"
+  fullname: "Infantry Transport (Tons)"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+cargobay:
+  name: "Cargo Bay"
+  fullname: "Cargo Bay"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+1stclassquarters:
+  name: "1st Class Quarters"
+  fullname: "1st Class Quarters"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+2ndclassquarters:
+  name: "2nd Class Quarters"
+  fullname: "2nd Class Quarters"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+crewquarters:
+  name: "Crew Quarters"
+  fullname: "Crew Quarters"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+steeragequarters:
+  name: "Steerage Quarters"
+  fullname: "Steerage Quarters"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+smallcraftbay:
+  name: "Small Craft Bay"
+  fullname: "Small Craft Bay"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+dockingcollar:
+  name: "Docking Collar"
+  fullname: "Docking Collar"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+mekbay:
+  name: "Mech Bay"
+  fullname: "Mech Bay"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+asfbay:
+  name: "ASF Bay"
+  fullname: "Aerospace Fighter Bay"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+dropshuttlebay:
+  name: "DropShuttle Bay"
+  fullname: "DropShuttle Bay"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+navalrepairpressurized:
+  name: "Naval Repair (Pressurized)"
+  fullname: "Naval Repair Facility (Pressurized)"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+navalrepairunpressurized:
+  name: "Naval Repair (Unpressurized)"
+  fullname: "Naval Repair Facility (Unpressurized)"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+infantrybay:
+  name: "Infantry Bay"
+  fullname: "Infantry Bay"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+ejectionseats:
+  name: "Ejection Seats"
+  fullname: "Ejection Seats"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+  isLimited: true
+
+bafireresist:
+  name: "Fire Resistant Armor"
+  fullname: "BA Fire Resistant Armor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+bamimetic:
+  name: "Mimetic Armor"
+  fullname: "BA Mimetic Armor"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+bareactive:
+  name: "Reactive Armor"
+  fullname: "BA Reactive Armor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+bareflective:
+  name: "Reflective Armor"
+  fullname: "BA Reflective Armor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+bastealth:
+  name: "Stealth Armor"
+  fullname: "BA Stealth Armor"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+jumpbooster:
+  name: "Jump Booster"
+  fullname: "Jump Booster"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+apds:
+  name: "APDS"
+  fullname: "Advanced Point Defense System"
+  tech: "IS"
+  hasLoc: false
+  omit: false
+
+dwp:
+  name: "DWPs"
+  fullname: "Detachable Weapon Pack(s)"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+myomerboost:
+  name: "Myomer Booster"
+  fullname: "Myomer Booster"
+  hasLoc: false
+  omit: false
+
+missionequipment:
+  name: "Mission Equipment"
+  fullname: "Mission Equipment Storage"
+  tech: "Mixed"
+  hasLoc: false
+
+armmotivesys:
+  name: "Armored Motive"
+  fullname: "Armored Motive System"
+  tech: "Clan"
+  hasLoc: false
+  omit: true
+
+trailerhitch:
+  name: "Hitch"
+  fullname: "Trailer Hitch/Tractor"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+omni:
+  name: "Omni"
+  fullname: "Omni Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+stol:
+  name: "STOL"
+  fullname: "STOL Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+bicycle:
+  name: "Bicycle"
+  fullname: "Bicycle Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+monocycle:
+  name: "Monocycle"
+  fullname: "Monocycle Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+amphibious:
+  name: "Amphibious"
+  fullname: "Amphibious Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+submersible:
+  name: "Submersible"
+  fullname: "Submersible Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+ultralight:
+  name: "Ultra-Light"
+  fullname: "Ultra-Light Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+offroad:
+  name: "Off-Road"
+  fullname: "Off-Road Chassis"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+vtoljet:
+  name: "VTOL Jet Booster"
+  fullname: "VTOL Jet Booster"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+minedispenser:
+  name: "Mine Dispenser"
+  fullname: "Vehicular Mine Dispenser"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+minesweeper:
+  name: "Mine Sweeper"
+  fullname: "Mine Sweeper"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+lifthoist:
+  name: "Lift Hoist"
+  fullname: "Lift Hoist / Arresting Hoist"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+manipulator:
+  name: "Manipulator"
+  fullname: "Manipulator Arm"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+remotesensor:
+  name: "Remote Sensors"
+  fullname: "Remote Sensor Dispenser"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+searchlight:
+  name: "Searchlight"
+  fullname: "Searchlight"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+comequip:
+  name: "Comm Equipment"
+  fullname: "Communications Equipment"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+mash:
+  name: "MASH"
+  fullname: "Mobile Army Surgical Hospital"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false
+
+cmdconsole:
+  name: "Command Console"
+  fullname: "Tank Cockpit Command Console"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+lmga:
+  name: "LMGA"
+  fullname: "Light Machine Gun Array"
+  tech: "IS"
+  hasLoc: false
+  omit: true
+
+standardseats:
+  name: "Standard Seats"
+  fullname: "Standard Seating"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+pillionseats:
+  name: "Pillion Seats"
+  fullname: "Pillion Seating"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+infantrysrm:
+  name: "Infantry SRM"
+  fullname: "Infantry Standard SRM"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+# ── Battle Armor equipment ────────────────────────────────────────────────────
+
+battleclaw:
+  name: "Battle Claw"
+  fullname: "Battle Armor Battle Claw"
+  tech: "Mixed"
+  hasLoc: true
+
+heavybattleclaw:
+  name: "Heavy Battle Claw"
+  fullname: "Battle Armor Heavy Battle Claw"
+  tech: "Mixed"
+  hasLoc: true
+
+vibrobattleclaw:
+  name: "Vibro Battle Claw"
+  fullname: "Battle Armor Vibro Battle Claw"
+  tech: "Mixed"
+  hasLoc: true
+
+armoredglove:
+  name: "Armored Glove"
+  fullname: "Battle Armor Armored Glove"
+  tech: "Mixed"
+  hasLoc: true
+
+salvagearm:
+  name: "Salvage Arm"
+  fullname: "Battle Armor Salvage Arm"
+  tech: "Mixed"
+  hasLoc: true
+
+apmount:
+  name: "AP Mount"
+  fullname: "Anti-Personnel Weapon Mount"
+  tech: "Mixed"
+  hasLoc: true
+
+cargolifter:
+  name: "Cargo Lifter"
+  fullname: "Battle Armor Cargo Lifter"
+  tech: "Mixed"
+  hasLoc: true
+
+cuttingtorch:
+  name: "Cutting Torch"
+  fullname: "Battle Armor Cutting Torch"
+  tech: "Mixed"
+  hasLoc: true
+
+extendedlifesupport:
+  name: "Ext. Life Support"
+  fullname: "Extended Life Support"
+  tech: "Mixed"
+  hasLoc: true
+
+spaceopsadaptation:
+  name: "Space Ops Adap."
+  fullname: "Space Operations Adaptation"
+  tech: "Mixed"
+  hasLoc: true
+
+improvedsensors:
+  name: "Imp. Sensors"
+  fullname: "Improved Sensors"
+  tech: "Mixed"
+  hasLoc: true
+
+camosystem:
+  name: "Camo System"
+  fullname: "Battle Armor Camo System"
+  tech: "Mixed"
+  hasLoc: true
+
+magclamp:
+  name: "Mag Clamp"
+  fullname: "BA Magnetic Clamp"
+  tech: "Mixed"
+  hasLoc: false
+  omit: true
+
+harjel:
+  name: "HarJel"
+  fullname: "HarJel"
+  tech: "Mixed"
+  hasLoc: false
+  omit: false

@@ -1,0 +1,141 @@
+# MegaMek Data (C) 2025 by The MegaMek Team is licensed under CC BY-NC-SA 4.0.
+# To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+#
+# NOTICE: The MegaMek organization is a non-profit group of volunteers
+# creating free software for the BattleTech community.
+#
+# MechWarrior, BattleMech, `Mech and AeroTech are registered trademarks
+# of The Topps Company, Inc. All Rights Reserved.
+#
+# Catalyst Game Labs and the Catalyst Game Labs logo are trademarks of
+# InMediaRes Productions, LLC.
+#
+# MechWarrior Copyright Microsoft Corporation. MegaMek Data was created under
+# Microsoft's "Game Content Usage Rules"
+# <https://www.xbox.com/en-US/developers/rules> and it is not endorsed by or
+# affiliated with Microsoft.
+
+#building block data file
+<BlockVersion>
+1
+</BlockVersion>
+
+# Write the version number just in case...
+<Version>
+MAM0
+</Version>
+
+<UnitType>
+Aero
+</UnitType>
+
+<Name>
+Ironsides
+</Name>
+
+<Model>
+IRN-SD1b-EC
+</Model>
+
+<mul id:>
+7689
+</mul id:>
+
+<year>
+2825
+</year>
+
+<originalBuildYear>
+2825
+</originalBuildYear>
+
+<type>
+Mixed (IS Chassis) Experimental
+</type>
+
+<role>
+Dogfighter
+</role>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<transporters>
+</transporters>
+
+<SafeThrust>
+6
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+20
+</heatsinks>
+
+<sink_type>
+1
+</sink_type>
+
+<fuel>
+400
+</fuel>
+
+<engine_type>
+2
+</engine_type>
+
+<clan_engine>
+false
+</clan_engine>
+
+<armor>
+61
+36
+36
+51
+</armor>
+
+<Nose Equipment>
+ISERPPC
+ISERPPC
+CLStreakSRM4
+</Nose Equipment>
+
+<Left Wing Equipment>
+Medium Laser
+CLStreakSRM4
+CLStreakSRM4
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+Medium Laser
+CLStreakSRM4
+CLStreakSRM4
+</Right Wing Equipment>
+
+<Aft Equipment>
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+Clan Streak SRM 4 Ammo
+Clan Streak SRM 4 Ammo
+</Fuselage Equipment>
+
+<history>
+Ironsides EC: Following Klondike, Star Adder scientists began mass producing prototype Streak systems while continuing to improve the design, and a trade with the Steel Vipers brought new life to the aging Royal Ironsides with the replacement of the older SRM 6s for the new Streak 4 launchers.
+</history>
+
+<source>
+TR:GC
+</source>
+
+<tonnage>
+65.0
+</tonnage>

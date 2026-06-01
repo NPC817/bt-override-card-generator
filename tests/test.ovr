@@ -1,0 +1,82 @@
+{
+  "chassis": "Cougar",
+  "variant": "Prime",
+  "tech": "Clan",
+  "omni": true,
+  "gunnery": 4,
+  "piloting": 5,
+  "weapons": [
+    {
+      "weapon_key": "clplas",
+      "tic": 2,
+      "location": "LA",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "clplas",
+      "tic": 3,
+      "location": "RA",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "clrm10",
+      "tic": 1,
+      "location": "T",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    },
+    {
+      "weapon_key": "clrm10",
+      "tic": 1,
+      "location": "T",
+      "ammo_type": "",
+      "one_shot": false,
+      "fcs": null
+    }
+  ],
+  "equipment": [
+    {
+      "equipment_key": "freecase",
+      "location": "All",
+      "subtype": "",
+      "uses": 0.0
+    },
+    {
+      "equipment_key": "cxle",
+      "location": "",
+      "subtype": "",
+      "uses": 0.0
+    },
+    {
+      "equipment_key": "ammo",
+      "location": "T",
+      "subtype": "LRM",
+      "uses": 0.0
+    }
+  ],
+  "unit_type": "BattleMech",
+  "motive_type": "Biped",
+  "tonnage": 35,
+  "walk_mp": 5,
+  "jump_mp": 0,
+  "sinks": 10,
+  "has_dhs": true,
+  "armor": {
+    "HD": 8,
+    "LA": 11,
+    "RA": 11,
+    "LT": 12,
+    "CT": 14,
+    "RT": 12,
+    "LL": 12,
+    "RL": 12,
+    "LTR": 4,
+    "CTR": 5,
+    "RTR": 4
+  }
+}

@@ -1,0 +1,133 @@
+# MegaMek Data (C) 2025 by The MegaMek Team is licensed under CC BY-NC-SA 4.0.
+# To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+#
+# NOTICE: The MegaMek organization is a non-profit group of volunteers
+# creating free software for the BattleTech community.
+#
+# MechWarrior, BattleMech, `Mech and AeroTech are registered trademarks
+# of The Topps Company, Inc. All Rights Reserved.
+#
+# Catalyst Game Labs and the Catalyst Game Labs logo are trademarks of
+# InMediaRes Productions, LLC.
+#
+# MechWarrior Copyright Microsoft Corporation. MegaMek Data was created under
+# Microsoft's "Game Content Usage Rules"
+# <https://www.xbox.com/en-US/developers/rules> and it is not endorsed by or
+# affiliated with Microsoft.
+
+#building block data file
+<BlockVersion>
+1
+</BlockVersion>
+
+# Write the version number just in case...
+<Version>
+MAM0
+</Version>
+
+<UnitType>
+Aero
+</UnitType>
+
+<Name>
+Tyre
+</Name>
+
+<Model>
+2
+</Model>
+
+<mul id:>
+5317
+</mul id:>
+
+<year>
+2912
+</year>
+
+<originalBuildYear>
+2912
+</originalBuildYear>
+
+<type>
+Clan Level 2
+</type>
+
+<role>
+Attack Fighter
+</role>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<transporters>
+</transporters>
+
+<SafeThrust>
+5
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+16
+</heatsinks>
+
+<sink_type>
+1
+</sink_type>
+
+<fuel>
+400
+</fuel>
+
+<engine_type>
+0
+</engine_type>
+
+<armor>
+35
+30
+30
+25
+</armor>
+
+<Nose Equipment>
+CLUltraAC10
+CLMediumPulseLaser
+CLMediumPulseLaser
+CLMediumPulseLaser
+</Nose Equipment>
+
+<Left Wing Equipment>
+CLERLargeLaser
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+CLERLargeLaser
+</Right Wing Equipment>
+
+<Aft Equipment>
+CLERSmallLaser
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+Clan Ultra AC/10 Ammo
+Clan Ultra AC/10 Ammo
+Clan Ultra AC/10 Ammo
+CLCASE
+</Fuselage Equipment>
+
+<source>
+TR:3067
+</source>
+
+<tonnage>
+55.0
+</tonnage>

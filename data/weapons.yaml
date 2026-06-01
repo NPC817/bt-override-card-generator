@@ -1,0 +1,3794 @@
+ac2:
+  name: "AC/2"
+  fullname: "Autocannon/2"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 1
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+  useAmmo: "AC"
+ac5:
+  name: "AC/5"
+  fullname: "Autocannon/5"
+  tech: "IS"
+  type: "B"
+  damage: 5
+  heat: 1
+  crits: 4
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+ac10:
+  name: "AC/10"
+  fullname: "Autocannon/10"
+  tech: "IS"
+  type: "B"
+  damage: 10
+  heat: 3
+  crits: 7
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+ac20:
+  name: "AC/20"
+  fullname: "Autocannon/20"
+  tech: "IS"
+  type: "B"
+  damage: 20
+  heat: 7
+  crits: 10
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+lb2x:
+  name: "LB 2-X"
+  fullname: "LB 2-X Autocannon"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 4
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useTC: 1
+  useAmmo: "LBX"
+lb5x:
+  name: "LB 5-X"
+  fullname: "LB 5-X Autocannon"
+  tech: "IS"
+  type: "B"
+  damage: 5
+  heat: 1
+  crits: 5
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useC: 1
+  useTC: 1
+  useAmmo: "LBX"
+lb10x:
+  name: "LB 10-X"
+  fullname: "LB 10-X Autocannon"
+  tech: "IS"
+  type: "B"
+  damage: 10
+  heat: 2
+  crits: 6
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useC: 1
+  useTC: 1
+  useAmmo: "LBX"
+lb20x:
+  name: "LB 20-X"
+  fullname: "LB 20-X Autocannon"
+  tech: "IS"
+  type: "B"
+  damage: 20
+  heat: 6
+  crits: 11
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useC: 1
+  useTC: 1
+  useAmmo: "LBX"
+uac2:
+  name: "UAC/2"
+  fullname: "Ultra Autocannon/2"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useR: 2
+  useTC: 1
+  useAmmo: "UAC"
+uac5:
+  name: "UAC/5"
+  fullname: "Ultra Autocannon/5"
+  tech: "IS"
+  type: "B"
+  damage: 5
+  heat: 1
+  crits: 5
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useR: 5
+  useTC: 1
+  useAmmo: "UAC"
+uac10:
+  name: "UAC/10"
+  fullname: "Ultra Autocannon/10"
+  tech: "IS"
+  type: "B"
+  damage: 10
+  heat: 4
+  crits: 7
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useR: 10
+  useTC: 1
+  useAmmo: "UAC"
+uac20:
+  name: "UAC/20"
+  fullname: "Ultra Autocannon/20"
+  tech: "IS"
+  type: "B"
+  damage: 20
+  heat: 8
+  crits: 10
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useR: 20
+  useTC: 1
+  useAmmo: "UAC"
+rac2:
+  name: "RAC/2"
+  fullname: "Rotary Autocannon/2"
+  tech: "IS"
+  type: "B"
+  damage: 3
+  heat: 3
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useR: 6
+  useTC: 1
+  useAmmo: "RAC"
+rac5:
+  name: "RAC/5"
+  fullname: "Rotary Autocannon/5"
+  tech: "IS"
+  type: "B"
+  damage: 8
+  heat: 3
+  crits: 6
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useR: 12
+  useTC: 1
+  useAmmo: "RAC"
+hvac2:
+  name: "HVAC/2"
+  fullname: "Hyper-Velocity Autocannon/2"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 2
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 0
+  rangeX: 2
+  useTC: 1
+  useAmmo: "AC"
+hvac5:
+  name: "HVAC/5"
+  fullname: "Hyper-Velocity Autocannon/5"
+  tech: "IS"
+  type: "B"
+  damage: 5
+  heat: 3
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useTC: 1
+  useAmmo: "AC"
+hvac10:
+  name: "HVAC/10"
+  fullname: "Hyper-Velocity Autocannon/10"
+  tech: "IS"
+  type: "B"
+  damage: 10
+  heat: 7
+  crits: 6
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+  useAmmo: "AC"
+lac2:
+  name: "LAC/2"
+  fullname: "Light Autocannon/2"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+lac5:
+  name: "LAC/5"
+  fullname: "Light Autocannnon/5"
+  tech: "IS"
+  type: "B"
+  damage: 5
+  heat: 1
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+lgauss:
+  name: "LGauss"
+  fullname: "Light Gauss Rifle"
+  tech: "IS"
+  type: "B"
+  damage: 8
+  heat: 1
+  crits: 5
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useTC: 1
+  useAmmo: "Gauss"
+gauss:
+  name: "Gauss"
+  fullname: "Gauss Rifle"
+  tech: "IS"
+  type: "B"
+  damage: 15
+  heat: 1
+  crits: 7
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+  useAmmo: "Gauss"
+hgauss:
+  name: "HGauss"
+  fullname: "Heavy Gauss Rifle"
+  tech: "IS"
+  type: "B"
+  damage: 25
+  heat: 2
+  crits: 11
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 25
+  varMdamage: 20
+  varLXdamage: 10
+  useTC: 1
+  useAmmo: "Gauss"
+  specials: "var"
+ihgauss:
+  name: "iHGauss"
+  fullname: "Improved Heavy Gauss Rifle"
+  tech: "IS"
+  type: "B"
+  damage: 22
+  heat: 2
+  crits: 11
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+  useAmmo: "Gauss"
+magshot:
+  name: "MagShot"
+  fullname: "MagShot"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  useAmmo: "Gauss"
+sbgauss:
+  name: "SBGauss"
+  fullname: "Silver Bullet Gauss Rifle"
+  tech: "IS"
+  type: "B"
+  damage: 15
+  heat: 1
+  crits: 7
+  rangePB: 2
+  rangeS: -1
+  rangeM: -1
+  rangeL: 1
+  rangeX: 3
+  useC: 1
+  useAmmo: "Gauss"
+  specials: "sbg"
+lmg:
+  name: "LMG"
+  fullname: "Light Machine Gun"
+  tech: "IS"
+  type: "B"
+  damage: 1
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "MG"
+  specials: "ai"
+mg:
+  name: "MG"
+  fullname: "Machine Gun"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "MG"
+  specials: "ai"
+hmg:
+  name: "HMG"
+  fullname: "Heavy Machine Gun"
+  tech: "IS"
+  type: "B"
+  damage: 3
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "MG"
+  specials: "ai"
+nailrivet:
+  name: "NailRivet"
+  fullname: "Nail/Rivet Gun"
+  tech: "IS"
+  type: "B"
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+slas:
+  name: "SLas"
+  fullname: "Small Laser"
+  tech: "Mixed"
+  type: "E"
+  damage: 3
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+mlas:
+  name: "MLas"
+  fullname: "Medium Laser"
+  tech: "IS"
+  type: "E"
+  damage: 5
+  heat: 3
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+llas:
+  name: "LLas"
+  fullname: "Large Laser"
+  tech: "IS"
+  type: "E"
+  damage: 8
+  heat: 8
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+ppc:
+  name: "PPC"
+  fullname: "PPC"
+  tech: "IS"
+  type: "E"
+  damage: 10
+  heat: 10
+  crits: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+erslas:
+  name: "erSLas"
+  fullname: "ER Small Laser"
+  tech: "IS"
+  type: "E"
+  damage: 3
+  heat: 2
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+ermlas:
+  name: "erMLas"
+  fullname: "ER Medium Laser"
+  tech: "IS"
+  type: "E"
+  damage: 5
+  heat: 5
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+erllas:
+  name: "erLLas"
+  fullname: "ER Large Laser"
+  tech: "IS"
+  type: "E"
+  damage: 8
+  heat: 12
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+erppc:
+  name: "erPPC"
+  fullname: "ER PPC"
+  tech: "IS"
+  type: "E"
+  damage: 10
+  heat: 15
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+splas:
+  name: "SPLas"
+  fullname: "Small Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 3
+  heat: 2
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  specials: "ai"
+mplas:
+  name: "MPLas"
+  fullname: "Medium Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 6
+  heat: 4
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+lplas:
+  name: "LPLas"
+  fullname: "Large Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 9
+  heat: 10
+  crits: 2
+  rangePB: -2
+  rangeS: -2
+  rangeM: 0
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+sxplas:
+  name: "SXPLas"
+  fullname: "Small X-Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 3
+  heat: 3
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  specials: "ai"
+mxplas:
+  name: "MXPLas"
+  fullname: "Medium X-Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 6
+  heat: 6
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 0
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+lxplas:
+  name: "LXPLas"
+  fullname: "Large X-Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 9
+  heat: 14
+  crits: 2
+  rangePB: -2
+  rangeS: -2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 9
+  useTC: 1
+lppc:
+  name: "LPPC"
+  fullname: "Light PPC"
+  tech: "IS"
+  type: "E"
+  damage: 5
+  heat: 5
+  crits: 2
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+hppc:
+  name: "HPPC"
+  fullname: "Heavy PPC"
+  tech: "IS"
+  type: "E"
+  damage: 15
+  heat: 15
+  crits: 4
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+snppc:
+  name: "SNPPC"
+  fullname: "Snub-Nose PPC"
+  tech: "IS"
+  type: "E"
+  damage: 10
+  heat: 10
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 4
+  rangeX: 9
+  varPBSdamage: 10
+  varMdamage: 8
+  varLXdamage: 5
+  useTC: 1
+  specials: "var"
+vssplas:
+  name: "vsSPLas"
+  fullname: "Var Speed Small Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 5
+  heat: 3
+  crits: 1
+  rangePB: -3
+  rangeS: -3
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  varPBSdamage: 5
+  varMdamage: 4
+  varLXdamage: 3
+  useTC: 1
+  specials: "varai"
+vsmplas:
+  name: "vsMPLas"
+  fullname: "Var Speed Medium Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 9
+  heat: 7
+  crits: 2
+  rangePB: -3
+  rangeS: -3
+  rangeM: 0
+  rangeL: 9
+  rangeX: 9
+  varPBSdamage: 9
+  varMdamage: 7
+  varLXdamage: 5
+  useTC: 1
+  specials: "var"
+vslplas:
+  name: "vsLPLas"
+  fullname: "Var Speed Large Pulse Laser"
+  tech: "IS"
+  type: "E"
+  damage: 11
+  heat: 10
+  crits: 4
+  rangePB: -3
+  rangeS: -3
+  rangeM: 0
+  rangeL: 3
+  rangeX: 9
+  varPBSdamage: 11
+  varMdamage: 9
+  varLXdamage: 7
+  useTC: 1
+  specials: "var"
+reslas:
+  name: "reSLas"
+  fullname: "Re-Engineered Small Laser"
+  tech: "IS"
+  type: "E"
+  damage: 4
+  heat: 4
+  crits: 1
+  rangePB: -1
+  rangeS: -1
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+remlas:
+  name: "reMLas"
+  fullname: "Re-Engineered Medium Laser"
+  tech: "IS"
+  type: "E"
+  damage: 6
+  heat: 6
+  crits: 2
+  rangePB: -1
+  rangeS: -1
+  rangeM: 1
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+rellas:
+  name: "reLLas"
+  fullname: "Re-Engineered Large Laser"
+  tech: "IS"
+  type: "E"
+  damage: 9
+  heat: 9
+  crits: 5
+  rangePB: -1
+  rangeS: -1
+  rangeM: 1
+  rangeL: 3
+  rangeX: 9
+  useTC: 1
+flamer:
+  name: "Flamer"
+  fullname: "Flamer"
+  tech: "IS"
+  type: "E"
+  damage: 2
+  heat: 3
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useH: 2
+  specials: "ai"
+erflamer:
+  name: "erFlamer"
+  fullname: "ER Flamer"
+  tech: "IS"
+  type: "E"
+  damage: 2
+  heat: 4
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useH: 2
+  specials: "ai"
+hflamer:
+  name: "HFlamer"
+  fullname: "Heavy Flamer"
+  tech: "IS"
+  type: "E"
+  damage: 4
+  heat: 5
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useH: 4
+  useAmmo: "Flamer"
+  specials: "ai"
+plasrifle:
+  name: "PlasRifle"
+  fullname: "Plasma Rifle"
+  tech: "IS"
+  type: "E"
+  damage: 10
+  heat: 10
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useH: 4
+  useTC: 1
+blazer:
+  name: "Blazer"
+  fullname: "Binary (Blazer) Cannon"
+  tech: "IS"
+  type: "E"
+  damage: 12
+  heat: 16
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+srm2:
+  name: "SRM-2"
+  fullname: "SRM-2"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  damageAdj: 3
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aivav"
+  useAmmo: "SRM"
+  specials: "srm"
+srm4:
+  name: "SRM-4"
+  fullname: "SRM-4"
+  tech: "IS"
+  type: "M"
+  damage: 8
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aivav"
+  useAmmo: "SRM"
+  specials: "srm"
+srm6:
+  name: "SRM-6"
+  fullname: "SRM-6"
+  tech: "IS"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 2
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aivav"
+  useAmmo: "SRM"
+  specials: "srm"
+ssrm2:
+  name: "SSRM-2"
+  fullname: "Streak SRM-2"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  damageAdj: 3
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SSRM"
+  specials: "ssrm"
+ssrm4:
+  name: "SSRM-4"
+  fullname: "Streak SRM-4"
+  tech: "IS"
+  type: "M"
+  damage: 8
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SSRM"
+  specials: "ssrm"
+ssrm6:
+  name: "SSRM-6"
+  fullname: "Streak SRM-6"
+  tech: "IS"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 2
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SSRM"
+  specials: "ssrm"
+mrm10:
+  name: "MRM-10"
+  fullname: "MRM-10"
+  tech: "IS"
+  type: "M"
+  damage: 6
+  damageAdj: 4
+  heat: 4
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useFCS: "apollo"
+  useAmmo: "MRM"
+  specials: "mrm"
+mrm20:
+  name: "MRM-20"
+  fullname: "MRM-20"
+  tech: "IS"
+  type: "M"
+  damage: 12
+  damageAdj: 8
+  heat: 6
+  crits: 3
+  damageM: 2
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useFCS: "apollo"
+  useAmmo: "MRM"
+  specials: "mrm"
+mrm30:
+  name: "MRM-30"
+  fullname: "MRM-30"
+  tech: "IS"
+  type: "M"
+  damage: 18
+  damageAdj: 12
+  heat: 10
+  crits: 5
+  damageM: 3
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useFCS: "apollo"
+  specials: "mrm"
+mrm40:
+  name: "MRM-40"
+  fullname: "MRM-40"
+  tech: "IS"
+  type: "M"
+  damage: 24
+  damageAdj: 16
+  heat: 12
+  crits: 7
+  damageM: 4
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useFCS: "apollo"
+  specials: "mrm"
+lrm5:
+  name: "LRM-5"
+  fullname: "LRM-5"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  damageAdj: 4
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+lrm10:
+  name: "LRM-10"
+  fullname: "LRM-10"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 4
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+lrm15:
+  name: "LRM-15"
+  fullname: "LRM-15"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 5
+  crits: 3
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+lrm20:
+  name: "LRM-20"
+  fullname: "LRM-20"
+  tech: "IS"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 6
+  crits: 5
+  damageM: 2
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+nlrm5:
+  name: "nLRM-5"
+  fullname: "Enhanced LRM-5"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  damageAdj: 4
+  heat: 2
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRM"
+  specials: "lrm"
+nlrm10:
+  name: "nLRM-10"
+  fullname: "Enhanced LRM-10"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 4
+  crits: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRM"
+  specials: "lrm"
+nlrm15:
+  name: "nLRM-15"
+  fullname: "Enhanced LRM-15"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 5
+  crits: 6
+  damageM: 1
+  shiftM: 0
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRM"
+  specials: "lrm"
+nlrm20:
+  name: "nLRM-20"
+  fullname: "Enhanced LRM-20"
+  tech: "IS"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 6
+  crits: 9
+  damageM: 2
+  shiftM: 0
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRM"
+  specials: "lrm"
+elrm5:
+  name: "eLRM-5"
+  fullname: "Extended LRM-5"
+  tech: "IS"
+  type: "M"
+  damage: 5
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 0
+  rangeX: 2
+  varPBSdamage: 0
+  varMdamage: 0
+  varLXdamage: 1
+  useAmmo: "LRM"
+  specials: "lrm var"
+elrm10:
+  name: "eLRM-10"
+  fullname: "Extended LRM-10"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 6
+  crits: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 0
+  rangeX: 2
+  varPBSdamage: 0
+  varMdamage: 0
+  varLXdamage: 2
+  useAmmo: "LRM"
+  specials: "lrm var"
+elrm15:
+  name: "eLRM-15"
+  fullname: "Extended LRM-15"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 8
+  crits: 6
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 0
+  rangeX: 2
+  varPBSdamage: 0
+  varMdamage: 0
+  varLXdamage: 3
+  useAmmo: "LRM"
+  specials: "lrm var"
+elrm20:
+  name: "eLRM-20"
+  fullname: "Extended LRM-20"
+  tech: "IS"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 12
+  crits: 8
+  damageM: 2
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 0
+  rangeX: 2
+  varPBSdamage: 3
+  varMdamage: 3
+  varLXdamage: 5
+  useAmmo: "LRM"
+  specials: "lrm var"
+tbolt5:
+  name: "TBolt-5"
+  fullname: "Thunderbolt 5"
+  tech: "IS"
+  type: "M"
+  damage: 5
+  heat: 3
+  crits: 1
+  rangePB: 4
+  rangeS: 2
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useAmmo: "TBolt"
+  specials: ""
+tbolt10:
+  name: "TBolt-10"
+  fullname: "Thunderbolt 10"
+  tech: "IS"
+  type: "M"
+  damage: 10
+  heat: 5
+  crits: 2
+  rangePB: 4
+  rangeS: 2
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useAmmo: "TBolt"
+  specials: ""
+tbolt15:
+  name: "TBolt-15"
+  fullname: "Thunderbolt 15"
+  tech: "IS"
+  type: "M"
+  damage: 15
+  heat: 7
+  crits: 3
+  rangePB: 4
+  rangeS: 2
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useAmmo: "TBolt"
+  specials: ""
+tbolt20:
+  name: "TBolt-20"
+  fullname: "Thunderbolt 20"
+  tech: "IS"
+  type: "M"
+  damage: 20
+  heat: 8
+  crits: 5
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useAmmo: "TBolt"
+  specials: ""
+mml3:
+  name: "MML-3"
+  fullname: "MML-3"
+  tech: "IS"
+  type: "M"
+  damage: 6
+  heat: 2
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 3
+  varMdamage: 1
+  varLXdamage: 0
+  useFCS: "aiv"
+  useAmmo: "MML"
+  specials: "var"
+mml5:
+  name: "MML-5"
+  fullname: "MML-5"
+  tech: "IS"
+  type: "M"
+  damage: 9
+  heat: 3
+  crits: 3
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 3
+  varMdamage: 2
+  varLXdamage: 0
+  useFCS: "aiv"
+  useAmmo: "MML"
+  specials: "var"
+mml7:
+  name: "MML-7"
+  fullname: "MML-7"
+  tech: "IS"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 5
+  varMdamage: 3
+  varLXdamage: 1
+  useFCS: "aiv"
+  useAmmo: "MML"
+  specials: "var"
+mml9:
+  name: "MML-9"
+  fullname: "MML-9"
+  tech: "IS"
+  type: "M"
+  damage: 15
+  heat: 5
+  crits: 5
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 6
+  varMdamage: 4
+  varLXdamage: 2
+  useFCS: "aiv"
+  useAmmo: "MML"
+  specials: "var"
+rl10:
+  name: "RL10"
+  fullname: "Rocket Launcher 10"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 6
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  specials: "rl os"
+rl15:
+  name: "RL15"
+  fullname: "Rocket Launcher 15"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 4
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  specials: "rl os"
+rl20:
+  name: "RL20"
+  fullname: "Rocket Launcher 20"
+  tech: "IS"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 5
+  crits: 3
+  damageM: 2
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  specials: "rl os"
+srt2:
+  name: "SRT-2"
+  fullname: "SRT-2"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  damageAdj: 3
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aiv"
+  useAmmo: "SRT"
+  specials: "srt"
+srt4:
+  name: "SRT-4"
+  fullname: "SRT-4"
+  tech: "IS"
+  type: "M"
+  damage: 8
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aiv"
+  useAmmo: "SRT"
+  specials: "srt"
+srt6:
+  name: "SRT-6"
+  fullname: "SRT-6"
+  tech: "IS"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 2
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aiv"
+  useAmmo: "SRT"
+  specials: "srt"
+lrt5:
+  name: "LRT-5"
+  fullname: "LRT-5"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  damageAdj: 4
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+lrt10:
+  name: "LRT-10"
+  fullname: "LRT-10"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 4
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+lrt15:
+  name: "LRT-15"
+  fullname: "LRT-15"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 5
+  crits: 3
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+lrt20:
+  name: "LRT-20"
+  fullname: "LRT-20"
+  tech: "IS"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 6
+  crits: 5
+  damageM: 2
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+narc:
+  name: "Narc"
+  fullname: "Narc Missile Beacon"
+  tech: "IS"
+  type: "M"
+  damage: 0
+  heat: 0
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "Narc"
+inarc:
+  name: "iNarc"
+  fullname: "Improved Narc Missile Beacon"
+  tech: "IS"
+  type: "M"
+  damage: 0
+  heat: 0
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useAmmo: "Narc"
+clb2x:
+  name: "cLB 2-X"
+  fullname: "Clan LB 2-X Autocannon"
+  tech: "Clan"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 3
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useTC: 1
+  useAmmo: "LBX"
+clb5x:
+  name: "cLB 5-X"
+  fullname: "Clan LB 5-X Autocannon"
+  tech: "Clan"
+  type: "B"
+  damage: 5
+  heat: 1
+  crits: 4
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useC: 1
+  useTC: 1
+  useAmmo: "LBX"
+clb10x:
+  name: "cLB 10-X"
+  fullname: "Clan LB 10-X Autocannon"
+  tech: "Clan"
+  type: "B"
+  damage: 10
+  heat: 2
+  crits: 5
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useC: 1
+  useTC: 1
+  useAmmo: "LBX"
+clb20x:
+  name: "cLB 20-X"
+  fullname: "Clan LB 20-X Autocannon"
+  tech: "Clan"
+  type: "B"
+  damage: 20
+  heat: 6
+  crits: 9
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useC: 1
+  useTC: 1
+  useAmmo: "LBX"
+cuac2:
+  name: "cUAC/2"
+  fullname: "Clan Ultra Autocannon/2"
+  tech: "Clan"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 2
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useR: 2
+  useTC: 1
+  useAmmo: "UAC"
+cuac5:
+  name: "cUAC/5"
+  fullname: "Clan Ultra Autocannon/5"
+  tech: "Clan"
+  type: "B"
+  damage: 5
+  heat: 1
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useR: 5
+  useTC: 1
+  useAmmo: "UAC"
+cuac10:
+  name: "cUAC/10"
+  fullname: "Clan Ultra Autocannon/10"
+  tech: "Clan"
+  type: "B"
+  damage: 10
+  heat: 3
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useR: 10
+  useTC: 1
+  useAmmo: "UAC"
+cuac20:
+  name: "cUAC/20"
+  fullname: "Clan Ultra Autocannon/20"
+  tech: "Clan"
+  type: "B"
+  damage: 20
+  heat: 7
+  crits: 8
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useR: 20
+  useTC: 1
+  useAmmo: "UAC"
+crac2:
+  name: "cRAC/2"
+  fullname: "Clan Rotary Autocannon/2"
+  tech: "Clan"
+  type: "B"
+  damage: 3
+  heat: 3
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useR: 6
+  useTC: 1
+  useAmmo: "RAC"
+crac5:
+  name: "cRAC/5"
+  fullname: "Clan Rotary Autocannon/5"
+  tech: "Clan"
+  type: "B"
+  damage: 8
+  heat: 3
+  crits: 8
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useR: 12
+  useTC: 1
+  useAmmo: "RAC"
+capgauss:
+  name: "cAPGauss"
+  fullname: "Clan AP Gauss Rifle"
+  tech: "Clan"
+  type: "B"
+  damage: 3
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  useAmmo: "Gauss"
+  specials: "ai"
+cgauss:
+  name: "cGauss"
+  fullname: "Clan Gauss Rifle"
+  tech: "Clan"
+  type: "B"
+  damage: 15
+  heat: 1
+  crits: 6
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+  useAmmo: "Gauss"
+chag20:
+  name: "cHAG 20"
+  fullname: "Clan Hyper-Assault Gauss Rifle 20"
+  tech: "Clan"
+  type: "B"
+  damage: 16
+  heat: 4
+  crits: 6
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 16
+  varMdamage: 13
+  varLXdamage: 11
+  useC: 1
+  useTC: 1
+  useAmmo: "HAG"
+  specials: "var,hag20"
+chag30:
+  name: "cHAG 30"
+  fullname: "Clan Hyper-Assault Gauss Rifle 30"
+  tech: "Clan"
+  type: "B"
+  damage: 23
+  heat: 6
+  crits: 8
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 23
+  varMdamage: 19
+  varLXdamage: 16
+  useC: 1
+  useTC: 1
+  useAmmo: "HAG"
+  specials: "var,hag30"
+chag40:
+  name: "cHAG 40"
+  fullname: "Clan Hyper-Assault Gauss Rifle 40"
+  tech: "Clan"
+  type: "B"
+  damage: 31
+  heat: 8
+  crits: 10
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  varPBSdamage: 31
+  varMdamage: 26
+  varLXdamage: 17
+  useC: 1
+  useTC: 1
+  useAmmo: "HAG"
+  specials: "var,hag40"
+clmg:
+  name: "cLMG"
+  fullname: "Clan Light Machine Gun"
+  tech: "Clan"
+  type: "B"
+  damage: 1
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "MG"
+  specials: "ai"
+cmg:
+  name: "cMG"
+  fullname: "Clan Machine Gun"
+  tech: "Clan"
+  type: "B"
+  damage: 2
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "MG"
+  specials: "ai"
+chmg:
+  name: "cHMG"
+  fullname: "Clan Heavy Machine Gun"
+  tech: "Clan"
+  type: "B"
+  damage: 3
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "MG"
+  specials: "ai"
+cpmac2:
+  name: "cPMAC/2"
+  fullname: "Clan ProtoMech Autocannon/2"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+  useAmmo: "AC"
+cpmac4:
+  name: "cPMAC/4"
+  fullname: "Clan ProtoMech Autocannon/4"
+  tech: "IS"
+  type: "B"
+  damage: 4
+  heat: 1
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+cpmac8:
+  name: "cPMAC/8"
+  fullname: "Clan ProtoMech Autocannon/8"
+  tech: "IS"
+  type: "B"
+  damage: 8
+  heat: 2
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  useAmmo: "AC"
+cnailrivet:
+  name: "cNailRivet"
+  fullname: "Clan Nail/Rivet Gun"
+  tech: "Clan"
+  type: "B"
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+cermiclas:
+  name: "cermicLas"
+  fullname: "Clan ER Micro Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 2
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cerslas:
+  name: "cerSLas"
+  fullname: "Clan ER Small Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 5
+  heat: 2
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cermlas:
+  name: "cerMLas"
+  fullname: "Clan ER Medium Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 7
+  heat: 5
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+cerllas:
+  name: "cerLLas"
+  fullname: "Clan ER Large Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 10
+  heat: 12
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 2
+  useTC: 1
+cerppc:
+  name: "cerPPC"
+  fullname: "Clan ER PPC"
+  tech: "Clan"
+  type: "E"
+  damage: 15
+  heat: 15
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useTC: 1
+cmicplas:
+  name: "cmicPLas"
+  fullname: "Clan Micro Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 3
+  heat: 1
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  specials: "ai"
+csplas:
+  name: "cSPLas"
+  fullname: "Clan Small Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 3
+  heat: 2
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  specials: "ai"
+cmplas:
+  name: "cMPLas"
+  fullname: "Clan Medium Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 7
+  heat: 4
+  crits: 1
+  rangePB: -2
+  rangeS: -2
+  rangeM: 0
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+clplas:
+  name: "cLPLas"
+  fullname: "Clan Large Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 10
+  heat: 10
+  crits: 2
+  rangePB: -2
+  rangeS: -2
+  rangeM: -2
+  rangeL: 0
+  rangeX: 2
+  useTC: 1
+cersplas:
+  name: "cerSPLas"
+  fullname: "Clan ER Small Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 5
+  heat: 3
+  crits: 1
+  rangePB: -1
+  rangeS: -1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cermplas:
+  name: "cerMPLas"
+  fullname: "Clan ER Medium Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 7
+  heat: 6
+  crits: 2
+  rangePB: -1
+  rangeS: -1
+  rangeM: 1
+  rangeL: 3
+  rangeX: 9
+  useTC: 1
+cerlplas:
+  name: "cerLPLas"
+  fullname: "Clan ER Large Pulse Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 10
+  heat: 13
+  crits: 3
+  rangePB: -1
+  rangeS: -1
+  rangeM: -1
+  rangeL: 1
+  rangeX: 3
+  useTC: 1
+chslas:
+  name: "cHSLas"
+  fullname: "Clan Heavy Small Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 6
+  heat: 3
+  crits: 1
+  rangePB: 1
+  rangeS: 1
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+chmlas:
+  name: "cHMLas"
+  fullname: "Clan Heavy Medium Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 10
+  heat: 7
+  crits: 2
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+chllas:
+  name: "cHLLas"
+  fullname: "Clan Heavy Large Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 16
+  heat: 18
+  crits: 3
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useTC: 1
+cihslas:
+  name: "ciHSLas"
+  fullname: "Clan Improved Heavy Small Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 6
+  heat: 3
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cihmlas:
+  name: "ciHMLas"
+  fullname: "Clan Improved Heavy Medium Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 10
+  heat: 7
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cihllas:
+  name: "ciHLLas"
+  fullname: "Clan Improved Heavy Large Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 16
+  heat: 18
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+cchemslas:
+  name: "cChemSLas"
+  fullname: "Chemical Small Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 3
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cchemmlas:
+  name: "cChemMLas"
+  fullname: "Chemical Medium Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 5
+  heat: 2
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+cchemllas:
+  name: "cChemLLas"
+  fullname: "Chemical Large Laser"
+  tech: "Clan"
+  type: "E"
+  damage: 8
+  heat: 6
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useTC: 1
+cflamer:
+  name: "cFlamer"
+  fullname: "Clan Flamer"
+  tech: "Clan"
+  type: "E"
+  damage: 2
+  heat: 3
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useH: 2
+  specials: "ai"
+cerflamer:
+  name: "cerFlamer"
+  fullname: "Clan ER Flamer"
+  tech: "Clan"
+  type: "E"
+  damage: 2
+  heat: 4
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useH: 2
+  specials: "ai"
+chflamer:
+  name: "cHFlamer"
+  fullname: "Clan Heavy Flamer"
+  tech: "Clan"
+  type: "E"
+  damage: 4
+  heat: 5
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useH: 4
+  useAmmo: "Flamer"
+  specials: "ai"
+cplascannon:
+  name: "cPlasCannon"
+  fullname: "Clan Plasma Cannon"
+  tech: "Clan"
+  type: "E"
+  damage: 0
+  heat: 7
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useH: 8
+  useTC: 1
+csrm2:
+  name: "cSRM-2"
+  fullname: "Clan SRM-2"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  damageAdj: 3
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aivav"
+  useAmmo: "SRM"
+  specials: "srm"
+csrm4:
+  name: "cSRM-4"
+  fullname: "Clan SRM-4"
+  tech: "Clan"
+  type: "M"
+  damage: 8
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aivav"
+  useAmmo: "SRM"
+  specials: "srm"
+csrm6:
+  name: "cSRM-6"
+  fullname: "Clan SRM-6"
+  tech: "Clan"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 1
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aivav"
+  useAmmo: "SRM"
+  specials: "srm"
+cssrm2:
+  name: "cSSRM-2"
+  fullname: "Clan Streak SRM-2"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  damageAdj: 3
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SSRM"
+  specials: "ssrm"
+cssrm4:
+  name: "cSSRM-4"
+  fullname: "Clan Streak SRM-4"
+  tech: "Clan"
+  type: "M"
+  damage: 8
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SSRM"
+  specials: "ssrm"
+cssrm6:
+  name: "cSSRM-6"
+  fullname: "Clan Streak SRM-6"
+  tech: "Clan"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 2
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SSRM"
+  specials: "ssrm"
+clrm5:
+  name: "cLRM-5"
+  fullname: "Clan LRM-5"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  damageAdj: 4
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+clrm10:
+  name: "cLRM-10"
+  fullname: "Clan LRM-10"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 4
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+clrm15:
+  name: "cLRM-15"
+  fullname: "Clan LRM-15"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 5
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+clrm20:
+  name: "cLRM-20"
+  fullname: "Clan LRM-20"
+  tech: "Clan"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 6
+  crits: 4
+  damageM: 2
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aivav"
+  useAmmo: "LRM"
+  specials: "lrm"
+cslrm5:
+  name: "cSLRM-5"
+  fullname: "Clan Streak LRM-5"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  damageAdj: 4
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "SLRM"
+  specials: "slrm"
+cslrm10:
+  name: "cSLRM-10"
+  fullname: "Clan Streak LRM-10"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 4
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "SLRM"
+  specials: "slrm"
+cslrm15:
+  name: "cSLRM-15"
+  fullname: "Clan Streak LRM-15"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 5
+  crits: 3
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "SLRM"
+  specials: "slrm"
+cslrm20:
+  name: "cSLRM-20"
+  fullname: "Clan Streak LRM-20"
+  tech: "Clan"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 6
+  crits: 5
+  damageM: 2
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "SLRM"
+  specials: "slrm"
+catm3:
+  name: "cATM-3"
+  fullname: "Clan ATM-3"
+  tech: "Clan"
+  type: "M"
+  damage: 7
+  heat: 2
+  crits: 2
+  damageM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 3
+  varMdamage: 1
+  varLXdamage: 0
+  useAmmo: "ATM"
+  specials: "atm var"
+catm6:
+  name: "cATM-6"
+  fullname: "Clan ATM-6"
+  tech: "Clan"
+  type: "M"
+  damage: 15
+  heat: 4
+  crits: 3
+  damageM: 3
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 5
+  varMdamage: 1
+  varLXdamage: 0
+  useAmmo: "ATM"
+  specials: "atm var"
+catm9:
+  name: "cATM-9"
+  fullname: "Clan ATM-9"
+  tech: "Clan"
+  type: "M"
+  damage: 24
+  heat: 6
+  crits: 4
+  damageM: 6
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 7
+  varMdamage: 3
+  varLXdamage: 0
+  useAmmo: "ATM"
+  specials: "atm var"
+catm12:
+  name: "cATM-12"
+  fullname: "Clan ATM-12"
+  tech: "Clan"
+  type: "M"
+  damage: 33
+  heat: 8
+  crits: 5
+  damageM: 6
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 14
+  varMdamage: 9
+  varLXdamage: 3
+  useAmmo: "ATM"
+  specials: "atm var"
+ciatm3:
+  name: "ciATM-3"
+  fullname: "Clan iATM-3"
+  tech: "Clan"
+  type: "M"
+  damage: 7
+  heat: 2
+  crits: 2
+  damageM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 3
+  varMdamage: 1
+  varLXdamage: 0
+  useAmmo: "ATM"
+  specials: "iatm var"
+ciatm6:
+  name: "ciATM-6"
+  fullname: "Clan iATM-6"
+  tech: "Clan"
+  type: "M"
+  damage: 15
+  heat: 4
+  crits: 3
+  damageM: 3
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 5
+  varMdamage: 1
+  varLXdamage: 0
+  useAmmo: "ATM"
+  specials: "iatm var"
+ciatm9:
+  name: "ciATM-9"
+  fullname: "Clan iATM-9"
+  tech: "Clan"
+  type: "M"
+  damage: 24
+  heat: 6
+  crits: 4
+  damageM: 6
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 7
+  varMdamage: 3
+  varLXdamage: 0
+  useAmmo: "ATM"
+  specials: "iatm var"
+ciatm12:
+  name: "ciATM-12"
+  fullname: "Clan iATM-12"
+  tech: "Clan"
+  type: "M"
+  damage: 33
+  heat: 8
+  crits: 5
+  damageM: 6
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 2
+  varPBSdamage: 14
+  varMdamage: 9
+  varLXdamage: 3
+  useAmmo: "ATM"
+  specials: "iatm var"
+csrt2:
+  name: "cSRT-2"
+  fullname: "Clan SRT-2"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  damageAdj: 3
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aiv"
+  useAmmo: "SRT"
+  specials: "srt"
+csrt4:
+  name: "cSRT-4"
+  fullname: "Clan SRT-4"
+  tech: "Clan"
+  type: "M"
+  damage: 8
+  heat: 3
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aiv"
+  useAmmo: "SRT"
+  specials: "srt"
+csrt6:
+  name: "cSRT-6"
+  fullname: "Clan SRT-6"
+  tech: "Clan"
+  type: "M"
+  damage: 12
+  heat: 4
+  crits: 1
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useFCS: "aiv"
+  useAmmo: "SRT"
+  specials: "srt"
+clrt5:
+  name: "cLRT-5"
+  fullname: "Clan LRT-5"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  damageAdj: 4
+  heat: 2
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+clrt10:
+  name: "cLRT-10"
+  fullname: "Clan LRT-10"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  damageAdj: 7
+  heat: 4
+  crits: 1
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+clrt15:
+  name: "cLRT-15"
+  fullname: "Clan LRT-15"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  damageAdj: 12
+  heat: 5
+  crits: 2
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+clrt20:
+  name: "cLRT-20"
+  fullname: "Clan LRT-20"
+  tech: "Clan"
+  type: "M"
+  damage: 9
+  damageAdj: 11
+  heat: 6
+  crits: 4
+  damageM: 2
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useFCS: "aiv"
+  useAmmo: "LRT"
+  specials: "lrt"
+cnarc:
+  name: "cNarc"
+  fullname: "Clan Narc Missile Beacon"
+  tech: "Clan"
+  type: "M"
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "Narc"
+arrowiv:
+  name: "Arrow IV"
+  fullname: "Arrow IV Artillery"
+  tech: "IS"
+  type: "M"
+  damage: 20
+  heat: 10
+  crits: 15
+  damageM: 4
+  shiftM: 0
+  rangePB: 9
+  rangeS: 4
+  rangeM: 4
+  rangeL: 4
+  rangeX: 4
+  useAmmo: "ArrowIV"
+  specials: "artextraM"
+carrowiv:
+  name: "cArrow IV"
+  fullname: "Clan Arrow IV Artillery"
+  tech: "Clan"
+  type: "M"
+  damage: 20
+  heat: 10
+  crits: 12
+  damageM: 4
+  shiftM: 0
+  rangePB: 9
+  rangeS: 4
+  rangeM: 4
+  rangeL: 4
+  rangeX: 4
+  useAmmo: "ArrowIV"
+  specials: "artextraM"
+longtom:
+  name: "Long Tom"
+  fullname: "Long Tom Artillery"
+  tech: "IS"
+  type: "M"
+  damage: 30
+  heat: 20
+  crits: 30
+  damageM: 6
+  shiftM: 3
+  rangePB: 9
+  rangeS: 4
+  rangeM: 4
+  rangeL: 4
+  rangeX: 4
+  useAmmo: "Artillery"
+  specials: "art"
+sniper:
+  name: "Sniper"
+  fullname: "Sniper Artillery"
+  tech: "IS"
+  type: "M"
+  damage: 20
+  heat: 10
+  crits: 20
+  damageM: 4
+  shiftM: 2
+  rangePB: 9
+  rangeS: 4
+  rangeM: 4
+  rangeL: 4
+  rangeX: 4
+  useAmmo: "Artillery"
+  specials: "artextraM"
+thumper:
+  name: "Thumper"
+  fullname: "Thumper Artillery"
+  tech: "IS"
+  type: "M"
+  damage: 15
+  heat: 6
+  crits: 15
+  damageM: 3
+  shiftM: 1
+  rangePB: 9
+  rangeS: 4
+  rangeM: 4
+  rangeL: 4
+  rangeX: 4
+  useAmmo: "Artillery"
+  specials: "artextraM"
+longtomcannon:
+  name: "Long Tom Cannon"
+  fullname: "Long Tom Artillery Cannon"
+  tech: "IS"
+  type: "M"
+  damage: 20
+  heat: 20
+  crits: 15
+  damageM: 4
+  shiftM: 1
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "Artillery"
+  specials: "artextraM"
+snipercannon:
+  name: "Sniper Cannon"
+  fullname: "Sniper Artillery Cannon"
+  tech: "IS"
+  type: "M"
+  damage: 10
+  heat: 10
+  crits: 10
+  damageM: 2
+  shiftM: 0
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "Artillery"
+  specials: "artextraM"
+thumpercannon:
+  name: "Thumper Cannon"
+  fullname: "Thumper Artillery Cannon"
+  tech: "IS"
+  type: "M"
+  damage: 5
+  heat: 6
+  crits: 7
+  damageM: 1
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  useAmmo: "Artillery"
+  specials: "artextraM"
+firedrake:
+  name: "FNeedler"
+  fullname: '"Firedrake" Support Needler'
+  tech: "IS"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+david:
+  name: "DLGauss"
+  fullname: '"David" Light Gauss Rifle'
+  tech: "IS"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+kdavid:
+  name: "KDLGauss"
+  fullname: '"King David" Light Gauss Rifle'
+  tech: "IS"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+gmauler:
+  name: "GM Gauss Cannon"
+  fullname: "Grand Mauler Gauss Cannon"
+  tech: "IS"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+tsunami:
+  name: "T Gauss"
+  fullname: "Tsunami Gauss Rifle"
+  tech: "IS"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+mgrenade:
+  name: "mGrenade Launcher"
+  fullname: "Micro Grenade Launcher"
+  tech: "IS"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+hgrenade:
+  name: "HGrenade Launcher"
+  fullname: "Heavy Grenade Launcher"
+  tech: "Mixed"
+  type: "B"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+lmortar:
+  name: "LMortar"
+  fullname: "Light Mortar"
+  tech: "Mixed"
+  type: "B"
+  damage: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+hmortar:
+  name: "HMortar"
+  fullname: "Heavy Mortar"
+  tech: "Mixed"
+  type: "B"
+  damage: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+lrecoil:
+  name: "LRecoilless"
+  fullname: "Light Recoilless Rifle"
+  tech: "Mixed"
+  type: "B"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+mrecoil:
+  name: "MRecoilless"
+  fullname: "Medium Recoilless Rifle"
+  tech: "Mixed"
+  type: "B"
+  damage: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+hrecoil:
+  name: "HRecoilless"
+  fullname: "Heavy Recoilless Rifle"
+  tech: "Mixed"
+  type: "B"
+  damage: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+  baOnly: True
+mpplasrifle:
+  name: "mpPlasmaRifle"
+  fullname: "Man-Portable Plasma Rifle"
+  tech: "IS"
+  type: "E"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useH: 2
+sppc:
+  name: "SPPC"
+  fullname: "Support PPC"
+  tech: "IS"
+  type: "E"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+compactnarc:
+  name: "Compact Narc"
+  fullname: "Compact Narc"
+  tech: "Mixed"
+  type: "M"
+  damage: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+srm1:
+  name: "SRM-1"
+  fullname: "SRM-1"
+  tech: "IS"
+  type: "M"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+  baOnly: True
+srm3:
+  name: "SRM-3"
+  fullname: "SRM-3"
+  tech: "IS"
+  type: "M"
+  damage: 6
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+  baOnly: True
+srm5:
+  name: "SRM-5"
+  fullname: "SRM-5"
+  tech: "IS"
+  type: "M"
+  damage: 10
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+  baOnly: True
+mrm1:
+  name: "MRM-1"
+  fullname: "MRM-1"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useAmmo: "MRM"
+  baOnly: True
+mrm2:
+  name: "MRM-2"
+  fullname: "MRM-2"
+  tech: "IS"
+  type: "M"
+  damage: 2
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useAmmo: "MRM"
+  baOnly: True
+mrm3:
+  name: "MRM-3"
+  fullname: "MRM-3"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useAmmo: "MRM"
+  baOnly: True
+mrm4:
+  name: "MRM-4"
+  fullname: "MRM-4"
+  tech: "IS"
+  type: "M"
+  damage: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useAmmo: "MRM"
+  baOnly: True
+mrm5:
+  name: "MRM-5"
+  fullname: "MRM-5"
+  tech: "IS"
+  type: "M"
+  damage: 5
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 5
+  rangeX: 9
+  useAmmo: "MRM"
+  baOnly: True
+lrm1:
+  name: "LRM-1"
+  fullname: "LRM-1"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+  baOnly: True
+lrm2:
+  name: "LRM-2"
+  fullname: "LRM-2"
+  tech: "IS"
+  type: "M"
+  damage: 2
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+  baOnly: True
+lrm3:
+  name: "LRM-3"
+  fullname: "LRM-3"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+  baOnly: True
+lrm4:
+  name: "LRM-4"
+  fullname: "LRM-4"
+  tech: "IS"
+  type: "M"
+  damage: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 4
+  rangeS: 2
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+  baOnly: True
+rl1:
+  name: "RL1"
+  fullname: "Rocket Launcher 1"
+  tech: "IS"
+  type: "M"
+  damage: 1
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  specials: "os"
+  baOnly: True
+rl2:
+  name: "RL2"
+  fullname: "Rocket Launcher 2"
+  tech: "IS"
+  type: "M"
+  damage: 2
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  specials: "os"
+  baOnly: True
+rl3:
+  name: "RL3"
+  fullname: "Rocket Launcher 3"
+  tech: "IS"
+  type: "M"
+  damage: 3
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  specials: "os"
+  baOnly: True
+rl4:
+  name: "RL4"
+  fullname: "Rocket Launcher 4"
+  tech: "IS"
+  type: "M"
+  damage: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  specials: "os"
+  baOnly: True
+rl5:
+  name: "RL5"
+  fullname: "Rocket Launcher 5"
+  tech: "IS"
+  type: "M"
+  damage: 5
+  damageM: 1
+  shiftM: 0
+  rangePB: 1
+  rangeS: 1
+  rangeM: 3
+  rangeL: 9
+  rangeX: 9
+  specials: "os"
+  baOnly: True
+popmine:
+  name: "Mine Launcher"
+  fullname: "Pop-up Mine Launcher"
+  tech: "IS"
+  type: "M"
+  damage: 4
+  rangePB: 0
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+taser:
+  name: "Taser"
+  fullname: "Battle Armor Taser"
+  tech: "IS"
+  type: "E"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  baOnly: True
+bearhunt:
+  name: "SH AC"
+  fullname: '"Bearhunter" Superheavy AC'
+  tech: "Clan"
+  type: "B"
+  damage: 3
+  rangePB: 0
+  rangeS: 2
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  specials: "ai"
+balb2:
+  name: "BA LB 2-X"
+  fullname: "BA LB 2-X Autocannon"
+  tech: "IS"
+  type: "B"
+  damage: 2
+  heat: 1
+  rangePB: 0
+  rangeS: 2
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useTC: 1
+  useAmmo: "LBX"
+  baOnly: true
+clbx:
+  name: "LB-X"
+  fullname: "BA LB-X Autocannon"
+  tech: "Clan"
+  type: "B"
+  damage: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  useC: 1
+  useAmmo: "LBX"
+csppc:
+  name: "cSPPC"
+  fullname: "Clan Support PPC"
+  tech: "Clan"
+  type: "E"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+csrm1:
+  name: "cSRM-1"
+  fullname: "Clan SRM-1"
+  tech: "Clan"
+  type: "M"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+csrm3:
+  name: "cSRM-3"
+  fullname: "Clan SRM-3"
+  tech: "Clan"
+  type: "M"
+  damage: 6
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+csrm5:
+  name: "cSRM-5"
+  fullname: "Clan SRM-5"
+  tech: "Clan"
+  type: "M"
+  damage: 10
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+casrm1:
+  name: "aSRM-1"
+  fullname: "Clan Advanced SRM-1"
+  tech: "Clan"
+  type: "M"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+casrm2:
+  name: "aSRM-2"
+  fullname: "Clan Advanced SRM-2"
+  tech: "Clan"
+  type: "M"
+  damage: 4
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+casrm3:
+  name: "aSRM-3"
+  fullname: "Clan Advanced SRM-3"
+  tech: "Clan"
+  type: "M"
+  damage: 6
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+casrm4:
+  name: "aSRM-4"
+  fullname: "Clan Advanced SRM-4"
+  tech: "Clan"
+  type: "M"
+  damage: 8
+  damageM: 1
+  shiftM: 0
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+casrm5:
+  name: "aSRM-5"
+  fullname: "Clan Advanced SRM-5"
+  tech: "Clan"
+  type: "M"
+  damage: 10
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+casrm6:
+  name: "aSRM-6"
+  fullname: "Clan Advanced SRM-6"
+  tech: "Clan"
+  type: "M"
+  damage: 12
+  damageM: 2
+  shiftM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "SRM"
+clrm1:
+  name: "cLRM-1"
+  fullname: "Clan LRM-1"
+  tech: "Clan"
+  type: "M"
+  damage: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+clrm2:
+  name: "cLRM-2"
+  fullname: "Clan LRM-2"
+  tech: "Clan"
+  type: "M"
+  damage: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+clrm3:
+  name: "cLRM-3"
+  fullname: "Clan LRM-3"
+  tech: "Clan"
+  type: "M"
+  damage: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+clrm4:
+  name: "cLRM-4"
+  fullname: "Clan LRM-4"
+  tech: "Clan"
+  type: "M"
+  damage: 4
+  damageM: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: "LRM"
+cbombrack:
+  name: "Bomb Rack"
+  fullname: "Clan Bomb Rack"
+  tech: "Clan"
+  type: "M"
+  damage: 2
+  rangePB: 0
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  useAmmo: "Bomb"
+tsemp:
+  name: "TSEMP"
+  fullname: "Tight-Stream Electromagnetic Pulse Cannon"
+  tech: "IS"
+  type: "E"
+  damage: 2
+  rangePB: 0
+  rangeS: 2
+  rangeM: 4
+  rangeL: 6
+  rangeX: 9
+  useH: 2
+  useOS: "yes"
+hatchet:
+  name: "Hatchet"
+  fullname: "Hatchet"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 5
+  heat: 0
+  critsTonnageDiv: 15
+  rangePB: -1
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+sword:
+  name: "Sword"
+  fullname: "Sword"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 10
+  heat: 0
+  critsTonnageDiv: 15
+  rangePB: -2
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+mace:
+  name: "Mace"
+  fullname: "Mace"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 4
+  heat: 0
+  critsTonnageDiv: 10
+  rangePB: 1
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+claws:
+  name: "Claws"
+  fullname: "Claws"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 7
+  heat: 0
+  critsTonnageDiv: 15
+  rangePB: 1
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+lance:
+  name: "Lance"
+  fullname: "Lance"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 5
+  heat: 0
+  critsTonnageDiv: 20
+  rangePB: 1
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9

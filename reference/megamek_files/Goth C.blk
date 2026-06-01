@@ -1,0 +1,169 @@
+#Saved from version 0.50.11 on 2025-12-12
+<UnitType>
+AeroSpaceFighter
+</UnitType>
+
+<Name>
+Goth
+</Name>
+
+<Model>
+C
+</Model>
+
+<mul id:>
+7661
+</mul id:>
+
+<year>
+3146
+</year>
+
+<originalBuildYear>
+3146
+</originalBuildYear>
+
+<type>
+Clan Level 2
+</type>
+
+<role>
+Fire Support
+</role>
+
+<quirks>
+combat_computer
+atmo_instability
+easy_maintain
+</quirks>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<SafeThrust>
+5
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+15
+</heatsinks>
+
+<sink_type>
+0
+</sink_type>
+
+<fuel>
+480
+</fuel>
+
+<engine_type>
+0
+</engine_type>
+
+<clan_engine>
+false
+</clan_engine>
+
+<armor_type>
+19
+</armor_type>
+
+<armor_tech_rating>
+0
+</armor_tech_rating>
+
+<armor_tech_level>
+2
+</armor_tech_level>
+
+<omni>
+1
+</omni>
+
+<armor>
+74
+54
+54
+48
+</armor>
+
+<Nose Equipment>
+CLRotaryAC5:OMNI
+CLRotaryAC5:OMNI
+</Nose Equipment>
+
+<Left Wing Equipment>
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+</Right Wing Equipment>
+
+<Aft Equipment>
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+CLRotaryAC5 Ammo:OMNI
+CLRotaryAC5 Ammo:OMNI
+CLRotaryAC5 Ammo:OMNI
+CLRotaryAC5 Ammo:OMNI
+CLRotaryAC5 Ammo:OMNI
+CLRotaryAC5 Ammo:OMNI
+CLRotaryAC5 Ammo:OMNI
+CLCASE
+</Fuselage Equipment>
+
+<capabilities>
+<p>The Goth delivers solid performance for a sixty-ton OmniFighter, with its Pitban 180 fusion engine providing four Gs of thrust—adequate for its intended role though unexceptional by later standards. The airframe carries 14.5 tons of standard armor, offering modest but reliable protection for sustained operations. The design's primary limitation lies in its heat management, as the Goth retains fifteen single heat sinks on its base chassis rather than the more efficient double heat sinks that became standard in later Clan designs. This thermal inefficiency forces nearly every configuration to dedicate pod space to additional cooling. However, the massive pod bays that made the original Gotha so versatile translate directly to the Goth's greatest strength: sufficient capacity to mount efficient Clantech weapons alongside the heat sinks needed to employ them effectively. The design also benefits from an integrated combat computer and reputation for easy maintenance, though pilots must contend with atmospheric flight instability that makes the Goth better suited to space operations than ground support missions.</p>
+</capabilities>
+
+<overview>
+<p>The Goth is an early Clan OmniFighter introduced in 2873 by Clan Cloud Cobra, developed from the venerable Star League-era Gotha. Seeking to leverage the modular technology pioneered by their aerospace programs, Cloud Cobra engineers adapted the proven Gotha airframe to accept OmniPods, creating a versatile medium fighter that filled a critical gap between lighter designs like the Issus and heavier platforms such as the Xerxes. No other Clan OmniFighter would occupy this particular niche until the Tyre entered service in 2907. The Goth's combination of reliability and adaptability made it extremely popular, spreading rapidly throughout nearly every Clan and becoming a common sight around WarShips and orbital installations. Though rendered obsolete by faster designs in the late 2900s, the Goth saw renewed production in 3146 when the Wolf Empire converted Allied Technologies' Gotha lines on Stewart to manufacture this proven design.</p>
+</overview>
+
+<deployment>
+<p>Developed by the Wolf Empire following their 3146 production restart, this configuration embraces modern ballistic technology with devastating effect. Twin RAC/5 rotary autocannons mounted in the nose deliver withering streams of fire, fed by seven tons of ammunition that provide substantial endurance for prolonged engagements. This loadout transforms the Goth into a fearsome strafing platform, capitalizing on the design's heavy armor to close with targets and unleash concentrated bursts of autocannon fire.</p>
+</deployment>
+
+<history>
+<p>Clan Cloud Cobra developed the Goth at their Complex H-3 CCC facility, drawing upon the proven Gotha airframe that had served the Star League Defense Force so effectively. The decision to adapt an existing design rather than create an entirely new fighter reflected Cloud Cobra's pragmatic approach to aerospace development, and the result justified their methodology. With no direct competitors in its weight class, the Goth spread rapidly throughout Clan space, adopted by virtually every Clan for space superiority duties.</p>
+
+<p>The Goth earned its most memorable distinction during the bitter conflicts between Clan Coyote and Clan Cloud Cobra in 2948 and 2949. Flying escort for Hydaspeses-class DropShips, Goth fighters provided crucial tactical flexibility during space engagements. As zellbrigen restrictions eroded under the pressures of the campaign, Goths increasingly served as spotters for Cobra capital ships, their sensor capabilities helping direct devastating fire that gradually depleted Coyote fighter reserves, particularly their stocks of Hellcat IIs.</p>
+
+<p>The ground war proved more costly for the Cobras, prompting commanders to assign Goths to an unconventional role: hunting enemy DropShips. The fighters proved murderously effective at this task, denying the Coyotes the ability to resupply their ground forces. Though Cloud Cobra ultimately suffered greater total casualties, the Coyotes' inability to sustain their troops forced them to abandon their enclaves on Homer and Brim—a strategic victory that owed much to the Goth's relentless interdiction campaign.</p>
+
+<p>By the 2980s, a new generation of higher-thrust OmniFighters had rendered the Goth obsolete for front-line service. The design lingered in second-line formations and garrison duties, its easy maintenance and proven reliability keeping it in service long after faster designs had claimed primary roles. This obsolescence persisted for over a century and a half until the Wolf Empire's expansion brought Stewart and its Allied Technologies manufacturing complexes under Clan Wolf control. Desperate for aerospace assets to support their conquests, Wolf engineers converted the existing Gotha production lines to manufacture the Goth in 3146. New configurations incorporating modern technologies like rotary autocannons and Artemis V systems have demonstrated that the venerable design remains effective when paired with current weapons, and Wolf Empire pilots have begun developing aggressive tactics that exploit the Goth's heavy armor and flexible loadouts.</p>
+</history>
+
+<manufacturer>
+Allied Technologies
+</manufacturer>
+
+<primaryFactory>
+Stewart
+</primaryFactory>
+
+<systemManufacturers>
+CHASSIS:Saroyan 2.5 CCC-OP
+ENGINE:Pitban 180
+ARMOR:Forging OTR17b (Standard)
+COMMUNICATIONS:CCC T-55
+TARGETING:CCC D5.2J
+</systemManufacturers>
+
+<source>
+TR:GC
+</source>
+
+<tonnage>
+60.0
+</tonnage>
+
+

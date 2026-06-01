@@ -1,0 +1,161 @@
+#Saved from version 0.50.11 on 2025-12-12
+<UnitType>
+AeroSpaceFighter
+</UnitType>
+
+<Name>
+Kublai
+</Name>
+
+<Model>
+F
+</Model>
+
+<mul id:>
+7668
+</mul id:>
+
+<year>
+3143
+</year>
+
+<originalBuildYear>
+3143
+</originalBuildYear>
+
+<type>
+Mixed (Clan Chassis) Advanced
+</type>
+
+<role>
+Fast Dogfighter
+</role>
+
+<quirks>
+atmo_flyer
+easy_maintain
+weak_undercarriage
+</quirks>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<SafeThrust>
+7
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+20
+</heatsinks>
+
+<sink_type>
+1
+</sink_type>
+
+<fuel>
+400
+</fuel>
+
+<engine_type>
+2
+</engine_type>
+
+<armor_type>
+3
+</armor_type>
+
+<armor_tech_rating>
+0
+</armor_tech_rating>
+
+<armor_tech_level>
+2
+</armor_tech_level>
+
+<omni>
+1
+</omni>
+
+<armor>
+51
+46
+46
+41
+</armor>
+
+<Nose Equipment>
+Heavy PPC:OMNI
+PPC Capacitor:OMNI
+Heavy PPC:OMNI
+PPC Capacitor:OMNI
+CLCASE
+</Nose Equipment>
+
+<Left Wing Equipment>
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+</Right Wing Equipment>
+
+<Aft Equipment>
+ISAngelECMSuite:OMNI
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+</Fuselage Equipment>
+
+<capabilities>
+<p>The Kublai inherits the Qasar's fundamental strengths: an eighty-ton airframe driven by a 400-rated XL engine that delivers thrust performance rivaling craft thirty tons lighter, and twenty-six tons of pod space allowing substantial weapon configurations. Twenty double heat sinks integrated into the base chassis provide adequate thermal management for most loadouts. The critical improvement lies in the Naketsu Nagareboshi laser reflective armor system, which dramatically improves survivability against the energy-heavy armaments common to both Clan and Inner Sphere aerospace forces. Where the original Qasar's thin conventional armor invited destruction, the Kublai can weather laser and PPC fire that would cripple its predecessor.</p>
+
+<p>Combine engineers have developed configurations emphasizing Inner Sphere technology, ensuring reliable logistics and easier maintenance within existing supply chains. However, the Kublai retains full OmniFighter compatibility, and limited Clan-technology reserves allow some units to mount original Qasar configurations when tactical necessity demands. The airframe's inherent atmospheric handling characteristics and responsive controls remain unchanged, making the Kublai equally effective in planetary defense and space superiority roles.</p>
+</capabilities>
+
+<overview>
+<p>The Kublai represents the Draconis Combine's pragmatic approach to captured enemy assets. Following the destruction of Clan Nova Cat in 3142, Combine forces found themselves in possession of Delta Refit Center on Irece and its production lines for the Qasar heavy OmniFighter. Rather than discard a proven airframe, Combine engineers addressed the design's most critical flaw through application of Naketsu Nagareboshi laser reflective armor plating. The resulting fighter was designated the Kublai—an ironic name evoking Mongol conquest, now turned to serve the Dragon. While retaining the exceptional thrust and pod capacity that made the Qasar formidable, the Kublai transforms a defensive liability into a tactical advantage against energy-weapon-heavy opponents. Production continues at Delta Refit Center, with the Kublai entering regular service with Draconis Combine Mustered Soldiery aerospace formations.</p>
+</overview>
+
+<deployment>
+<p>Designed for long-range engagement, this configuration mounts twin Heavy Particle Projection Cannons in the nose, each enhanced with a PPC capacitor for devastating alpha strikes. An Angel ECM Suite mounted aft provides electronic warfare capability, disrupting enemy targeting systems and complicating missile locks. This variant excels in standoff engagements where its capacitor-enhanced weapons can disable or destroy targets before they close to effective return fire range.</p>
+</deployment>
+
+<history>
+<p>The Kublai's history begins with the end of Clan Nova Cat. When the Nova Cats revolted against the Draconis Combine in 3141, their resurrected Qasar OmniFighters initially dominated the aerospace battlespace. Combine pilots in aging Slayers and Rievers found themselves outmatched by the heavy Clan fighters. Only through disciplined teamwork and tactical adaptation did Combine squadrons learn to counter the Qasar's advantages, exploiting its thin armor and limited fuel capacity through coordinated attacks rather than individual engagements.</p>
+
+<p>By late 3142, Combine ground forces had secured Delta Refit Center, capturing both the facility and its Qasar production capability intact. Combine military planners immediately recognized the opportunity presented by the captured factory. The Qasar's fundamental design remained sound—only its inadequate armor had proven a consistent liability. Luthien Armor Works engineers assigned to the facility developed the laser reflective armor refit within months, and the first Kublai rolled off the production line before year's end.</p>
+
+<p>The Kublai has since become a regular sight along the Dominion border, where Combine aerospace forces maintain vigilant patrols against Ghost Bear incursions. The fighter's combination of Clan-derived performance and enhanced protection has proven particularly effective against Dominion OmniFighters, whose energy-heavy configurations fare poorly against laser reflective plating. Combine pilots have embraced the Kublai's aggressive handling characteristics, with some units earning reputations for seeking personal combat challenges against Dominion opponents. The irony of former Nova Cat technology defending against another Clan has not been lost on either side of the border.</p>
+</history>
+
+<manufacturer>
+LAW Irece Delta Refit Center
+</manufacturer>
+
+<primaryFactory>
+Irece
+</primaryFactory>
+
+<systemManufacturers>
+CHASSIS:Starborn 1.1
+ENGINE:400 Model SF-3 XL
+ARMOR:Naketsu Nagareboshi Reflective Plate
+COMMUNICATIONS:NC-TelCom Mk X
+TARGETING:Big Cat Mk XXI TTS
+</systemManufacturers>
+
+<source>
+TR:GC
+</source>
+
+<tonnage>
+80.0
+</tonnage>
+
+

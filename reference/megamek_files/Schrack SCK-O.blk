@@ -1,0 +1,151 @@
+# MegaMek Data (C) 2025 by The MegaMek Team is licensed under CC BY-NC-SA 4.0.
+# To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+#
+# NOTICE: The MegaMek organization is a non-profit group of volunteers
+# creating free software for the BattleTech community.
+#
+# MechWarrior, BattleMech, `Mech and AeroTech are registered trademarks
+# of The Topps Company, Inc. All Rights Reserved.
+#
+# Catalyst Game Labs and the Catalyst Game Labs logo are trademarks of
+# InMediaRes Productions, LLC.
+#
+# MechWarrior Copyright Microsoft Corporation. MegaMek Data was created under
+# Microsoft's "Game Content Usage Rules"
+# <https://www.xbox.com/en-US/developers/rules> and it is not endorsed by or
+# affiliated with Microsoft.
+
+#building block data file
+<BlockVersion>
+1
+</BlockVersion>
+
+# Write the version number just in case...
+<Version>
+MAM0
+</Version>
+
+<UnitType>
+Aero
+</UnitType>
+
+<Name>
+Schrack
+</Name>
+
+<Model>
+SCK-O
+</Model>
+
+<mul id:>
+6690
+</mul id:>
+
+<year>
+3097
+</year>
+
+<originalBuildYear>
+3097
+</originalBuildYear>
+
+<type>
+IS Level 2
+</type>
+
+<role>
+Dogfighter
+</role>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<transporters>
+</transporters>
+
+<SafeThrust>
+7
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+10
+</heatsinks>
+
+<sink_type>
+1
+</sink_type>
+
+<fuel>
+400
+</fuel>
+
+<engine_type>
+2
+</engine_type>
+
+<armor_type>
+20
+</armor_type>
+
+<armor_tech>
+1
+</armor_tech>
+
+<omni>
+1
+</omni>
+
+<armor>
+81
+61
+61
+45
+</armor>
+
+<Nose Equipment>
+ISERMediumLaser:OMNI
+ISERMediumLaser:OMNI
+ISERMediumLaser:OMNI
+ISImprovedHeavyGaussRifle:OMNI
+</Nose Equipment>
+
+<Left Wing Equipment>
+ISStreakSRM2:OMNI
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+ISStreakSRM2:OMNI
+</Right Wing Equipment>
+
+<Aft Equipment>
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+IS Streak SRM 2 Ammo:OMNI
+ISImprovedHeavyGauss Ammo:OMNI
+ISImprovedHeavyGauss Ammo:OMNI
+ISImprovedHeavyGauss Ammo:OMNI
+</Fuselage Equipment>
+
+<source>
+TR:3145:RotS
+</source>
+
+<tonnage>
+60.0
+</tonnage>
+
+<quirks>
+easy_pilot
+non_standard
+difficult_maintain
+</quirks>
+

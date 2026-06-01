@@ -1,0 +1,128 @@
+#Saved from version 0.50.11 on 2025-12-12
+<UnitType>
+AeroSpaceFighter
+</UnitType>
+
+<Name>
+Starfire
+</Name>
+
+<Model>
+SF-1X
+</Model>
+
+<mul id:>
+5129
+</mul id:>
+
+<year>
+3028
+</year>
+
+<originalBuildYear>
+3028
+</originalBuildYear>
+
+<type>
+IS Level 2
+</type>
+
+<role>
+Fast Dogfighter
+</role>
+
+<quirks>
+atmo_flyer
+obsolete:3045
+</quirks>
+
+<weaponQuirks>
+mod_weapons:NOS:0:ISUltraAC5
+mod_weapons:LWG:0:Medium Laser
+mod_weapons:LWG:1:Medium Laser
+mod_weapons:RWG:0:Medium Laser
+mod_weapons:RWG:1:Medium Laser
+mod_weapons:AFT:0:Small Laser
+</weaponQuirks>
+
+<motion_type>
+Aerodyne
+</motion_type>
+
+<SafeThrust>
+7
+</SafeThrust>
+
+<cockpit_type>
+0
+</cockpit_type>
+
+<heatsinks>
+20
+</heatsinks>
+
+<sink_type>
+0
+</sink_type>
+
+<fuel>
+400
+</fuel>
+
+<engine_type>
+0
+</engine_type>
+
+<armor_type>
+19
+</armor_type>
+
+<armor_tech_rating>
+0
+</armor_tech_rating>
+
+<armor_tech_level>
+1
+</armor_tech_level>
+
+<armor>
+42
+31
+31
+21
+</armor>
+
+<Nose Equipment>
+ISUltraAC5
+</Nose Equipment>
+
+<Left Wing Equipment>
+Medium Laser
+Medium Laser
+</Left Wing Equipment>
+
+<Right Wing Equipment>
+Medium Laser
+Medium Laser
+</Right Wing Equipment>
+
+<Aft Equipment>
+Small Laser
+</Aft Equipment>
+
+<Wings Equipment>
+</Wings Equipment>
+
+<Fuselage Equipment>
+IS Ultra AC/5 Ammo
+</Fuselage Equipment>
+
+<source>
+XTR:SW
+</source>
+
+<tonnage>
+55.0
+</tonnage>
+
+
