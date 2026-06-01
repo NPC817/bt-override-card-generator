@@ -16,6 +16,8 @@ This application is an unofficial companion tool. It reads MegaMek MTF/BLK files
 and renders Override-format cards with live preview, bulk export, and
 configurable house rules — all matching the DFA Wargaming web app's output.
 
+The project was created with the use of Claude Code and AI Agentic Coding methods. 
+
 All credit for the Override system goes to the DFA team:
 
 | | |
@@ -28,42 +30,24 @@ All credit for the Override system goes to the DFA team:
 ## Features
 
 - **Parse MTF & BLK files** — BattleMechs, Combat Vehicles, AeroSpace Fighters, Battle Armor, and Infantry
+- **Unit Database Browser** — Search 7000+ pre-built Override units
+- **Multi-tab editing** — Work on multiple units simultaneously
 - **Live card preview** — See the Override card update as you tweak loadouts
 - **Configurable house rules** — Adjust armor divisors, heat scale, movement multiplier, and per-weapon overrides via profiles
-- **Multi-tab editing** — Work on multiple units simultaneously
-- **Weapon & equipment panels** — Search, filter, add/remove weapons and equipment with detailed stat editing
 - **TIC grouping** — Auto-groups weapons into TIC slots following Override rules
 - **Export formats** — PNG, PDF (single + multi-page), and OVR (Override JSON)
 - **Bulk import/export** — Convert entire directories of MTF/BLK files at once
-- **Unit Database Browser** — Search 100+ pre-built Override units
 - **Force import/export** — Import `.force` or MegaMek `.mul` rosters, export `.force` files
-- **Dark mode** — Toggleable light/dark theme
 - **Print support** — Print individual cards or all open tabs
-- **Check for Updates** — Notify and auto-install new releases from GitHub
-
-## Screenshots
-
-*Coming soon*
 
 ## Installation
 
-### Option 1: Download Release (Windows)
+### Download Release (Windows)
 
 1. Go to [Releases](https://github.com/NPC817/bt-override-card-generator/releases)
 2. Download the latest `BT_Override_Card_Generator_vX.Y.Z.zip`
 3. Extract to a folder of your choice
 4. Run `BTOverrideCardGenerator.exe`
-
-### Option 2: Run from Source
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate      # Windows
-pip install -r requirements.txt
-python main.py
-```
-
-**Requirements:** Python 3.10+, PyQt6, PyYAML, reportlab, Pillow
 
 ## Usage
 
