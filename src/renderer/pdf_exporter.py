@@ -49,6 +49,8 @@ def render_cards_to_printer(
     pixmaps: list[QPixmap],
     layout_cfg: tuple,
     printer,
+    show_cut_lines: bool = False,
+    card_size_inches: tuple[float, float] | None = None,
 ) -> None:
     """Paint cards onto a QPrinter device using QPainter.
 
@@ -58,8 +60,8 @@ def render_cards_to_printer(
     Uses QRectF-based drawPixmap to avoid creating device-resolution intermediate
     pixmaps that would overflow the page at high printer DPI.
     """
-    from PyQt6.QtCore import QRectF
-    from PyQt6.QtGui import QPainter
+    from PyQt6.QtCore import QRectF, Qt
+    from PyQt6.QtGui import QColor, QPainter, QPen
 
     _, cols, rows, cards_per_page = layout_cfg
 
@@ -84,18 +86,46 @@ def render_cards_to_printer(
 
         src_w = float(pixmap.width())
         src_h = float(pixmap.height())
-        scale = min(cell_w / src_w, cell_h / src_h)
-        draw_w = src_w * scale
-        draw_h = src_h * scale
-
-        x = col * cell_w + (cell_w - draw_w) / 2
-        y = row * cell_h + (cell_h - draw_h) / 2
+        cell_scale = min(cell_w / src_w, cell_h / src_h)
+        if card_size_inches is not None:
+            dpi = printer.resolution()
+            target_w = card_size_inches[0] * dpi
+            target_h = card_size_inches[1] * dpi
+            # Scale target box to fit in cell if needed
+            target_cell_scale = min(cell_w / target_w, cell_h / target_h, 1.0)
+            target_w *= target_cell_scale
+            target_h *= target_cell_scale
+            # Scale card to fit within target box (maintain aspect ratio)
+            scale = min(target_w / src_w, target_h / src_h)
+            draw_w = src_w * scale
+            draw_h = src_h * scale
+            # Center target box in cell; center card in target box
+            target_x = col * cell_w + (cell_w - target_w) / 2
+            target_y = row * cell_h + (cell_h - target_h) / 2
+            x = target_x + (target_w - draw_w) / 2
+            y = target_y + (target_h - draw_h) / 2
+            cut_rect = QRectF(target_x, target_y, target_w, target_h)
+        else:
+            scale = cell_scale
+            draw_w = src_w * scale
+            draw_h = src_h * scale
+            x = col * cell_w + (cell_w - draw_w) / 2
+            y = row * cell_h + (cell_h - draw_h) / 2
+            cut_rect = QRectF(x, y, draw_w, draw_h)
 
         painter.drawPixmap(
             QRectF(x, y, draw_w, draw_h),
             pixmap,
             QRectF(0.0, 0.0, src_w, src_h),
         )
+
+        if show_cut_lines:
+            pen = QPen(QColor(100, 100, 100))
+            pen.setStyle(Qt.PenStyle.DotLine)
+            pen.setWidthF(1.0)
+            painter.setPen(pen)
+            painter.setBrush(Qt.BrushStyle.NoBrush)
+            painter.drawRect(cut_rect)
 
     painter.end()
 

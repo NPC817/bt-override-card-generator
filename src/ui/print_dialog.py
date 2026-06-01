@@ -4,8 +4,9 @@ from __future__ import annotations
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import (
-    QComboBox, QDialog, QDialogButtonBox, QHBoxLayout,
-    QLabel, QListWidget, QListWidgetItem, QToolButton, QVBoxLayout,
+    QCheckBox, QComboBox, QDialog, QDialogButtonBox, QDoubleSpinBox,
+    QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QToolButton,
+    QVBoxLayout,
 )
 
 # (label, cols, rows, cards_per_page)
@@ -97,6 +98,36 @@ class PrintQueueDialog(QDialog):
         size_row.addWidget(self._size_combo, 1)
         root.addLayout(size_row)
 
+        # Card size
+        card_size_row = QHBoxLayout()
+        card_size_row.addWidget(QLabel("Card Size:"))
+        self._card_w_spin = QDoubleSpinBox()
+        self._card_w_spin.setRange(0.5, 20.0)
+        self._card_w_spin.setSingleStep(0.25)
+        self._card_w_spin.setDecimals(2)
+        self._card_w_spin.setSuffix(" in")
+        self._card_w_spin.setValue(6.0)
+        card_size_row.addWidget(self._card_w_spin)
+        card_size_row.addWidget(QLabel("×"))
+        self._card_h_spin = QDoubleSpinBox()
+        self._card_h_spin.setRange(0.5, 20.0)
+        self._card_h_spin.setSingleStep(0.25)
+        self._card_h_spin.setDecimals(2)
+        self._card_h_spin.setSuffix(" in")
+        self._card_h_spin.setValue(4.0)
+        card_size_row.addWidget(self._card_h_spin)
+        self._fill_check = QCheckBox("Fill")
+        self._fill_check.setChecked(True)
+        self._fill_check.toggled.connect(self._on_fill_toggled)
+        card_size_row.addWidget(self._fill_check)
+        card_size_row.addStretch()
+        root.addLayout(card_size_row)
+        self._on_fill_toggled(True)
+
+        # Cut lines toggle
+        self._cut_lines_check = QCheckBox("Show Cut Lines")
+        root.addWidget(self._cut_lines_check)
+
         # Buttons
         bb = QDialogButtonBox()
         bb.addButton("Print…", QDialogButtonBox.ButtonRole.AcceptRole)
@@ -155,6 +186,11 @@ class PrintQueueDialog(QDialog):
         self._list.insertItem(dst, item)
         self._list.setCurrentRow(dst)
 
+    def _on_fill_toggled(self, checked: bool) -> None:
+        """Disable W/H fields when Fill is checked."""
+        self._card_w_spin.setEnabled(not checked)
+        self._card_h_spin.setEnabled(not checked)
+
     # ── Print ─────────────────────────────────────────────────────────────────
 
     def _do_print(self) -> None:
@@ -198,6 +234,11 @@ class PrintQueueDialog(QDialog):
 
         preview = QPrintPreviewDialog(printer, self)
         preview.paintRequested.connect(
-            lambda p: render_cards_to_printer(pixmaps, layout_cfg, p)
+            lambda p: render_cards_to_printer(
+                pixmaps, layout_cfg, p,
+                show_cut_lines=self._cut_lines_check.isChecked(),
+                card_size_inches=None if self._fill_check.isChecked()
+                else (self._card_w_spin.value(), self._card_h_spin.value()),
+            )
         )
         preview.exec()
