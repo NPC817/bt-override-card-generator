@@ -20,6 +20,10 @@ __pycache__/
 # Old version marker
 6.0
 
+# Test files and reference data (large, not needed for distribution)
+tests/
+reference/
+
 # IDE
 .vscode/
 .idea/
