@@ -118,10 +118,14 @@ def parse_mtf(path: str) -> ParseResult:
 
         # ── Weapons section ───────────────────────────────────────────────
         elif in_weapons_section and weapons_remaining > 0:
-            # Format: "Medium Laser, Left Arm"
+            # Format: "2 Medium Laser, Left Arm"  (quantity prefix optional)
+            import re as _re
             parts = [p.strip() for p in line.split(",")]
             if len(parts) >= 2:
                 wname = parts[0]
+                # Extract leading quantity: "2 ISLRM5" → qty=2, name="ISLRM5"
+                qty_match = _re.match(r"^(\d+)\s+", wname)
+                qty = int(qty_match.group(1)) if qty_match else 1
                 loc_raw = parts[1].lower()
                 loc = _map_location(loc_raw)
                 key = normalize_weapon(wname)
@@ -130,7 +134,8 @@ def parse_mtf(path: str) -> ParseResult:
                     try:
                         DataStore.weapon(key)
                         is_os = "(OS)" in wname.upper()
-                        mech.weapons.append(UnitWeapon(weapon_key=key, location=loc, one_shot=is_os))
+                        for _ in range(qty):
+                            mech.weapons.append(UnitWeapon(weapon_key=key, location=loc, one_shot=is_os))
                     except KeyError:
                         pass  # resolves to equipment key, not a weapon
                 else:
