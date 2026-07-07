@@ -7,29 +7,856 @@ ammo:
   tech: "Mixed"
   hasLoc: true
   omit: false
-  subtypes:
-    AC: "Autocannon"
-    Gauss: "Gauss"
-    HAG: "Hyper-Assault Gauss"
-    LBX: "LB-X AC"
-    MG: "Machine Gun"
-    RAC: "Rotary AC"
-    UAC: "Ultra AC"
-    ATM: "ATM"
-    LRM: "LRM"
-    LRT: "LRT"
-    SLRM: "Streak LRM"
-    MML: "MML"
-    MRM: "MRM"
-    SRM: "SRM"
-    SRT: "SRT"
-    SSRM: "Streak SRM"
-    Narc: "Narc"
-    ArrowIV: "Arrow IV"
-    Artillery: "Artillery"
-    Flamer: "Flamer"
-    TBolt: "Thunderbolt"
-    Bomb: "Bomb"
+
+ac2_ammo:
+  name: "AC2 Ammo"
+  fullname: "AC2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AC2"
+  shots_per_ton: 45
+
+ac5_ammo:
+  name: "AC5 Ammo"
+  fullname: "AC5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AC5"
+  shots_per_ton: 20
+
+ac10_ammo:
+  name: "AC10 Ammo"
+  fullname: "AC10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AC10"
+  shots_per_ton: 10
+
+ac20_ammo:
+  name: "AC20 Ammo"
+  fullname: "AC20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AC20"
+  shots_per_ton: 5
+
+lbx2_ammo:
+  name: "LBX2 Ammo"
+  fullname: "LBX2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LBX2"
+  shots_per_ton: 45
+
+lbx5_ammo:
+  name: "LBX5 Ammo"
+  fullname: "LBX5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LBX5"
+  shots_per_ton: 20
+
+lbx10_ammo:
+  name: "LBX10 Ammo"
+  fullname: "LBX10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LBX10"
+  shots_per_ton: 10
+
+lbx20_ammo:
+  name: "LBX20 Ammo"
+  fullname: "LBX20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LBX20"
+  shots_per_ton: 5
+
+uac2_ammo:
+  name: "UAC2 Ammo"
+  fullname: "UAC2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "UAC2"
+  shots_per_ton: 45
+
+uac5_ammo:
+  name: "UAC5 Ammo"
+  fullname: "UAC5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "UAC5"
+  shots_per_ton: 20
+
+uac10_ammo:
+  name: "UAC10 Ammo"
+  fullname: "UAC10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "UAC10"
+  shots_per_ton: 10
+
+uac20_ammo:
+  name: "UAC20 Ammo"
+  fullname: "UAC20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "UAC20"
+  shots_per_ton: 5
+
+rac2_ammo:
+  name: "RAC2 Ammo"
+  fullname: "RAC2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "RAC2"
+  shots_per_ton: 45
+
+rac5_ammo:
+  name: "RAC5 Ammo"
+  fullname: "RAC5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "RAC5"
+  shots_per_ton: 20
+
+lac2_ammo:
+  name: "LAC2 Ammo"
+  fullname: "LAC2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LAC2"
+  shots_per_ton: 45
+
+lac5_ammo:
+  name: "LAC5 Ammo"
+  fullname: "LAC5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LAC5"
+  shots_per_ton: 20
+
+hvac2_ammo:
+  name: "HVAC2 Ammo"
+  fullname: "HVAC2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HVAC2"
+  shots_per_ton: 45
+
+hvac5_ammo:
+  name: "HVAC5 Ammo"
+  fullname: "HVAC5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HVAC5"
+  shots_per_ton: 20
+
+hvac10_ammo:
+  name: "HVAC10 Ammo"
+  fullname: "HVAC10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HVAC10"
+  shots_per_ton: 10
+
+lrm5_ammo:
+  name: "LRM5 Ammo"
+  fullname: "LRM5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRM5"
+  shots_per_ton: 24
+
+lrm10_ammo:
+  name: "LRM10 Ammo"
+  fullname: "LRM10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRM10"
+  shots_per_ton: 12
+
+lrm15_ammo:
+  name: "LRM15 Ammo"
+  fullname: "LRM15 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRM15"
+  shots_per_ton: 8
+
+lrm20_ammo:
+  name: "LRM20 Ammo"
+  fullname: "LRM20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRM20"
+  shots_per_ton: 6
+
+srm2_ammo:
+  name: "SRM2 Ammo"
+  fullname: "SRM2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SRM2"
+  shots_per_ton: 50
+
+srm4_ammo:
+  name: "SRM4 Ammo"
+  fullname: "SRM4 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SRM4"
+  shots_per_ton: 25
+
+srm6_ammo:
+  name: "SRM6 Ammo"
+  fullname: "SRM6 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SRM6"
+  shots_per_ton: 15
+
+ssrm2_ammo:
+  name: "SSRM2 Ammo"
+  fullname: "SSRM2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SSRM2"
+  shots_per_ton: 50
+
+ssrm4_ammo:
+  name: "SSRM4 Ammo"
+  fullname: "SSRM4 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SSRM4"
+  shots_per_ton: 25
+
+ssrm6_ammo:
+  name: "SSRM6 Ammo"
+  fullname: "SSRM6 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SSRM6"
+  shots_per_ton: 15
+
+mrm10_ammo:
+  name: "MRM10 Ammo"
+  fullname: "MRM10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MRM10"
+  shots_per_ton: 24
+
+mrm20_ammo:
+  name: "MRM20 Ammo"
+  fullname: "MRM20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MRM20"
+  shots_per_ton: 12
+
+mrm30_ammo:
+  name: "MRM30 Ammo"
+  fullname: "MRM30 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MRM30"
+  shots_per_ton: 8
+
+mrm40_ammo:
+  name: "MRM40 Ammo"
+  fullname: "MRM40 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MRM40"
+  shots_per_ton: 6
+
+mml3_ammo:
+  name: "MML3 Ammo"
+  fullname: "MML3 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MML3"
+  shots_per_ton: 40
+
+mml5_ammo:
+  name: "MML5 Ammo"
+  fullname: "MML5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MML5"
+  shots_per_ton: 24
+
+mml7_ammo:
+  name: "MML7 Ammo"
+  fullname: "MML7 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MML7"
+  shots_per_ton: 17
+
+mml9_ammo:
+  name: "MML9 Ammo"
+  fullname: "MML9 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MML9"
+  shots_per_ton: 13
+
+elrm5_ammo:
+  name: "ELRM5 Ammo"
+  fullname: "ELRM5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ELRM5"
+  shots_per_ton: 24
+
+elrm10_ammo:
+  name: "ELRM10 Ammo"
+  fullname: "ELRM10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ELRM10"
+  shots_per_ton: 12
+
+elrm15_ammo:
+  name: "ELRM15 Ammo"
+  fullname: "ELRM15 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ELRM15"
+  shots_per_ton: 8
+
+elrm20_ammo:
+  name: "ELRM20 Ammo"
+  fullname: "ELRM20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ELRM20"
+  shots_per_ton: 6
+
+slrm5_ammo:
+  name: "SLRM5 Ammo"
+  fullname: "SLRM5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SLRM5"
+  shots_per_ton: 24
+
+slrm10_ammo:
+  name: "SLRM10 Ammo"
+  fullname: "SLRM10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SLRM10"
+  shots_per_ton: 12
+
+slrm15_ammo:
+  name: "SLRM15 Ammo"
+  fullname: "SLRM15 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SLRM15"
+  shots_per_ton: 8
+
+slrm20_ammo:
+  name: "SLRM20 Ammo"
+  fullname: "SLRM20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SLRM20"
+  shots_per_ton: 6
+
+tbolt5_ammo:
+  name: "TBolt5 Ammo"
+  fullname: "TBolt5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "TBolt5"
+  shots_per_ton: 24
+
+tbolt10_ammo:
+  name: "TBolt10 Ammo"
+  fullname: "TBolt10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "TBolt10"
+  shots_per_ton: 12
+
+tbolt15_ammo:
+  name: "TBolt15 Ammo"
+  fullname: "TBolt15 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "TBolt15"
+  shots_per_ton: 8
+
+tbolt20_ammo:
+  name: "TBolt20 Ammo"
+  fullname: "TBolt20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "TBolt20"
+  shots_per_ton: 6
+
+srt2_ammo:
+  name: "SRT2 Ammo"
+  fullname: "SRT2 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SRT2"
+  shots_per_ton: 50
+
+srt4_ammo:
+  name: "SRT4 Ammo"
+  fullname: "SRT4 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SRT4"
+  shots_per_ton: 25
+
+srt6_ammo:
+  name: "SRT6 Ammo"
+  fullname: "SRT6 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "SRT6"
+  shots_per_ton: 15
+
+lrt5_ammo:
+  name: "LRT5 Ammo"
+  fullname: "LRT5 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRT5"
+  shots_per_ton: 24
+
+lrt10_ammo:
+  name: "LRT10 Ammo"
+  fullname: "LRT10 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRT10"
+  shots_per_ton: 12
+
+lrt15_ammo:
+  name: "LRT15 Ammo"
+  fullname: "LRT15 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRT15"
+  shots_per_ton: 8
+
+lrt20_ammo:
+  name: "LRT20 Ammo"
+  fullname: "LRT20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LRT20"
+  shots_per_ton: 6
+
+atm3_ammo:
+  name: "ATM3 Ammo"
+  fullname: "ATM3 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ATM3"
+  shots_per_ton: 20
+
+atm6_ammo:
+  name: "ATM6 Ammo"
+  fullname: "ATM6 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ATM6"
+  shots_per_ton: 10
+
+atm9_ammo:
+  name: "ATM9 Ammo"
+  fullname: "ATM9 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ATM9"
+  shots_per_ton: 7
+
+atm12_ammo:
+  name: "ATM12 Ammo"
+  fullname: "ATM12 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ATM12"
+  shots_per_ton: 5
+
+hag20_ammo:
+  name: "HAG20 Ammo"
+  fullname: "HAG20 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HAG20"
+  shots_per_ton: 6
+
+hag30_ammo:
+  name: "HAG30 Ammo"
+  fullname: "HAG30 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HAG30"
+  shots_per_ton: 4
+
+hag40_ammo:
+  name: "HAG40 Ammo"
+  fullname: "HAG40 Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HAG40"
+  shots_per_ton: 3
+
+narc_ammo:
+  name: "Narc Ammo"
+  fullname: "Narc Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "Narc"
+  shots_per_ton: 6
+
+inarc_ammo:
+  name: "iNarc Ammo"
+  fullname: "iNarc Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "iNarc"
+  shots_per_ton: 4
+
+gauss_ammo:
+  name: "Gauss Ammo"
+  fullname: "Gauss Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "Gauss"
+  shots_per_ton: 8
+
+lgauss_ammo:
+  name: "LGauss Ammo"
+  fullname: "LGauss Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "LGauss"
+  shots_per_ton: 16
+
+hgauss_ammo:
+  name: "HGauss Ammo"
+  fullname: "HGauss Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "HGauss"
+  shots_per_ton: 4
+
+apgauss_ammo:
+  name: "APGauss Ammo"
+  fullname: "APGauss Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "APGauss"
+  shots_per_ton: 40
+
+mg_ammo:
+  name: "MG Ammo"
+  fullname: "MG Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MG"
+  shots_per_ton: 200
+
+lmg_ammo:
+  name: "LMG Ammo"
+  fullname: "LMG Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MG"
+  shots_per_ton: 100
+
+hmg_ammo:
+  name: "HMG Ammo"
+  fullname: "HMG Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MG"
+  shots_per_ton: 100
+
+ams_ammo:
+  name: "AMS Ammo"
+  fullname: "AMS Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AMS"
+  shots_per_ton: 12
+
+arrowiv_ammo:
+  name: "Arrow IV Ammo"
+  fullname: "Arrow IV Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ArrowIV"
+  shots_per_ton: 5
+
+flamer_ammo:
+  name: "Flamer Ammo"
+  fullname: "Flamer Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "Flamer"
+  shots_per_ton: 10
+
+hflamer_ammo:
+  name: "Heavy Flamer Ammo"
+  fullname: "Heavy Flamer Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "Flamer"
+  shots_per_ton: 10
+
+plasrifle_ammo:
+  name: "Plasma Rifle Ammo"
+  fullname: "Plasma Rifle Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "PlasmaRifle"
+  shots_per_ton: 10
+
+plascannon_ammo:
+  name: "Plasma Cannon Ammo"
+  fullname: "Plasma Cannon Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "PlasmaCannon"
+  shots_per_ton: 10
+
+artillery_ammo:
+  name: "Artillery Ammo"
+  fullname: "Artillery Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "Artillery"
+  shots_per_ton: 10
+
+chemlaser_ammo:
+  name: "Chem Laser Ammo"
+  fullname: "Chem Laser Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "ChemLaser"
+  shots_per_ton: 30
+
+ihgauss_ammo:
+  name: "iHGauss Ammo"
+  fullname: "iHGauss Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "Gauss"
+  shots_per_ton: 4
+
+hrifle_ammo:
+  name: "Heavy Rifle Ammo"
+  fullname: "Heavy Rifle Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AC"
+  shots_per_ton: 6
+
+nailrivet_ammo:
+  name: "Nail/Rivet Ammo"
+  fullname: "Nail/Rivet Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "MG"
+  shots_per_ton: 200
+
+apds_ammo:
+  name: "APDS Ammo"
+  fullname: "APDS Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "AMS"
+  shots_per_ton: 12
+
+fluidgun_ammo:
+  name: "Fluid Gun Ammo"
+  fullname: "Fluid Gun Ammo"
+  tech: "Mixed"
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: "FluidGun"
+  shots_per_ton: 20
 
 ammolimited:
   name: "Ammo"

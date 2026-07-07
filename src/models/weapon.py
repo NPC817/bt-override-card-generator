@@ -34,6 +34,7 @@ class Weapon:
     useM: int = 0      # medium range damage type
     useTC: int = 0     # targeting computer compatible
     useAmmo: str = ""  # ammo category key
+    ammoPerTon: int = 0  # shots per ton of ammo (0 = untracked)
     useFCS: str = ""   # fire control: "aiv", "av", "apollo"
     useLOS: bool = False
     specials: str = ""  # comma-separated special flags
@@ -112,6 +113,7 @@ class Weapon:
             useM=int(data.get("useM", 0)),
             useTC=int(data.get("useTC", 0)),
             useAmmo=data.get("useAmmo", ""),
+            ammoPerTon=int(data.get("ammoPerTon", 0)),
             useFCS=data.get("useFCS", ""),
             useLOS=bool(data.get("useLOS", False)),
             specials=data.get("specials", ""),

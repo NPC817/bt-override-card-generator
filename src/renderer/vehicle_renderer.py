@@ -237,7 +237,7 @@ class VehicleCardRenderer(BaseCardRenderer):
         unit: CombatVehicle,
         profile: ConversionProfile,
         weapons_rows: list[dict] | None = None,
-        equipment_str: str = "",
+        equipment_items: list[dict] | None = None,
     ) -> QPixmap:
         if unit.motive_type == CombatVehicle.VTOL:
             self.SILHOUETTE_IMAGE = "vtol.png"
@@ -284,7 +284,8 @@ class VehicleCardRenderer(BaseCardRenderer):
         self._draw_weapons_table(painter, rows, has_heat=False)
 
         # Equipment
-        self._draw_equipment_text(painter, equipment_str)
+        self._draw_equipment_items(painter, equipment_items,
+                                   show_pips=profile.show_tracking_pips)
 
         # Right panel: zone labels, values, pips
         self._draw_vehicle_zones(painter, unit, profile)

@@ -2,9 +2,7 @@ from __future__ import annotations
 import logging
 import math
 from .unit import AbstractUnit
-
-def _r(v: float) -> int:
-    return int(v + 0.5)
+from ..utils.math import _r, _tmm
 
 # Standard Inner Sphere internal structure by tonnage (CT, ST, ARM, LEG, HD)
 _IS_STRUCTURE = {
@@ -26,17 +24,6 @@ _IS_STRUCTURE = {
     95:  {"CT": 30, "ST": 20, "ARM": 16, "LEG": 20, "HD": 3},
     100: {"CT": 31, "ST": 21, "ARM": 17, "LEG": 21, "HD": 3},
 }
-
-def _tmm(mp: int) -> int:
-    """Override TMM formula: double the MP then threshold (per card_gen.js)."""
-    a = 2 * mp
-    if a < 5:  return 0
-    if a < 9:  return 1
-    if a < 13: return 2
-    if a < 19: return 3
-    if a < 35: return 4
-    return 5
-
 
 class BattleMech(AbstractUnit):
     BIPED = "Biped"

@@ -14,6 +14,7 @@ from PyQt6.QtWidgets import (
 from ..models.unit import UnitEquipment
 from ..models.data_store import DataStore
 from ..models.equipment import Equipment
+from .theme import BTN_X_STYLE
 
 _LOCS = ["LA", "RA", "LL", "RL", "T", "CT", "LT", "RT", "HD", "H", "All"]
 
@@ -145,23 +146,7 @@ class EquipmentPanel(QWidget):
         # X button — remove this row
         x_btn = QPushButton("X")
         x_btn.setFixedSize(20, 20)
-        x_btn.setStyleSheet(
-            "QPushButton {"
-            "  color: #cc0000;"
-            "  font-weight: bold;"
-            "  font-size: 14px;"
-            "  border: 1px solid #cc0000;"
-            "  border-radius: 3px;"
-            "  background: transparent;"
-            "  padding: 0px;"
-            "  margin: 0px;"
-            "  padding-bottom: 2px;"
-            "}"
-            "QPushButton:hover {"
-            "  background: #cc0000;"
-            "  color: white;"
-            "}"
-        )
+        x_btn.setStyleSheet(BTN_X_STYLE)
         x_btn.clicked.connect(lambda checked=False, b=x_btn: self._remove_btn_row(b))
         x_widget = QWidget(); x_lay = QHBoxLayout(x_widget)
         x_lay.addWidget(x_btn); x_lay.setContentsMargins(0,0,0,0)

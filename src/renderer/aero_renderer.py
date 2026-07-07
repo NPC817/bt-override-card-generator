@@ -123,7 +123,7 @@ class AeroCardRenderer(BaseCardRenderer):
         unit: AeroSpaceFighter,
         profile: ConversionProfile,
         weapons_rows: list[dict] | None = None,
-        equipment_str: str = "",
+        equipment_items: list[dict] | None = None,
     ) -> QPixmap:
         canvas, painter = self._build_canvas()
 
@@ -151,7 +151,8 @@ class AeroCardRenderer(BaseCardRenderer):
         self._draw_weapons_table(painter, rows, has_heat=not is_conv)
 
         # Equipment
-        self._draw_equipment_text(painter, equipment_str)
+        self._draw_equipment_items(painter, equipment_items,
+                                   show_pips=profile.show_tracking_pips)
 
         # Right panel: zone labels + pips
         self._draw_aero_zones(painter, unit, profile)

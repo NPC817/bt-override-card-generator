@@ -15,7 +15,8 @@ from .card_renderer import (
     FS_LARGE, FS_MEDIUM,
 )
 from ..engine.conversion import ConversionEngine
-from ..models.mech import BattleMech, _tmm
+from ..models.mech import BattleMech
+from ..utils.math import _tmm
 from ..settings.profile import ConversionProfile
 
 # ── Biped layout constants (va in card_gen.js) ────────────────────────────────
@@ -353,14 +354,14 @@ class MechCardRenderer(BaseCardRenderer):
         unit: BattleMech,
         profile: ConversionProfile,
         weapons_rows: list[dict] | None = None,
-        equipment_str: str = "",
+        equipment_items: list[dict] | None = None,
     ) -> QPixmap:
         """
         Render the full card.
 
         weapons_rows: list of dicts per weapon row:
           { name, damage, heat, location, rangePB, rangeS, rangeM, rangeL, rangeX }
-        equipment_str: comma-separated equipment list for the equipment box
+        equipment_items: list of {"label", "is_ammo", "shots", ...} dicts
         """
         self.SILHOUETTE_IMAGE = "mech-qd.png" if unit.motive_type == BattleMech.QUAD else "mech-bp.png"
 
@@ -417,7 +418,8 @@ class MechCardRenderer(BaseCardRenderer):
         self._draw_weapons_table(painter, rows, has_heat=True)
 
         # Equipment
-        self._draw_equipment_text(painter, equipment_str)
+        self._draw_equipment_items(painter, equipment_items,
+                                   show_pips=profile.show_tracking_pips)
 
         # Right panel: zone labels + values + pips
         self._draw_mech_zones(painter, unit, profile)
@@ -437,12 +439,19 @@ class MechCardRenderer(BaseCardRenderer):
     def _draw_mech_zones(
         self, painter: QPainter, unit: BattleMech, profile: ConversionProfile
     ) -> None:
+        self._draw_mech_zones_impl(painter, unit, profile, _BIPED_LABELS, _BIPED_PIPS)
+
+    def _draw_mech_zones_impl(
+        self, painter: QPainter, unit: BattleMech, profile: ConversionProfile,
+        labels: dict, pips: dict,
+    ) -> None:
+        """Shared implementation for biped and quad zone rendering."""
         div = profile.mech_armor_divisor
         stroke, fill, sw, slice_mode = pip_colors(unit)
 
-        # Two-pass render: pips first so zone labels appear on top
-        for zone, ldata in _BIPED_LABELS.items():
-            pip_cfg = _BIPED_PIPS.get(zone, {})
+        # Pass 1: pips
+        for zone, ldata in labels.items():
+            pip_cfg = pips.get(zone, {})
             armor_pips = pip_cfg.get("armor")
             struct_pips = pip_cfg.get("structure")
 
@@ -452,12 +461,12 @@ class MechCardRenderer(BaseCardRenderer):
 
             if struct_pips and zone != "TR":
                 s_val = unit.destiny_structure(zone)
-                draw_pips(painter, struct_pips, s_val, "red", "white", 3, struct_slice=unit.is_equipped_with("reinforced"))
+                draw_pips(painter, struct_pips, s_val, "red", "white", 3,
+                          struct_slice=unit.is_equipped_with("reinforced"))
 
-        for zone, ldata in _BIPED_LABELS.items():
-            lx, ly = ldata["x"], ldata["y"]
-            a_val = unit.destiny_armor(zone, div)
-            self._draw_zone_label(painter, lx, ly, ldata["text"])
+        # Pass 2: zone labels on top
+        for zone, ldata in labels.items():
+            self._draw_zone_label(painter, ldata["x"], ldata["y"], ldata["text"])
 
 
 class QuadCardRenderer(MechCardRenderer):
@@ -467,22 +476,4 @@ class QuadCardRenderer(MechCardRenderer):
     def _draw_mech_zones(
         self, painter: QPainter, unit: BattleMech, profile: ConversionProfile
     ) -> None:
-        div = profile.mech_armor_divisor
-        stroke, fill, sw, slice_mode = pip_colors(unit)
-
-        # Two-pass: pips first so zone labels appear on top
-        for zone, ldata in _QUAD_LABELS.items():
-            pip_cfg = _QUAD_PIPS.get(zone, {})
-            armor_pips = pip_cfg.get("armor")
-            struct_pips = pip_cfg.get("structure")
-
-            a_val = unit.destiny_armor(zone, div)
-            if armor_pips:
-                draw_pips(painter, armor_pips, a_val, stroke, fill, sw, slice_mode)
-
-            if struct_pips and zone != "TR":
-                s_val = unit.destiny_structure(zone)
-                draw_pips(painter, struct_pips, s_val, "red", "white", 3, struct_slice=unit.is_equipped_with("reinforced"))
-
-        for zone, ldata in _QUAD_LABELS.items():
-            self._draw_zone_label(painter, ldata["x"], ldata["y"], ldata["text"])
+        self._draw_mech_zones_impl(painter, unit, profile, _QUAD_LABELS, _QUAD_PIPS)

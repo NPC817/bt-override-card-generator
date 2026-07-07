@@ -1,20 +1,29 @@
 # -*- mode: python ; coding: utf-8 -*-
+from pathlib import Path
 
 block_cipher = None
+
+# -- Collect data files dynamically -------------------------------------------
+_datas = []
+
+# data/ — YAML, JSON, ZIP
+for _pat in ['*.yaml', '*.json', '*.zip']:
+    for _p in Path('data').glob(_pat):
+        _datas.append((str(_p), 'data'))
+
+# fonts/ — all font files
+for _p in Path('fonts').iterdir():
+    if _p.is_file():
+        _datas.append((str(_p), 'fonts'))
+
+# images/ — entire directory
+_datas.append(('images', 'images'))
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[
-        ('data/weapons.yaml',               'data'),
-        ('data/equipment.yaml',             'data'),
-        ('data/units.zip',                  'data'),
-        ('fonts/falcon-regular-webfont.ttf', 'fonts'),
-        ('fonts/falcon-bold-webfont.ttf',    'fonts'),
-        ('fonts/vegas-regular-webfont.ttf',  'fonts'),
-        ('images',                          'images'),
-    ],
+    datas=_datas,
     hiddenimports=[
         'PyQt6.sip',
         'PyQt6.QtNetwork',

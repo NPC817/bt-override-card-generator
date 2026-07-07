@@ -79,7 +79,7 @@ class InfantryCardRenderer(BaseCardRenderer):
         unit: Infantry,
         profile: ConversionProfile,
         weapons_rows: list[dict] | None = None,
-        equipment_str: str = "",
+        equipment_items: list[dict] | None = None,
     ) -> QPixmap:
         canvas, painter = self._build_canvas()
 

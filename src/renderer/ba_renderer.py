@@ -5,6 +5,7 @@ Layout from card_gen.js `Ia` object (lines 14295-14529) and `Wa` component
 (lines 14593-14979).
 """
 from __future__ import annotations
+import math
 import textwrap
 
 from PyQt6.QtCore import Qt
@@ -86,7 +87,7 @@ class BattleArmorRenderer(BaseCardRenderer):
         unit: BattleArmor,
         profile: ConversionProfile,
         weapons_rows: list[dict] | None = None,
-        equipment_str: str = "",
+        equipment_items: list[dict] | None = None,
     ) -> QPixmap:
         canvas, painter = self._build_canvas()
 
@@ -98,7 +99,7 @@ class BattleArmorRenderer(BaseCardRenderer):
             self._draw_ba_checkboxes(painter, unit)
 
         # Equipment
-        self._draw_ba_equipment(painter, equipment_str)
+        self._draw_ba_equipment(painter, equipment_items)
 
         # Troopers & Weapons section
         self._draw_ba_troopers(painter, unit)
@@ -130,12 +131,17 @@ class BattleArmorRenderer(BaseCardRenderer):
 
     # ── Equipment ───────────────────────────────────────────────────────────
 
-    def _draw_ba_equipment(self, painter: QPainter, equipment_str: str) -> None:
+    def _draw_ba_equipment(
+        self, painter: QPainter, items: list[dict] | None,
+    ) -> None:
         draw_text(painter, _BA["equipmentLabel"]["x"], _BA["equipmentLabel"]["y"],
                   "Equipment:", size=FS_BA_LABEL, bold=True)
-        if equipment_str:
-            # Wrap at ~26 chars to stay within left panel (~310px at 28pt)
-            wrapped = textwrap.fill(equipment_str, width=65)
+        if items:
+            # Build text from non-ammo items, then ammo items as a simple list
+            non_ammo = [it["label"] for it in items if not it.get("is_ammo")]
+            ammo = [it for it in items if it.get("is_ammo")]
+            parts = non_ammo + [it["label"] for it in ammo]
+            wrapped = textwrap.fill(", ".join(parts), width=65)
             draw_text(painter, _BA["equipment"]["x"], _BA["equipment"]["y"],
                       wrapped, size=FS_BA_SMALL)
 
@@ -184,7 +190,7 @@ class BattleArmorRenderer(BaseCardRenderer):
             # Reinforced structure slice
             if unit.is_equipped_with("reinforced"):
                 c2 = PIP_RADIUS / 2
-                u = PIP_RADIUS * 1.7320508075688772 / 2
+                u = PIP_RADIUS * math.sqrt(3) / 2
                 painter.setPen(QPen(QColor("red"), 2))
                 painter.drawLine(
                     round(pip_x - c2), round(pip_y - u),

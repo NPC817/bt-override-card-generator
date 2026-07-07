@@ -2,11 +2,7 @@ from __future__ import annotations
 import math
 import re
 from .unit import AbstractUnit
-from .mech import _tmm
-
-
-def _r(v: float) -> int:
-    return int(v + 0.5)
+from ..utils.math import _r, _tmm
 
 
 class BattleArmor(AbstractUnit):

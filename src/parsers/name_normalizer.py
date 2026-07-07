@@ -354,26 +354,28 @@ _AMMO_PREFIXES: list[tuple[str, str, str]] = [
     ("ISStreakLRM", "ammo", "SLRM"),         ("CLStreakLRM", "ammo", "SLRM"),
     ("BA-SRM", "ammo", "SRM"),
     ("IS Ammo MRM-", "ammo", "MRM"),
-    ("IS Ammo Narc", "ammo", "Narc"),
-    ("IS Ammo Gauss Rifle", "ammo", "Gauss"), ("Clan Ammo Gauss", "ammo", "Gauss"),
-    ("IS Gauss Ammo", "ammo", "Gauss"),       ("ISGauss Ammo", "ammo", "Gauss"),
-    ("IS Light Gauss Ammo", "ammo", "Gauss"), ("ISLightGauss Ammo", "ammo", "Gauss"),
-    ("Clan Gauss Ammo", "ammo", "Gauss"),
-    ("IS Ammo MG", "ammo", "MG"),             ("Clan Ammo MG", "ammo", "MG"),
-    ("IS Machine Gun Ammo", "ammo", "MG"),    ("Clan Machine Gun Ammo", "ammo", "MG"),
-    ("ISMG Ammo", "ammo", "MG"),
-    ("IS Light Machine Gun Ammo", "ammo", "MG"), ("Clan Light Machine Gun Ammo", "ammo", "MG"),
-    ("ISLightMG Ammo", "ammo", "MG"),
-    ("IS Ammo Flamer", "ammo", "Flamer"),     ("IS Vehicle Flamer Ammo", "ammo", "Flamer"),
-    ("Ammo Vehicle Flamer", "ammo", "Flamer"),
-    ("IS Ammo Arrow IV", "ammo", "ArrowIV"),  ("ISArrowIV Ammo", "ammo", "ArrowIV"),
-    ("ISArrowIV Homing Ammo", "ammo", "ArrowIV"),
+    ("IS Ammo Narc", "narc_ammo", "Narc"),
+    ("IS Ammo Gauss Rifle", "gauss_ammo", "Gauss"), ("Clan Ammo Gauss", "gauss_ammo", "Gauss"),
+    ("IS Gauss Ammo", "gauss_ammo", "Gauss"),       ("ISGauss Ammo", "gauss_ammo", "Gauss"),
+    ("IS Light Gauss Ammo", "lgauss_ammo", "Gauss"), ("ISLightGauss Ammo", "lgauss_ammo", "Gauss"),
+    ("Clan Gauss Ammo", "gauss_ammo", "Gauss"),
+    ("IS Ammo MG", "mg_ammo", "MG"),             ("Clan Ammo MG", "mg_ammo", "MG"),
+    ("IS Machine Gun Ammo", "mg_ammo", "MG"),    ("Clan Machine Gun Ammo", "mg_ammo", "MG"),
+    ("ISMG Ammo", "mg_ammo", "MG"),
+    ("IS Light Machine Gun Ammo", "lmg_ammo", "MG"), ("Clan Light Machine Gun Ammo", "lmg_ammo", "MG"),
+    ("ISLightMG Ammo", "lmg_ammo", "MG"),
+    ("IS Ammo Flamer", "flamer_ammo", "Flamer"),     ("IS Vehicle Flamer Ammo", "flamer_ammo", "Flamer"),
+    ("Ammo Vehicle Flamer", "flamer_ammo", "Flamer"),
+    ("IS Ammo Arrow IV", "arrowiv_ammo", "ArrowIV"),  ("ISArrowIV Ammo", "arrowiv_ammo", "ArrowIV"),
+    ("IS Arrow IV Ammo", "arrowiv_ammo", "ArrowIV"),
+    ("ISArrowIV Homing Ammo", "arrowiv_ammo", "ArrowIV"),
     ("IS Ammo Thunderbolt", "ammo", "TBolt"),
     ("IS Ammo ATM", "ammo", "ATM"),           ("Clan Ammo ATM", "ammo", "ATM"),
     ("CLATM", "ammo", "ATM"),
     ("IS Ammo LRT-", "ammo", "LRT"),          ("Clan Ammo LRT-", "ammo", "LRT"),
     ("IS Ammo SRT-", "ammo", "SRT"),          ("Clan Ammo SRT-", "ammo", "SRT"),
     ("IS Ammo SRTorpedo-", "ammo", "SRT"),    ("IS Ammo LRTorpedo-", "ammo", "LRT"),
+    ("Clan Ammo LRTorpedo-", "ammo", "LRT"), ("Clan Ammo SRTorpedo-", "ammo", "SRT"),
     ("IS Ammo MML-", "ammo", "MML"),          ("Clan Ammo MML-", "ammo", "MML"),
     ("ISMML", "ammo", "MML"),
     ("IS Ammo iATM-", "ammo", "iATM"),        ("Clan Ammo iATM-", "ammo", "iATM"),
@@ -387,41 +389,43 @@ _AMMO_PREFIXES: list[tuple[str, str, str]] = [
     ("IS LB 20-X AC Ammo", "ammo", "LBX"),    ("IS LB 20-X Cluster Ammo", "ammo", "LBX"),
     ("Clan LB 10-X AC Ammo", "ammo", "LBX"),  ("Clan LB 10-X Cluster Ammo", "ammo", "LBX"),
     ("ISLBXAC10 Ammo", "ammo", "LBX"),        ("ISLBXAC10 CL Ammo", "ammo", "LBX"),
-    ("ISAMS Ammo", "ammo", "AMSAmmo"),
-    ("ISMagshotGR Ammo", "ammo", "Gauss"),
+    ("ISAMS Ammo", "ams_ammo", "AMSAmmo"),
+    ("IS AMS Ammo", "ams_ammo", "AMSAmmo"),
+    ("CLAMS Ammo", "ams_ammo", "AMSAmmo"),
+    ("ISMagshotGR Ammo", "gauss_ammo", "Gauss"),
     ("IS Ammo LAC/5", "ammo", "AC"),
-    ("CLLongTomCannonAmmo", "ammo", "Artillery"),
-    ("CLAPGaussRifle Ammo", "ammo", "Gauss"),
-    ("CLMediumChemLaserAmmo", "ammo", "ChemLaser"),
+    ("CLLongTomCannonAmmo", "artillery_ammo", "Artillery"),
+    ("CLAPGaussRifle Ammo", "apgauss_ammo", "Gauss"),
+    ("CLMediumChemLaserAmmo", "chemlaser_ammo", "ChemLaser"),
     ("IS Ammo ELRM-", "ammo", "ELRM"),
     ("IS Ammo Enhanced LRM-", "ammo", "LRM"),
     ("IS Ammo Extended LRM-", "ammo", "ELRM"),
     # Arrow IV (compact no-space forms)
-    ("ISArrowIVAmmo", "ammo", "ArrowIV"),
-    ("CLArrowIVAmmo", "ammo", "ArrowIV"),
-    ("ISArrowIVHomingAmmo", "ammo", "ArrowIV"),
-    ("CLArrowIVHomingAmmo", "ammo", "ArrowIV"),
-    ("ISArrowIVClusterAmmo", "ammo", "ArrowIV"),
-    ("CLArrowIV Homing Ammo", "ammo", "ArrowIV"),
+    ("ISArrowIVAmmo", "arrowiv_ammo", "ArrowIV"),
+    ("CLArrowIVAmmo", "arrowiv_ammo", "ArrowIV"),
+    ("ISArrowIVHomingAmmo", "arrowiv_ammo", "ArrowIV"),
+    ("CLArrowIVHomingAmmo", "arrowiv_ammo", "ArrowIV"),
+    ("ISArrowIVClusterAmmo", "arrowiv_ammo", "ArrowIV"),
+    ("CLArrowIV Homing Ammo", "arrowiv_ammo", "ArrowIV"),
     # Artillery (compact no-space forms)
-    ("ISThumperAmmo", "ammo", "Artillery"),
-    ("CLThumperAmmo", "ammo", "Artillery"),
-    ("ISSniperAmmo", "ammo", "Artillery"),
-    ("CLSniperAmmo", "ammo", "Artillery"),
-    ("ISLongTomAmmo", "ammo", "Artillery"),
-    ("ISLongTomCannonAmmo", "ammo", "Artillery"),
-    ("ISThumperCannonAmmo", "ammo", "Artillery"),
-    ("ISSniperCannonAmmo", "ammo", "Artillery"),
-    ("ISBATubeArtilleryAmmo", "ammo", "Artillery"),
-    ("ISArmorPiercingMortarAmmo", "ammo", "Artillery"),
+    ("ISThumperAmmo", "artillery_ammo", "Artillery"),
+    ("CLThumperAmmo", "artillery_ammo", "Artillery"),
+    ("ISSniperAmmo", "artillery_ammo", "Artillery"),
+    ("CLSniperAmmo", "artillery_ammo", "Artillery"),
+    ("ISLongTomAmmo", "artillery_ammo", "Artillery"),
+    ("ISLongTomCannonAmmo", "artillery_ammo", "Artillery"),
+    ("ISThumperCannonAmmo", "artillery_ammo", "Artillery"),
+    ("ISSniperCannonAmmo", "artillery_ammo", "Artillery"),
+    ("ISBATubeArtilleryAmmo", "artillery_ammo", "Artillery"),
+    ("ISArmorPiercingMortarAmmo", "artillery_ammo", "Artillery"),
     # HAG without IS/CL prefix
     ("HAG/", "ammo", "HAG"),
     ("Hyper-Assault Gauss", "ammo", "HAG"),
-    # Plasma (no matching subtype in YAML — map to AC as generic ballistic)
-    ("ISPlasmaRifleAmmo", "ammo", "AC"),
-    ("CLPlasmaCannonAmmo", "ammo", "AC"),
+    # Plasma
+    ("ISPlasmaRifleAmmo", "plasrifle_ammo", "PlasmaRifle"),
+    ("CLPlasmaCannonAmmo", "plascannon_ammo", "PlasmaCannon"),
     # Silver Bullet Gauss
-    ("Silver Bullet Gauss Ammo", "ammo", "Gauss"),
+    ("Silver Bullet Gauss Ammo", "gauss_ammo", "Gauss"),
     # LBX CL Ammo variants
     ("ISLBXAC20 CL Ammo", "ammo", "LBX"),
     ("ISLBXAC10 CL Ammo", "ammo", "LBX"),
@@ -431,7 +435,7 @@ _AMMO_PREFIXES: list[tuple[str, str, str]] = [
     ("CLLBXAC10 CL Ammo", "ammo", "LBX"),
     ("CLLBXAC5 CL Ammo", "ammo", "LBX"),
     # Chem laser
-    ("CLLargeChemLaserAmmo", "ammo", "ChemLaser"),
+    ("CLLargeChemLaserAmmo", "chemlaser_ammo", "ChemLaser"),
     # SRM/LRM without IS/CL prefix
     ("SRM1 Ammo", "ammo", "SRM"),
     ("SRM2 Ammo", "ammo", "SRM"),
@@ -456,8 +460,8 @@ _AMMO_PREFIXES: list[tuple[str, str, str]] = [
     # Taser ammo
     ("Taser Ammo", "ammo", "AC"),
     # Heavy flamer
-    ("CL Heavy Flamer Ammo", "ammo", "Flamer"),
-    ("CLHeavyFlamer Ammo", "ammo", "Flamer"),
+    ("CL Heavy Flamer Ammo", "hflamer_ammo", "Flamer"),
+    ("CLHeavyFlamer Ammo", "hflamer_ammo", "Flamer"),
 ]
 
 # ── JS-style alias map (card_gen.js:14663-15337) ────────────────────────────
@@ -1067,17 +1071,48 @@ _AMMO_EXACT: dict[str, tuple[str, str]] = {
 }
 
 
+def _extract_ammo_variant(subtype: str, name: str, prefix: str) -> str | None:
+    """Extract a weapon-size digit from an ammo name after prefix match.
+
+    Returns e.g. "20", "10", "6" or None if no size digit found.
+    """
+    # Try the remainder after the prefix
+    if name.startswith(prefix):
+        remainder = name[len(prefix):].strip()
+    else:
+        cleaned = _clean_name(name)
+        if cleaned.startswith(prefix):
+            remainder = cleaned[len(prefix):].strip()
+        else:
+            remainder = ""
+    # Search for digits in the remainder
+    m = re.search(r'(\d+)', remainder)
+    if m:
+        return m.group(1)
+    # Search for digits in the prefix itself (handles "SRM6 Ammo" style)
+    m = re.search(r'(\d+)', prefix)
+    if m:
+        return m.group(1)
+    return None
+
+
 def normalize_ammo(megamek_name: str) -> tuple[str, str] | None:
-    """Return (equipment_key, subtype) if this is an ammo entry, else None."""
+    """Return (equipment_key, subtype) if this is an ammo entry, else None.
+
+    equipment_key is weapon-specific when a size digit can be extracted
+    (e.g. "lrm20_ammo", "ac5_ammo"), or generic "ammo" for untracked types.
+    """
     name = megamek_name.strip()
     if not name:
         return None
     # Exact match for non-"ammo"-suffix ammo items (Narc Pods etc.)
     cleaned_for_exact = _clean_name(name)
     if name in _AMMO_EXACT:
-        return _AMMO_EXACT[name]
+        eq_key, subtype = _AMMO_EXACT[name]
+        return eq_key, subtype
     if cleaned_for_exact in _AMMO_EXACT:
-        return _AMMO_EXACT[cleaned_for_exact]
+        eq_key, subtype = _AMMO_EXACT[cleaned_for_exact]
+        return eq_key, subtype
     if "ammo" not in name.lower():
         return None
     # Strip suffixes that block prefix matching
@@ -1085,12 +1120,24 @@ def normalize_ammo(megamek_name: str) -> tuple[str, str] | None:
     # 1. Prefix table
     for prefix, eq_key, subtype in _AMMO_PREFIXES:
         if name.startswith(prefix) or cleaned.startswith(prefix):
+            size_digit = _extract_ammo_variant(subtype, name, prefix)
+            if size_digit:
+                eq_key = f"{subtype.lower()}{size_digit}_ammo"
             return eq_key, subtype
     # 2. Regex fallback
     for pattern, eq_key, _subtype in _AMMO_REGEXES:
         m = re.search(pattern, name, re.IGNORECASE)
         if m:
             raw_caliber = m.group(1).strip()
-            subtype = _resolve_ammo_subtype(raw_caliber) or raw_caliber.upper()
+            # Strip trailing digits for subtype lookup (handles "MRM 20" → "MRM")
+            caliber_no_digit = re.sub(r'\s*\d+$', '', raw_caliber).strip()
+            subtype = (_resolve_ammo_subtype(raw_caliber)
+                       or _resolve_ammo_subtype(caliber_no_digit)
+                       or raw_caliber.upper())
+            # Extract size digit and build eq_key, stripping any digit from subtype
+            digit_m = re.search(r'(\d+)', raw_caliber)
+            subtype_clean = re.sub(r'[\s\d]+', '', subtype)
+            if digit_m:
+                eq_key = f"{subtype_clean.lower()}{digit_m.group(1)}_ammo"
             return eq_key, subtype
     return None

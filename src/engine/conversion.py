@@ -1,12 +1,9 @@
 from __future__ import annotations
+import dataclasses
 import math
 from ..models.weapon import Weapon
 from ..settings.profile import ConversionProfile
-
-
-def _r(v: float) -> int:
-    """Round half-up (0.5 always rounds up), avoiding Python's banker's round."""
-    return int(v + 0.5)
+from ..utils.math import _r
 
 
 class ConversionEngine:
@@ -76,7 +73,6 @@ class ConversionEngine:
         overrides = self.profile.weapon_overrides.get(weapon.key, {})
         if not overrides:
             return weapon
-        import dataclasses
         fields = {f.name for f in dataclasses.fields(weapon)}
         updates = {k: v for k, v in overrides.items() if k in fields}
         return dataclasses.replace(weapon, **updates)

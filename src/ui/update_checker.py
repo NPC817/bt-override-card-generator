@@ -441,7 +441,12 @@ powershell -Command "Expand-Archive -Path '%ZIP%' -DestinationPath '%TEMPDIR%' -
 if errorlevel 1 goto cleanup
 
 echo Installing update...
-robocopy "%TEMPDIR%\BT_Override_Card_Generator" "%APPDIR%" /E /IS /IT /NP
+REM Try folder-in-zip structure first (current builds), then legacy flat-zip
+if exist "%TEMPDIR%\BT_Override_Card_Generator" (
+    robocopy "%TEMPDIR%\BT_Override_Card_Generator" "%APPDIR%" /E /IS /IT /NP
+) else (
+    robocopy "%TEMPDIR%" "%APPDIR%" /E /IS /IT /NP
+)
 if errorlevel 8 goto cleanup
 
 echo.

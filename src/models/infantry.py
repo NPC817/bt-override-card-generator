@@ -1,6 +1,7 @@
 from __future__ import annotations
 import math
 from .unit import AbstractUnit
+from ..utils.math import _tmm
 
 
 class Infantry(AbstractUnit):
@@ -45,16 +46,6 @@ class Infantry(AbstractUnit):
     def _js_round(x: float) -> int:
         """Replicate JS Math.round (round-half-up, unlike Python banker's round)."""
         return int(math.floor(x + 0.5))
-
-    @staticmethod
-    def _tmm(mp: int) -> int:
-        a = 2 * mp
-        if a < 5:  return 0
-        if a < 9:  return 1
-        if a < 13: return 2
-        if a < 19: return 3
-        if a < 35: return 4
-        return 5
 
     # ── Computed properties ───────────────────────────────────────────────────
 
@@ -113,9 +104,9 @@ class Infantry(AbstractUnit):
 
     @property
     def destiny_tmm(self) -> str:
-        result = f"{self._tmm(self.walk_mp)} / {self._tmm(self.run_mp)}"
+        result = f"{_tmm(self.walk_mp)} / {_tmm(self.run_mp)}"
         if self.jump_mp:
-            result += f" / {self._tmm(self.jump_mp) + 1}"
+            result += f" / {_tmm(self.jump_mp) + 1}"
         return result
 
     # ── Damage calculation (ported from card_gen.js weaponDamage) ─────────────

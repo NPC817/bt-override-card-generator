@@ -2,6 +2,44 @@ from PyQt6.QtCore import QSettings
 from PyQt6.QtGui import QPalette, QColor
 from PyQt6.QtWidgets import QApplication
 
+# Shared button stylesheets for action buttons in table rows
+BTN_DUP_STYLE = (
+    "QPushButton {"
+    "  color: #00aa00;"
+    "  font-weight: bold;"
+    "  font-size: 18px;"
+    "  border: 1px solid #00aa00;"
+    "  border-radius: 3px;"
+    "  background: transparent;"
+    "  padding: 0px;"
+    "  margin: 0px;"
+    "  padding-bottom: 5px;"
+    "  padding-left: 0.5px;"
+    "}"
+    "QPushButton:hover {"
+    "  background: #00aa00;"
+    "  color: white;"
+    "}"
+)
+
+BTN_X_STYLE = (
+    "QPushButton {"
+    "  color: #cc0000;"
+    "  font-weight: bold;"
+    "  font-size: 14px;"
+    "  border: 1px solid #cc0000;"
+    "  border-radius: 3px;"
+    "  background: transparent;"
+    "  padding: 0px;"
+    "  margin: 0px;"
+    "  padding-bottom: 2px;"
+    "}"
+    "QPushButton:hover {"
+    "  background: #cc0000;"
+    "  color: white;"
+    "}"
+)
+
 
 class ThemeManager:
     """Singleton theme manager. Persists dark/light preference via QSettings."""

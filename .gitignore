@@ -14,6 +14,9 @@ __pycache__/
 *.pyd
 .pytest_cache/
 
+# Build-time generated files
+version_metadata.txt
+
 # Editor temp files
 *.tmp.*
 

@@ -341,12 +341,8 @@ class TicGroup:
             shift_m_sum += w.shiftM
         return (use_var_c, hag_base, damage_m_sum, damage_adj_sum, shift_m_sum, use_m)
 
-    @property
-    def damage_str(self) -> str:
-        """Combined damage display for all weapons in this TIC group."""
-        if not self.weapons:
-            return "—"
-
+    def _compute_damage(self, return_float: bool = False):
+        """Shared damage computation for damage_str and sort_damage."""
         # Variable damage (Gauss, HAG)
         if self._all(lambda r: r.weapon.has_special("var")):
             use_var_c, hag_base, damage_m_sum, damage_adj_sum, shift_m_sum, use_m = self._var_damage_parts()
@@ -362,6 +358,7 @@ class TicGroup:
                 use_c=use_var_c,
                 hag_base=hag_base,
                 use_m_val=use_m if use_m > 0 else None,
+                return_float=return_float,
             )
 
         # Missile weapons (SRM, LRM, ATM, ...)
@@ -380,6 +377,7 @@ class TicGroup:
                 damage_adj=sum(r.weapon.damageAdj for r in mws),
                 shift_m=sum(r.weapon.shiftM for r in mws),
                 use_m_val=use_m,
+                return_float=return_float,
             )
 
         # Cluster weapons (LB-X ACs)
@@ -388,6 +386,7 @@ class TicGroup:
             return _format_damage_tic(
                 total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
                 use_c=total_use_c,
+                return_float=return_float,
             )
 
         # Heat weapons (Flamers)
@@ -396,71 +395,28 @@ class TicGroup:
             return _format_damage_tic(
                 total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
                 use_h=total_use_h,
+                return_float=return_float,
             )
 
         # Standard
         return _format_damage_tic(
             total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
+            return_float=return_float,
         )
+
+    @property
+    def damage_str(self) -> str:
+        """Combined damage display for all weapons in this TIC group."""
+        if not self.weapons:
+            return "—"
+        return self._compute_damage(return_float=False)
 
     @property
     def sort_damage(self) -> float:
         """Max Override damage value for sorting TICs high-to-low."""
         if not self.weapons:
             return 0.0
-
-        # Variable damage (Gauss, HAG) — max of the three range brackets
-        if self._all(lambda r: r.weapon.has_special("var")):
-            use_var_c, hag_base, damage_m_sum, damage_adj_sum, shift_m_sum, use_m = self._var_damage_parts()
-            return _format_damage_tic(
-                total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
-                is_var=True,
-                var_pbs=sum(r.weapon.varPBSdamage for r in self.weapons),
-                var_m=sum(r.weapon.varMdamage for r in self.weapons),
-                var_lx=sum(r.weapon.varLXdamage for r in self.weapons),
-                damage_m=damage_m_sum,
-                damage_adj=damage_adj_sum,
-                shift_m=shift_m_sum,
-                use_c=use_var_c,
-                hag_base=hag_base,
-                use_m_val=use_m if use_m > 0 else None,
-                return_float=True,
-            )
-
-        # Missile weapons — use max displayed damage
-        if self.damage_m > 0:
-            mws = [r for r in self.weapons if r.weapon.damageM > 0 and not r.weapon.has_special("var")]
-            return _format_damage_tic(
-                total_d=sum(r.weapon.damage_value(r.tonnage) for r in mws),
-                damage_m=self.damage_m,
-                damage_adj=sum(r.weapon.damageAdj for r in mws),
-                shift_m=sum(r.weapon.shiftM for r in mws),
-                return_float=True,
-            )
-
-        # Cluster weapons
-        total_use_c = sum(int(r.weapon.useC) for r in self.weapons if r.weapon.useC)
-        if total_use_c > 0:
-            return _format_damage_tic(
-                total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
-                use_c=total_use_c,
-                return_float=True,
-            )
-
-        # Heat weapons
-        total_use_h = sum(int(r.weapon.useH) for r in self.weapons if r.weapon.useH)
-        if total_use_h > 0:
-            return _format_damage_tic(
-                total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
-                use_h=total_use_h,
-                return_float=True,
-            )
-
-        # Standard
-        return _format_damage_tic(
-            total_d=sum(r.weapon.damage_value(r.tonnage) for r in self.weapons),
-            return_float=True,
-        )
+        return self._compute_damage(return_float=True)
 
 
 # ── Scoring ───────────────────────────────────────────────────────────────────
@@ -823,6 +779,78 @@ def _format_locations(locations: list[str]) -> str:
     return ", ".join(parts)
 
 
+def _build_tic_name(rws: list[ResolvedWeapon]) -> tuple[str, str]:
+    """Build combined weapon name string and ammo type for a TIC group.
+
+    Returns (combined_name, ammo_type).
+    """
+    # Count weapons and track per-name flags
+    name_counts: dict[str, int] = {}
+    name_ai: dict[str, bool] = {}
+    name_os: dict[str, bool] = {}
+    name_rf: dict[str, bool] = {}
+    name_tc: dict[str, bool] = {}
+    name_fcs: dict[str, str | None] = {}
+    for rw in rws:
+        n = rw.weapon.name
+        name_counts[n] = name_counts.get(n, 0) + 1
+        if rw.weapon.has_special("ai"):
+            name_ai[n] = True
+        if rw.one_shot or rw.weapon.has_special("os"):
+            name_os[n] = True
+        if int(rw.weapon.useR or 0) > 0:
+            name_rf[n] = True
+        if rw.tc:
+            name_tc[n] = True
+        if rw.fcs:
+            name_fcs[n] = rw.fcs
+
+    name_parts = []
+    for n, cnt in name_counts.items():
+        suffix = ""
+        if name_fcs.get(n) == "aiv":
+            suffix += " (AIV)"
+        elif name_fcs.get(n) == "av":
+            suffix += " (AV)"
+        if name_rf.get(n):
+            suffix += " (RF)"
+        if name_ai.get(n):
+            suffix += " (AI)"
+        if name_os.get(n):
+            suffix += " (OS)"
+        if name_tc.get(n):
+            suffix += " (TC)"
+        name_parts.append(
+            f"×{cnt} {n}{suffix}" if cnt > 1 else f"{n}{suffix}"
+        )
+
+    combined_name = ", ".join(name_parts)
+    ammo = _group_ammo_type(rws)
+    if ammo in _AMMO_SUFFIX:
+        combined_name += _AMMO_SUFFIX[ammo]
+
+    return combined_name, ammo
+
+
+def _build_tic_damage(rws: list[ResolvedWeapon], ammo: str, group: TicGroup) -> str:
+    """Compute damage string for a TIC group, handling Flechette special case."""
+    if ammo != "Flechette":
+        return group.damage_str
+
+    flechette_total = sum(
+        math.floor(rw.weapon.damage_value(rw.tonnage) / 2)
+        for rw in rws
+    )
+    flechette_override = math.ceil(flechette_total / 3)
+    standard_override = math.ceil(
+        sum(rw.weapon.damage_value(rw.tonnage) for rw in rws) / 3
+    )
+    ai_bonus = standard_override - flechette_override
+    if ai_bonus > 0:
+        return f"{flechette_override} ({ai_bonus} + AI)"
+    return str(flechette_override)
+
+
 def build_tic_rows(resolved: list[ResolvedWeapon], heat_scale_max: int = 5) -> list[dict]:
     """Produce one row dict per occupied TIC slot (combined damage, heat, locations)."""
     tic_map: dict[int, list[ResolvedWeapon]] = {}
@@ -840,76 +868,14 @@ def build_tic_rows(resolved: list[ResolvedWeapon], heat_scale_max: int = 5) -> l
     tic_groups.sort(key=lambda x: (-x[0], x[1]))
 
     rows = []
+    divisor = (255 - heat_scale_max) / (7 * heat_scale_max + 15)
+
     for _sort_dmg, _tic_num, group, rws in tic_groups:
-
-        # Name: count identical weapon names, append (AIV)/(AV)/(RF)/(AI)/(OS)/(TC) per-weapon
-        name_counts: dict[str, int] = {}
-        name_ai: dict[str, bool] = {}
-        name_os: dict[str, bool] = {}
-        name_rf: dict[str, bool] = {}
-        name_tc: dict[str, bool] = {}
-        name_fcs: dict[str, str | None] = {}
-        for rw in rws:
-            n = rw.weapon.name
-            name_counts[n] = name_counts.get(n, 0) + 1
-            if rw.weapon.has_special("ai"):
-                name_ai[n] = True
-            if rw.one_shot or rw.weapon.has_special("os"):
-                name_os[n] = True
-            if int(rw.weapon.useR or 0) > 0:
-                name_rf[n] = True
-            if rw.tc:
-                name_tc[n] = True
-            if rw.fcs:
-                name_fcs[n] = rw.fcs
-        name_parts = []
-        for n, cnt in name_counts.items():
-            suffix = ""
-            if name_fcs.get(n) == "aiv":
-                suffix += " (AIV)"
-            elif name_fcs.get(n) == "av":
-                suffix += " (AV)"
-            if name_rf.get(n):
-                suffix += " (RF)"
-            if name_ai.get(n):
-                suffix += " (AI)"
-            if name_os.get(n):
-                suffix += " (OS)"
-            if name_tc.get(n):
-                suffix += " (TC)"
-            name_parts.append(
-                f"×{cnt} {n}{suffix}" if cnt > 1 else f"{n}{suffix}"
-            )
-        combined_name = ", ".join(name_parts)
-
-        # Specialty ammo effects
-        ammo = _group_ammo_type(rws)
-        if ammo in _AMMO_SUFFIX:
-            combined_name += _AMMO_SUFFIX[ammo]
-
-        if ammo == "Flechette":
-            flechette_total = sum(
-                math.floor(rw.weapon.damage_value(rw.tonnage) / 2)
-                for rw in rws
-            )
-            flechette_override = math.ceil(flechette_total / 3)
-            standard_override = math.ceil(
-                sum(rw.weapon.damage_value(rw.tonnage) for rw in rws) / 3
-            )
-            ai_bonus = standard_override - flechette_override
-            if ai_bonus > 0:
-                damage_str = f"{flechette_override} ({ai_bonus} + AI)"
-            else:
-                damage_str = str(flechette_override)
-        else:
-            damage_str = group.damage_str
-
+        combined_name, ammo = _build_tic_name(rws)
+        damage_str = _build_tic_damage(rws, ammo, group)
         range_offset = -1 if ammo == "Precision" else (1 if ammo == "AP" else 0)
-
-        # Heat: rational divisor — exact ÷5 at scale=5, ÷1 at scale=30
         total_heat = group.heat
-        _div = (255 - heat_scale_max) / (7 * heat_scale_max + 15)
-        heat_display = str(int(total_heat / _div + 0.5)) if total_heat else "—"
+        heat_display = str(int(total_heat / divisor + 0.5)) if total_heat else "—"
 
         rows.append({
             "name":     combined_name,

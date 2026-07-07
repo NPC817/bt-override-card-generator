@@ -198,60 +198,34 @@ class CardTab(QWidget):
                 if i < len(dmg_strs):
                     row["damage"] = dmg_strs[i]
 
-        # Build equipment string
-        eq_parts = []
-        seen_ba_eq: set[tuple[str, str]] = set()   # dedup BA equipment by (key, subtype)
-        seen_no_loc: set[tuple[str, str]] = set()  # dedup location-irrelevant equipment
-        for eq in self.unit.equipment:
-            # BA: skip duplicates (same key+subtype, location irrelevant)
-            if isinstance(self.unit, BattleArmor):
-                sig = (eq.equipment_key, eq.subtype)
-                if sig in seen_ba_eq:
-                    continue
-                seen_ba_eq.add(sig)
-            label = eq.equipment_key
-            eq_obj = None
-            try:
-                eq_obj = DataStore.equipment(eq.equipment_key)
-                label = eq_obj.name
-            except KeyError:
-                pass
-            # Skip duplicates for location-irrelevant equipment (e.g. Jump Jets)
-            if eq_obj is not None and not eq_obj.hasLoc:
-                sig = (eq.equipment_key, eq.subtype)
-                if sig in seen_no_loc:
-                    continue
-                seen_no_loc.add(sig)
-            if eq.subtype:
-                label += f" ({eq.subtype})"
-            # Show location only when equipment tracks it and unit is not BA
-            if not isinstance(self.unit, BattleArmor) and eq.location and (eq_obj is None or eq_obj.hasLoc):
-                label += f" [{eq.location}]"
-            if eq.uses:
-                uses_str = str(int(eq.uses)) if eq.uses % 1 == 0 else f"{eq.uses:.1f}"
-                label += f" ({uses_str})"
-            eq_parts.append(label)
-        equipment_str = ", ".join(eq_parts)
+        # Build equipment items (shared with batch processor)
+        from ..utils.equipment_formatter import build_equipment_items
+        equipment_items = build_equipment_items(self.unit, profile)
 
         if isinstance(self.unit, BattleMech):
             if self.unit.motive_type == BattleMech.QUAD:
                 renderer = QuadCardRenderer()
             else:
                 renderer = MechCardRenderer()
-            return renderer.render(self.unit, profile, weapons_rows, equipment_str)
+            return renderer.render(self.unit, profile, weapons_rows,
+                                   equipment_items=equipment_items)
         elif isinstance(self.unit, CombatVehicle):
             renderer = VehicleCardRenderer()
-            return renderer.render(self.unit, profile, weapons_rows, equipment_str)
+            return renderer.render(self.unit, profile, weapons_rows,
+                                   equipment_items=equipment_items)
         elif isinstance(self.unit, AeroSpaceFighter):
             renderer = AeroCardRenderer()
-            return renderer.render(self.unit, profile, weapons_rows, equipment_str)
+            return renderer.render(self.unit, profile, weapons_rows,
+                                   equipment_items=equipment_items)
         elif isinstance(self.unit, BattleArmor):
             renderer = BattleArmorRenderer()
-            return renderer.render(self.unit, profile, weapons_rows, equipment_str)
+            return renderer.render(self.unit, profile, weapons_rows,
+                                   equipment_items=equipment_items)
         elif isinstance(self.unit, Infantry):
             from ..renderer.infantry_renderer import InfantryCardRenderer
             renderer = InfantryCardRenderer()
-            return renderer.render(self.unit, profile, weapons_rows, equipment_str)
+            return renderer.render(self.unit, profile, weapons_rows,
+                                   equipment_items=equipment_items)
         else:
             px = QPixmap(2100, 1500)
             px.fill(QColor("lightgray"))

@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 
 from PyQt6.QtGui import QAction, QKeySequence
+from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import (
     QApplication, QFileDialog, QLabel, QMainWindow, QMessageBox,
     QTabWidget,
@@ -36,6 +37,9 @@ class MainWindow(QMainWindow):
         self._build_status_bar()
         self._new_tab()
 
+        # Check for updates silently on startup (delayed so UI is ready)
+        QTimer.singleShot(3000, self._startup_update_check)
+
     # ── Menu ─────────────────────────────────────────────────────────────────
 
     def _build_menu(self) -> None:
@@ -43,6 +47,8 @@ class MainWindow(QMainWindow):
 
         file_menu = mb.addMenu("&File")
         self._add_action(file_menu, "&New Card",     "Ctrl+N", self._new_tab)
+        file_menu.addSeparator()
+        self._add_action(file_menu, "Browse Unit &Database…", "Ctrl+Shift+D", self._open_unit_database)
         self._add_action(file_menu, "&Open MTF/BLK…","Ctrl+O", self._open_file)
         self._add_action(file_menu, "Open &Override Card…", "Ctrl+Shift+O", self._load_ovr)
         self._add_action(file_menu, "Import &Force…", "Ctrl+Shift+F", self._import_force)
@@ -60,8 +66,6 @@ class MainWindow(QMainWindow):
                          self._export_all_tabs)
         file_menu.addSeparator()
         self._add_action(file_menu, "Bulk Import/Export…", "", self._bulk_import)
-        file_menu.addSeparator()
-        self._add_action(file_menu, "Browse Unit &Database…", "Ctrl+Shift+D", self._open_unit_database)
         file_menu.addSeparator()
         self._add_action(file_menu, "&Close Tab", "Ctrl+W",
                          lambda: self._close_tab(self._tabs.currentIndex()))
@@ -490,13 +494,29 @@ class MainWindow(QMainWindow):
         ThemeManager.set_dark(enabled)
         ThemeManager.apply(QApplication.instance())
 
+    def _startup_update_check(self) -> None:
+        """Silent background check on startup — notifies only if update available."""
+        from .update_checker import UpdateCheckThread
+        self._startup_thread = UpdateCheckThread()
+        self._startup_thread.finished.connect(self._on_startup_check_finished)
+        self._startup_thread.error.connect(lambda _msg: None)  # silent on error
+        self._startup_thread.start()
+
+    def _on_startup_check_finished(self, info) -> None:
+        if info is None:
+            return  # up to date — silent
+        self.statusBar().showMessage(
+            f"Update available: {info.tag_name} — Help → Check for Updates",
+            0,  # stays until clicked
+        )
+
     def _check_for_updates(self) -> None:
         from .update_checker import UpdateDialog
         dlg = UpdateDialog(parent=self)
         dlg.exec()
 
     def _about(self) -> None:
-        from src.version import __version__, __app_name__, __repo_url__
+        from ..version import __version__, __app_name__, __repo_url__
 
         QMessageBox.about(
             self,

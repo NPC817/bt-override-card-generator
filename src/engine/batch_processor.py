@@ -109,51 +109,24 @@ class BatchProcessor(QThread):
                         if j < len(dmg_strs):
                             row["damage"] = dmg_strs[j]
 
-                # Build equipment string
-                eq_parts = []
-                seen_ba_eq: set[tuple[str, str]] = set()   # dedup BA equipment
-                seen_no_loc: set[tuple[str, str]] = set()  # dedup location-irrelevant equipment
-                for eq in unit.equipment:
-                    # BA: skip duplicates (same key+subtype, location irrelevant)
-                    if isinstance(unit, BattleArmor):
-                        sig = (eq.equipment_key, eq.subtype)
-                        if sig in seen_ba_eq:
-                            continue
-                        seen_ba_eq.add(sig)
-                    label = eq.equipment_key
-                    eq_obj = None
-                    try:
-                        eq_obj = DataStore.equipment(eq.equipment_key)
-                        label = eq_obj.name
-                    except KeyError:
-                        pass
-                    # Skip duplicates for location-irrelevant equipment (e.g. Jump Jets)
-                    if eq_obj is not None and not eq_obj.hasLoc:
-                        sig = (eq.equipment_key, eq.subtype)
-                        if sig in seen_no_loc:
-                            continue
-                        seen_no_loc.add(sig)
-                    if eq.subtype:
-                        label += f" ({eq.subtype})"
-                    # Show location only when equipment tracks it and unit is not BA
-                    if not isinstance(unit, BattleArmor) and eq.location and (eq_obj is None or eq_obj.hasLoc):
-                        label += f" [{eq.location}]"
-                    if eq.uses:
-                        uses_str = str(int(eq.uses)) if eq.uses % 1 == 0 else f"{eq.uses:.1f}"
-                        label += f" ({uses_str})"
-                    eq_parts.append(label)
-                equipment_str = ", ".join(eq_parts)
+                # Build equipment items (shared with card_tab)
+                from ..utils.equipment_formatter import build_equipment_items
+                equipment_items = build_equipment_items(unit, profile)
 
                 # Render
                 if isinstance(unit, BattleMech):
                     r = QuadCardRenderer() if unit.motive_type == BattleMech.QUAD else MechCardRenderer()
-                    pixmap = r.render(unit, profile, rows, equipment_str)
+                    pixmap = r.render(unit, profile, rows,
+                                      equipment_items=equipment_items)
                 elif isinstance(unit, CombatVehicle):
-                    pixmap = VehicleCardRenderer().render(unit, profile, rows, equipment_str)
+                    pixmap = VehicleCardRenderer().render(unit, profile, rows,
+                                                          equipment_items=equipment_items)
                 elif isinstance(unit, AeroSpaceFighter):
-                    pixmap = AeroCardRenderer().render(unit, profile, rows, equipment_str)
+                    pixmap = AeroCardRenderer().render(unit, profile, rows,
+                                                       equipment_items=equipment_items)
                 elif isinstance(unit, BattleArmor):
-                    pixmap = BattleArmorRenderer().render(unit, profile, rows, equipment_str)
+                    pixmap = BattleArmorRenderer().render(unit, profile, rows,
+                                                          equipment_items=equipment_items)
                 else:
                     result.error = f"Unit type not yet supported for export: {type(unit).__name__}"
                     self.file_done.emit(result)

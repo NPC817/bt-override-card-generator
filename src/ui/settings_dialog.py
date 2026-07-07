@@ -48,6 +48,7 @@ class SettingsDialog(QDialog):
             for name in ProfileManager.all_names()
         }
         self._active_name: str = ProfileManager._active_name
+        self._default_name: str = ProfileManager.default_name()
         self._current_name: str | None = None
         self._current_weapon_key: str | None = None
 
@@ -74,8 +75,9 @@ class SettingsDialog(QDialog):
         self._btn_rename   = QPushButton("Rename…")
         self._btn_delete   = QPushButton("Delete")
         self._btn_activate = QPushButton("Set as Active")
+        self._btn_default  = QPushButton("Set as Default")
         for b in (self._btn_new, self._btn_dup, self._btn_rename,
-                  self._btn_delete, self._btn_activate):
+                  self._btn_delete, self._btn_activate, self._btn_default):
             btn_col.addWidget(b)
         btn_col.addStretch()
         prof_layout.addLayout(btn_col)
@@ -85,6 +87,7 @@ class SettingsDialog(QDialog):
         self._btn_rename.clicked.connect(self._rename_profile)
         self._btn_delete.clicked.connect(self._delete_profile)
         self._btn_activate.clicked.connect(self._set_active)
+        self._btn_default.clicked.connect(self._set_default)
 
         root.addWidget(prof_box)
 
@@ -127,6 +130,26 @@ class SettingsDialog(QDialog):
         self._move_mult.setRange(0.1, 5.0); self._move_mult.setSingleStep(0.1)
         move_form.addRow("Move scale multiplier:", self._move_mult)
         self._tabs.addTab(move_tab, "Movement")
+
+        # Optional tab
+        optional_tab = QWidget()
+        optional_layout = QVBoxLayout(optional_tab)
+        self._track_ammo_cb = QCheckBox(
+            "Track Ammo — Show specific ammo types with shot-count pips on cards"
+        )
+        self._track_ammo_cb.setToolTip(
+            "When enabled, ammo equipment shows specific weapon types "
+            "(e.g. LRM20 Ammo) with shot counts and hex pips for tracking."
+        )
+        optional_layout.addWidget(self._track_ammo_cb)
+        self._show_pips_cb = QCheckBox("Show Tracking Pips")
+        self._show_pips_cb.setToolTip(
+            "When enabled, hex pips are drawn inline after each ammo entry. "
+            "When disabled, only the shot count [N] is shown."
+        )
+        optional_layout.addWidget(self._show_pips_cb)
+        optional_layout.addStretch()
+        self._tabs.addTab(optional_tab, "Optional")
 
         # Weapons tab
         self._tabs.addTab(self._build_weapons_tab(), "Weapons")
@@ -226,13 +249,18 @@ class SettingsDialog(QDialog):
         if "Default" in names:
             names.remove("Default")
             names.insert(0, "Default")
+        default_name = self._default_name
         for name in names:
-            display = name + (" ★" if name == self._active_name else "")
-            self._profile_list.addItem(display)
+            suffix = ""
+            if name == self._active_name:
+                suffix += " ★"
+            if name == default_name:
+                suffix += " ◆"
+            self._profile_list.addItem(name + suffix)
 
         target = select_name or self._current_name or self._active_name
         if target:
-            for suffix in ("", " ★"):
+            for suffix in (" ★ ◆", " ◆ ★", " ★", " ◆", ""):
                 items = self._profile_list.findItems(target + suffix, Qt.MatchFlag.MatchExactly)
                 if items:
                     self._profile_list.setCurrentItem(items[0])
@@ -249,7 +277,10 @@ class SettingsDialog(QDialog):
         item = self._profile_list.currentItem()
         if not item:
             return None
-        return item.text().removesuffix(" ★")
+        text = item.text()
+        for suffix in (" ★ ◆", " ◆ ★", " ★", " ◆"):
+            text = text.removesuffix(suffix)
+        return text
 
     # ── Weapon list helpers ───────────────────────────────────────────────────
 
@@ -320,7 +351,9 @@ class SettingsDialog(QDialog):
         if self._current_name and self._current_name in self._profiles:
             self._flush_spinboxes_to(self._current_name)
 
-        raw = display_text.removesuffix(" ★")
+        raw = display_text
+        for suffix in (" ★ ◆", " ◆ ★", " ★", " ◆"):
+            raw = raw.removesuffix(suffix)
         self._current_name = raw
         p = self._profiles.get(raw)
         if not p:
@@ -339,6 +372,10 @@ class SettingsDialog(QDialog):
         self._vehicle_div.setValue(p.vehicle_armor_divisor)
         self._heat_max.setValue(p.heat_scale_max)
         self._move_mult.setValue(p.move_scale_multiplier)
+        self._track_ammo_cb.setEnabled(not is_default)
+        self._track_ammo_cb.setChecked(p.track_ammo)
+        self._show_pips_cb.setEnabled(not is_default)
+        self._show_pips_cb.setChecked(p.show_tracking_pips)
 
         self._populate_weapon_list()
         if self._current_weapon_key:
@@ -404,6 +441,8 @@ class SettingsDialog(QDialog):
         p.vehicle_armor_divisor = self._vehicle_div.value()
         p.heat_scale_max        = self._heat_max.value()
         p.move_scale_multiplier = self._move_mult.value()
+        p.track_ammo = self._track_ammo_cb.isChecked()
+        p.show_tracking_pips = self._show_pips_cb.isChecked()
         self._flush_weapon_editor_to(name)
 
     def _flush_weapon_editor_to(self, profile_name: str) -> None:
@@ -498,6 +537,8 @@ class SettingsDialog(QDialog):
         self._profiles[name] = p
         if self._active_name == src:
             self._active_name = name
+        if self._default_name == src:
+            self._default_name = name
         self._current_name = name
         self._refresh_list(select_name=name)
 
@@ -515,6 +556,8 @@ class SettingsDialog(QDialog):
         self._profiles.pop(src, None)
         if self._active_name == src:
             self._active_name = "Default"
+        if self._default_name == src:
+            self._default_name = "Default"
         self._current_name = None
         self._refresh_list(select_name="Default")
 
@@ -523,6 +566,13 @@ class SettingsDialog(QDialog):
         if not name or name not in self._profiles:
             return
         self._active_name = name
+        self._refresh_list(select_name=name)
+
+    def _set_default(self) -> None:
+        name = self._current_raw_name()
+        if not name or name not in self._profiles:
+            return
+        self._default_name = name
         self._refresh_list(select_name=name)
 
     # ── Accept ────────────────────────────────────────────────────────────────
@@ -554,4 +604,5 @@ class SettingsDialog(QDialog):
                 pass
 
         ProfileManager.set_active(self._active_name)
+        ProfileManager.set_default(self._default_name)
         self.accept()

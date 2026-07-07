@@ -203,14 +203,30 @@ def parse_mtf(path: str) -> ParseResult:
                                 w.location = rear_loc
                                 break
 
-    # Deduplicate equipment by (key, location, subtype)
+    # Deduplicate equipment by (key, location, subtype).
+    # For ammo entries, count tons into the `uses` field instead of dropping.
+    _AMMO_KEYS = frozenset({"ammo", "ammolimited"})
     seen: set[tuple[str, str, str]] = set()
     deduped: list[UnitEquipment] = []
+    ammo_counts: dict[tuple[str, str, str], int] = {}
     for e in mech.equipment:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if is_ammo:
+            sig = (e.equipment_key, e.location, e.subtype)
+            ammo_counts[sig] = ammo_counts.get(sig, 0) + 1
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+        else:
+            sig = (e.equipment_key, e.location, e.subtype)
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+    # Set uses = ton count for ammo entries
+    for e in deduped:
         sig = (e.equipment_key, e.location, e.subtype)
-        if sig not in seen:
-            seen.add(sig)
-            deduped.append(e)
+        if sig in ammo_counts:
+            e.uses = float(ammo_counts[sig])
     mech.equipment = deduped
 
     return ParseResult(unit=mech, warnings=warnings)

@@ -174,6 +174,9 @@ class UnitDatabaseDialog(QDialog):
             self._update_status(f"Could not open units.zip: {exc}")
             return
 
+        records.sort(key=lambda r: (
+            (r.get("chassis", "") + " " + r.get("variant", "")).lower()
+        ))
         self._records = records
         self._apply_filter()
 
@@ -205,6 +208,9 @@ class UnitDatabaseDialog(QDialog):
                 continue
             filtered.append(rec)
 
+        filtered.sort(key=lambda r: (
+            (r.get("chassis", "") + " " + r.get("variant", "")).lower()
+        ))
         self._filtered = filtered
         self._populate_table()
 
@@ -242,6 +248,7 @@ class UnitDatabaseDialog(QDialog):
             self._table.setItem(row, 3, ton_item)
 
         self._table.setSortingEnabled(True)
+        self._table.sortByColumn(0, Qt.SortOrder.AscendingOrder)
         self._load_btn.setEnabled(False)
         self._load_close_btn.setEnabled(False)
         self._update_status(f"{len(self._filtered)} unit(s) found.")

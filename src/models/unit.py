@@ -19,6 +19,7 @@ class UnitEquipment:
     equipment_key: str
     location: str = ""     # e.g. "LA", "RA" — only when equipment hasLoc
     subtype: str = ""      # e.g. "AC", "LRM" for ammo subtypes
+    ammo_variant: str = ""     # e.g. "LRM20", "AC10" — specific weapon pairing
     uses: float = 0.0          # remaining uses/capacity — only when equipment isLimited
 
 
@@ -60,12 +61,11 @@ class AbstractUnit(ABC):
         """Target Movement Modifier string for card display, e.g. '1 / 2'."""
 
     def is_equipped_with(self, equipment_key: str) -> bool:
-        list_id = id(self.equipment)
-        cached_id, cached_keys = self._equipment_keys_cache
-        if cached_id != list_id:
-            cached_keys = frozenset(e.equipment_key for e in self.equipment)
-            self._equipment_keys_cache = (list_id, cached_keys)
-        return equipment_key in cached_keys
+        current_keys = frozenset(e.equipment_key for e in self.equipment)
+        cached_keys = self._equipment_keys_cache[1]
+        if len(current_keys) != len(cached_keys) or current_keys != cached_keys:
+            self._equipment_keys_cache = (id(self.equipment), current_keys)
+        return equipment_key in current_keys
 
     def to_dict(self) -> dict:
         return {
@@ -91,6 +91,7 @@ class AbstractUnit(ABC):
                     "equipment_key": e.equipment_key,
                     "location": e.location,
                     "subtype": e.subtype,
+                    "ammo_variant": e.ammo_variant,
                     "uses": e.uses,
                 }
                 for e in self.equipment
@@ -120,6 +121,7 @@ class AbstractUnit(ABC):
                 equipment_key=e["equipment_key"],
                 location=e.get("location", ""),
                 subtype=e.get("subtype", ""),
+                ammo_variant=e.get("ammo_variant", ""),
                 uses=e.get("uses", 0),
             )
             for e in data.get("equipment", [])

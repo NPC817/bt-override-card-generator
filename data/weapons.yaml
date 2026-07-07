@@ -13,6 +13,7 @@ ac2:
   rangeX: 4
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 45
 ac5:
   name: "AC/5"
   fullname: "Autocannon/5"
@@ -28,6 +29,7 @@ ac5:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 20
 ac10:
   name: "AC/10"
   fullname: "Autocannon/10"
@@ -43,6 +45,7 @@ ac10:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 10
 ac20:
   name: "AC/20"
   fullname: "Autocannon/20"
@@ -58,6 +61,7 @@ ac20:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 5
 lb2x:
   name: "LB 2-X"
   fullname: "LB 2-X Autocannon"
@@ -73,6 +77,7 @@ lb2x:
   rangeX: 2
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 45
 lb5x:
   name: "LB 5-X"
   fullname: "LB 5-X Autocannon"
@@ -89,6 +94,7 @@ lb5x:
   useC: 1
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 20
 lb10x:
   name: "LB 10-X"
   fullname: "LB 10-X Autocannon"
@@ -105,6 +111,7 @@ lb10x:
   useC: 1
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 10
 lb20x:
   name: "LB 20-X"
   fullname: "LB 20-X Autocannon"
@@ -121,6 +128,7 @@ lb20x:
   useC: 1
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 5
 uac2:
   name: "UAC/2"
   fullname: "Ultra Autocannon/2"
@@ -137,6 +145,7 @@ uac2:
   useR: 2
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 45
 uac5:
   name: "UAC/5"
   fullname: "Ultra Autocannon/5"
@@ -153,6 +162,7 @@ uac5:
   useR: 5
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 20
 uac10:
   name: "UAC/10"
   fullname: "Ultra Autocannon/10"
@@ -169,6 +179,7 @@ uac10:
   useR: 10
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 10
 uac20:
   name: "UAC/20"
   fullname: "Ultra Autocannon/20"
@@ -185,6 +196,7 @@ uac20:
   useR: 20
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 5
 rac2:
   name: "RAC/2"
   fullname: "Rotary Autocannon/2"
@@ -201,6 +213,7 @@ rac2:
   useR: 6
   useTC: 1
   useAmmo: "RAC"
+  ammoPerTon: 45
 rac5:
   name: "RAC/5"
   fullname: "Rotary Autocannon/5"
@@ -217,6 +230,7 @@ rac5:
   useR: 12
   useTC: 1
   useAmmo: "RAC"
+  ammoPerTon: 20
 hvac2:
   name: "HVAC/2"
   fullname: "Hyper-Velocity Autocannon/2"
@@ -232,6 +246,7 @@ hvac2:
   rangeX: 2
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 45
 hvac5:
   name: "HVAC/5"
   fullname: "Hyper-Velocity Autocannon/5"
@@ -247,6 +262,7 @@ hvac5:
   rangeX: 2
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 20
 hvac10:
   name: "HVAC/10"
   fullname: "Hyper-Velocity Autocannon/10"
@@ -262,6 +278,7 @@ hvac10:
   rangeX: 4
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 10
 lac2:
   name: "LAC/2"
   fullname: "Light Autocannon/2"
@@ -277,6 +294,7 @@ lac2:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 45
 lac5:
   name: "LAC/5"
   fullname: "Light Autocannnon/5"
@@ -292,6 +310,7 @@ lac5:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 20
 lgauss:
   name: "LGauss"
   fullname: "Light Gauss Rifle"
@@ -307,6 +326,7 @@ lgauss:
   rangeX: 2
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 16
 gauss:
   name: "Gauss"
   fullname: "Gauss Rifle"
@@ -322,6 +342,7 @@ gauss:
   rangeX: 4
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 8
 hgauss:
   name: "HGauss"
   fullname: "Heavy Gauss Rifle"
@@ -340,6 +361,7 @@ hgauss:
   varLXdamage: 10
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 4
   specials: "var"
 ihgauss:
   name: "iHGauss"
@@ -356,6 +378,7 @@ ihgauss:
   rangeX: 4
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 4
 magshot:
   name: "MagShot"
   fullname: "MagShot"
@@ -371,6 +394,7 @@ magshot:
   rangeX: 9
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 0
 sbgauss:
   name: "SBGauss"
   fullname: "Silver Bullet Gauss Rifle"
@@ -386,6 +410,7 @@ sbgauss:
   rangeX: 3
   useC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 8
   specials: "sbg"
 lmg:
   name: "LMG"
@@ -401,6 +426,7 @@ lmg:
   rangeL: 9
   rangeX: 9
   useAmmo: "MG"
+  ammoPerTon: 0
   specials: "ai"
 mg:
   name: "MG"
@@ -416,6 +442,7 @@ mg:
   rangeL: 9
   rangeX: 9
   useAmmo: "MG"
+  ammoPerTon: 0
   specials: "ai"
 hmg:
   name: "HMG"
@@ -431,6 +458,7 @@ hmg:
   rangeL: 9
   rangeX: 9
   useAmmo: "MG"
+  ammoPerTon: 0
   specials: "ai"
 nailrivet:
   name: "NailRivet"
@@ -831,6 +859,7 @@ hflamer:
   rangeX: 9
   useH: 4
   useAmmo: "Flamer"
+  ammoPerTon: 0
   specials: "ai"
 plasrifle:
   name: "PlasRifle"
@@ -879,6 +908,7 @@ srm2:
   rangeX: 9
   useFCS: "aivav"
   useAmmo: "SRM"
+  ammoPerTon: 50
   specials: "srm"
 srm4:
   name: "SRM-4"
@@ -897,6 +927,7 @@ srm4:
   rangeX: 9
   useFCS: "aivav"
   useAmmo: "SRM"
+  ammoPerTon: 25
   specials: "srm"
 srm6:
   name: "SRM-6"
@@ -915,6 +946,7 @@ srm6:
   rangeX: 9
   useFCS: "aivav"
   useAmmo: "SRM"
+  ammoPerTon: 15
   specials: "srm"
 ssrm2:
   name: "SSRM-2"
@@ -933,6 +965,7 @@ ssrm2:
   rangeL: 9
   rangeX: 9
   useAmmo: "SSRM"
+  ammoPerTon: 50
   specials: "ssrm"
 ssrm4:
   name: "SSRM-4"
@@ -950,6 +983,7 @@ ssrm4:
   rangeL: 9
   rangeX: 9
   useAmmo: "SSRM"
+  ammoPerTon: 25
   specials: "ssrm"
 ssrm6:
   name: "SSRM-6"
@@ -967,6 +1001,7 @@ ssrm6:
   rangeL: 9
   rangeX: 9
   useAmmo: "SSRM"
+  ammoPerTon: 15
   specials: "ssrm"
 mrm10:
   name: "MRM-10"
@@ -986,6 +1021,7 @@ mrm10:
   rangeX: 9
   useFCS: "apollo"
   useAmmo: "MRM"
+  ammoPerTon: 24
   specials: "mrm"
 mrm20:
   name: "MRM-20"
@@ -1005,6 +1041,7 @@ mrm20:
   rangeX: 9
   useFCS: "apollo"
   useAmmo: "MRM"
+  ammoPerTon: 12
   specials: "mrm"
 mrm30:
   name: "MRM-30"
@@ -1060,6 +1097,7 @@ lrm5:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 24
   specials: "lrm"
 lrm10:
   name: "LRM-10"
@@ -1079,6 +1117,7 @@ lrm10:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 12
   specials: "lrm"
 lrm15:
   name: "LRM-15"
@@ -1098,6 +1137,7 @@ lrm15:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 8
   specials: "lrm"
 lrm20:
   name: "LRM-20"
@@ -1117,6 +1157,7 @@ lrm20:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 6
   specials: "lrm"
 nlrm5:
   name: "nLRM-5"
@@ -1136,6 +1177,7 @@ nlrm5:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRM"
+  ammoPerTon: 24
   specials: "lrm"
 nlrm10:
   name: "nLRM-10"
@@ -1155,6 +1197,7 @@ nlrm10:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRM"
+  ammoPerTon: 12
   specials: "lrm"
 nlrm15:
   name: "nLRM-15"
@@ -1174,6 +1217,7 @@ nlrm15:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRM"
+  ammoPerTon: 8
   specials: "lrm"
 nlrm20:
   name: "nLRM-20"
@@ -1193,6 +1237,7 @@ nlrm20:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRM"
+  ammoPerTon: 6
   specials: "lrm"
 elrm5:
   name: "eLRM-5"
@@ -1213,6 +1258,7 @@ elrm5:
   varMdamage: 0
   varLXdamage: 1
   useAmmo: "LRM"
+  ammoPerTon: 24
   specials: "lrm var"
 elrm10:
   name: "eLRM-10"
@@ -1234,6 +1280,7 @@ elrm10:
   varMdamage: 0
   varLXdamage: 2
   useAmmo: "LRM"
+  ammoPerTon: 12
   specials: "lrm var"
 elrm15:
   name: "eLRM-15"
@@ -1255,6 +1302,7 @@ elrm15:
   varMdamage: 0
   varLXdamage: 3
   useAmmo: "LRM"
+  ammoPerTon: 8
   specials: "lrm var"
 elrm20:
   name: "eLRM-20"
@@ -1276,6 +1324,7 @@ elrm20:
   varMdamage: 3
   varLXdamage: 5
   useAmmo: "LRM"
+  ammoPerTon: 6
   specials: "lrm var"
 tbolt5:
   name: "TBolt-5"
@@ -1291,6 +1340,7 @@ tbolt5:
   rangeL: 4
   rangeX: 9
   useAmmo: "TBolt"
+  ammoPerTon: 24
   specials: ""
 tbolt10:
   name: "TBolt-10"
@@ -1306,6 +1356,7 @@ tbolt10:
   rangeL: 4
   rangeX: 9
   useAmmo: "TBolt"
+  ammoPerTon: 12
   specials: ""
 tbolt15:
   name: "TBolt-15"
@@ -1321,6 +1372,7 @@ tbolt15:
   rangeL: 4
   rangeX: 9
   useAmmo: "TBolt"
+  ammoPerTon: 8
   specials: ""
 tbolt20:
   name: "TBolt-20"
@@ -1336,6 +1388,7 @@ tbolt20:
   rangeL: 4
   rangeX: 9
   useAmmo: "TBolt"
+  ammoPerTon: 6
   specials: ""
 mml3:
   name: "MML-3"
@@ -1357,6 +1410,7 @@ mml3:
   varLXdamage: 0
   useFCS: "aiv"
   useAmmo: "MML"
+  ammoPerTon: 40
   specials: "var"
 mml5:
   name: "MML-5"
@@ -1378,6 +1432,7 @@ mml5:
   varLXdamage: 0
   useFCS: "aiv"
   useAmmo: "MML"
+  ammoPerTon: 24
   specials: "var"
 mml7:
   name: "MML-7"
@@ -1399,6 +1454,7 @@ mml7:
   varLXdamage: 1
   useFCS: "aiv"
   useAmmo: "MML"
+  ammoPerTon: 17
   specials: "var"
 mml9:
   name: "MML-9"
@@ -1420,6 +1476,7 @@ mml9:
   varLXdamage: 2
   useFCS: "aiv"
   useAmmo: "MML"
+  ammoPerTon: 13
   specials: "var"
 rl10:
   name: "RL10"
@@ -1490,6 +1547,7 @@ srt2:
   rangeX: 9
   useFCS: "aiv"
   useAmmo: "SRT"
+  ammoPerTon: 50
   specials: "srt"
 srt4:
   name: "SRT-4"
@@ -1508,6 +1566,7 @@ srt4:
   rangeX: 9
   useFCS: "aiv"
   useAmmo: "SRT"
+  ammoPerTon: 25
   specials: "srt"
 srt6:
   name: "SRT-6"
@@ -1526,6 +1585,7 @@ srt6:
   rangeX: 9
   useFCS: "aiv"
   useAmmo: "SRT"
+  ammoPerTon: 15
   specials: "srt"
 lrt5:
   name: "LRT-5"
@@ -1545,6 +1605,7 @@ lrt5:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 24
   specials: "lrt"
 lrt10:
   name: "LRT-10"
@@ -1564,6 +1625,7 @@ lrt10:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 12
   specials: "lrt"
 lrt15:
   name: "LRT-15"
@@ -1583,6 +1645,7 @@ lrt15:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 8
   specials: "lrt"
 lrt20:
   name: "LRT-20"
@@ -1602,6 +1665,7 @@ lrt20:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 6
   specials: "lrt"
 narc:
   name: "Narc"
@@ -1617,6 +1681,7 @@ narc:
   rangeL: 9
   rangeX: 9
   useAmmo: "Narc"
+  ammoPerTon: 6
 inarc:
   name: "iNarc"
   fullname: "Improved Narc Missile Beacon"
@@ -1631,6 +1696,7 @@ inarc:
   rangeL: 4
   rangeX: 9
   useAmmo: "Narc"
+  ammoPerTon: 4
 clb2x:
   name: "cLB 2-X"
   fullname: "Clan LB 2-X Autocannon"
@@ -1646,6 +1712,7 @@ clb2x:
   rangeX: 2
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 45
 clb5x:
   name: "cLB 5-X"
   fullname: "Clan LB 5-X Autocannon"
@@ -1662,6 +1729,7 @@ clb5x:
   useC: 1
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 20
 clb10x:
   name: "cLB 10-X"
   fullname: "Clan LB 10-X Autocannon"
@@ -1678,6 +1746,7 @@ clb10x:
   useC: 1
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 10
 clb20x:
   name: "cLB 20-X"
   fullname: "Clan LB 20-X Autocannon"
@@ -1694,6 +1763,7 @@ clb20x:
   useC: 1
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 5
 cuac2:
   name: "cUAC/2"
   fullname: "Clan Ultra Autocannon/2"
@@ -1710,6 +1780,7 @@ cuac2:
   useR: 2
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 45
 cuac5:
   name: "cUAC/5"
   fullname: "Clan Ultra Autocannon/5"
@@ -1726,6 +1797,7 @@ cuac5:
   useR: 5
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 20
 cuac10:
   name: "cUAC/10"
   fullname: "Clan Ultra Autocannon/10"
@@ -1742,6 +1814,7 @@ cuac10:
   useR: 10
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 10
 cuac20:
   name: "cUAC/20"
   fullname: "Clan Ultra Autocannon/20"
@@ -1758,6 +1831,7 @@ cuac20:
   useR: 20
   useTC: 1
   useAmmo: "UAC"
+  ammoPerTon: 5
 crac2:
   name: "cRAC/2"
   fullname: "Clan Rotary Autocannon/2"
@@ -1774,6 +1848,7 @@ crac2:
   useR: 6
   useTC: 1
   useAmmo: "RAC"
+  ammoPerTon: 45
 crac5:
   name: "cRAC/5"
   fullname: "Clan Rotary Autocannon/5"
@@ -1790,6 +1865,7 @@ crac5:
   useR: 12
   useTC: 1
   useAmmo: "RAC"
+  ammoPerTon: 20
 capgauss:
   name: "cAPGauss"
   fullname: "Clan AP Gauss Rifle"
@@ -1805,6 +1881,7 @@ capgauss:
   rangeX: 9
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 40
   specials: "ai"
 cgauss:
   name: "cGauss"
@@ -1821,6 +1898,7 @@ cgauss:
   rangeX: 4
   useTC: 1
   useAmmo: "Gauss"
+  ammoPerTon: 8
 chag20:
   name: "cHAG 20"
   fullname: "Clan Hyper-Assault Gauss Rifle 20"
@@ -1840,6 +1918,7 @@ chag20:
   useC: 1
   useTC: 1
   useAmmo: "HAG"
+  ammoPerTon: 6
   specials: "var,hag20"
 chag30:
   name: "cHAG 30"
@@ -1860,6 +1939,7 @@ chag30:
   useC: 1
   useTC: 1
   useAmmo: "HAG"
+  ammoPerTon: 4
   specials: "var,hag30"
 chag40:
   name: "cHAG 40"
@@ -1880,6 +1960,7 @@ chag40:
   useC: 1
   useTC: 1
   useAmmo: "HAG"
+  ammoPerTon: 3
   specials: "var,hag40"
 clmg:
   name: "cLMG"
@@ -1895,6 +1976,7 @@ clmg:
   rangeL: 9
   rangeX: 9
   useAmmo: "MG"
+  ammoPerTon: 0
   specials: "ai"
 cmg:
   name: "cMG"
@@ -1910,6 +1992,7 @@ cmg:
   rangeL: 9
   rangeX: 9
   useAmmo: "MG"
+  ammoPerTon: 0
   specials: "ai"
 chmg:
   name: "cHMG"
@@ -1925,6 +2008,7 @@ chmg:
   rangeL: 9
   rangeX: 9
   useAmmo: "MG"
+  ammoPerTon: 0
   specials: "ai"
 cpmac2:
   name: "cPMAC/2"
@@ -1941,6 +2025,7 @@ cpmac2:
   rangeX: 4
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 45
 cpmac4:
   name: "cPMAC/4"
   fullname: "Clan ProtoMech Autocannon/4"
@@ -1956,6 +2041,7 @@ cpmac4:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 20
 cpmac8:
   name: "cPMAC/8"
   fullname: "Clan ProtoMech Autocannon/8"
@@ -1971,6 +2057,7 @@ cpmac8:
   rangeX: 9
   useTC: 1
   useAmmo: "AC"
+  ammoPerTon: 10
 cnailrivet:
   name: "cNailRivet"
   fullname: "Clan Nail/Rivet Gun"
@@ -2326,6 +2413,7 @@ chflamer:
   rangeX: 9
   useH: 4
   useAmmo: "Flamer"
+  ammoPerTon: 0
   specials: "ai"
 cplascannon:
   name: "cPlasCannon"
@@ -2360,6 +2448,7 @@ csrm2:
   rangeX: 9
   useFCS: "aivav"
   useAmmo: "SRM"
+  ammoPerTon: 50
   specials: "srm"
 csrm4:
   name: "cSRM-4"
@@ -2378,6 +2467,7 @@ csrm4:
   rangeX: 9
   useFCS: "aivav"
   useAmmo: "SRM"
+  ammoPerTon: 25
   specials: "srm"
 csrm6:
   name: "cSRM-6"
@@ -2396,6 +2486,7 @@ csrm6:
   rangeX: 9
   useFCS: "aivav"
   useAmmo: "SRM"
+  ammoPerTon: 15
   specials: "srm"
 cssrm2:
   name: "cSSRM-2"
@@ -2414,6 +2505,7 @@ cssrm2:
   rangeL: 9
   rangeX: 9
   useAmmo: "SSRM"
+  ammoPerTon: 50
   specials: "ssrm"
 cssrm4:
   name: "cSSRM-4"
@@ -2431,6 +2523,7 @@ cssrm4:
   rangeL: 9
   rangeX: 9
   useAmmo: "SSRM"
+  ammoPerTon: 25
   specials: "ssrm"
 cssrm6:
   name: "cSSRM-6"
@@ -2448,6 +2541,7 @@ cssrm6:
   rangeL: 9
   rangeX: 9
   useAmmo: "SSRM"
+  ammoPerTon: 15
   specials: "ssrm"
 clrm5:
   name: "cLRM-5"
@@ -2467,6 +2561,7 @@ clrm5:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 24
   specials: "lrm"
 clrm10:
   name: "cLRM-10"
@@ -2486,6 +2581,7 @@ clrm10:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 12
   specials: "lrm"
 clrm15:
   name: "cLRM-15"
@@ -2505,6 +2601,7 @@ clrm15:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 8
 clrm20:
   name: "cLRM-20"
   fullname: "Clan LRM-20"
@@ -2523,6 +2620,7 @@ clrm20:
   rangeX: 4
   useFCS: "aivav"
   useAmmo: "LRM"
+  ammoPerTon: 6
   specials: "lrm"
 cslrm5:
   name: "cSLRM-5"
@@ -2541,6 +2639,7 @@ cslrm5:
   rangeL: 2
   rangeX: 4
   useAmmo: "SLRM"
+  ammoPerTon: 24
   specials: "slrm"
 cslrm10:
   name: "cSLRM-10"
@@ -2559,6 +2658,7 @@ cslrm10:
   rangeL: 2
   rangeX: 4
   useAmmo: "SLRM"
+  ammoPerTon: 12
   specials: "slrm"
 cslrm15:
   name: "cSLRM-15"
@@ -2577,6 +2677,7 @@ cslrm15:
   rangeL: 2
   rangeX: 4
   useAmmo: "SLRM"
+  ammoPerTon: 8
   specials: "slrm"
 cslrm20:
   name: "cSLRM-20"
@@ -2595,6 +2696,7 @@ cslrm20:
   rangeL: 2
   rangeX: 4
   useAmmo: "SLRM"
+  ammoPerTon: 6
   specials: "slrm"
 catm3:
   name: "cATM-3"
@@ -2614,6 +2716,7 @@ catm3:
   varMdamage: 1
   varLXdamage: 0
   useAmmo: "ATM"
+  ammoPerTon: 20
   specials: "atm var"
 catm6:
   name: "cATM-6"
@@ -2634,6 +2737,7 @@ catm6:
   varMdamage: 1
   varLXdamage: 0
   useAmmo: "ATM"
+  ammoPerTon: 10
   specials: "atm var"
 catm9:
   name: "cATM-9"
@@ -2654,6 +2758,7 @@ catm9:
   varMdamage: 3
   varLXdamage: 0
   useAmmo: "ATM"
+  ammoPerTon: 7
   specials: "atm var"
 catm12:
   name: "cATM-12"
@@ -2674,6 +2779,7 @@ catm12:
   varMdamage: 9
   varLXdamage: 3
   useAmmo: "ATM"
+  ammoPerTon: 5
   specials: "atm var"
 ciatm3:
   name: "ciATM-3"
@@ -2693,6 +2799,7 @@ ciatm3:
   varMdamage: 1
   varLXdamage: 0
   useAmmo: "ATM"
+  ammoPerTon: 20
   specials: "iatm var"
 ciatm6:
   name: "ciATM-6"
@@ -2713,6 +2820,7 @@ ciatm6:
   varMdamage: 1
   varLXdamage: 0
   useAmmo: "ATM"
+  ammoPerTon: 10
   specials: "iatm var"
 ciatm9:
   name: "ciATM-9"
@@ -2733,6 +2841,7 @@ ciatm9:
   varMdamage: 3
   varLXdamage: 0
   useAmmo: "ATM"
+  ammoPerTon: 7
   specials: "iatm var"
 ciatm12:
   name: "ciATM-12"
@@ -2753,6 +2862,7 @@ ciatm12:
   varMdamage: 9
   varLXdamage: 3
   useAmmo: "ATM"
+  ammoPerTon: 5
   specials: "iatm var"
 csrt2:
   name: "cSRT-2"
@@ -2772,6 +2882,7 @@ csrt2:
   rangeX: 9
   useFCS: "aiv"
   useAmmo: "SRT"
+  ammoPerTon: 50
   specials: "srt"
 csrt4:
   name: "cSRT-4"
@@ -2790,6 +2901,7 @@ csrt4:
   rangeX: 9
   useFCS: "aiv"
   useAmmo: "SRT"
+  ammoPerTon: 25
   specials: "srt"
 csrt6:
   name: "cSRT-6"
@@ -2808,6 +2920,7 @@ csrt6:
   rangeX: 9
   useFCS: "aiv"
   useAmmo: "SRT"
+  ammoPerTon: 15
   specials: "srt"
 clrt5:
   name: "cLRT-5"
@@ -2827,6 +2940,7 @@ clrt5:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 24
   specials: "lrt"
 clrt10:
   name: "cLRT-10"
@@ -2846,6 +2960,7 @@ clrt10:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 12
   specials: "lrt"
 clrt15:
   name: "cLRT-15"
@@ -2865,6 +2980,7 @@ clrt15:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 8
   specials: "lrt"
 clrt20:
   name: "cLRT-20"
@@ -2884,6 +3000,7 @@ clrt20:
   rangeX: 4
   useFCS: "aiv"
   useAmmo: "LRT"
+  ammoPerTon: 6
   specials: "lrt"
 cnarc:
   name: "cNarc"
@@ -2899,6 +3016,7 @@ cnarc:
   rangeL: 9
   rangeX: 9
   useAmmo: "Narc"
+  ammoPerTon: 6
 arrowiv:
   name: "Arrow IV"
   fullname: "Arrow IV Artillery"
@@ -2915,6 +3033,7 @@ arrowiv:
   rangeL: 4
   rangeX: 4
   useAmmo: "ArrowIV"
+  ammoPerTon: 0
   specials: "artextraM"
 carrowiv:
   name: "cArrow IV"
@@ -2932,6 +3051,7 @@ carrowiv:
   rangeL: 4
   rangeX: 4
   useAmmo: "ArrowIV"
+  ammoPerTon: 0
   specials: "artextraM"
 longtom:
   name: "Long Tom"
@@ -2949,6 +3069,7 @@ longtom:
   rangeL: 4
   rangeX: 4
   useAmmo: "Artillery"
+  ammoPerTon: 0
   specials: "art"
 sniper:
   name: "Sniper"
@@ -2966,6 +3087,7 @@ sniper:
   rangeL: 4
   rangeX: 4
   useAmmo: "Artillery"
+  ammoPerTon: 0
   specials: "artextraM"
 thumper:
   name: "Thumper"
@@ -2983,6 +3105,7 @@ thumper:
   rangeL: 4
   rangeX: 4
   useAmmo: "Artillery"
+  ammoPerTon: 0
   specials: "artextraM"
 longtomcannon:
   name: "Long Tom Cannon"
@@ -3000,6 +3123,7 @@ longtomcannon:
   rangeL: 2
   rangeX: 4
   useAmmo: "Artillery"
+  ammoPerTon: 0
   specials: "artextraM"
 snipercannon:
   name: "Sniper Cannon"
@@ -3017,6 +3141,7 @@ snipercannon:
   rangeL: 9
   rangeX: 9
   useAmmo: "Artillery"
+  ammoPerTon: 0
   specials: "artextraM"
 thumpercannon:
   name: "Thumper Cannon"
@@ -3033,6 +3158,7 @@ thumpercannon:
   rangeL: 4
   rangeX: 9
   useAmmo: "Artillery"
+  ammoPerTon: 0
   specials: "artextraM"
 firedrake:
   name: "FNeedler"
@@ -3233,6 +3359,7 @@ srm1:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 50
   baOnly: True
 srm3:
   name: "SRM-3"
@@ -3248,6 +3375,7 @@ srm3:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 25
   baOnly: True
 srm5:
   name: "SRM-5"
@@ -3263,6 +3391,7 @@ srm5:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 15
   baOnly: True
 mrm1:
   name: "MRM-1"
@@ -3276,6 +3405,7 @@ mrm1:
   rangeL: 5
   rangeX: 9
   useAmmo: "MRM"
+  ammoPerTon: 24
   baOnly: True
 mrm2:
   name: "MRM-2"
@@ -3289,6 +3419,7 @@ mrm2:
   rangeL: 5
   rangeX: 9
   useAmmo: "MRM"
+  ammoPerTon: 24
   baOnly: True
 mrm3:
   name: "MRM-3"
@@ -3302,6 +3433,7 @@ mrm3:
   rangeL: 5
   rangeX: 9
   useAmmo: "MRM"
+  ammoPerTon: 12
   baOnly: True
 mrm4:
   name: "MRM-4"
@@ -3317,6 +3449,7 @@ mrm4:
   rangeL: 5
   rangeX: 9
   useAmmo: "MRM"
+  ammoPerTon: 8
   baOnly: True
 mrm5:
   name: "MRM-5"
@@ -3332,6 +3465,7 @@ mrm5:
   rangeL: 5
   rangeX: 9
   useAmmo: "MRM"
+  ammoPerTon: 6
   baOnly: True
 lrm1:
   name: "LRM-1"
@@ -3345,6 +3479,7 @@ lrm1:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 24
   baOnly: True
 lrm2:
   name: "LRM-2"
@@ -3358,6 +3493,7 @@ lrm2:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 24
   baOnly: True
 lrm3:
   name: "LRM-3"
@@ -3371,6 +3507,7 @@ lrm3:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 12
   baOnly: True
 lrm4:
   name: "LRM-4"
@@ -3386,6 +3523,7 @@ lrm4:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 8
   baOnly: True
 rl1:
   name: "RL1"
@@ -3506,6 +3644,7 @@ balb2:
   rangeX: 9
   useTC: 1
   useAmmo: "LBX"
+  ammoPerTon: 45
   baOnly: true
 clbx:
   name: "LB-X"
@@ -3520,6 +3659,7 @@ clbx:
   rangeX: 9
   useC: 1
   useAmmo: "LBX"
+  ammoPerTon: 45
 csppc:
   name: "cSPPC"
   fullname: "Clan Support PPC"
@@ -3543,6 +3683,7 @@ csrm1:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 50
 csrm3:
   name: "cSRM-3"
   fullname: "Clan SRM-3"
@@ -3557,6 +3698,7 @@ csrm3:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 25
 csrm5:
   name: "cSRM-5"
   fullname: "Clan SRM-5"
@@ -3571,6 +3713,7 @@ csrm5:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 15
 casrm1:
   name: "aSRM-1"
   fullname: "Clan Advanced SRM-1"
@@ -3583,6 +3726,7 @@ casrm1:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 50
 casrm2:
   name: "aSRM-2"
   fullname: "Clan Advanced SRM-2"
@@ -3597,6 +3741,7 @@ casrm2:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 50
 casrm3:
   name: "aSRM-3"
   fullname: "Clan Advanced SRM-3"
@@ -3611,6 +3756,7 @@ casrm3:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 25
 casrm4:
   name: "aSRM-4"
   fullname: "Clan Advanced SRM-4"
@@ -3625,6 +3771,7 @@ casrm4:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 25
 casrm5:
   name: "aSRM-5"
   fullname: "Clan Advanced SRM-5"
@@ -3639,6 +3786,7 @@ casrm5:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 15
 casrm6:
   name: "aSRM-6"
   fullname: "Clan Advanced SRM-6"
@@ -3653,6 +3801,7 @@ casrm6:
   rangeL: 9
   rangeX: 9
   useAmmo: "SRM"
+  ammoPerTon: 15
 clrm1:
   name: "cLRM-1"
   fullname: "Clan LRM-1"
@@ -3665,6 +3814,7 @@ clrm1:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 24
 clrm2:
   name: "cLRM-2"
   fullname: "Clan LRM-2"
@@ -3677,6 +3827,7 @@ clrm2:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 24
 clrm3:
   name: "cLRM-3"
   fullname: "Clan LRM-3"
@@ -3689,6 +3840,7 @@ clrm3:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 12
 clrm4:
   name: "cLRM-4"
   fullname: "Clan LRM-4"
@@ -3702,6 +3854,7 @@ clrm4:
   rangeL: 2
   rangeX: 4
   useAmmo: "LRM"
+  ammoPerTon: 8
 cbombrack:
   name: "Bomb Rack"
   fullname: "Clan Bomb Rack"
@@ -3714,6 +3867,7 @@ cbombrack:
   rangeL: 9
   rangeX: 9
   useAmmo: "Bomb"
+  ammoPerTon: 0
 tsemp:
   name: "TSEMP"
   fullname: "Tight-Stream Electromagnetic Pulse Cannon"

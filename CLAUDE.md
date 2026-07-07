@@ -8,6 +8,8 @@ Desktop app (Python + PyQt6). Recreates + extends DFA Wargaming Battletech Overr
 
 **Constraint:** All work must stay within this project directory — never create or reference files outside of it.
 
+**Constraint:** Never `git commit` or `git push` unless the user explicitly asks. Stage changes and prepare commits when helpful, but wait for the user to request the actual commit/push.
+
 ## Commands
 
 ```bash

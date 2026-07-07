@@ -42,6 +42,18 @@ def _tag_lines(content: str, name: str) -> list[str]:
     return [ln.strip() for ln in val.splitlines() if ln.strip()] if val else []
 
 
+def _detect_tech(tag_fn, unit) -> None:
+    """Set unit.tech and add freecase for Clan based on the 'type' BLK tag."""
+    tech_raw = (tag_fn("type") or "IS Level 1").lower()
+    if "clan" in tech_raw:
+        unit.tech = "Clan"
+        unit.equipment.append(UnitEquipment(equipment_key="freecase", location="All"))
+    elif "mixed" in tech_raw:
+        unit.tech = "Mixed"
+    else:
+        unit.tech = "IS"
+
+
 def parse_blk(path: str) -> ParseResult:
     with open(path, encoding="utf-8", errors="replace") as f:
         content = f.read()
@@ -93,14 +105,7 @@ def parse_blk(path: str) -> ParseResult:
     except ValueError:
         warnings.append(f"Invalid cruiseMP: {cruise_str!r}")
 
-    tech_raw = (tag("type") or "IS Level 1").lower()
-    if "clan" in tech_raw:
-        vehicle.tech = "Clan"
-        vehicle.equipment.append(UnitEquipment(equipment_key="freecase", location="All"))
-    elif "mixed" in tech_raw:
-        vehicle.tech = "Mixed"
-    else:
-        vehicle.tech = "IS"
+    _detect_tech(tag, vehicle)
 
     # Armor type (numeric per card_gen.js getArmorType)
     _VEH_ARMOR_TYPE_MAP = {
@@ -168,7 +173,9 @@ def parse_blk(path: str) -> ParseResult:
             ammo = normalize_ammo(item_name)
             if ammo:
                 eq_key, subtype = ammo
-                vehicle.equipment.append(UnitEquipment(equipment_key=eq_key, subtype=subtype, location=loc))
+                vehicle.equipment.append(UnitEquipment(
+                    equipment_key=eq_key, subtype=subtype, location=loc,
+                ))
                 continue
             wkey = normalize_weapon(item_name)
             if wkey:
@@ -188,14 +195,29 @@ def parse_blk(path: str) -> ParseResult:
             if item_name and item_name.lower() not in ("-empty-", ""):
                 warnings.append(f"Unknown item in {section_name}: {item_name!r}")
 
-    # Deduplicate equipment by (key, location, subtype)
+    # Deduplicate equipment by (key, location, subtype).
+    # For ammo entries, count tons into the `uses` field instead of dropping.
+    _AMMO_KEYS = frozenset({"ammo", "ammolimited"})
     seen: set[tuple[str, str, str]] = set()
     deduped: list[UnitEquipment] = []
+    ammo_counts: dict[tuple[str, str, str], int] = {}
     for e in vehicle.equipment:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if is_ammo:
+            sig = (e.equipment_key, e.location, e.subtype)
+            ammo_counts[sig] = ammo_counts.get(sig, 0) + 1
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+        else:
+            sig = (e.equipment_key, e.location, e.subtype)
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+    for e in deduped:
         sig = (e.equipment_key, e.location, e.subtype)
-        if sig not in seen:
-            seen.add(sig)
-            deduped.append(e)
+        if sig in ammo_counts:
+            e.uses = float(ammo_counts[sig])
     vehicle.equipment = deduped
 
     return ParseResult(unit=vehicle, warnings=warnings)
@@ -254,15 +276,7 @@ def _parse_ba(content: str, warnings: list[str]) -> ParseResult:
     except ValueError:
         pass
 
-    # Tech base
-    tech_raw = (tag("type") or "IS").lower()
-    if "clan" in tech_raw:
-        ba.tech = "Clan"
-        ba.equipment.append(UnitEquipment(equipment_key="freecase", location="All"))
-    elif "mixed" in tech_raw:
-        ba.tech = "Mixed"
-    else:
-        ba.tech = "IS"
+    _detect_tech(tag, ba)
 
     # Motive type
     chassis_raw = (tag("chassis") or "").lower()
@@ -342,7 +356,9 @@ def _parse_ba(content: str, warnings: list[str]) -> ParseResult:
             if ammo:
                 eq_key, ammo_subtype = ammo
                 subtype = ammo_subtype or subtype
-                ba.equipment.append(UnitEquipment(equipment_key=eq_key, subtype=subtype, location=location))
+                ba.equipment.append(UnitEquipment(
+                    equipment_key=eq_key, subtype=subtype, location=location,
+                ))
                 continue
 
             # Try as equipment first (BA armor variants like bastealth/bamimetic are
@@ -375,16 +391,31 @@ def _parse_ba(content: str, warnings: list[str]) -> ParseResult:
         eq_lines = tag_lines("Point Equipment")
     _parse_ba_equipment(eq_lines)
 
-    # Deduplicate equipment by key+subtype only (BA doesn't track location on card)
+    # Deduplicate equipment by key+subtype only (BA doesn't track location on card).
+    # For ammo entries, count tons into the `uses` field instead of dropping.
+    _AMMO_KEYS = frozenset({"ammo", "ammolimited"})
     seen: set[tuple[str, str]] = set()
     deduped: list[UnitEquipment] = []
+    ammo_counts: dict[tuple[str, str], int] = {}
     for e in ba.equipment:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if is_ammo:
+            sig = (e.equipment_key, e.subtype)
+            ammo_counts[sig] = ammo_counts.get(sig, 0) + 1
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+            continue
         sig = (e.equipment_key, e.subtype)
         if sig not in seen:
             seen.add(sig)
             # Clear location since BA doesn't display it
             e.location = ""
             deduped.append(e)
+    for e in deduped:
+        sig = (e.equipment_key, e.subtype)
+        if sig in ammo_counts:
+            e.uses = float(ammo_counts[sig])
     ba.equipment = deduped
 
     return ParseResult(unit=ba, warnings=warnings)
@@ -423,14 +454,7 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
     except ValueError:
         pass
 
-    tech_raw = (tag("type") or "IS Level 1").lower()
-    if "clan" in tech_raw:
-        aero.tech = "Clan"
-        aero.equipment.append(UnitEquipment(equipment_key="freecase", location="All"))
-    elif "mixed" in tech_raw:
-        aero.tech = "Mixed"
-    else:
-        aero.tech = "IS"
+    _detect_tech(tag, aero)
 
     armor_lines = tag_lines("armor")
     armor_keys = ["N", "LW", "RW", "A"]
@@ -456,7 +480,9 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
             ammo = normalize_ammo(item_name)
             if ammo:
                 eq_key, subtype = ammo
-                aero.equipment.append(UnitEquipment(equipment_key=eq_key, subtype=subtype, location=loc))
+                aero.equipment.append(UnitEquipment(
+                    equipment_key=eq_key, subtype=subtype, location=loc,
+                ))
                 continue
             wkey = normalize_weapon(item_name)
             if wkey:
@@ -476,13 +502,29 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
             if item_name and item_name.lower() not in ("-empty-", ""):
                 warnings.append(f"Unknown item in {section_name}: {item_name!r}")
 
+    # Deduplicate equipment by (key, location, subtype).
+    # For ammo entries, count tons into the `uses` field instead of dropping.
+    _AMMO_KEYS = frozenset({"ammo", "ammolimited"})
     seen: set[tuple[str, str, str]] = set()
     deduped: list[UnitEquipment] = []
+    ammo_counts: dict[tuple[str, str, str], int] = {}
     for e in aero.equipment:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if is_ammo:
+            sig = (e.equipment_key, e.location, e.subtype)
+            ammo_counts[sig] = ammo_counts.get(sig, 0) + 1
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+        else:
+            sig = (e.equipment_key, e.location, e.subtype)
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+    for e in deduped:
         sig = (e.equipment_key, e.location, e.subtype)
-        if sig not in seen:
-            seen.add(sig)
-            deduped.append(e)
+        if sig in ammo_counts:
+            e.uses = float(ammo_counts[sig])
     aero.equipment = deduped
 
     return ParseResult(unit=aero, warnings=warnings)

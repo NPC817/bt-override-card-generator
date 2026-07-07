@@ -3,7 +3,6 @@ Weapons panel: QTableWidget with one row per weapon entry.
 Columns: TIC, Weapon, Location, Ammo Type, One-Shot
 """
 from __future__ import annotations
-import logging
 
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtWidgets import (
@@ -15,7 +14,7 @@ from PyQt6.QtWidgets import (
 from ..models.unit import UnitWeapon
 from ..models.data_store import DataStore
 from ..engine.tic_grouper import ResolvedWeapon, validate_tic_assignments
-from .theme import ThemeManager
+from .theme import BTN_DUP_STYLE, BTN_X_STYLE, ThemeManager
 
 _MECH_LOCATIONS   = ["T","LA","RA","LL","RL","HD","(R) T","(R) LL","(R) RL","(R) HD","--"]
 
@@ -211,44 +210,11 @@ class WeaponsPanel(QWidget):
         # + / X buttons — duplicate and remove this row
         dup_btn = QPushButton("+")
         dup_btn.setFixedSize(20, 20)
-        dup_btn.setStyleSheet(
-            "QPushButton {"
-            "  color: #00aa00;"
-            "  font-weight: bold;"
-            "  font-size: 18px;"
-            "  border: 1px solid #00aa00;"
-            "  border-radius: 3px;"
-            "  background: transparent;"
-            "  padding: 0px;"
-            "  margin: 0px;"
-            "  padding-bottom: 5px;"
-            "  padding-left: 0.5px;"
-            "}"
-            "QPushButton:hover {"
-            "  background: #00aa00;"
-            "  color: white;"
-            "}"
-        )
+        dup_btn.setStyleSheet(BTN_DUP_STYLE)
         dup_btn.clicked.connect(lambda checked=False, b=dup_btn: self._duplicate_btn_row(b))
         x_btn = QPushButton("X")
         x_btn.setFixedSize(20, 20)
-        x_btn.setStyleSheet(
-            "QPushButton {"
-            "  color: #cc0000;"
-            "  font-weight: bold;"
-            "  font-size: 14px;"
-            "  border: 1px solid #cc0000;"
-            "  border-radius: 3px;"
-            "  background: transparent;"
-            "  padding: 0px;"
-            "  margin: 0px;"
-            "  padding-bottom: 2px;"
-            "}"
-            "QPushButton:hover {"
-            "  background: #cc0000;"
-            "  color: white;"
-            "}"
-        )
+        x_btn.setStyleSheet(BTN_X_STYLE)
         x_btn.clicked.connect(lambda checked=False, b=x_btn: self._remove_btn_row(b))
         act_widget = QWidget(); act_lay = QHBoxLayout(act_widget)
         act_lay.addWidget(dup_btn); act_lay.addWidget(x_btn)

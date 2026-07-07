@@ -13,6 +13,8 @@ class Equipment:
     isLimited: bool = False
     fixedLocation: str = ""
     subtypes: dict = field(default_factory=dict)  # subtype_key -> display_name
+    specific_subtype: str = ""   # e.g. "LRM20", "AC5" for ammo
+    shots_per_ton: int = 0       # shots per ton of ammo (0 = untracked)
 
     @classmethod
     def from_dict(cls, key: str, data: dict) -> Equipment:
@@ -26,4 +28,6 @@ class Equipment:
             isLimited=bool(data.get("isLimited", False)),
             fixedLocation=data.get("fixedLocation", ""),
             subtypes=dict(data.get("subtypes", {})),
+            specific_subtype=data.get("specific_subtype", ""),
+            shots_per_ton=int(data.get("shots_per_ton", 0)),
         )

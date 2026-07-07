@@ -1,14 +1,7 @@
 from __future__ import annotations
 import math
 from .unit import AbstractUnit
-
-def _r(v: float) -> int:
-    return int(v + 0.5)
-
-def _tmm(mp: int, is_vtol: bool = False) -> int:
-    a = 2 * mp
-    base = 0 if a < 5 else 1 if a < 9 else 2 if a < 13 else 3 if a < 19 else 4 if a < 35 else 5
-    return base + (1 if is_vtol else 0)
+from ..utils.math import _r, _tmm
 
 
 class CombatVehicle(AbstractUnit):

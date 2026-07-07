@@ -67,6 +67,19 @@ PIP_RADIUS  = 15                               # Ee
 PIP_H       = PIP_RADIUS * math.sqrt(3) + 1.5 # row spacing (~27.46)
 PIP_X_MULT  = 16.5                             # column spacing
 
+# Ammo pip constants (75% of armor pip scale)
+AMMO_PIP_RADIUS   = 11        # 15 * 0.75 ≈ 11
+AMMO_PIP_H        = AMMO_PIP_RADIUS * math.sqrt(3) - 2.0  # row spacing ~23
+AMMO_PIP_X_MULT   = 20.0      # horizontal spacing for hex grid
+AMMO_PIPS_PER_ROW = 25        # max pips per row
+AMMO_PIPS_MIN_ROWS = 5         # pips before splitting to multiple rows
+AMMO_MAX_PIP_SHOTS = 50       # suppress pips when total shots exceeds this
+
+# Equipment text layout
+EQUIPMENT_START_X = 60         # left edge of equipment text block
+EQUIPMENT_MAX_W   = 1050         # max width of equipment text block
+EQUIPMENT_PAD_LEFT = 200          # extra left padding (blank space at front)
+
 from ..utils.paths import resource_path as _resource_path
 _IMG_DIR  = str(_resource_path("images"))
 _FONT_DIR = str(_resource_path("fonts"))
@@ -100,7 +113,8 @@ def _load_fonts() -> None:
 
 def _font(size: int, bold: bool = False, family: str = "falcon", weight: int = 0,
           italic: bool = False, underline: bool = False) -> QFont:
-    _load_fonts()
+    if not _FontState.loaded:
+        _load_fonts()
     f = QFont(getattr(_FontState, family, _FontState.falcon), size)
     f.setPixelSize(size)
     if weight:
@@ -211,11 +225,17 @@ def _draw_hex(
     painter: QPainter,
     cx: float, cy: float, radius: float,
     stroke: str, fill: str, stroke_width: int,
+    pointy: bool = False,
 ) -> None:
-    """Draw a flat-top hexagon (rotation=30° per card_gen.js RegularPolygon)."""
+    """Draw a hexagon.
+
+    Flat-top (pointy=False): vertices at multiples of 60° starting at 0°.
+    Pointy-top (pointy=True): vertices at 30° + 60*i — point at bottom.
+    """
+    offset = 30 if pointy else 0
     points = QPolygonF([
-        QPointF(cx + radius * math.cos(math.radians(60 * i)),
-                cy + radius * math.sin(math.radians(60 * i)))
+        QPointF(cx + radius * math.cos(math.radians(60 * i + offset)),
+                cy + radius * math.sin(math.radians(60 * i + offset)))
         for i in range(6)
     ])
     painter.setPen(QPen(_parse_color(stroke), stroke_width))
@@ -372,32 +392,37 @@ class BaseCardRenderer:
     def _draw_heat_scale(self, painter: QPainter, heat_scale_max: int = 5) -> None:
         """Draw heat scale. Legacy 6-box layout for scale<=5; grid layout for scale>5."""
         if heat_scale_max <= 5:
-            # Original 6-box vertical design (unchanged)
-            boxes = [
-                (707, 181, "5", "Auto Shutdown"),
-                (707, 226, "4", "Ammo Explode 8+"),
-                (707, 271, "3", "Shutdown 8+"),
-                (707, 316, "2", "+1 Rng Attk"),
-                (707, 361, "1", "-2 MP / -1 TMM"),
-                (707, 406, "0", "No Effect"),
-            ]
-            for i, (bx, by, label, desc) in enumerate(boxes):
-                if i == 0:
-                    fill = "#000000"
-                elif i == len(boxes) - 1:
-                    fill = "#FFFFFF"
-                else:
-                    idx = max(0, min(len(heat_colors) - 1, round(len(heat_colors) * (1 - (i + 1) / len(boxes)))))
-                    fill = heat_colors[idx]
-                painter.setPen(QPen(QColor("black"), 4))
-                painter.setBrush(QBrush(QColor(fill)))
-                painter.drawRoundedRect(int(bx - 13), int(by - 33), 44, 44, 1, 1)
-                draw_text(painter, bx, by, label, size=FS_MEDIUM, bold=True,
-                          color="white" if i == 0 else "black")
-                draw_text(painter, bx + 50, by, desc, size=FS_MEDIUM)
-            return
+            self._draw_heat_scale_legacy(painter)
+        else:
+            self._draw_heat_scale_grid(painter, heat_scale_max)
 
-        # ── Grid layout for scale > 5: always 6 rows, level 0 centered at bottom ──
+    def _draw_heat_scale_legacy(self, painter: QPainter) -> None:
+        """Original 6-box vertical heat scale for heat_scale_max <= 5."""
+        boxes = [
+            (707, 181, "5", "Auto Shutdown"),
+            (707, 226, "4", "Ammo Explode 8+"),
+            (707, 271, "3", "Shutdown 8+"),
+            (707, 316, "2", "+1 Rng Attk"),
+            (707, 361, "1", "-2 MP / -1 TMM"),
+            (707, 406, "0", "No Effect"),
+        ]
+        for i, (bx, by, label, desc) in enumerate(boxes):
+            if i == 0:
+                fill = "#000000"
+            elif i == len(boxes) - 1:
+                fill = "#FFFFFF"
+            else:
+                idx = max(0, min(len(heat_colors) - 1, round(len(heat_colors) * (1 - (i + 1) / len(boxes)))))
+                fill = heat_colors[idx]
+            painter.setPen(QPen(QColor("black"), 4))
+            painter.setBrush(QBrush(QColor(fill)))
+            painter.drawRoundedRect(int(bx - 13), int(by - 33), 44, 44, 1, 1)
+            draw_text(painter, bx, by, label, size=FS_MEDIUM, bold=True,
+                      color="white" if i == 0 else "black")
+            draw_text(painter, bx + 50, by, desc, size=FS_MEDIUM)
+
+    def _draw_heat_scale_grid(self, painter: QPainter, heat_scale_max: int) -> None:
+        """Grid layout for scale > 5: always 6 rows, level 0 centered at bottom."""
         ROWS     = 6
         CW       = 44
         CH       = 44
@@ -551,17 +576,143 @@ class BaseCardRenderer:
                          int(Qt.AlignmentFlag.AlignVCenter),
                          str(text))
 
-    def _draw_equipment_text(self, painter: QPainter, equipment_str: str) -> None:
-        """Draw equipment list at bottom of left panel. Wraps to multiple lines."""
+    def _draw_equipment_items(
+        self, painter: QPainter, items: list[dict] | None,
+        show_pips: bool = True,
+    ) -> None:
+        """Draw equipment list with optional inline ammo pips.
+
+        items: list of {"label": str, "is_ammo": bool, "shots": int, ...}
+        show_pips: if False, ammo shows only the [N] count, no hex pips.
+        Items flow left-to-right, wrapping when they exceed max width.
+        Ammo items draw hex pips inline after the label, then wrap to next line.
+        """
         draw_text(painter, 60, 1165, "Equipment:", size=FS_LARGE, bold=True)
-        if equipment_str:
-            painter.save()
-            painter.setFont(_font(FS_LARGE-4))
+        if not items:
+            return
+
+        painter.save()
+        painter.setFont(_font(FS_LARGE - 4))
+        painter.setPen(QColor("black"))
+        painter.setBrush(Qt.BrushStyle.NoBrush)
+
+        fm = painter.fontMetrics()
+        line_h = int(fm.height() * 1.3)
+        start_x = EQUIPMENT_START_X
+        max_x = EQUIPMENT_START_X + EQUIPMENT_MAX_W
+        x = start_x + EQUIPMENT_PAD_LEFT
+        y = 1130          # top of current line
+        next_y = y + line_h + 4  # where next line would start
+
+        for i, item in enumerate(items):
+            label = item["label"]
+            is_ammo = item.get("is_ammo", False)
+            shots = item.get("shots", 0) if is_ammo else 0
+            is_last = (i == len(items) - 1)
+
+            if y > 1450:
+                break
+
+            # Comma after each item except the last
+            comma = ", " if not is_last else ""
+            comma_w = fm.horizontalAdvance(comma) if comma else 0
+
+            label_w = fm.horizontalAdvance(label)
+
+            # Pip dimensions for ammo items (estimated for wrap check)
+            pip_w = 0
+            pip_total_rows = 1
+            if is_ammo and shots > 0 and shots <= AMMO_MAX_PIP_SHOTS:
+                per_row_max = AMMO_PIPS_PER_ROW
+                min_rows = 2 if shots > AMMO_PIPS_MIN_ROWS else 1
+                pip_total_rows = max(min_rows, math.ceil(shots / per_row_max))
+                base = shots // pip_total_rows
+                extra = shots % pip_total_rows
+                max_row = base + (1 if extra > 0 else 0)
+                pip_w = int(max_row * AMMO_PIP_X_MULT + 2 * AMMO_PIP_RADIUS)
+
+            total_w = label_w + comma_w + (6 + pip_w if pip_w else 0)
+
+            # Wrap to next line if needed
+            if x > start_x and x + total_w > max_x:
+                x = start_x
+                y = next_y
+                next_y = y + line_h + 4
+
+            # Reset pen
             painter.setPen(QColor("black"))
-            flags = int(Qt.AlignmentFlag.AlignLeft) | int(Qt.TextFlag.TextWordWrap)
-            rect = QRectF(260, 1130, 780, 320)
-            painter.drawText(rect, flags, equipment_str)
-            painter.restore()
+
+            # Draw label
+            painter.drawText(QPointF(x, y + fm.ascent()), label)
+            x += label_w
+
+            # Draw ammo pips (if enabled)
+            if is_ammo and shots > 0 and shots <= AMMO_MAX_PIP_SHOTS and show_pips:
+                x += 6
+                pip_y = y + (line_h - pip_total_rows * AMMO_PIP_H) / 2
+                actual_rows, actual_w = self._draw_ammo_pips_inline(
+                    painter, x, pip_y, shots, max_x - x,
+                    fm_height=fm.height(),
+                )
+                x += actual_w
+
+            # Draw trailing comma
+            if comma:
+                painter.drawText(QPointF(x, y + fm.ascent()), comma)
+                x += comma_w
+
+        painter.restore()
+
+    def _draw_ammo_pips_inline(
+        self, painter: QPainter, start_x: int, y: int,
+        count: int, max_width: int, fm_height: int = 28,
+    ) -> tuple[int, int]:
+        """Draw ammo hex pips inline, wrapping to additional rows per config.
+
+        Returns (total_rows, first_row_width) — the pixel width consumed by
+        the first row so the caller can position subsequent items correctly.
+        """
+        if count <= 0 or count > AMMO_MAX_PIP_SHOTS:
+            return 0, 0
+
+        radius = AMMO_PIP_RADIUS
+        spacing_x = AMMO_PIP_X_MULT
+        spacing_y = AMMO_PIP_H
+        per_row_max = AMMO_PIPS_PER_ROW
+        min_rows = 2 if count > AMMO_PIPS_MIN_ROWS else 1
+        total_rows = max(min_rows, math.ceil(count / per_row_max))
+
+        # Distribute evenly across rows
+        base = count // total_rows
+        extra = count % total_rows
+        row_sizes = [base + 1] * extra + [base] * (total_rows - extra)
+
+        stroke = "#555555"
+        fill = "white"
+        stroke_w = 1.5
+
+        pip_y_offset = spacing_y * 0.15
+
+        first_row_width = 0
+        for row in range(total_rows):
+            row_y = y + pip_y_offset + row * spacing_y
+            row_offset = (spacing_x / 2) if row % 2 == 1 else 0
+            row_x = start_x + row_offset
+            row_count = row_sizes[row]
+
+            for col in range(row_count):
+                cx = row_x + col * spacing_x + radius
+                cy = row_y
+                _draw_hex(painter, cx, cy, radius, stroke, fill, stroke_w,
+                          pointy=True)
+
+            # Track width of first row
+            if row == 0:
+                first_row_width = int(
+                    row_offset + row_count * spacing_x + 2 * radius
+                )
+
+        return total_rows, first_row_width
 
     def _draw_zone_label(
         self, painter: QPainter, x: int, y: int, text: str
