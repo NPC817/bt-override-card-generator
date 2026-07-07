@@ -13,6 +13,7 @@ class ConversionProfile:
     weapon_overrides: dict = field(default_factory=dict)  # {weapon_key: {field: value}}
     track_ammo: bool = False      # enable ammo shot-count display on cards
     show_tracking_pips: bool = True  # show hex pips inline (when track_ammo enabled)
+    ammo_max_pips: int = 50         # suppress pips when total shots exceeds this
 
     def __post_init__(self) -> None:
         """Clamp heat_scale_max to valid range 1-30."""
@@ -37,6 +38,7 @@ class ConversionProfile:
             "weapon_overrides": dict(self.weapon_overrides),
             "track_ammo": self.track_ammo,
             "show_tracking_pips": self.show_tracking_pips,
+            "ammo_max_pips": self.ammo_max_pips,
         }
 
     @classmethod
@@ -51,6 +53,7 @@ class ConversionProfile:
             weapon_overrides=dict(data.get("weapon_overrides", {})),
             track_ammo=bool(data.get("track_ammo", False)),
             show_tracking_pips=bool(data.get("show_tracking_pips", True)),
+            ammo_max_pips=int(data.get("ammo_max_pips", 50)),
         )
 
     @classmethod

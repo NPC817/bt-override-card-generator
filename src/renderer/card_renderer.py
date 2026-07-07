@@ -73,7 +73,7 @@ AMMO_PIP_H        = AMMO_PIP_RADIUS * math.sqrt(3) - 2.0  # row spacing ~23
 AMMO_PIP_X_MULT   = 20.0      # horizontal spacing for hex grid
 AMMO_PIPS_PER_ROW = 25        # max pips per row
 AMMO_PIPS_MIN_ROWS = 5         # pips before splitting to multiple rows
-AMMO_MAX_PIP_SHOTS = 50       # suppress pips when total shots exceeds this
+AMMO_MAX_PIP_SHOTS = 50       # suppress pips when total shots exceeds this (module default)
 
 # Equipment text layout
 EQUIPMENT_START_X = 60         # left edge of equipment text block
@@ -579,6 +579,7 @@ class BaseCardRenderer:
     def _draw_equipment_items(
         self, painter: QPainter, items: list[dict] | None,
         show_pips: bool = True,
+        max_pip_shots: int = 50,
     ) -> None:
         """Draw equipment list with optional inline ammo pips.
 
@@ -622,7 +623,7 @@ class BaseCardRenderer:
             # Pip dimensions for ammo items (estimated for wrap check)
             pip_w = 0
             pip_total_rows = 1
-            if is_ammo and shots > 0 and shots <= AMMO_MAX_PIP_SHOTS:
+            if is_ammo and shots > 0 and shots <= max_pip_shots:
                 per_row_max = AMMO_PIPS_PER_ROW
                 min_rows = 2 if shots > AMMO_PIPS_MIN_ROWS else 1
                 pip_total_rows = max(min_rows, math.ceil(shots / per_row_max))
@@ -647,12 +648,13 @@ class BaseCardRenderer:
             x += label_w
 
             # Draw ammo pips (if enabled)
-            if is_ammo and shots > 0 and shots <= AMMO_MAX_PIP_SHOTS and show_pips:
+            if is_ammo and shots > 0 and shots <= max_pip_shots and show_pips:
                 x += 6
                 pip_y = y + (line_h - pip_total_rows * AMMO_PIP_H) / 2
                 actual_rows, actual_w = self._draw_ammo_pips_inline(
                     painter, x, pip_y, shots, max_x - x,
                     fm_height=fm.height(),
+                    max_pip_shots=max_pip_shots,
                 )
                 x += actual_w
 
@@ -666,13 +668,14 @@ class BaseCardRenderer:
     def _draw_ammo_pips_inline(
         self, painter: QPainter, start_x: int, y: int,
         count: int, max_width: int, fm_height: int = 28,
+        max_pip_shots: int = 50,
     ) -> tuple[int, int]:
         """Draw ammo hex pips inline, wrapping to additional rows per config.
 
         Returns (total_rows, first_row_width) — the pixel width consumed by
         the first row so the caller can position subsequent items correctly.
         """
-        if count <= 0 or count > AMMO_MAX_PIP_SHOTS:
+        if count <= 0 or count > max_pip_shots:
             return 0, 0
 
         radius = AMMO_PIP_RADIUS

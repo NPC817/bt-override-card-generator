@@ -152,7 +152,8 @@ class AeroCardRenderer(BaseCardRenderer):
 
         # Equipment
         self._draw_equipment_items(painter, equipment_items,
-                                   show_pips=profile.show_tracking_pips)
+                                   show_pips=profile.show_tracking_pips,
+                                   max_pip_shots=profile.ammo_max_pips)
 
         # Right panel: zone labels + pips
         self._draw_aero_zones(painter, unit, profile)

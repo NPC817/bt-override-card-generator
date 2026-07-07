@@ -419,7 +419,8 @@ class MechCardRenderer(BaseCardRenderer):
 
         # Equipment
         self._draw_equipment_items(painter, equipment_items,
-                                   show_pips=profile.show_tracking_pips)
+                                   show_pips=profile.show_tracking_pips,
+                                   max_pip_shots=profile.ammo_max_pips)
 
         # Right panel: zone labels + values + pips
         self._draw_mech_zones(painter, unit, profile)

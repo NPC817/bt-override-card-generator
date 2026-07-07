@@ -64,7 +64,7 @@ def build_equipment_items(
 
             if eq.location:
                 label += f" [{eq.location}]"
-            label += f"[{total_shots}]"
+            label += f" [{total_shots}]"
 
             items.append({
                 "label": label,

@@ -148,6 +148,18 @@ class SettingsDialog(QDialog):
             "When disabled, only the shot count [N] is shown."
         )
         optional_layout.addWidget(self._show_pips_cb)
+
+        ammo_max_form = QFormLayout()
+        self._ammo_max_pips_sb = QSpinBox()
+        self._ammo_max_pips_sb.setRange(1, 999)
+        self._ammo_max_pips_sb.setValue(50)
+        self._ammo_max_pips_sb.setToolTip(
+            "Maximum shot count that still shows hex pips on card. "
+            "Ammo with more shots than this will only show the number."
+        )
+        ammo_max_form.addRow("Max ammo pips:", self._ammo_max_pips_sb)
+        optional_layout.addLayout(ammo_max_form)
+
         optional_layout.addStretch()
         self._tabs.addTab(optional_tab, "Optional")
 
@@ -376,6 +388,8 @@ class SettingsDialog(QDialog):
         self._track_ammo_cb.setChecked(p.track_ammo)
         self._show_pips_cb.setEnabled(not is_default)
         self._show_pips_cb.setChecked(p.show_tracking_pips)
+        self._ammo_max_pips_sb.setEnabled(not is_default)
+        self._ammo_max_pips_sb.setValue(p.ammo_max_pips)
 
         self._populate_weapon_list()
         if self._current_weapon_key:
@@ -443,6 +457,7 @@ class SettingsDialog(QDialog):
         p.move_scale_multiplier = self._move_mult.value()
         p.track_ammo = self._track_ammo_cb.isChecked()
         p.show_tracking_pips = self._show_pips_cb.isChecked()
+        p.ammo_max_pips = self._ammo_max_pips_sb.value()
         self._flush_weapon_editor_to(name)
 
     def _flush_weapon_editor_to(self, profile_name: str) -> None:
