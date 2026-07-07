@@ -2,8 +2,8 @@
 from __future__ import annotations
 import os
 
-from PyQt6.QtGui import QAction, QKeySequence
-from PyQt6.QtCore import QTimer
+from PyQt6.QtGui import QAction, QColor, QIcon, QKeySequence, QPainter, QPixmap
+from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtWidgets import (
     QApplication, QFileDialog, QLabel, QMainWindow, QMessageBox,
     QTabWidget,
@@ -26,6 +26,9 @@ class MainWindow(QMainWindow):
         if not ProfileManager._profiles:
             ProfileManager.load()
         self.setAcceptDrops(True)
+
+        self._update_available = False
+        self._update_dot_icon: QIcon | None = None
 
         self._tabs = QTabWidget()
         self._tabs.setTabsClosable(True)
@@ -82,16 +85,18 @@ class MainWindow(QMainWindow):
         self._dark_action.triggered.connect(self._toggle_theme)
         view_menu.addAction(self._dark_action)
 
-        help_menu = mb.addMenu("&Help")
-        self._add_action(help_menu, "Check for &Updates…", "", self._check_for_updates)
-        self._add_action(help_menu, "&About", "", self._about)
+        self._help_menu = mb.addMenu("&Help")
+        self._update_action = self._add_action(
+            self._help_menu, "Check for &Updates…", "", self._check_for_updates)
+        self._add_action(self._help_menu, "&About", "", self._about)
 
-    def _add_action(self, menu, label, shortcut, slot) -> None:
+    def _add_action(self, menu, label, shortcut, slot) -> QAction:
         act = QAction(label, self)
         if shortcut:
             act.setShortcut(QKeySequence(shortcut))
         act.triggered.connect(slot)
         menu.addAction(act)
+        return act
 
     # ── Status bar ────────────────────────────────────────────────────────────
 
@@ -102,6 +107,42 @@ class MainWindow(QMainWindow):
 
     def _update_profile_label(self) -> None:
         self._status_profile.setText(f"Profile: {ProfileManager.active().name}")
+
+    # ── Update indicator ──────────────────────────────────────────────────────
+
+    def _make_dot_icon(self) -> QIcon:
+        """Create a small red-dot QIcon for the update-available indicator."""
+        size = 14
+        pixmap = QPixmap(size, size)
+        pixmap.fill(Qt.GlobalColor.transparent)
+        painter = QPainter(pixmap)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setBrush(QColor(220, 40, 40))
+        painter.setPen(Qt.PenStyle.NoPen)
+        painter.drawEllipse(2, 2, size - 4, size - 4)
+        painter.end()
+        return QIcon(pixmap)
+
+    def _show_update_indicator(self) -> None:
+        """Show red dot on Help menu and Check for Updates action."""
+        if self._update_available:
+            return
+        self._update_available = True
+        if self._update_dot_icon is None:
+            self._update_dot_icon = self._make_dot_icon()
+        # Unicode red circle on menu bar (always red, doesn't replace text)
+        self._help_menu.setTitle("\U0001f534 &Help")
+        # Icon on dropdown menu action
+        self._update_action.setIcon(self._update_dot_icon)
+        self._update_action.setIconVisibleInMenu(True)
+
+    def _hide_update_indicator(self) -> None:
+        """Remove red dot from Help menu and Check for Updates action."""
+        if not self._update_available:
+            return
+        self._update_available = False
+        self._help_menu.setTitle("&Help")
+        self._update_action.setIcon(QIcon())
 
     # ── Tab management ────────────────────────────────────────────────────────
 
@@ -505,15 +546,27 @@ class MainWindow(QMainWindow):
     def _on_startup_check_finished(self, info) -> None:
         if info is None:
             return  # up to date — silent
+        self._show_update_indicator()
         self.statusBar().showMessage(
             f"Update available: {info.tag_name} — Help → Check for Updates",
             0,  # stays until clicked
         )
 
     def _check_for_updates(self) -> None:
-        from .update_checker import UpdateDialog
+        from .update_checker import UpdateCheckThread, UpdateDialog
         dlg = UpdateDialog(parent=self)
         dlg.exec()
+        # Re-check after dialog closes so indicator reflects current state
+        self._refresh_thread = UpdateCheckThread()
+        self._refresh_thread.finished.connect(self._on_manual_check_finished)
+        self._refresh_thread.error.connect(lambda _msg: None)
+        self._refresh_thread.start()
+
+    def _on_manual_check_finished(self, info) -> None:
+        if info is None:
+            self._hide_update_indicator()
+        else:
+            self._show_update_indicator()
 
     def _about(self) -> None:
         from ..version import __version__, __app_name__, __repo_url__
