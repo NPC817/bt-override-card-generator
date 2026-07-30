@@ -189,8 +189,18 @@ def parse_mtf(path: str) -> ParseResult:
                             # Only add if not already at this location
                             # (melee weapons span multiple crits, standard
                             # weapons are already in the Weapons section)
+                            # For Clan-prefixed weapons, also check the IS-equivalent
+                            # key — the Weapons section lists them with IS keys, and
+                            # the Clan upgrade logic below upgrades them later.
+                            _check_keys = {wkey}
+                            if wkey.startswith("c"):
+                                try:
+                                    _DS.weapon(wkey[1:])
+                                    _check_keys.add(wkey[1:])
+                                except KeyError:
+                                    pass
                             already_has = any(
-                                w.weapon_key == wkey and w.location == current_crit_loc
+                                w.weapon_key in _check_keys and w.location == current_crit_loc
                                 for w in mech.weapons
                             )
                             if not already_has:
@@ -205,7 +215,7 @@ def parse_mtf(path: str) -> ParseResult:
             # Upgrade weapons from Weapons section when crit slot has Clan prefix.
             # Weapons section lists generic name ("ER Medium Laser" → ermlas IS),
             # crit slot has actual item ("CLERMediumLaser" → cermlas Clan).
-            wkey = normalize_weapon(item_name)
+            # (wkey from normalize_weapon above is reused)
             if wkey and wkey.startswith("c"):
                 base_key = wkey[1:]  # strip 'c' prefix to get IS-equivalent key
                 for w in mech.weapons:
@@ -216,8 +226,8 @@ def parse_mtf(path: str) -> ParseResult:
                         break
 
             # If rear-mounted weapon, update the matching weapon's location
+            # (wkey from normalize_weapon above is reused)
             if rear:
-                wkey = normalize_weapon(item_name)
                 if wkey:
                     rear_loc = _REAR_LOC_MAP.get(current_crit_loc)
                     if rear_loc:
