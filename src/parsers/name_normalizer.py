@@ -943,7 +943,7 @@ def _lookup_alias(name: str) -> str | None:
     if key.startswith("is") and key[2:] in _ALIAS_MAP:
         return _ALIAS_MAP[key[2:]]
     # Try ADDING tech prefixes (for bare names like "Heavy Medium Laser")
-    for prefix in ("cl", "is"):
+    for prefix in ("is", "cl"):
         prefixed = prefix + key
         if prefixed in _ALIAS_MAP:
             return _ALIAS_MAP[prefixed]
@@ -1051,8 +1051,8 @@ _CALIBER_TO_SUBTYPE: dict[str, str] = {
 def _resolve_ammo_subtype(raw: str) -> str | None:
     """Extract a known ammo subtype from a raw caliber string."""
     cleaned = _munge(raw)
-    # Try stripping leading cl/is
-    for prefix in ("cl", "is"):
+    # Try stripping leading is/cl
+    for prefix in ("is", "cl"):
         if cleaned.startswith(prefix):
             base = cleaned[len(prefix):]
             if base in _CALIBER_TO_SUBTYPE:

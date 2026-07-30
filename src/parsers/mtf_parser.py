@@ -96,7 +96,7 @@ def parse_mtf(path: str) -> ParseResult:
                 mech.has_dhs = len(parts) > 1 and "double" in value.lower()
             elif key == "omnimech":
                 mech.omni = value.lower() == "true"
-            elif key in ("armor", "engine", "structure", "myomer"):
+            elif key in ("armor", "engine", "structure", "myomer", "cockpit"):
                 ekey = _mtf_special_equip(value, key)
                 if ekey:
                     mech.equipment.append(UnitEquipment(equipment_key=ekey))

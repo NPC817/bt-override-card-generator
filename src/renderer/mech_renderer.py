@@ -371,9 +371,16 @@ class MechCardRenderer(BaseCardRenderer):
         engine = ConversionEngine(profile)
         _sw = engine.convert_move(unit.effective_walk_mp)
         _sr = engine.convert_move(unit.run_mp)
+
+        # Partial Wing bonuses
+        _has_pw = unit.is_equipped_with("partwing")
+        _pw_jump = 2 if unit.tonnage <= 55 else 1 if _has_pw else 0
+        _pw_sinks = 1 if _has_pw else 0
+        _eff_jump = unit.jump_mp + _pw_jump
+
         _move_parts = [str(_sw), str(_sr)]
-        if unit.jump_mp > 0:
-            _sj = engine.convert_move(unit.jump_mp)
+        if _eff_jump > 0:
+            _sj = engine.convert_move(_eff_jump)
             _move_parts.append(f"{_sj}j")
         if unit.is_equipped_with("umu"):
             _su = engine.convert_move(unit.walk_mp)
@@ -382,14 +389,14 @@ class MechCardRenderer(BaseCardRenderer):
         if len(_move_str) > 11:
             _move_str = _move_str.replace(" ", "")
         _tmm_parts = [str(_tmm(_sw)), str(_tmm(_sr))]
-        if unit.jump_mp > 0:
+        if _eff_jump > 0:
             _tmm_parts.append(str(_tmm(_sj) + 1))
         if unit.is_equipped_with("umu"):
             _tmm_parts.append(str(_tmm(_su)))
         _tmm_str = " / ".join(_tmm_parts)
         _cpods = int(sum(e.uses for e in unit.equipment if e.equipment_key == "cpod"))
-        _sinks_val = engine.convert_heat_sinks(unit.sinks, unit.has_dhs, _cpods)
-        _jump_heat_val = engine.convert_jump_heat() if unit.jump_mp > 0 else None
+        _sinks_val = engine.convert_heat_sinks(unit.sinks + _pw_sinks, unit.has_dhs, _cpods)
+        _jump_heat_val = engine.convert_jump_heat() if _eff_jump > 0 else None
 
         # Header
         self._draw_unit_header(
