@@ -46,9 +46,19 @@ class ConversionEngine:
 
     # ── Heat ─────────────────────────────────────────────────────────────────
 
-    def convert_heat_sinks(self, sinks: int, is_dhs: bool = False) -> int:
+    def convert_heat_sinks(self, sinks: int, is_dhs: bool = False,
+                           num_coolant_pods: int = 0) -> int:
         effective = sinks * 2 if is_dhs else sinks
-        return max(_r(effective / self.profile.heat_sink_divisor), 0)
+        base = max(_r(effective / self.profile.heat_sink_divisor), 0)
+        if num_coolant_pods > 0:
+            # Coolant Pod bonus — see bugs.txt for formula:
+            #   1. sinks * pods (DHS still counts as 1)
+            #   2. / 10 (no rounding)
+            #   3. / 5, round normally, min 0
+            #   4. + 1
+            coolant_bonus = max(_r((sinks * num_coolant_pods / 10) / 5), 0) + 1
+            base += coolant_bonus
+        return base
 
     def convert_jump_heat(self) -> int:
         """Classic BT minimum jump heat (3) scaled by the heat divisor."""

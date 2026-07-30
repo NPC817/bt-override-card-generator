@@ -132,6 +132,13 @@ Profiles stored as YAML in `data/profiles/`. Built-in "Default" profile never pe
 
 **Font loading:** `_FontState` class in `src/renderer/card_renderer.py` holds `loaded`, `falcon`, `vegas` as class attributes. `_load_fonts()` sets them once; `_font(size, bold)` calls it on every use.
 
+## Bug Tracking
+
+`bugs.txt` is the bug tracker. When user says "fix all bugs" or "fix bugs":
+1. Read `bugs.txt`
+2. Make plan for each bug listed
+3. Don't fix until plan approved
+
 ## Testing
 
 Only run tests when requested.

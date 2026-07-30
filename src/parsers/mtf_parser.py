@@ -178,6 +178,29 @@ def parse_mtf(path: str) -> ParseResult:
                             if _wd.useFCS and eq_key in _wd.useFCS:
                                 _w.fcs = eq_key
                                 break
+                else:
+                    # Crit slot item not ammo/equipment — may be a weapon
+                    # not listed in Weapons section header (e.g. Hatchet, Sword).
+                    wkey = normalize_weapon(item_name)
+                    if wkey:
+                        from ..models.data_store import DataStore as _DS
+                        try:
+                            _DS.weapon(wkey)
+                            # Only add if not already at this location
+                            # (melee weapons span multiple crits, standard
+                            # weapons are already in the Weapons section)
+                            already_has = any(
+                                w.weapon_key == wkey and w.location == current_crit_loc
+                                for w in mech.weapons
+                            )
+                            if not already_has:
+                                is_os = "(OS)" in item_name.upper()
+                                mech.weapons.append(UnitWeapon(
+                                    weapon_key=wkey, location=current_crit_loc,
+                                    one_shot=is_os,
+                                ))
+                        except KeyError:
+                            pass
 
             # Upgrade weapons from Weapons section when crit slot has Clan prefix.
             # Weapons section lists generic name ("ER Medium Laser" → ermlas IS),
@@ -227,6 +250,20 @@ def parse_mtf(path: str) -> ParseResult:
         sig = (e.equipment_key, e.location, e.subtype)
         if sig in ammo_counts:
             e.uses = float(ammo_counts[sig])
+    # Also count uses for isLimited equipment (e.g. Coolant Pods)
+    from ..models.data_store import DataStore as _DS
+    _orig_eq = mech.equipment
+    for e in deduped:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if not is_ammo:
+            try:
+                eq_obj = _DS.equipment(e.equipment_key)
+                if eq_obj.isLimited:
+                    sig = (e.equipment_key, e.location, e.subtype)
+                    e.uses = float(sum(1 for o in _orig_eq
+                                       if (o.equipment_key, o.location, o.subtype) == sig))
+            except KeyError:
+                pass
     mech.equipment = deduped
 
     return ParseResult(unit=mech, warnings=warnings)

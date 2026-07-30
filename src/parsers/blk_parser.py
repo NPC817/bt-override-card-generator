@@ -218,6 +218,19 @@ def parse_blk(path: str) -> ParseResult:
         sig = (e.equipment_key, e.location, e.subtype)
         if sig in ammo_counts:
             e.uses = float(ammo_counts[sig])
+    from ..models.data_store import DataStore as _DS
+    _orig_eq = vehicle.equipment
+    for e in deduped:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if not is_ammo:
+            try:
+                eq_obj = _DS.equipment(e.equipment_key)
+                if eq_obj.isLimited:
+                    sig = (e.equipment_key, e.location, e.subtype)
+                    e.uses = float(sum(1 for o in _orig_eq
+                                       if (o.equipment_key, o.location, o.subtype) == sig))
+            except KeyError:
+                pass
     vehicle.equipment = deduped
 
     return ParseResult(unit=vehicle, warnings=warnings)
@@ -416,6 +429,19 @@ def _parse_ba(content: str, warnings: list[str]) -> ParseResult:
         sig = (e.equipment_key, e.subtype)
         if sig in ammo_counts:
             e.uses = float(ammo_counts[sig])
+    from ..models.data_store import DataStore as _DS
+    _orig_eq = ba.equipment
+    for e in deduped:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if not is_ammo:
+            try:
+                eq_obj = _DS.equipment(e.equipment_key)
+                if eq_obj.isLimited:
+                    sig = (e.equipment_key, e.subtype)
+                    e.uses = float(sum(1 for o in _orig_eq
+                                       if (o.equipment_key, o.subtype) == sig))
+            except KeyError:
+                pass
     ba.equipment = deduped
 
     return ParseResult(unit=ba, warnings=warnings)
@@ -525,6 +551,19 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
         sig = (e.equipment_key, e.location, e.subtype)
         if sig in ammo_counts:
             e.uses = float(ammo_counts[sig])
+    from ..models.data_store import DataStore as _DS
+    _orig_eq = aero.equipment
+    for e in deduped:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if not is_ammo:
+            try:
+                eq_obj = _DS.equipment(e.equipment_key)
+                if eq_obj.isLimited:
+                    sig = (e.equipment_key, e.location, e.subtype)
+                    e.uses = float(sum(1 for o in _orig_eq
+                                       if (o.equipment_key, o.location, o.subtype) == sig))
+            except KeyError:
+                pass
     aero.equipment = deduped
 
     return ParseResult(unit=aero, warnings=warnings)

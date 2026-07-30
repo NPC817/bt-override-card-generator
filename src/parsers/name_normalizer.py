@@ -54,6 +54,7 @@ _WEAPON_MAP: dict[str, str] = {
     # Melee
     "Hatchet": "hatchet", "Sword": "sword", "Mace": "mace",
     "Claws": "claws", "Lance": "lance",
+    "Retractable Blade": "retractable_blade", "Flail": "flail",
     # Artillery
     "Long Tom": "longtom", "Sniper": "sniper", "Thumper": "thumper",
     # Rocket Launchers
@@ -633,6 +634,7 @@ _ALIAS_MAP: dict[str, str] = {
     "isflail": "flail", "clflail": "flail",
     "isclaw": "claws", "clclaw": "claws",
     "islance": "lance", "cllance": "lance",
+    "isretractableblade": "retractable_blade", "clretractableblade": "retractable_blade",
     # BA weapons
     "isbalightmachinegun": "lmg", "isbalightmg": "lmg",
     "isbamachinegun": "mg", "isbamg": "mg",

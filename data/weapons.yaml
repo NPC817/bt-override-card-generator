@@ -3946,3 +3946,29 @@ lance:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+retractable_blade:
+  name: "Retractable Blade"
+  fullname: "Retractable Blade"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 5
+  heat: 0
+  critsTonnageDiv: 20
+  rangePB: -1
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+flail:
+  name: "Flail"
+  fullname: "Flail"
+  tech: "Mixed"
+  type: "P"
+  damageTonnageDiv: 5
+  heat: 0
+  critsTonnageDiv: 20
+  rangePB: 1
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9

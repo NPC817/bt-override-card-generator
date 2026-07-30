@@ -387,7 +387,8 @@ class MechCardRenderer(BaseCardRenderer):
         if unit.is_equipped_with("umu"):
             _tmm_parts.append(str(_tmm(_su)))
         _tmm_str = " / ".join(_tmm_parts)
-        _sinks_val = engine.convert_heat_sinks(unit.sinks, unit.has_dhs)
+        _cpods = int(sum(e.uses for e in unit.equipment if e.equipment_key == "cpod"))
+        _sinks_val = engine.convert_heat_sinks(unit.sinks, unit.has_dhs, _cpods)
         _jump_heat_val = engine.convert_jump_heat() if unit.jump_mp > 0 else None
 
         # Header

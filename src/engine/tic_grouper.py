@@ -151,6 +151,7 @@ class ResolvedWeapon:
     tonnage: int = 0
     fcs: str | None = None  # "aiv", "av", or None
     tc: bool = False        # Targeting Computer active for this weapon
+    aes: bool = False       # AES -1 PD for melee weapons
 
     @property
     def arc(self) -> str:
@@ -166,10 +167,25 @@ class ResolvedWeapon:
             name += " (AV)"
         if int(self.weapon.useR or 0) > 0:
             name += " (RF)"
+        if self.aes:
+            name += " (AES)"
         return name
 
     def _tc_range(self, raw: int) -> int:
-        return max(raw - 1, -1) if self.tc and raw != 9 else raw
+        """TC gives -1 to all range brackets. Floor -5 allows stacking with AES/pulse."""
+        return max(raw - 1, -5) if self.tc and raw != 9 else raw
+
+    def _aes_range(self, raw: int) -> int:
+        """AES in arm gives -1 to all range brackets (like TC)."""
+        return max(raw - 1, -5) if self.aes and raw != 9 else raw
+
+    def modified_range(self, attr: str) -> int:
+        """Raw int range value with TC and AES modifiers applied."""
+        v = getattr(self.weapon, attr)
+        # AES applies to all ranges (arm-mounted weapons only)
+        v = self._aes_range(v)
+        # TC applies to all ranges
+        return self._tc_range(v)
 
     @property
     def damage_display(self) -> int:
@@ -202,15 +218,15 @@ class ResolvedWeapon:
         return _fmt_rng(val)
 
     @property
-    def range_pb(self) -> str: return self._rng(self._tc_range(self.weapon.rangePB))
+    def range_pb(self) -> str: return self._rng(self.modified_range("rangePB"))
     @property
-    def range_s(self)  -> str: return self._rng(self._tc_range(self.weapon.rangeS))
+    def range_s(self)  -> str: return self._rng(self.modified_range("rangeS"))
     @property
-    def range_m(self)  -> str: return self._rng(self._tc_range(self.weapon.rangeM))
+    def range_m(self)  -> str: return self._rng(self.modified_range("rangeM"))
     @property
-    def range_l(self)  -> str: return self._rng(self._tc_range(self.weapon.rangeL))
+    def range_l(self)  -> str: return self._rng(self.modified_range("rangeL"))
     @property
-    def range_x(self)  -> str: return self._rng(self._tc_range(self.weapon.rangeX))
+    def range_x(self)  -> str: return self._rng(self.modified_range("rangeX"))
 
 
 # ── TicGroup accumulator ──────────────────────────────────────────────────────
@@ -223,6 +239,11 @@ class TicGroup:
     @property
     def used(self) -> bool:
         return len(self.weapons) > 0
+
+    @property
+    def has_physical(self) -> bool:
+        """True if any weapon in this TIC is type 'P' (physical/melee)."""
+        return any(rw.weapon.type == "P" for rw in self.weapons)
 
     @property
     def damage(self) -> float:
@@ -256,9 +277,7 @@ class TicGroup:
             return 0
         vals = []
         for rw in self.weapons:
-            v = getattr(rw.weapon, attr)
-            if rw.tc and v != 9:
-                v = max(v - 1, -1)
+            v = rw.modified_range(attr)
             vals.append(v)
         return max(vals)
 
@@ -457,7 +476,7 @@ def _score_weapon_for_tic(rw: ResolvedWeapon, tig: TicGroup, tic_idx: int) -> fl
         return 0.0
 
     # Physical weapons never share a TIC
-    if w.type == "P":
+    if w.type == "P" or tig.has_physical:
         return 0.0
 
     # Damage budget ≤ 5
@@ -675,6 +694,8 @@ def resolve_weapons(
         _engine = None
 
     has_tc = unit.is_equipped_with("tc")
+    _aes_arms = {e.location for e in unit.equipment
+                 if e.equipment_key == "aes" and e.location in ("LA", "RA")}
     resolved = []
     for uw in unit.weapons:
         try:
@@ -683,6 +704,13 @@ def resolve_weapons(
             continue
         if _engine is not None:
             w = _engine.apply_weapon_overrides(w)
+        # AES in arm benefits weapons mounted in arms and melee weapons
+        aes_eligible = (
+            bool(_aes_arms) and (
+                uw.location in _aes_arms  # weapon in same arm as AES
+                or w.type == "P"          # melee weapons always benefit from arm AES
+            )
+        )
         resolved.append(ResolvedWeapon(
             unit_weapon=uw,
             weapon=w,
@@ -693,6 +721,7 @@ def resolve_weapons(
             tonnage=tonnage,
             fcs=uw.fcs,
             tc=has_tc and bool(w.useTC),
+            aes=aes_eligible,
         ))
     return resolved
 
@@ -701,7 +730,7 @@ def group_weapons(resolved: list[ResolvedWeapon]) -> list[ResolvedWeapon]:
     """Merge identical weapon entries (same key + location + ammo + tic + fcs + tc) into count > 1."""
     seen: dict[tuple, ResolvedWeapon] = {}
     for rw in resolved:
-        key = (rw.unit_weapon.weapon_key, rw.location, rw.ammo_type, rw.tic, rw.one_shot, rw.fcs, rw.tc)
+        key = (rw.unit_weapon.weapon_key, rw.location, rw.ammo_type, rw.tic, rw.one_shot, rw.fcs, rw.tc, rw.aes)
         if key in seen:
             seen[key].count += 1
         else:
@@ -716,6 +745,7 @@ def group_weapons(resolved: list[ResolvedWeapon]) -> list[ResolvedWeapon]:
                 tonnage=rw.tonnage,
                 fcs=rw.fcs,
                 tc=rw.tc,
+                aes=rw.aes,
             )
     return list(seen.values())
 
@@ -790,6 +820,7 @@ def _build_tic_name(rws: list[ResolvedWeapon]) -> tuple[str, str]:
     name_os: dict[str, bool] = {}
     name_rf: dict[str, bool] = {}
     name_tc: dict[str, bool] = {}
+    name_aes: dict[str, bool] = {}
     name_fcs: dict[str, str | None] = {}
     for rw in rws:
         n = rw.weapon.name
@@ -802,6 +833,8 @@ def _build_tic_name(rws: list[ResolvedWeapon]) -> tuple[str, str]:
             name_rf[n] = True
         if rw.tc:
             name_tc[n] = True
+        if rw.aes:
+            name_aes[n] = True
         if rw.fcs:
             name_fcs[n] = rw.fcs
 
@@ -820,6 +853,8 @@ def _build_tic_name(rws: list[ResolvedWeapon]) -> tuple[str, str]:
             suffix += " (OS)"
         if name_tc.get(n):
             suffix += " (TC)"
+        if name_aes.get(n):
+            suffix += " (AES)"
         name_parts.append(
             f"×{cnt} {n}{suffix}" if cnt > 1 else f"{n}{suffix}"
         )
