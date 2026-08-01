@@ -374,7 +374,7 @@ class MechCardRenderer(BaseCardRenderer):
 
         # Partial Wing bonuses
         _has_pw = unit.is_equipped_with("partwing")
-        _pw_jump = 2 if unit.tonnage <= 55 else 1 if _has_pw else 0
+        _pw_jump = (2 if unit.tonnage <= 55 else 1) if _has_pw else 0
         _pw_sinks = 1 if _has_pw else 0
         _eff_jump = unit.jump_mp + _pw_jump
 
