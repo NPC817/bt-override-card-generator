@@ -7,8 +7,7 @@ from __future__ import annotations
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtWidgets import (
     QCheckBox, QComboBox, QHBoxLayout, QHeaderView, QLabel,
-    QPushButton, QSpinBox, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget,
+    QPushButton, QSpinBox, QTableWidget, QVBoxLayout, QWidget,
 )
 
 from ..models.unit import UnitWeapon
@@ -28,6 +27,20 @@ _AC_AMMO_OPTIONS = ("Std", "Precision", "AP", "Flak", "Flechette", "Tracer")
 _BA_LOCATIONS      = ["Body","Arm","TU","DWP","--"]
 _AERO_LOCATIONS    = ["N","LW","RW","A","--"]
 
+_BTN_ARROW_STYLE = (
+    "QPushButton { font-size: 12px; padding: 0; margin: 0; "
+    "background: transparent; border: none; color: palette(text); }"
+    "QPushButton:hover { color: #3399ff; font-weight: bold; }"
+)
+
+
+def _make_arrow_btn(text: str, tooltip: str) -> QPushButton:
+    b = QPushButton(text)
+    b.setFixedSize(18, 18)
+    b.setToolTip(tooltip)
+    b.setStyleSheet(_BTN_ARROW_STYLE)
+    return b
+
 
 class WeaponsPanel(QWidget):
     changed = pyqtSignal()
@@ -46,6 +59,8 @@ class WeaponsPanel(QWidget):
         else:
             self._locations = _VEHICLE_LOCATIONS
         self._tonnage: int = 0
+        self._building = False
+        self._manual_order = False
         self._build_ui()
         self.changed.connect(self._run_validation)
 
@@ -78,7 +93,7 @@ class WeaponsPanel(QWidget):
         self._table.setColumnWidth(0, 50)
         self._table.setColumnWidth(2, 80)
         self._table.setColumnWidth(4, 40)
-        self._table.setColumnWidth(5, 52)
+        self._table.setColumnWidth(5, 92)
         layout.addWidget(self._table)
 
         self._errors_label = QLabel()
@@ -135,6 +150,8 @@ class WeaponsPanel(QWidget):
         self.changed.emit()
 
     def _add_row(self, weapon: UnitWeapon | None = None, target_row: int | None = None) -> None:
+        was_building = self._building
+        self._building = True
         if target_row is not None:
             row = target_row
             self._table.insertRow(row)
@@ -160,8 +177,6 @@ class WeaponsPanel(QWidget):
             if idx >= 0:
                 wcombo.setCurrentIndex(idx)
             else:
-                # Key not in _ALLOWED_WEAPONS — add it so it isn't silently
-                # replaced with the first combo entry (ac2/AC/2)
                 wcombo.insertItem(0, weapon.weapon_key, weapon.weapon_key)
                 wcombo.setCurrentIndex(0)
         wcombo.setProperty("_fcs", weapon.fcs if weapon else None)
@@ -207,7 +222,11 @@ class WeaponsPanel(QWidget):
         os_lay.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self._table.setCellWidget(row, 4, os_widget)
 
-        # + / X buttons — duplicate and remove this row
+        # Action buttons: ▲ ▼ + X
+        btn_up = _make_arrow_btn("▲", "Move up")
+        btn_dn = _make_arrow_btn("▼", "Move down")
+        btn_up.clicked.connect(lambda checked=False, b=btn_up: self._move_btn_row(b, -1))
+        btn_dn.clicked.connect(lambda checked=False, b=btn_dn: self._move_btn_row(b, 1))
         dup_btn = QPushButton("+")
         dup_btn.setFixedSize(20, 20)
         dup_btn.setStyleSheet(BTN_DUP_STYLE)
@@ -217,12 +236,15 @@ class WeaponsPanel(QWidget):
         x_btn.setStyleSheet(BTN_X_STYLE)
         x_btn.clicked.connect(lambda checked=False, b=x_btn: self._remove_btn_row(b))
         act_widget = QWidget(); act_lay = QHBoxLayout(act_widget)
+        act_lay.addWidget(btn_up); act_lay.addWidget(btn_dn)
         act_lay.addWidget(dup_btn); act_lay.addWidget(x_btn)
-        act_lay.setContentsMargins(0,0,0,0); act_lay.setSpacing(4)
+        act_lay.setContentsMargins(0,0,0,0); act_lay.setSpacing(2)
         act_lay.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self._table.setCellWidget(row, 5, act_widget)
 
-        self.changed.emit()
+        self._building = was_building
+        if not self._building:
+            self.changed.emit()
 
     def _next_available_tic(self) -> int:
         used = set()
@@ -234,6 +256,14 @@ class WeaponsPanel(QWidget):
         while tic in used:
             tic += 1
         return tic
+
+    def _find_btn_row(self, btn: QPushButton, col: int = 5) -> int:
+        """Find the table row containing the given button in column *col*."""
+        for row in range(self._table.rowCount()):
+            cw = self._table.cellWidget(row, col)
+            if cw and btn in cw.findChildren(QPushButton):
+                return row
+        return -1
 
     def _duplicate_btn_row(self, btn: QPushButton) -> None:
         """Duplicate the weapon row containing the given + button."""
@@ -264,16 +294,34 @@ class WeaponsPanel(QWidget):
 
     def _remove_btn_row(self, btn: QPushButton) -> None:
         """Remove the table row containing the given X button."""
-        for row in range(self._table.rowCount()):
-            cw = self._table.cellWidget(row, 5)
-            if cw and btn in cw.findChildren(QPushButton):
-                self._table.removeRow(row)
-                break
+        row = self._find_btn_row(btn)
+        if row >= 0:
+            self._table.removeRow(row)
+        if not self._building:
+            self.changed.emit()
+
+    def _move_btn_row(self, btn: QPushButton, direction: int) -> None:
+        """Move the row containing *btn* by *direction* (-1 up, +1 down)."""
+        src = self._find_btn_row(btn)
+        if src < 0:
+            return
+        dst = src + direction
+        if dst < 0 or dst >= self._table.rowCount():
+            return
+        # Snapshot → reorder → rebuild (avoids all cell-widget ownership issues)
+        self._manual_order = True  # must be set BEFORE get_weapons() stamps display_order
+        weapons = self.get_weapons()
+        w = weapons.pop(src)
+        weapons.insert(dst, w)
+        self._building = True
+        try:
+            self.load_weapons(weapons)
+        finally:
+            self._building = False
         self.changed.emit()
 
     def _auto_group(self) -> None:
-        from ..engine.tic_grouper import ResolvedWeapon, auto_assign_tics
-        from ..models.data_store import DataStore
+        from ..engine.tic_grouper import auto_assign_tics
 
         weapons = self.get_weapons()
         if not weapons:
@@ -374,6 +422,15 @@ class WeaponsPanel(QWidget):
                 one_shot=os_chk.isChecked() if os_chk else False,
                 fcs=key_w.property("_fcs") if key_w else None,
             ))
+
+        # Stamp display_order: 1..N when manual, 0.0 otherwise
+        if self._manual_order:
+            for i, w in enumerate(weapons):
+                w.display_order = float(i + 1)
+        else:
+            for w in weapons:
+                w.display_order = 0.0
+
         return weapons
 
     def set_tonnage(self, tonnage: int) -> None:
@@ -418,6 +475,10 @@ class WeaponsPanel(QWidget):
             self._errors_label.hide()
 
     def load_weapons(self, weapons: list[UnitWeapon]) -> None:
+        # Detect manual ordering from saved data
+        self._manual_order = any(w.display_order for w in weapons)
+        self._building = True
         self._table.setRowCount(0)
         for w in weapons:
             self._add_row(w)
+        self._building = False

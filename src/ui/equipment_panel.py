@@ -18,6 +18,21 @@ from .theme import BTN_X_STYLE
 
 _LOCS = ["LA", "RA", "LL", "RL", "T", "CT", "LT", "RT", "HD", "H", "All"]
 
+# Shared stylesheet for arrow reorder buttons
+_BTN_ARROW_STYLE = (
+    "QPushButton { font-size: 12px; padding: 0; margin: 0; "
+    "background: transparent; border: none; color: palette(text); }"
+    "QPushButton:hover { color: #3399ff; font-weight: bold; }"
+)
+
+
+def _make_arrow_btn(text: str, tooltip: str) -> QPushButton:
+    b = QPushButton(text)
+    b.setFixedSize(18, 18)
+    b.setToolTip(tooltip)
+    b.setStyleSheet(_BTN_ARROW_STYLE)
+    return b
+
 
 class EquipmentPanel(QWidget):
     changed = pyqtSignal()
@@ -49,7 +64,7 @@ class EquipmentPanel(QWidget):
         self._table.setColumnWidth(1, 60)
         self._table.setColumnWidth(2, 100)
         self._table.setColumnWidth(3, 60)
-        self._table.setColumnWidth(4, 30)
+        self._table.setColumnWidth(4, 72)
         self._update_column_visibility()
         layout.addWidget(self._table)
 
@@ -92,7 +107,6 @@ class EquipmentPanel(QWidget):
                     if eq.isLimited:
                         show_uses = True
         else:
-            # BA: location never shown; subtypes and uses still checked
             for row in range(self._table.rowCount()):
                 eq_w = self._table.cellWidget(row, 0)
                 if not eq_w:
@@ -123,7 +137,7 @@ class EquipmentPanel(QWidget):
             idx = eq_combo.findData(eq.equipment_key)
             if idx >= 0:
                 eq_combo.setCurrentIndex(idx)
-        eq_combo.currentIndexChanged.connect(lambda: self._on_eq_changed(row))
+        eq_combo.currentIndexChanged.connect(self._on_eq_changed)
         self._table.setCellWidget(row, 0, eq_combo)
 
         # Loc widget (col 1): combo for location picker
@@ -143,15 +157,21 @@ class EquipmentPanel(QWidget):
         uses_spin.valueChanged.connect(self.changed.emit)
         self._table.setCellWidget(row, 3, uses_spin)
 
-        # X button — remove this row
+        # Action buttons: ▲ ▼ X
+        btn_up = _make_arrow_btn("▲", "Move up")
+        btn_dn = _make_arrow_btn("▼", "Move down")
+        btn_up.clicked.connect(lambda checked=False, b=btn_up: self._move_btn_row(b, -1))
+        btn_dn.clicked.connect(lambda checked=False, b=btn_dn: self._move_btn_row(b, 1))
         x_btn = QPushButton("X")
         x_btn.setFixedSize(20, 20)
         x_btn.setStyleSheet(BTN_X_STYLE)
         x_btn.clicked.connect(lambda checked=False, b=x_btn: self._remove_btn_row(b))
-        x_widget = QWidget(); x_lay = QHBoxLayout(x_widget)
-        x_lay.addWidget(x_btn); x_lay.setContentsMargins(0,0,0,0)
-        x_lay.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self._table.setCellWidget(row, 4, x_widget)
+        act_widget = QWidget(); act_lay = QHBoxLayout(act_widget)
+        act_lay.addWidget(btn_up); act_lay.addWidget(btn_dn)
+        act_lay.addWidget(x_btn)
+        act_lay.setContentsMargins(0, 0, 0, 0); act_lay.setSpacing(2)
+        act_lay.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._table.setCellWidget(row, 4, act_widget)
 
         self._refresh_row(row, set_defaults=(eq is None))
         # Restore saved values after refresh populates combos
@@ -171,10 +191,15 @@ class EquipmentPanel(QWidget):
         if not self._building:
             self.changed.emit()
 
-    def _on_eq_changed(self, row: int) -> None:
+    def _on_eq_changed(self) -> None:
+        """Handle equipment combo change — find sender row dynamically."""
         if self._building:
             return
-        self._refresh_row(row, set_defaults=True)
+        sender = self.sender()
+        for row in range(self._table.rowCount()):
+            if self._table.cellWidget(row, 0) is sender:
+                self._refresh_row(row, set_defaults=True)
+                break
         self.changed.emit()
 
     def _refresh_row(self, row: int, set_defaults: bool = False) -> None:
@@ -229,14 +254,38 @@ class EquipmentPanel(QWidget):
 
         self._update_column_visibility()
 
-    def _remove_btn_row(self, btn: QPushButton) -> None:
-        """Remove the table row containing the given X button."""
+    def _find_btn_row(self, btn: QPushButton) -> int:
+        """Find the table row containing the given button."""
         for row in range(self._table.rowCount()):
             cw = self._table.cellWidget(row, 4)
-            if cw and cw.findChild(QPushButton) is btn:
-                self._table.removeRow(row)
-                break
+            if cw and btn in cw.findChildren(QPushButton):
+                return row
+        return -1
+
+    def _remove_btn_row(self, btn: QPushButton) -> None:
+        row = self._find_btn_row(btn)
+        if row >= 0:
+            self._table.removeRow(row)
         self._update_column_visibility()
+        self.changed.emit()
+
+    def _move_btn_row(self, btn: QPushButton, direction: int) -> None:
+        """Move the row containing *btn* by *direction* (-1 up, +1 down)."""
+        src = self._find_btn_row(btn)
+        if src < 0:
+            return
+        dst = src + direction
+        if dst < 0 or dst >= self._table.rowCount():
+            return
+        # Snapshot → reorder → rebuild (avoids all cell-widget ownership issues)
+        items = self.get_equipment()
+        item = items.pop(src)
+        items.insert(dst, item)
+        self._building = True
+        try:
+            self.load_equipment(items)
+        finally:
+            self._building = False
         self.changed.emit()
 
     def get_equipment(self) -> list[UnitEquipment]:

@@ -12,6 +12,7 @@ class UnitWeapon:
     ammo_type: str = ""   # e.g. "Precision", "AP", "Flechette"
     one_shot: bool = False
     fcs: str | None = None  # "aiv", "av", or None
+    display_order: float = 0.0  # 0=default (damage sort); 1..N=manual order
 
 
 @dataclass
@@ -85,6 +86,7 @@ class AbstractUnit(ABC):
                     "ammo_type": w.ammo_type,
                     "one_shot": w.one_shot,
                     "fcs": w.fcs,
+                    "display_order": w.display_order,
                 }
                 for w in self.weapons
             ],
@@ -116,6 +118,7 @@ class AbstractUnit(ABC):
                 ammo_type=w.get("ammo_type", ""),
                 one_shot=w.get("one_shot", False),
                 fcs=w.get("fcs"),
+                display_order=w.get("display_order", 0.0),
             )
             for w in data.get("weapons", [])
         ]

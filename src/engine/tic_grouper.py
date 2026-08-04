@@ -886,6 +886,11 @@ def _build_tic_damage(rws: list[ResolvedWeapon], ammo: str, group: TicGroup) -> 
     return str(flechette_override)
 
 
+def _manual_order_active(resolved: list[ResolvedWeapon]) -> bool:
+    """True when any weapon has a non-zero display_order (user manually reordered)."""
+    return any(rw.unit_weapon.display_order != 0 for rw in resolved)
+
+
 def build_tic_rows(resolved: list[ResolvedWeapon], heat_scale_max: int = 5) -> list[dict]:
     """Produce one row dict per occupied TIC slot (combined damage, heat, locations)."""
     tic_map: dict[int, list[ResolvedWeapon]] = {}
@@ -893,14 +898,20 @@ def build_tic_rows(resolved: list[ResolvedWeapon], heat_scale_max: int = 5) -> l
         tic_map.setdefault(rw.tic, []).append(rw)
 
     # Build groups and compute damage sort key
-    tic_groups: list[tuple[float, int, TicGroup, list[ResolvedWeapon]]] = []
+    tic_groups: list[tuple[float, int, object, list[ResolvedWeapon]]] = []
     for tic_num, rws in tic_map.items():
         group = TicGroup(weapons=rws)
         sort_dmg = group.sort_damage
         tic_groups.append((sort_dmg, tic_num, group, rws))
 
-    # Sort descending by damage, ascending by tic_num for ties
-    tic_groups.sort(key=lambda x: (-x[0], x[1]))
+    # Sort: user order when manual, else damage-descending (legacy behaviour)
+    if _manual_order_active(resolved):
+        tic_groups.sort(key=lambda x: (
+            min(rw.unit_weapon.display_order for rw in x[3]),  # x[3] == rws
+            x[1],  # tic_num tiebreak
+        ))
+    else:
+        tic_groups.sort(key=lambda x: (-x[0], x[1]))
 
     rows = []
     divisor = (255 - heat_scale_max) / (7 * heat_scale_max + 15)
@@ -953,14 +964,22 @@ def ba_squad_damage_strs(resolved: list[ResolvedWeapon], squad_size: int) -> lis
             strs.append(temp.damage_str)
         tic_damages.append(strs)
 
-    # Sort by damage (same order as build_tic_rows: descending by sort_damage)
-    group_sort = []
-    for i, tic_num in enumerate(sorted(tic_map)):
-        raw_group = TicGroup(weapons=tic_map[tic_num])
-        group_sort.append((raw_group.sort_damage, i))
-    group_sort.sort(key=lambda x: -x[0])
-
-    return [tic_damages[idx] for _, idx in group_sort]
+    # Sort to match build_tic_rows order (manual when active, else damage desc)
+    if _manual_order_active(resolved):
+        group_sort = []
+        for i, tic_num in enumerate(sorted(tic_map)):
+            rws = tic_map[tic_num]
+            min_order = min(rw.unit_weapon.display_order for rw in rws)
+            group_sort.append((min_order, tic_num, i))
+        group_sort.sort(key=lambda x: (x[0], x[1]))
+        return [tic_damages[idx] for _, _, idx in group_sort]
+    else:
+        group_sort = []
+        for i, tic_num in enumerate(sorted(tic_map)):
+            raw_group = TicGroup(weapons=tic_map[tic_num])
+            group_sort.append((raw_group.sort_damage, i))
+        group_sort.sort(key=lambda x: -x[0])
+        return [tic_damages[idx] for _, idx in group_sort]
 
 
 # ── Location-aware pre-grouping (Rules 1-3) ────────────────────────────────────
