@@ -356,6 +356,7 @@ class BaseCardRenderer:
         sinks_val: int | None = None,
         heat_scale_max: int = 5,
         jump_heat_val: int | None = None,
+        bv_val: int | None = None,
     ) -> None:
         """Draw unit name, type, mass, move, TMM, sinks (left panel)."""
         # Unit name (Vegas font, all uppercase per card_gen.js)
@@ -364,13 +365,18 @@ class BaseCardRenderer:
         draw_text(painter, 60, 190, "Unit Data",        size=FS_XLARGE, bold=True)
         # Type label + value
         draw_text(painter, 60,  250, "Type:",            size=FS_LARGE, bold=True)
-        draw_text(painter, 190, 250, unit.unit_type_label, size=FS_LARGE)
+        draw_text(painter, 155, 250, unit.unit_type_label, size=FS_LARGE)
         # Mass label + value
         draw_text(painter, 60,  300, "Mass:",            size=FS_LARGE, bold=True)
         if mass_str is not None:
-            draw_text(painter, 190, 300, mass_str, size=FS_LARGE)
+            draw_text(painter, 170, 300, mass_str, size=FS_LARGE)
         else:
-            draw_text(painter, 190, 300, f"{getattr(unit, 'tonnage', '?')} tons", size=FS_LARGE)
+            draw_text(painter, 170, 300, f"{getattr(unit, 'tonnage', '?')} tons", size=FS_LARGE)
+        # BV label + value (to right of Mass, aligned with Sinks column)
+        bv = bv_val if bv_val is not None else getattr(unit, 'battle_value', 0)
+        if bv:
+            draw_text(painter, 440, 300, "BV:",  size=FS_LARGE, bold=True)
+            draw_text(painter, 505, 300, str(bv), size=FS_LARGE)
         # Move label + value
         draw_text(painter, 60,  365, move_label,         size=FS_LARGE, bold=True)
         draw_text(painter, 190 + move_x_offset, 365, move_str if move_str is not None else unit.destiny_move, size=FS_LARGE)

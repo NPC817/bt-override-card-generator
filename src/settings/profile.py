@@ -14,6 +14,7 @@ class ConversionProfile:
     track_ammo: bool = False      # enable ammo shot-count display on cards
     show_tracking_pips: bool = True  # show hex pips inline (when track_ammo enabled)
     ammo_max_pips: int = 50         # suppress pips when total shots exceeds this
+    show_bv: bool = False           # show Battle Value on cards
 
     def __post_init__(self) -> None:
         """Clamp heat_scale_max to valid range 1-30."""
@@ -39,6 +40,7 @@ class ConversionProfile:
             "track_ammo": self.track_ammo,
             "show_tracking_pips": self.show_tracking_pips,
             "ammo_max_pips": self.ammo_max_pips,
+            "show_bv": self.show_bv,
         }
 
     @classmethod
@@ -54,6 +56,7 @@ class ConversionProfile:
             track_ammo=bool(data.get("track_ammo", False)),
             show_tracking_pips=bool(data.get("show_tracking_pips", True)),
             ammo_max_pips=int(data.get("ammo_max_pips", 50)),
+            show_bv=bool(data.get("show_bv", False)),
         )
 
     @classmethod

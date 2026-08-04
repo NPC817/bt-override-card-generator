@@ -67,6 +67,18 @@ class CombatVehicle(AbstractUnit):
         raw = self.armor.get(zone, 0)
         return max(_r(raw / divisor), 1)
 
+    def structure(self) -> dict[str, int]:
+        """Internal Structure points per location (for BV).
+
+        Standard vehicles: IS = ceil(tonnage/10) per location.
+        Only body locations get IS (FR/LS/RS/RR); turret/rotor have separate IS.
+        """
+        is_pts = max(1, math.ceil(self.tonnage / 10))
+        return {
+            "FR": is_pts, "LS": is_pts, "RS": is_pts, "RR": is_pts,
+            "TU": is_pts, "RO": is_pts,
+        }
+
     def destiny_structure(self) -> int:
         return max(_r(math.ceil(self.tonnage / 10) / 3), 1)
 

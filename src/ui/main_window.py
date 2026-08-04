@@ -6,7 +6,7 @@ from PyQt6.QtGui import QAction, QColor, QIcon, QKeySequence, QPainter, QPixmap
 from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtWidgets import (
     QApplication, QFileDialog, QLabel, QMainWindow, QMessageBox,
-    QTabWidget,
+    QTabWidget, QVBoxLayout, QWidget,
 )
 
 from ..models.data_store import DataStore
@@ -34,7 +34,23 @@ class MainWindow(QMainWindow):
         self._tabs.setTabsClosable(True)
         self._tabs.setMovable(True)
         self._tabs.tabCloseRequested.connect(self._close_tab)
-        self.setCentralWidget(self._tabs)
+
+        # Force BV label (above tabs, hidden by default)
+        self._force_bv_label = QLabel()
+        self._force_bv_label.setAlignment(Qt.AlignmentFlag.AlignRight)
+        self._force_bv_label.setStyleSheet(
+            "font-weight: bold; font-size: 16px; padding: 4px 12px;"
+        )
+        self._force_bv_label.hide()
+
+        # Container: BV label + tabs
+        central = QWidget()
+        central_layout = QVBoxLayout(central)
+        central_layout.setContentsMargins(0, 0, 0, 0)
+        central_layout.setSpacing(0)
+        central_layout.addWidget(self._force_bv_label)
+        central_layout.addWidget(self._tabs)
+        self.setCentralWidget(central)
 
         self._build_menu()
         self._build_status_bar()
@@ -155,20 +171,44 @@ class MainWindow(QMainWindow):
         idx = self._tabs.addTab(tab, label)
         self._tabs.setCurrentIndex(idx)
         tab.unit_changed.connect(lambda: self._on_tab_unit_changed(tab))
+        self._update_force_bv()
 
     def _on_tab_unit_changed(self, tab) -> None:
         idx = self._tabs.indexOf(tab)
         if idx >= 0 and tab.unit:
             self._tabs.setTabText(idx, tab.unit.display_name or "New Card")
+        self._update_force_bv()
+
+    def _update_force_bv(self) -> None:
+        """Recalculate total BV from all open tabs."""
+        profile = ProfileManager.active()
+        if not profile.show_bv:
+            self._force_bv_label.hide()
+            return
+
+        total = 0
+        count = 0
+        for i in range(self._tabs.count()):
+            tab = self._tabs.widget(i)
+            if tab and tab.unit and tab.unit.battle_value:
+                total += tab.unit.battle_value
+                count += 1
+        if count:
+            self._force_bv_label.setText(f"Total Force BV: {total}  ({count} unit{'s' if count != 1 else ''})")
+            self._force_bv_label.show()
+        else:
+            self._force_bv_label.hide()
 
     def _close_tab(self, index: int) -> None:
         if self._tabs.count() == 1:
             return
         self._tabs.removeTab(index)
+        self._update_force_bv()
 
     def _clear_all_tabs(self) -> None:
         self._tabs.clear()
         self._new_tab()
+        self._update_force_bv()
 
     def _current_tab(self):
         return self._tabs.currentWidget()
@@ -205,6 +245,13 @@ class MainWindow(QMainWindow):
             tab = self._tabs.widget(i)
             if tab and (tab.unit is None or not tab.unit.chassis):
                 self._tabs.removeTab(i)
+
+        # Calculate Battle Value before creating tab (so renderer sees it)
+        try:
+            from ..engine.bv_calculator import calculate_bv
+            result.unit.battle_value = calculate_bv(result.unit)
+        except Exception:
+            pass
 
         self._new_tab(result.unit)
         if result.warnings:

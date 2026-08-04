@@ -24,6 +24,7 @@ from src.models.data_store import DataStore
 from src.models.battle_armor import BattleArmor
 from src.settings.profile import ConversionProfile
 from src.engine.tic_grouper import resolve_weapons, auto_assign_tics
+from src.engine.bv_calculator import calculate_bv
 
 # ── Source directories ─────────────────────────────────────────────────────
 SOURCES = [
@@ -103,6 +104,12 @@ def run() -> None:
                     tonnage = getattr(unit, "tonnage", 0)
                     resolved = resolve_weapons(unit, tonnage, profile=profile)
                     auto_assign_tics(resolved, is_ba=isinstance(unit, BattleArmor))
+
+                    # Calculate Battle Value
+                    try:
+                        unit.battle_value = calculate_bv(unit)
+                    except Exception:
+                        pass
 
                     # Write .ovr to temp directory
                     stem = fpath.stem

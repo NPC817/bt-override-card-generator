@@ -273,7 +273,8 @@ class VehicleCardRenderer(BaseCardRenderer):
 
         # Header
         self._draw_unit_header(painter, unit, move_label="Move:",
-                               heat_scale_max=profile.heat_scale_max)
+                               heat_scale_max=profile.heat_scale_max,
+                               bv_val=unit.battle_value if profile.show_bv else 0)
 
         # Gunnery / Piloting labels
         draw_text(painter, 1155, 45, "Gunnery", size=FS_MEDIUM+4, bold=True, width=180, align=Qt.AlignmentFlag.AlignCenter)

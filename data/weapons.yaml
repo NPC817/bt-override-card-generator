@@ -1,8 +1,8 @@
 ac2:
-  name: "AC/2"
-  fullname: "Autocannon/2"
-  tech: "IS"
-  type: "B"
+  name: AC/2
+  fullname: Autocannon/2
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 1
@@ -12,13 +12,15 @@ ac2:
   rangeL: 2
   rangeX: 4
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 45
+  bv: 37
+  ammo_bv: 5
 ac5:
-  name: "AC/5"
-  fullname: "Autocannon/5"
-  tech: "IS"
-  type: "B"
+  name: AC/5
+  fullname: Autocannon/5
+  tech: IS
+  type: B
   damage: 5
   heat: 1
   crits: 4
@@ -28,13 +30,15 @@ ac5:
   rangeL: 4
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 20
+  bv: 70
+  ammo_bv: 9
 ac10:
-  name: "AC/10"
-  fullname: "Autocannon/10"
-  tech: "IS"
-  type: "B"
+  name: AC/10
+  fullname: Autocannon/10
+  tech: IS
+  type: B
   damage: 10
   heat: 3
   crits: 7
@@ -44,13 +48,15 @@ ac10:
   rangeL: 4
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 10
+  bv: 123
+  ammo_bv: 15
 ac20:
-  name: "AC/20"
-  fullname: "Autocannon/20"
-  tech: "IS"
-  type: "B"
+  name: AC/20
+  fullname: Autocannon/20
+  tech: IS
+  type: B
   damage: 20
   heat: 7
   crits: 10
@@ -60,13 +66,15 @@ ac20:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 5
+  bv: 178
+  ammo_bv: 22
 lb2x:
-  name: "LB 2-X"
-  fullname: "LB 2-X Autocannon"
-  tech: "IS"
-  type: "B"
+  name: LB 2-X
+  fullname: LB 2-X Autocannon
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 4
@@ -76,13 +84,15 @@ lb2x:
   rangeL: 2
   rangeX: 2
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 45
+  bv: 42
+  ammo_bv: 5
 lb5x:
-  name: "LB 5-X"
-  fullname: "LB 5-X Autocannon"
-  tech: "IS"
-  type: "B"
+  name: LB 5-X
+  fullname: LB 5-X Autocannon
+  tech: IS
+  type: B
   damage: 5
   heat: 1
   crits: 5
@@ -93,13 +103,15 @@ lb5x:
   rangeX: 4
   useC: 1
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 20
+  bv: 83
+  ammo_bv: 10
 lb10x:
-  name: "LB 10-X"
-  fullname: "LB 10-X Autocannon"
-  tech: "IS"
-  type: "B"
+  name: LB 10-X
+  fullname: LB 10-X Autocannon
+  tech: IS
+  type: B
   damage: 10
   heat: 2
   crits: 6
@@ -110,13 +122,15 @@ lb10x:
   rangeX: 9
   useC: 1
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 10
+  bv: 148
+  ammo_bv: 19
 lb20x:
-  name: "LB 20-X"
-  fullname: "LB 20-X Autocannon"
-  tech: "IS"
-  type: "B"
+  name: LB 20-X
+  fullname: LB 20-X Autocannon
+  tech: IS
+  type: B
   damage: 20
   heat: 6
   crits: 11
@@ -127,13 +141,15 @@ lb20x:
   rangeX: 9
   useC: 1
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 5
+  bv: 237
+  ammo_bv: 30
 uac2:
-  name: "UAC/2"
-  fullname: "Ultra Autocannon/2"
-  tech: "IS"
-  type: "B"
+  name: UAC/2
+  fullname: Ultra Autocannon/2
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 3
@@ -144,13 +160,15 @@ uac2:
   rangeX: 2
   useR: 2
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 45
+  bv: 56
+  ammo_bv: 7
 uac5:
-  name: "UAC/5"
-  fullname: "Ultra Autocannon/5"
-  tech: "IS"
-  type: "B"
+  name: UAC/5
+  fullname: Ultra Autocannon/5
+  tech: IS
+  type: B
   damage: 5
   heat: 1
   crits: 5
@@ -161,13 +179,15 @@ uac5:
   rangeX: 4
   useR: 5
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 20
+  bv: 112
+  ammo_bv: 14
 uac10:
-  name: "UAC/10"
-  fullname: "Ultra Autocannon/10"
-  tech: "IS"
-  type: "B"
+  name: UAC/10
+  fullname: Ultra Autocannon/10
+  tech: IS
+  type: B
   damage: 10
   heat: 4
   crits: 7
@@ -178,13 +198,15 @@ uac10:
   rangeX: 9
   useR: 10
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 10
+  bv: 210
+  ammo_bv: 26
 uac20:
-  name: "UAC/20"
-  fullname: "Ultra Autocannon/20"
-  tech: "IS"
-  type: "B"
+  name: UAC/20
+  fullname: Ultra Autocannon/20
+  tech: IS
+  type: B
   damage: 20
   heat: 8
   crits: 10
@@ -195,13 +217,15 @@ uac20:
   rangeX: 9
   useR: 20
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 5
+  bv: 281
+  ammo_bv: 35
 rac2:
-  name: "RAC/2"
-  fullname: "Rotary Autocannon/2"
-  tech: "IS"
-  type: "B"
+  name: RAC/2
+  fullname: Rotary Autocannon/2
+  tech: IS
+  type: B
   damage: 3
   heat: 3
   crits: 3
@@ -212,13 +236,15 @@ rac2:
   rangeX: 9
   useR: 6
   useTC: 1
-  useAmmo: "RAC"
+  useAmmo: RAC
   ammoPerTon: 45
+  bv: 118
+  ammo_bv: 15
 rac5:
-  name: "RAC/5"
-  fullname: "Rotary Autocannon/5"
-  tech: "IS"
-  type: "B"
+  name: RAC/5
+  fullname: Rotary Autocannon/5
+  tech: IS
+  type: B
   damage: 8
   heat: 3
   crits: 6
@@ -229,13 +255,15 @@ rac5:
   rangeX: 9
   useR: 12
   useTC: 1
-  useAmmo: "RAC"
+  useAmmo: RAC
   ammoPerTon: 20
+  bv: 247
+  ammo_bv: 31
 hvac2:
-  name: "HVAC/2"
-  fullname: "Hyper-Velocity Autocannon/2"
-  tech: "IS"
-  type: "B"
+  name: HVAC/2
+  fullname: Hyper-Velocity Autocannon/2
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 2
@@ -245,13 +273,14 @@ hvac2:
   rangeL: 0
   rangeX: 2
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 45
+  bv: 0
 hvac5:
-  name: "HVAC/5"
-  fullname: "Hyper-Velocity Autocannon/5"
-  tech: "IS"
-  type: "B"
+  name: HVAC/5
+  fullname: Hyper-Velocity Autocannon/5
+  tech: IS
+  type: B
   damage: 5
   heat: 3
   crits: 4
@@ -261,13 +290,14 @@ hvac5:
   rangeL: 2
   rangeX: 2
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 20
+  bv: 0
 hvac10:
-  name: "HVAC/10"
-  fullname: "Hyper-Velocity Autocannon/10"
-  tech: "IS"
-  type: "B"
+  name: HVAC/10
+  fullname: Hyper-Velocity Autocannon/10
+  tech: IS
+  type: B
   damage: 10
   heat: 7
   crits: 6
@@ -277,13 +307,14 @@ hvac10:
   rangeL: 2
   rangeX: 4
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 10
+  bv: 0
 lac2:
-  name: "LAC/2"
-  fullname: "Light Autocannon/2"
-  tech: "IS"
-  type: "B"
+  name: LAC/2
+  fullname: Light Autocannon/2
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 1
@@ -293,13 +324,15 @@ lac2:
   rangeL: 4
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 45
+  bv: 30
+  ammo_bv: 4
 lac5:
-  name: "LAC/5"
-  fullname: "Light Autocannnon/5"
-  tech: "IS"
-  type: "B"
+  name: LAC/5
+  fullname: Light Autocannnon/5
+  tech: IS
+  type: B
   damage: 5
   heat: 1
   crits: 2
@@ -309,13 +342,15 @@ lac5:
   rangeL: 4
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 20
+  bv: 62
+  ammo_bv: 8
 lgauss:
-  name: "LGauss"
-  fullname: "Light Gauss Rifle"
-  tech: "IS"
-  type: "B"
+  name: LGauss
+  fullname: Light Gauss Rifle
+  tech: IS
+  type: B
   damage: 8
   heat: 1
   crits: 5
@@ -325,13 +360,15 @@ lgauss:
   rangeL: 2
   rangeX: 2
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 16
+  bv: 159
+  ammo_bv: 20
 gauss:
-  name: "Gauss"
-  fullname: "Gauss Rifle"
-  tech: "IS"
-  type: "B"
+  name: Gauss
+  fullname: Gauss Rifle
+  tech: IS
+  type: B
   damage: 15
   heat: 1
   crits: 7
@@ -341,13 +378,15 @@ gauss:
   rangeL: 2
   rangeX: 4
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 8
+  bv: 320
+  ammo_bv: 40
 hgauss:
-  name: "HGauss"
-  fullname: "Heavy Gauss Rifle"
-  tech: "IS"
-  type: "B"
+  name: HGauss
+  fullname: Heavy Gauss Rifle
+  tech: IS
+  type: B
   damage: 25
   heat: 2
   crits: 11
@@ -360,14 +399,16 @@ hgauss:
   varMdamage: 20
   varLXdamage: 10
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 4
-  specials: "var"
+  specials: var
+  bv: 346
+  ammo_bv: 43
 ihgauss:
-  name: "iHGauss"
-  fullname: "Improved Heavy Gauss Rifle"
-  tech: "IS"
-  type: "B"
+  name: iHGauss
+  fullname: Improved Heavy Gauss Rifle
+  tech: IS
+  type: B
   damage: 22
   heat: 2
   crits: 11
@@ -377,13 +418,14 @@ ihgauss:
   rangeL: 2
   rangeX: 4
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 4
+  bv: 346
 magshot:
-  name: "MagShot"
-  fullname: "MagShot"
-  tech: "IS"
-  type: "B"
+  name: MagShot
+  fullname: MagShot
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 2
@@ -393,13 +435,14 @@ magshot:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 0
+  bv: 15
 sbgauss:
-  name: "SBGauss"
-  fullname: "Silver Bullet Gauss Rifle"
-  tech: "IS"
-  type: "B"
+  name: SBGauss
+  fullname: Silver Bullet Gauss Rifle
+  tech: IS
+  type: B
   damage: 15
   heat: 1
   crits: 7
@@ -409,14 +452,15 @@ sbgauss:
   rangeL: 1
   rangeX: 3
   useC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 8
-  specials: "sbg"
+  specials: sbg
+  bv: 0
 lmg:
-  name: "LMG"
-  fullname: "Light Machine Gun"
-  tech: "IS"
-  type: "B"
+  name: LMG
+  fullname: Light Machine Gun
+  tech: IS
+  type: B
   damage: 1
   heat: 0
   crits: 1
@@ -425,14 +469,16 @@ lmg:
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  useAmmo: "MG"
+  useAmmo: MG
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 5
+  ammo_bv: 1
 mg:
-  name: "MG"
-  fullname: "Machine Gun"
-  tech: "IS"
-  type: "B"
+  name: MG
+  fullname: Machine Gun
+  tech: IS
+  type: B
   damage: 2
   heat: 0
   crits: 1
@@ -441,14 +487,16 @@ mg:
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  useAmmo: "MG"
+  useAmmo: MG
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 5
+  ammo_bv: 1
 hmg:
-  name: "HMG"
-  fullname: "Heavy Machine Gun"
-  tech: "IS"
-  type: "B"
+  name: HMG
+  fullname: Heavy Machine Gun
+  tech: IS
+  type: B
   damage: 3
   heat: 0
   crits: 1
@@ -457,14 +505,16 @@ hmg:
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  useAmmo: "MG"
+  useAmmo: MG
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 6
+  ammo_bv: 1
 nailrivet:
-  name: "NailRivet"
-  fullname: "Nail/Rivet Gun"
-  tech: "IS"
-  type: "B"
+  name: NailRivet
+  fullname: Nail/Rivet Gun
+  tech: IS
+  type: B
   damage: 0
   heat: 0
   crits: 1
@@ -473,12 +523,13 @@ nailrivet:
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
+  specials: ai
+  bv: 1
 slas:
-  name: "SLas"
-  fullname: "Small Laser"
-  tech: "Mixed"
-  type: "E"
+  name: SLas
+  fullname: Small Laser
+  tech: Mixed
+  type: E
   damage: 3
   heat: 1
   crits: 1
@@ -488,11 +539,12 @@ slas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 9
 mlas:
-  name: "MLas"
-  fullname: "Medium Laser"
-  tech: "IS"
-  type: "E"
+  name: MLas
+  fullname: Medium Laser
+  tech: IS
+  type: E
   damage: 5
   heat: 3
   crits: 1
@@ -502,11 +554,12 @@ mlas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 46
 llas:
-  name: "LLas"
-  fullname: "Large Laser"
-  tech: "IS"
-  type: "E"
+  name: LLas
+  fullname: Large Laser
+  tech: IS
+  type: E
   damage: 8
   heat: 8
   crits: 2
@@ -516,11 +569,12 @@ llas:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 123
 ppc:
-  name: "PPC"
-  fullname: "PPC"
-  tech: "IS"
-  type: "E"
+  name: PPC
+  fullname: PPC
+  tech: IS
+  type: E
   damage: 10
   heat: 10
   crits: 3
@@ -530,11 +584,12 @@ ppc:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 176
 erslas:
-  name: "erSLas"
-  fullname: "ER Small Laser"
-  tech: "IS"
-  type: "E"
+  name: erSLas
+  fullname: ER Small Laser
+  tech: IS
+  type: E
   damage: 3
   heat: 2
   crits: 1
@@ -544,11 +599,12 @@ erslas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 17
 ermlas:
-  name: "erMLas"
-  fullname: "ER Medium Laser"
-  tech: "IS"
-  type: "E"
+  name: erMLas
+  fullname: ER Medium Laser
+  tech: IS
+  type: E
   damage: 5
   heat: 5
   crits: 1
@@ -558,11 +614,12 @@ ermlas:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 62
 erllas:
-  name: "erLLas"
-  fullname: "ER Large Laser"
-  tech: "IS"
-  type: "E"
+  name: erLLas
+  fullname: ER Large Laser
+  tech: IS
+  type: E
   damage: 8
   heat: 12
   crits: 2
@@ -572,11 +629,12 @@ erllas:
   rangeL: 2
   rangeX: 4
   useTC: 1
+  bv: 163
 erppc:
-  name: "erPPC"
-  fullname: "ER PPC"
-  tech: "IS"
-  type: "E"
+  name: erPPC
+  fullname: ER PPC
+  tech: IS
+  type: E
   damage: 10
   heat: 15
   crits: 3
@@ -586,11 +644,12 @@ erppc:
   rangeL: 2
   rangeX: 4
   useTC: 1
+  bv: 229
 splas:
-  name: "SPLas"
-  fullname: "Small Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: SPLas
+  fullname: Small Pulse Laser
+  tech: IS
+  type: E
   damage: 3
   heat: 2
   crits: 1
@@ -600,12 +659,13 @@ splas:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  specials: "ai"
+  specials: ai
+  bv: 12
 mplas:
-  name: "MPLas"
-  fullname: "Medium Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: MPLas
+  fullname: Medium Pulse Laser
+  tech: IS
+  type: E
   damage: 6
   heat: 4
   crits: 1
@@ -615,11 +675,12 @@ mplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 48
 lplas:
-  name: "LPLas"
-  fullname: "Large Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: LPLas
+  fullname: Large Pulse Laser
+  tech: IS
+  type: E
   damage: 9
   heat: 10
   crits: 2
@@ -629,11 +690,12 @@ lplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 119
 sxplas:
-  name: "SXPLas"
-  fullname: "Small X-Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: SXPLas
+  fullname: Small X-Pulse Laser
+  tech: IS
+  type: E
   damage: 3
   heat: 3
   crits: 1
@@ -643,12 +705,13 @@ sxplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  specials: "ai"
+  specials: ai
+  bv: 21
 mxplas:
-  name: "MXPLas"
-  fullname: "Medium X-Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: MXPLas
+  fullname: Medium X-Pulse Laser
+  tech: IS
+  type: E
   damage: 6
   heat: 6
   crits: 1
@@ -658,11 +721,12 @@ mxplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 71
 lxplas:
-  name: "LXPLas"
-  fullname: "Large X-Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: LXPLas
+  fullname: Large X-Pulse Laser
+  tech: IS
+  type: E
   damage: 9
   heat: 14
   crits: 2
@@ -672,11 +736,12 @@ lxplas:
   rangeL: 2
   rangeX: 9
   useTC: 1
+  bv: 178
 lppc:
-  name: "LPPC"
-  fullname: "Light PPC"
-  tech: "IS"
-  type: "E"
+  name: LPPC
+  fullname: Light PPC
+  tech: IS
+  type: E
   damage: 5
   heat: 5
   crits: 2
@@ -686,11 +751,12 @@ lppc:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 88
 hppc:
-  name: "HPPC"
-  fullname: "Heavy PPC"
-  tech: "IS"
-  type: "E"
+  name: HPPC
+  fullname: Heavy PPC
+  tech: IS
+  type: E
   damage: 15
   heat: 15
   crits: 4
@@ -700,11 +766,12 @@ hppc:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 317
 snppc:
-  name: "SNPPC"
-  fullname: "Snub-Nose PPC"
-  tech: "IS"
-  type: "E"
+  name: SNPPC
+  fullname: Snub-Nose PPC
+  tech: IS
+  type: E
   damage: 10
   heat: 10
   crits: 2
@@ -717,12 +784,13 @@ snppc:
   varMdamage: 8
   varLXdamage: 5
   useTC: 1
-  specials: "var"
+  specials: var
+  bv: 165
 vssplas:
-  name: "vsSPLas"
-  fullname: "Var Speed Small Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: vsSPLas
+  fullname: Var Speed Small Pulse Laser
+  tech: IS
+  type: E
   damage: 5
   heat: 3
   crits: 1
@@ -735,12 +803,13 @@ vssplas:
   varMdamage: 4
   varLXdamage: 3
   useTC: 1
-  specials: "varai"
+  specials: varai
+  bv: 22
 vsmplas:
-  name: "vsMPLas"
-  fullname: "Var Speed Medium Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: vsMPLas
+  fullname: Var Speed Medium Pulse Laser
+  tech: IS
+  type: E
   damage: 9
   heat: 7
   crits: 2
@@ -753,12 +822,13 @@ vsmplas:
   varMdamage: 7
   varLXdamage: 5
   useTC: 1
-  specials: "var"
+  specials: var
+  bv: 56
 vslplas:
-  name: "vsLPLas"
-  fullname: "Var Speed Large Pulse Laser"
-  tech: "IS"
-  type: "E"
+  name: vsLPLas
+  fullname: Var Speed Large Pulse Laser
+  tech: IS
+  type: E
   damage: 11
   heat: 10
   crits: 4
@@ -771,12 +841,13 @@ vslplas:
   varMdamage: 9
   varLXdamage: 7
   useTC: 1
-  specials: "var"
+  specials: var
+  bv: 123
 reslas:
-  name: "reSLas"
-  fullname: "Re-Engineered Small Laser"
-  tech: "IS"
-  type: "E"
+  name: reSLas
+  fullname: Re-Engineered Small Laser
+  tech: IS
+  type: E
   damage: 4
   heat: 4
   crits: 1
@@ -786,11 +857,12 @@ reslas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 14
 remlas:
-  name: "reMLas"
-  fullname: "Re-Engineered Medium Laser"
-  tech: "IS"
-  type: "E"
+  name: reMLas
+  fullname: Re-Engineered Medium Laser
+  tech: IS
+  type: E
   damage: 6
   heat: 6
   crits: 2
@@ -800,11 +872,12 @@ remlas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 65
 rellas:
-  name: "reLLas"
-  fullname: "Re-Engineered Large Laser"
-  tech: "IS"
-  type: "E"
+  name: reLLas
+  fullname: Re-Engineered Large Laser
+  tech: IS
+  type: E
   damage: 9
   heat: 9
   crits: 5
@@ -814,11 +887,12 @@ rellas:
   rangeL: 3
   rangeX: 9
   useTC: 1
+  bv: 161
 flamer:
-  name: "Flamer"
-  fullname: "Flamer"
-  tech: "IS"
-  type: "E"
+  name: Flamer
+  fullname: Flamer
+  tech: IS
+  type: E
   damage: 2
   heat: 3
   crits: 1
@@ -828,12 +902,13 @@ flamer:
   rangeL: 9
   rangeX: 9
   useH: 2
-  specials: "ai"
+  specials: ai
+  bv: 6
 erflamer:
-  name: "erFlamer"
-  fullname: "ER Flamer"
-  tech: "IS"
-  type: "E"
+  name: erFlamer
+  fullname: ER Flamer
+  tech: IS
+  type: E
   damage: 2
   heat: 4
   crits: 1
@@ -843,12 +918,13 @@ erflamer:
   rangeL: 9
   rangeX: 9
   useH: 2
-  specials: "ai"
+  specials: ai
+  bv: 16
 hflamer:
-  name: "HFlamer"
-  fullname: "Heavy Flamer"
-  tech: "IS"
-  type: "E"
+  name: HFlamer
+  fullname: Heavy Flamer
+  tech: IS
+  type: E
   damage: 4
   heat: 5
   crits: 1
@@ -858,14 +934,15 @@ hflamer:
   rangeL: 9
   rangeX: 9
   useH: 4
-  useAmmo: "Flamer"
+  useAmmo: Flamer
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 0
 plasrifle:
-  name: "PlasRifle"
-  fullname: "Plasma Rifle"
-  tech: "IS"
-  type: "E"
+  name: PlasRifle
+  fullname: Plasma Rifle
+  tech: IS
+  type: E
   damage: 10
   heat: 10
   crits: 2
@@ -876,11 +953,13 @@ plasrifle:
   rangeX: 9
   useH: 4
   useTC: 1
+  bv: 210
+  ammo_bv: 26
 blazer:
-  name: "Blazer"
-  fullname: "Binary (Blazer) Cannon"
-  tech: "IS"
-  type: "E"
+  name: Blazer
+  fullname: Binary (Blazer) Cannon
+  tech: IS
+  type: E
   damage: 12
   heat: 16
   crits: 4
@@ -890,11 +969,12 @@ blazer:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 0
 srm2:
-  name: "SRM-2"
-  fullname: "SRM-2"
-  tech: "IS"
-  type: "M"
+  name: SRM-2
+  fullname: SRM-2
+  tech: IS
+  type: M
   damage: 1
   damageAdj: 3
   heat: 2
@@ -906,15 +986,17 @@ srm2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aivav"
-  useAmmo: "SRM"
+  useFCS: aivav
+  useAmmo: SRM
   ammoPerTon: 50
-  specials: "srm"
+  specials: srm
+  bv: 21
+  ammo_bv: 3
 srm4:
-  name: "SRM-4"
-  fullname: "SRM-4"
-  tech: "IS"
-  type: "M"
+  name: SRM-4
+  fullname: SRM-4
+  tech: IS
+  type: M
   damage: 8
   heat: 3
   crits: 1
@@ -925,15 +1007,17 @@ srm4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aivav"
-  useAmmo: "SRM"
+  useFCS: aivav
+  useAmmo: SRM
   ammoPerTon: 25
-  specials: "srm"
+  specials: srm
+  bv: 39
+  ammo_bv: 5
 srm6:
-  name: "SRM-6"
-  fullname: "SRM-6"
-  tech: "IS"
-  type: "M"
+  name: SRM-6
+  fullname: SRM-6
+  tech: IS
+  type: M
   damage: 12
   heat: 4
   crits: 2
@@ -944,15 +1028,17 @@ srm6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aivav"
-  useAmmo: "SRM"
+  useFCS: aivav
+  useAmmo: SRM
   ammoPerTon: 15
-  specials: "srm"
+  specials: srm
+  bv: 59
+  ammo_bv: 7
 ssrm2:
-  name: "SSRM-2"
-  fullname: "Streak SRM-2"
-  tech: "IS"
-  type: "M"
+  name: SSRM-2
+  fullname: Streak SRM-2
+  tech: IS
+  type: M
   damage: 1
   damageAdj: 3
   heat: 2
@@ -964,14 +1050,16 @@ ssrm2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SSRM"
+  useAmmo: SSRM
   ammoPerTon: 50
-  specials: "ssrm"
+  specials: ssrm
+  bv: 30
+  ammo_bv: 4
 ssrm4:
-  name: "SSRM-4"
-  fullname: "Streak SRM-4"
-  tech: "IS"
-  type: "M"
+  name: SSRM-4
+  fullname: Streak SRM-4
+  tech: IS
+  type: M
   damage: 8
   heat: 3
   crits: 1
@@ -982,14 +1070,16 @@ ssrm4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SSRM"
+  useAmmo: SSRM
   ammoPerTon: 25
-  specials: "ssrm"
+  specials: ssrm
+  bv: 59
+  ammo_bv: 7
 ssrm6:
-  name: "SSRM-6"
-  fullname: "Streak SRM-6"
-  tech: "IS"
-  type: "M"
+  name: SSRM-6
+  fullname: Streak SRM-6
+  tech: IS
+  type: M
   damage: 12
   heat: 4
   crits: 2
@@ -1000,14 +1090,16 @@ ssrm6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SSRM"
+  useAmmo: SSRM
   ammoPerTon: 15
-  specials: "ssrm"
+  specials: ssrm
+  bv: 89
+  ammo_bv: 11
 mrm10:
-  name: "MRM-10"
-  fullname: "MRM-10"
-  tech: "IS"
-  type: "M"
+  name: MRM-10
+  fullname: MRM-10
+  tech: IS
+  type: M
   damage: 6
   damageAdj: 4
   heat: 4
@@ -1019,15 +1111,17 @@ mrm10:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useFCS: "apollo"
-  useAmmo: "MRM"
+  useFCS: apollo
+  useAmmo: MRM
   ammoPerTon: 24
-  specials: "mrm"
+  specials: mrm
+  bv: 56
+  ammo_bv: 7
 mrm20:
-  name: "MRM-20"
-  fullname: "MRM-20"
-  tech: "IS"
-  type: "M"
+  name: MRM-20
+  fullname: MRM-20
+  tech: IS
+  type: M
   damage: 12
   damageAdj: 8
   heat: 6
@@ -1039,15 +1133,17 @@ mrm20:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useFCS: "apollo"
-  useAmmo: "MRM"
+  useFCS: apollo
+  useAmmo: MRM
   ammoPerTon: 12
-  specials: "mrm"
+  specials: mrm
+  bv: 112
+  ammo_bv: 14
 mrm30:
-  name: "MRM-30"
-  fullname: "MRM-30"
-  tech: "IS"
-  type: "M"
+  name: MRM-30
+  fullname: MRM-30
+  tech: IS
+  type: M
   damage: 18
   damageAdj: 12
   heat: 10
@@ -1059,13 +1155,15 @@ mrm30:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useFCS: "apollo"
-  specials: "mrm"
+  useFCS: apollo
+  specials: mrm
+  bv: 168
+  ammo_bv: 21
 mrm40:
-  name: "MRM-40"
-  fullname: "MRM-40"
-  tech: "IS"
-  type: "M"
+  name: MRM-40
+  fullname: MRM-40
+  tech: IS
+  type: M
   damage: 24
   damageAdj: 16
   heat: 12
@@ -1077,13 +1175,15 @@ mrm40:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useFCS: "apollo"
-  specials: "mrm"
+  useFCS: apollo
+  specials: mrm
+  bv: 224
+  ammo_bv: 28
 lrm5:
-  name: "LRM-5"
-  fullname: "LRM-5"
-  tech: "IS"
-  type: "M"
+  name: LRM-5
+  fullname: LRM-5
+  tech: IS
+  type: M
   damage: 1
   damageAdj: 4
   heat: 2
@@ -1095,15 +1195,17 @@ lrm5:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 24
-  specials: "lrm"
+  specials: lrm
+  bv: 45
+  ammo_bv: 6
 lrm10:
-  name: "LRM-10"
-  fullname: "LRM-10"
-  tech: "IS"
-  type: "M"
+  name: LRM-10
+  fullname: LRM-10
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 7
   heat: 4
@@ -1115,15 +1217,17 @@ lrm10:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 12
-  specials: "lrm"
+  specials: lrm
+  bv: 90
+  ammo_bv: 11
 lrm15:
-  name: "LRM-15"
-  fullname: "LRM-15"
-  tech: "IS"
-  type: "M"
+  name: LRM-15
+  fullname: LRM-15
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 12
   heat: 5
@@ -1135,15 +1239,17 @@ lrm15:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 8
-  specials: "lrm"
+  specials: lrm
+  bv: 136
+  ammo_bv: 17
 lrm20:
-  name: "LRM-20"
-  fullname: "LRM-20"
-  tech: "IS"
-  type: "M"
+  name: LRM-20
+  fullname: LRM-20
+  tech: IS
+  type: M
   damage: 9
   damageAdj: 11
   heat: 6
@@ -1155,15 +1261,17 @@ lrm20:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 6
-  specials: "lrm"
+  specials: lrm
+  bv: 181
+  ammo_bv: 23
 nlrm5:
-  name: "nLRM-5"
-  fullname: "Enhanced LRM-5"
-  tech: "IS"
-  type: "M"
+  name: nLRM-5
+  fullname: Enhanced LRM-5
+  tech: IS
+  type: M
   damage: 1
   damageAdj: 4
   heat: 2
@@ -1175,15 +1283,16 @@ nlrm5:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRM"
+  useFCS: aiv
+  useAmmo: LRM
   ammoPerTon: 24
-  specials: "lrm"
+  specials: lrm
+  bv: 0
 nlrm10:
-  name: "nLRM-10"
-  fullname: "Enhanced LRM-10"
-  tech: "IS"
-  type: "M"
+  name: nLRM-10
+  fullname: Enhanced LRM-10
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 7
   heat: 4
@@ -1195,15 +1304,16 @@ nlrm10:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRM"
+  useFCS: aiv
+  useAmmo: LRM
   ammoPerTon: 12
-  specials: "lrm"
+  specials: lrm
+  bv: 0
 nlrm15:
-  name: "nLRM-15"
-  fullname: "Enhanced LRM-15"
-  tech: "IS"
-  type: "M"
+  name: nLRM-15
+  fullname: Enhanced LRM-15
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 12
   heat: 5
@@ -1215,15 +1325,16 @@ nlrm15:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRM"
+  useFCS: aiv
+  useAmmo: LRM
   ammoPerTon: 8
-  specials: "lrm"
+  specials: lrm
+  bv: 0
 nlrm20:
-  name: "nLRM-20"
-  fullname: "Enhanced LRM-20"
-  tech: "IS"
-  type: "M"
+  name: nLRM-20
+  fullname: Enhanced LRM-20
+  tech: IS
+  type: M
   damage: 9
   damageAdj: 11
   heat: 6
@@ -1235,15 +1346,16 @@ nlrm20:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRM"
+  useFCS: aiv
+  useAmmo: LRM
   ammoPerTon: 6
-  specials: "lrm"
+  specials: lrm
+  bv: 0
 elrm5:
-  name: "eLRM-5"
-  fullname: "Extended LRM-5"
-  tech: "IS"
-  type: "M"
+  name: eLRM-5
+  fullname: Extended LRM-5
+  tech: IS
+  type: M
   damage: 5
   heat: 3
   crits: 1
@@ -1257,14 +1369,15 @@ elrm5:
   varPBSdamage: 0
   varMdamage: 0
   varLXdamage: 1
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 24
-  specials: "lrm var"
+  specials: lrm var
+  bv: 0
 elrm10:
-  name: "eLRM-10"
-  fullname: "Extended LRM-10"
-  tech: "IS"
-  type: "M"
+  name: eLRM-10
+  fullname: Extended LRM-10
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 7
   heat: 6
@@ -1279,14 +1392,15 @@ elrm10:
   varPBSdamage: 0
   varMdamage: 0
   varLXdamage: 2
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 12
-  specials: "lrm var"
+  specials: lrm var
+  bv: 0
 elrm15:
-  name: "eLRM-15"
-  fullname: "Extended LRM-15"
-  tech: "IS"
-  type: "M"
+  name: eLRM-15
+  fullname: Extended LRM-15
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 12
   heat: 8
@@ -1301,14 +1415,15 @@ elrm15:
   varPBSdamage: 0
   varMdamage: 0
   varLXdamage: 3
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 8
-  specials: "lrm var"
+  specials: lrm var
+  bv: 0
 elrm20:
-  name: "eLRM-20"
-  fullname: "Extended LRM-20"
-  tech: "IS"
-  type: "M"
+  name: eLRM-20
+  fullname: Extended LRM-20
+  tech: IS
+  type: M
   damage: 9
   damageAdj: 11
   heat: 12
@@ -1323,14 +1438,15 @@ elrm20:
   varPBSdamage: 3
   varMdamage: 3
   varLXdamage: 5
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 6
-  specials: "lrm var"
+  specials: lrm var
+  bv: 0
 tbolt5:
-  name: "TBolt-5"
-  fullname: "Thunderbolt 5"
-  tech: "IS"
-  type: "M"
+  name: TBolt-5
+  fullname: Thunderbolt 5
+  tech: IS
+  type: M
   damage: 5
   heat: 3
   crits: 1
@@ -1339,14 +1455,15 @@ tbolt5:
   rangeM: 2
   rangeL: 4
   rangeX: 9
-  useAmmo: "TBolt"
+  useAmmo: TBolt
   ammoPerTon: 24
-  specials: ""
+  specials: ''
+  bv: 64
 tbolt10:
-  name: "TBolt-10"
-  fullname: "Thunderbolt 10"
-  tech: "IS"
-  type: "M"
+  name: TBolt-10
+  fullname: Thunderbolt 10
+  tech: IS
+  type: M
   damage: 10
   heat: 5
   crits: 2
@@ -1355,14 +1472,15 @@ tbolt10:
   rangeM: 2
   rangeL: 4
   rangeX: 9
-  useAmmo: "TBolt"
+  useAmmo: TBolt
   ammoPerTon: 12
-  specials: ""
+  specials: ''
+  bv: 127
 tbolt15:
-  name: "TBolt-15"
-  fullname: "Thunderbolt 15"
-  tech: "IS"
-  type: "M"
+  name: TBolt-15
+  fullname: Thunderbolt 15
+  tech: IS
+  type: M
   damage: 15
   heat: 7
   crits: 3
@@ -1371,14 +1489,15 @@ tbolt15:
   rangeM: 2
   rangeL: 4
   rangeX: 9
-  useAmmo: "TBolt"
+  useAmmo: TBolt
   ammoPerTon: 8
-  specials: ""
+  specials: ''
+  bv: 229
 tbolt20:
-  name: "TBolt-20"
-  fullname: "Thunderbolt 20"
-  tech: "IS"
-  type: "M"
+  name: TBolt-20
+  fullname: Thunderbolt 20
+  tech: IS
+  type: M
   damage: 20
   heat: 8
   crits: 5
@@ -1387,14 +1506,15 @@ tbolt20:
   rangeM: 2
   rangeL: 4
   rangeX: 9
-  useAmmo: "TBolt"
+  useAmmo: TBolt
   ammoPerTon: 6
-  specials: ""
+  specials: ''
+  bv: 305
 mml3:
-  name: "MML-3"
-  fullname: "MML-3"
-  tech: "IS"
-  type: "M"
+  name: MML-3
+  fullname: MML-3
+  tech: IS
+  type: M
   damage: 6
   heat: 2
   crits: 2
@@ -1408,15 +1528,17 @@ mml3:
   varPBSdamage: 3
   varMdamage: 1
   varLXdamage: 0
-  useFCS: "aiv"
-  useAmmo: "MML"
+  useFCS: aiv
+  useAmmo: MML
   ammoPerTon: 40
-  specials: "var"
+  specials: var
+  bv: 29
+  ammo_bv: 4
 mml5:
-  name: "MML-5"
-  fullname: "MML-5"
-  tech: "IS"
-  type: "M"
+  name: MML-5
+  fullname: MML-5
+  tech: IS
+  type: M
   damage: 9
   heat: 3
   crits: 3
@@ -1430,15 +1552,17 @@ mml5:
   varPBSdamage: 3
   varMdamage: 2
   varLXdamage: 0
-  useFCS: "aiv"
-  useAmmo: "MML"
+  useFCS: aiv
+  useAmmo: MML
   ammoPerTon: 24
-  specials: "var"
+  specials: var
+  bv: 45
+  ammo_bv: 6
 mml7:
-  name: "MML-7"
-  fullname: "MML-7"
-  tech: "IS"
-  type: "M"
+  name: MML-7
+  fullname: MML-7
+  tech: IS
+  type: M
   damage: 12
   heat: 4
   crits: 4
@@ -1452,15 +1576,17 @@ mml7:
   varPBSdamage: 5
   varMdamage: 3
   varLXdamage: 1
-  useFCS: "aiv"
-  useAmmo: "MML"
+  useFCS: aiv
+  useAmmo: MML
   ammoPerTon: 17
-  specials: "var"
+  specials: var
+  bv: 67
+  ammo_bv: 8
 mml9:
-  name: "MML-9"
-  fullname: "MML-9"
-  tech: "IS"
-  type: "M"
+  name: MML-9
+  fullname: MML-9
+  tech: IS
+  type: M
   damage: 15
   heat: 5
   crits: 5
@@ -1474,15 +1600,17 @@ mml9:
   varPBSdamage: 6
   varMdamage: 4
   varLXdamage: 2
-  useFCS: "aiv"
-  useAmmo: "MML"
+  useFCS: aiv
+  useAmmo: MML
   ammoPerTon: 13
-  specials: "var"
+  specials: var
+  bv: 86
+  ammo_bv: 11
 rl10:
-  name: "RL10"
-  fullname: "Rocket Launcher 10"
-  tech: "IS"
-  type: "M"
+  name: RL10
+  fullname: Rocket Launcher 10
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 6
   heat: 3
@@ -1494,12 +1622,13 @@ rl10:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  specials: "rl os"
+  specials: rl os
+  bv: 18
 rl15:
-  name: "RL15"
-  fullname: "Rocket Launcher 15"
-  tech: "IS"
-  type: "M"
+  name: RL15
+  fullname: Rocket Launcher 15
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 12
   heat: 4
@@ -1511,12 +1640,13 @@ rl15:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  specials: "rl os"
+  specials: rl os
+  bv: 23
 rl20:
-  name: "RL20"
-  fullname: "Rocket Launcher 20"
-  tech: "IS"
-  type: "M"
+  name: RL20
+  fullname: Rocket Launcher 20
+  tech: IS
+  type: M
   damage: 9
   damageAdj: 11
   heat: 5
@@ -1528,12 +1658,13 @@ rl20:
   rangeM: 3
   rangeL: 9
   rangeX: 9
-  specials: "rl os"
+  specials: rl os
+  bv: 24
 srt2:
-  name: "SRT-2"
-  fullname: "SRT-2"
-  tech: "IS"
-  type: "M"
+  name: SRT-2
+  fullname: SRT-2
+  tech: IS
+  type: M
   damage: 1
   damageAdj: 3
   heat: 2
@@ -1545,15 +1676,17 @@ srt2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aiv"
-  useAmmo: "SRT"
+  useFCS: aiv
+  useAmmo: SRT
   ammoPerTon: 50
-  specials: "srt"
+  specials: srt
+  bv: 21
+  ammo_bv: 3
 srt4:
-  name: "SRT-4"
-  fullname: "SRT-4"
-  tech: "IS"
-  type: "M"
+  name: SRT-4
+  fullname: SRT-4
+  tech: IS
+  type: M
   damage: 8
   heat: 3
   crits: 1
@@ -1564,15 +1697,17 @@ srt4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aiv"
-  useAmmo: "SRT"
+  useFCS: aiv
+  useAmmo: SRT
   ammoPerTon: 25
-  specials: "srt"
+  specials: srt
+  bv: 39
+  ammo_bv: 5
 srt6:
-  name: "SRT-6"
-  fullname: "SRT-6"
-  tech: "IS"
-  type: "M"
+  name: SRT-6
+  fullname: SRT-6
+  tech: IS
+  type: M
   damage: 12
   heat: 4
   crits: 2
@@ -1583,15 +1718,17 @@ srt6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aiv"
-  useAmmo: "SRT"
+  useFCS: aiv
+  useAmmo: SRT
   ammoPerTon: 15
-  specials: "srt"
+  specials: srt
+  bv: 59
+  ammo_bv: 7
 lrt5:
-  name: "LRT-5"
-  fullname: "LRT-5"
-  tech: "IS"
-  type: "M"
+  name: LRT-5
+  fullname: LRT-5
+  tech: IS
+  type: M
   damage: 1
   damageAdj: 4
   heat: 2
@@ -1603,15 +1740,17 @@ lrt5:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 24
-  specials: "lrt"
+  specials: lrt
+  bv: 45
+  ammo_bv: 6
 lrt10:
-  name: "LRT-10"
-  fullname: "LRT-10"
-  tech: "IS"
-  type: "M"
+  name: LRT-10
+  fullname: LRT-10
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 7
   heat: 4
@@ -1623,15 +1762,17 @@ lrt10:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 12
-  specials: "lrt"
+  specials: lrt
+  bv: 90
+  ammo_bv: 11
 lrt15:
-  name: "LRT-15"
-  fullname: "LRT-15"
-  tech: "IS"
-  type: "M"
+  name: LRT-15
+  fullname: LRT-15
+  tech: IS
+  type: M
   damage: 3
   damageAdj: 12
   heat: 5
@@ -1643,15 +1784,17 @@ lrt15:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 8
-  specials: "lrt"
+  specials: lrt
+  bv: 136
+  ammo_bv: 17
 lrt20:
-  name: "LRT-20"
-  fullname: "LRT-20"
-  tech: "IS"
-  type: "M"
+  name: LRT-20
+  fullname: LRT-20
+  tech: IS
+  type: M
   damage: 9
   damageAdj: 11
   heat: 6
@@ -1663,15 +1806,17 @@ lrt20:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 6
-  specials: "lrt"
+  specials: lrt
+  bv: 181
+  ammo_bv: 23
 narc:
-  name: "Narc"
-  fullname: "Narc Missile Beacon"
-  tech: "IS"
-  type: "M"
+  name: Narc
+  fullname: Narc Missile Beacon
+  tech: IS
+  type: M
   damage: 0
   heat: 0
   crits: 2
@@ -1680,13 +1825,14 @@ narc:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "Narc"
+  useAmmo: Narc
   ammoPerTon: 6
+  bv: 30
 inarc:
-  name: "iNarc"
-  fullname: "Improved Narc Missile Beacon"
-  tech: "IS"
-  type: "M"
+  name: iNarc
+  fullname: Improved Narc Missile Beacon
+  tech: IS
+  type: M
   damage: 0
   heat: 0
   crits: 3
@@ -1695,13 +1841,14 @@ inarc:
   rangeM: 2
   rangeL: 4
   rangeX: 9
-  useAmmo: "Narc"
+  useAmmo: Narc
   ammoPerTon: 4
+  bv: 75
 clb2x:
-  name: "cLB 2-X"
-  fullname: "Clan LB 2-X Autocannon"
-  tech: "Clan"
-  type: "B"
+  name: cLB 2-X
+  fullname: Clan LB 2-X Autocannon
+  tech: Clan
+  type: B
   damage: 2
   heat: 1
   crits: 3
@@ -1711,13 +1858,15 @@ clb2x:
   rangeL: 2
   rangeX: 2
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 45
+  bv: 47
+  ammo_bv: 6
 clb5x:
-  name: "cLB 5-X"
-  fullname: "Clan LB 5-X Autocannon"
-  tech: "Clan"
-  type: "B"
+  name: cLB 5-X
+  fullname: Clan LB 5-X Autocannon
+  tech: Clan
+  type: B
   damage: 5
   heat: 1
   crits: 4
@@ -1728,13 +1877,15 @@ clb5x:
   rangeX: 4
   useC: 1
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 20
+  bv: 93
+  ammo_bv: 12
 clb10x:
-  name: "cLB 10-X"
-  fullname: "Clan LB 10-X Autocannon"
-  tech: "Clan"
-  type: "B"
+  name: cLB 10-X
+  fullname: Clan LB 10-X Autocannon
+  tech: Clan
+  type: B
   damage: 10
   heat: 2
   crits: 5
@@ -1745,13 +1896,15 @@ clb10x:
   rangeX: 9
   useC: 1
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 10
+  bv: 148
+  ammo_bv: 19
 clb20x:
-  name: "cLB 20-X"
-  fullname: "Clan LB 20-X Autocannon"
-  tech: "Clan"
-  type: "B"
+  name: cLB 20-X
+  fullname: Clan LB 20-X Autocannon
+  tech: Clan
+  type: B
   damage: 20
   heat: 6
   crits: 9
@@ -1762,13 +1915,15 @@ clb20x:
   rangeX: 9
   useC: 1
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 5
+  bv: 237
+  ammo_bv: 30
 cuac2:
-  name: "cUAC/2"
-  fullname: "Clan Ultra Autocannon/2"
-  tech: "Clan"
-  type: "B"
+  name: cUAC/2
+  fullname: Clan Ultra Autocannon/2
+  tech: Clan
+  type: B
   damage: 2
   heat: 1
   crits: 2
@@ -1779,13 +1934,15 @@ cuac2:
   rangeX: 2
   useR: 2
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 45
+  bv: 62
+  ammo_bv: 8
 cuac5:
-  name: "cUAC/5"
-  fullname: "Clan Ultra Autocannon/5"
-  tech: "Clan"
-  type: "B"
+  name: cUAC/5
+  fullname: Clan Ultra Autocannon/5
+  tech: Clan
+  type: B
   damage: 5
   heat: 1
   crits: 3
@@ -1796,13 +1953,15 @@ cuac5:
   rangeX: 4
   useR: 5
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 20
+  bv: 122
+  ammo_bv: 15
 cuac10:
-  name: "cUAC/10"
-  fullname: "Clan Ultra Autocannon/10"
-  tech: "Clan"
-  type: "B"
+  name: cUAC/10
+  fullname: Clan Ultra Autocannon/10
+  tech: Clan
+  type: B
   damage: 10
   heat: 3
   crits: 4
@@ -1813,13 +1972,15 @@ cuac10:
   rangeX: 9
   useR: 10
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 10
+  bv: 210
+  ammo_bv: 26
 cuac20:
-  name: "cUAC/20"
-  fullname: "Clan Ultra Autocannon/20"
-  tech: "Clan"
-  type: "B"
+  name: cUAC/20
+  fullname: Clan Ultra Autocannon/20
+  tech: Clan
+  type: B
   damage: 20
   heat: 7
   crits: 8
@@ -1830,13 +1991,15 @@ cuac20:
   rangeX: 9
   useR: 20
   useTC: 1
-  useAmmo: "UAC"
+  useAmmo: UAC
   ammoPerTon: 5
+  bv: 335
+  ammo_bv: 42
 crac2:
-  name: "cRAC/2"
-  fullname: "Clan Rotary Autocannon/2"
-  tech: "Clan"
-  type: "B"
+  name: cRAC/2
+  fullname: Clan Rotary Autocannon/2
+  tech: Clan
+  type: B
   damage: 3
   heat: 3
   crits: 4
@@ -1847,13 +2010,14 @@ crac2:
   rangeX: 2
   useR: 6
   useTC: 1
-  useAmmo: "RAC"
+  useAmmo: RAC
   ammoPerTon: 45
+  bv: 161
 crac5:
-  name: "cRAC/5"
-  fullname: "Clan Rotary Autocannon/5"
-  tech: "Clan"
-  type: "B"
+  name: cRAC/5
+  fullname: Clan Rotary Autocannon/5
+  tech: Clan
+  type: B
   damage: 8
   heat: 3
   crits: 8
@@ -1864,13 +2028,14 @@ crac5:
   rangeX: 4
   useR: 12
   useTC: 1
-  useAmmo: "RAC"
+  useAmmo: RAC
   ammoPerTon: 20
+  bv: 345
 capgauss:
-  name: "cAPGauss"
-  fullname: "Clan AP Gauss Rifle"
-  tech: "Clan"
-  type: "B"
+  name: cAPGauss
+  fullname: Clan AP Gauss Rifle
+  tech: Clan
+  type: B
   damage: 3
   heat: 1
   crits: 1
@@ -1880,14 +2045,16 @@ capgauss:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 40
-  specials: "ai"
+  specials: ai
+  bv: 21
+  ammo_bv: 3
 cgauss:
-  name: "cGauss"
-  fullname: "Clan Gauss Rifle"
-  tech: "Clan"
-  type: "B"
+  name: cGauss
+  fullname: Clan Gauss Rifle
+  tech: Clan
+  type: B
   damage: 15
   heat: 1
   crits: 6
@@ -1897,13 +2064,15 @@ cgauss:
   rangeL: 2
   rangeX: 4
   useTC: 1
-  useAmmo: "Gauss"
+  useAmmo: Gauss
   ammoPerTon: 8
+  bv: 320
+  ammo_bv: 40
 chag20:
-  name: "cHAG 20"
-  fullname: "Clan Hyper-Assault Gauss Rifle 20"
-  tech: "Clan"
-  type: "B"
+  name: cHAG 20
+  fullname: Clan Hyper-Assault Gauss Rifle 20
+  tech: Clan
+  type: B
   damage: 16
   heat: 4
   crits: 6
@@ -1917,14 +2086,16 @@ chag20:
   varLXdamage: 11
   useC: 1
   useTC: 1
-  useAmmo: "HAG"
+  useAmmo: HAG
   ammoPerTon: 6
-  specials: "var,hag20"
+  specials: var,hag20
+  bv: 267
+  ammo_bv: 33
 chag30:
-  name: "cHAG 30"
-  fullname: "Clan Hyper-Assault Gauss Rifle 30"
-  tech: "Clan"
-  type: "B"
+  name: cHAG 30
+  fullname: Clan Hyper-Assault Gauss Rifle 30
+  tech: Clan
+  type: B
   damage: 23
   heat: 6
   crits: 8
@@ -1938,14 +2109,16 @@ chag30:
   varLXdamage: 16
   useC: 1
   useTC: 1
-  useAmmo: "HAG"
+  useAmmo: HAG
   ammoPerTon: 4
-  specials: "var,hag30"
+  specials: var,hag30
+  bv: 401
+  ammo_bv: 50
 chag40:
-  name: "cHAG 40"
-  fullname: "Clan Hyper-Assault Gauss Rifle 40"
-  tech: "Clan"
-  type: "B"
+  name: cHAG 40
+  fullname: Clan Hyper-Assault Gauss Rifle 40
+  tech: Clan
+  type: B
   damage: 31
   heat: 8
   crits: 10
@@ -1959,14 +2132,16 @@ chag40:
   varLXdamage: 17
   useC: 1
   useTC: 1
-  useAmmo: "HAG"
+  useAmmo: HAG
   ammoPerTon: 3
-  specials: "var,hag40"
+  specials: var,hag40
+  bv: 535
+  ammo_bv: 67
 clmg:
-  name: "cLMG"
-  fullname: "Clan Light Machine Gun"
-  tech: "Clan"
-  type: "B"
+  name: cLMG
+  fullname: Clan Light Machine Gun
+  tech: Clan
+  type: B
   damage: 1
   heat: 0
   crits: 1
@@ -1975,14 +2150,16 @@ clmg:
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  useAmmo: "MG"
+  useAmmo: MG
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 5
+  ammo_bv: 1
 cmg:
-  name: "cMG"
-  fullname: "Clan Machine Gun"
-  tech: "Clan"
-  type: "B"
+  name: cMG
+  fullname: Clan Machine Gun
+  tech: Clan
+  type: B
   damage: 2
   heat: 0
   crits: 1
@@ -1991,14 +2168,16 @@ cmg:
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  useAmmo: "MG"
+  useAmmo: MG
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 5
+  ammo_bv: 1
 chmg:
-  name: "cHMG"
-  fullname: "Clan Heavy Machine Gun"
-  tech: "Clan"
-  type: "B"
+  name: cHMG
+  fullname: Clan Heavy Machine Gun
+  tech: Clan
+  type: B
   damage: 3
   heat: 0
   crits: 1
@@ -2007,14 +2186,16 @@ chmg:
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  useAmmo: "MG"
+  useAmmo: MG
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 6
+  ammo_bv: 1
 cpmac2:
-  name: "cPMAC/2"
-  fullname: "Clan ProtoMech Autocannon/2"
-  tech: "IS"
-  type: "B"
+  name: cPMAC/2
+  fullname: Clan ProtoMech Autocannon/2
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   crits: 2
@@ -2024,13 +2205,14 @@ cpmac2:
   rangeL: 2
   rangeX: 4
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 45
+  bv: 0
 cpmac4:
-  name: "cPMAC/4"
-  fullname: "Clan ProtoMech Autocannon/4"
-  tech: "IS"
-  type: "B"
+  name: cPMAC/4
+  fullname: Clan ProtoMech Autocannon/4
+  tech: IS
+  type: B
   damage: 4
   heat: 1
   crits: 3
@@ -2040,13 +2222,14 @@ cpmac4:
   rangeL: 4
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 20
+  bv: 0
 cpmac8:
-  name: "cPMAC/8"
-  fullname: "Clan ProtoMech Autocannon/8"
-  tech: "IS"
-  type: "B"
+  name: cPMAC/8
+  fullname: Clan ProtoMech Autocannon/8
+  tech: IS
+  type: B
   damage: 8
   heat: 2
   crits: 4
@@ -2056,13 +2239,14 @@ cpmac8:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  useAmmo: "AC"
+  useAmmo: AC
   ammoPerTon: 10
+  bv: 0
 cnailrivet:
-  name: "cNailRivet"
-  fullname: "Clan Nail/Rivet Gun"
-  tech: "Clan"
-  type: "B"
+  name: cNailRivet
+  fullname: Clan Nail/Rivet Gun
+  tech: Clan
+  type: B
   damage: 0
   heat: 0
   crits: 1
@@ -2071,12 +2255,13 @@ cnailrivet:
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
+  specials: ai
+  bv: 1
 cermiclas:
-  name: "cermicLas"
-  fullname: "Clan ER Micro Laser"
-  tech: "Clan"
-  type: "E"
+  name: cermicLas
+  fullname: Clan ER Micro Laser
+  tech: Clan
+  type: E
   damage: 2
   heat: 1
   crits: 1
@@ -2086,11 +2271,12 @@ cermiclas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 7
 cerslas:
-  name: "cerSLas"
-  fullname: "Clan ER Small Laser"
-  tech: "Clan"
-  type: "E"
+  name: cerSLas
+  fullname: Clan ER Small Laser
+  tech: Clan
+  type: E
   damage: 5
   heat: 2
   crits: 1
@@ -2100,11 +2286,12 @@ cerslas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 31
 cermlas:
-  name: "cerMLas"
-  fullname: "Clan ER Medium Laser"
-  tech: "Clan"
-  type: "E"
+  name: cerMLas
+  fullname: Clan ER Medium Laser
+  tech: Clan
+  type: E
   damage: 7
   heat: 5
   crits: 1
@@ -2114,11 +2301,12 @@ cermlas:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 108
 cerllas:
-  name: "cerLLas"
-  fullname: "Clan ER Large Laser"
-  tech: "Clan"
-  type: "E"
+  name: cerLLas
+  fullname: Clan ER Large Laser
+  tech: Clan
+  type: E
   damage: 10
   heat: 12
   crits: 1
@@ -2128,11 +2316,12 @@ cerllas:
   rangeL: 2
   rangeX: 2
   useTC: 1
+  bv: 248
 cerppc:
-  name: "cerPPC"
-  fullname: "Clan ER PPC"
-  tech: "Clan"
-  type: "E"
+  name: cerPPC
+  fullname: Clan ER PPC
+  tech: Clan
+  type: E
   damage: 15
   heat: 15
   crits: 2
@@ -2142,11 +2331,12 @@ cerppc:
   rangeL: 2
   rangeX: 4
   useTC: 1
+  bv: 412
 cmicplas:
-  name: "cmicPLas"
-  fullname: "Clan Micro Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cmicPLas
+  fullname: Clan Micro Pulse Laser
+  tech: Clan
+  type: E
   damage: 3
   heat: 1
   crits: 1
@@ -2156,12 +2346,13 @@ cmicplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  specials: "ai"
+  specials: ai
+  bv: 12
 csplas:
-  name: "cSPLas"
-  fullname: "Clan Small Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cSPLas
+  fullname: Clan Small Pulse Laser
+  tech: Clan
+  type: E
   damage: 3
   heat: 2
   crits: 1
@@ -2171,12 +2362,13 @@ csplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  specials: "ai"
+  specials: ai
+  bv: 24
 cmplas:
-  name: "cMPLas"
-  fullname: "Clan Medium Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cMPLas
+  fullname: Clan Medium Pulse Laser
+  tech: Clan
+  type: E
   damage: 7
   heat: 4
   crits: 1
@@ -2186,11 +2378,12 @@ cmplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 111
 clplas:
-  name: "cLPLas"
-  fullname: "Clan Large Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cLPLas
+  fullname: Clan Large Pulse Laser
+  tech: Clan
+  type: E
   damage: 10
   heat: 10
   crits: 2
@@ -2200,11 +2393,12 @@ clplas:
   rangeL: 0
   rangeX: 2
   useTC: 1
+  bv: 265
 cersplas:
-  name: "cerSPLas"
-  fullname: "Clan ER Small Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cerSPLas
+  fullname: Clan ER Small Pulse Laser
+  tech: Clan
+  type: E
   damage: 5
   heat: 3
   crits: 1
@@ -2214,11 +2408,12 @@ cersplas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 36
 cermplas:
-  name: "cerMPLas"
-  fullname: "Clan ER Medium Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cerMPLas
+  fullname: Clan ER Medium Pulse Laser
+  tech: Clan
+  type: E
   damage: 7
   heat: 6
   crits: 2
@@ -2228,11 +2423,12 @@ cermplas:
   rangeL: 3
   rangeX: 9
   useTC: 1
+  bv: 117
 cerlplas:
-  name: "cerLPLas"
-  fullname: "Clan ER Large Pulse Laser"
-  tech: "Clan"
-  type: "E"
+  name: cerLPLas
+  fullname: Clan ER Large Pulse Laser
+  tech: Clan
+  type: E
   damage: 10
   heat: 13
   crits: 3
@@ -2242,11 +2438,12 @@ cerlplas:
   rangeL: 1
   rangeX: 3
   useTC: 1
+  bv: 272
 chslas:
-  name: "cHSLas"
-  fullname: "Clan Heavy Small Laser"
-  tech: "Clan"
-  type: "E"
+  name: cHSLas
+  fullname: Clan Heavy Small Laser
+  tech: Clan
+  type: E
   damage: 6
   heat: 3
   crits: 1
@@ -2256,11 +2453,12 @@ chslas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 15
 chmlas:
-  name: "cHMLas"
-  fullname: "Clan Heavy Medium Laser"
-  tech: "Clan"
-  type: "E"
+  name: cHMLas
+  fullname: Clan Heavy Medium Laser
+  tech: Clan
+  type: E
   damage: 10
   heat: 7
   crits: 2
@@ -2270,11 +2468,12 @@ chmlas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 76
 chllas:
-  name: "cHLLas"
-  fullname: "Clan Heavy Large Laser"
-  tech: "Clan"
-  type: "E"
+  name: cHLLas
+  fullname: Clan Heavy Large Laser
+  tech: Clan
+  type: E
   damage: 16
   heat: 18
   crits: 3
@@ -2284,11 +2483,12 @@ chllas:
   rangeL: 5
   rangeX: 9
   useTC: 1
+  bv: 244
 cihslas:
-  name: "ciHSLas"
-  fullname: "Clan Improved Heavy Small Laser"
-  tech: "Clan"
-  type: "E"
+  name: ciHSLas
+  fullname: Clan Improved Heavy Small Laser
+  tech: Clan
+  type: E
   damage: 6
   heat: 3
   crits: 1
@@ -2298,11 +2498,12 @@ cihslas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 19
 cihmlas:
-  name: "ciHMLas"
-  fullname: "Clan Improved Heavy Medium Laser"
-  tech: "Clan"
-  type: "E"
+  name: ciHMLas
+  fullname: Clan Improved Heavy Medium Laser
+  tech: Clan
+  type: E
   damage: 10
   heat: 7
   crits: 2
@@ -2312,11 +2513,12 @@ cihmlas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 93
 cihllas:
-  name: "ciHLLas"
-  fullname: "Clan Improved Heavy Large Laser"
-  tech: "Clan"
-  type: "E"
+  name: ciHLLas
+  fullname: Clan Improved Heavy Large Laser
+  tech: Clan
+  type: E
   damage: 16
   heat: 18
   crits: 3
@@ -2326,11 +2528,12 @@ cihllas:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 296
 cchemslas:
-  name: "cChemSLas"
-  fullname: "Chemical Small Laser"
-  tech: "Clan"
-  type: "E"
+  name: cChemSLas
+  fullname: Chemical Small Laser
+  tech: Clan
+  type: E
   damage: 3
   heat: 1
   crits: 1
@@ -2340,11 +2543,12 @@ cchemslas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 0
 cchemmlas:
-  name: "cChemMLas"
-  fullname: "Chemical Medium Laser"
-  tech: "Clan"
-  type: "E"
+  name: cChemMLas
+  fullname: Chemical Medium Laser
+  tech: Clan
+  type: E
   damage: 5
   heat: 2
   crits: 1
@@ -2354,11 +2558,12 @@ cchemmlas:
   rangeL: 9
   rangeX: 9
   useTC: 1
+  bv: 0
 cchemllas:
-  name: "cChemLLas"
-  fullname: "Chemical Large Laser"
-  tech: "Clan"
-  type: "E"
+  name: cChemLLas
+  fullname: Chemical Large Laser
+  tech: Clan
+  type: E
   damage: 8
   heat: 6
   crits: 2
@@ -2368,11 +2573,12 @@ cchemllas:
   rangeL: 4
   rangeX: 9
   useTC: 1
+  bv: 0
 cflamer:
-  name: "cFlamer"
-  fullname: "Clan Flamer"
-  tech: "Clan"
-  type: "E"
+  name: cFlamer
+  fullname: Clan Flamer
+  tech: Clan
+  type: E
   damage: 2
   heat: 3
   crits: 1
@@ -2382,12 +2588,13 @@ cflamer:
   rangeL: 9
   rangeX: 9
   useH: 2
-  specials: "ai"
+  specials: ai
+  bv: 6
 cerflamer:
-  name: "cerFlamer"
-  fullname: "Clan ER Flamer"
-  tech: "Clan"
-  type: "E"
+  name: cerFlamer
+  fullname: Clan ER Flamer
+  tech: Clan
+  type: E
   damage: 2
   heat: 4
   crits: 1
@@ -2397,12 +2604,13 @@ cerflamer:
   rangeL: 9
   rangeX: 9
   useH: 2
-  specials: "ai"
+  specials: ai
+  bv: 16
 chflamer:
-  name: "cHFlamer"
-  fullname: "Clan Heavy Flamer"
-  tech: "Clan"
-  type: "E"
+  name: cHFlamer
+  fullname: Clan Heavy Flamer
+  tech: Clan
+  type: E
   damage: 4
   heat: 5
   crits: 1
@@ -2412,14 +2620,15 @@ chflamer:
   rangeL: 9
   rangeX: 9
   useH: 4
-  useAmmo: "Flamer"
+  useAmmo: Flamer
   ammoPerTon: 0
-  specials: "ai"
+  specials: ai
+  bv: 0
 cplascannon:
-  name: "cPlasCannon"
-  fullname: "Clan Plasma Cannon"
-  tech: "Clan"
-  type: "E"
+  name: cPlasCannon
+  fullname: Clan Plasma Cannon
+  tech: Clan
+  type: E
   damage: 0
   heat: 7
   crits: 1
@@ -2430,11 +2639,13 @@ cplascannon:
   rangeX: 9
   useH: 8
   useTC: 1
+  bv: 170
+  ammo_bv: 21
 csrm2:
-  name: "cSRM-2"
-  fullname: "Clan SRM-2"
-  tech: "Clan"
-  type: "M"
+  name: cSRM-2
+  fullname: Clan SRM-2
+  tech: Clan
+  type: M
   damage: 1
   damageAdj: 3
   heat: 2
@@ -2446,15 +2657,17 @@ csrm2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aivav"
-  useAmmo: "SRM"
+  useFCS: aivav
+  useAmmo: SRM
   ammoPerTon: 50
-  specials: "srm"
+  specials: srm
+  bv: 21
+  ammo_bv: 3
 csrm4:
-  name: "cSRM-4"
-  fullname: "Clan SRM-4"
-  tech: "Clan"
-  type: "M"
+  name: cSRM-4
+  fullname: Clan SRM-4
+  tech: Clan
+  type: M
   damage: 8
   heat: 3
   crits: 1
@@ -2465,15 +2678,17 @@ csrm4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aivav"
-  useAmmo: "SRM"
+  useFCS: aivav
+  useAmmo: SRM
   ammoPerTon: 25
-  specials: "srm"
+  specials: srm
+  bv: 39
+  ammo_bv: 5
 csrm6:
-  name: "cSRM-6"
-  fullname: "Clan SRM-6"
-  tech: "Clan"
-  type: "M"
+  name: cSRM-6
+  fullname: Clan SRM-6
+  tech: Clan
+  type: M
   damage: 12
   heat: 4
   crits: 1
@@ -2484,15 +2699,17 @@ csrm6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aivav"
-  useAmmo: "SRM"
+  useFCS: aivav
+  useAmmo: SRM
   ammoPerTon: 15
-  specials: "srm"
+  specials: srm
+  bv: 59
+  ammo_bv: 7
 cssrm2:
-  name: "cSSRM-2"
-  fullname: "Clan Streak SRM-2"
-  tech: "Clan"
-  type: "M"
+  name: cSSRM-2
+  fullname: Clan Streak SRM-2
+  tech: Clan
+  type: M
   damage: 1
   damageAdj: 3
   heat: 2
@@ -2504,14 +2721,16 @@ cssrm2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SSRM"
+  useAmmo: SSRM
   ammoPerTon: 50
-  specials: "ssrm"
+  specials: ssrm
+  bv: 40
+  ammo_bv: 5
 cssrm4:
-  name: "cSSRM-4"
-  fullname: "Clan Streak SRM-4"
-  tech: "Clan"
-  type: "M"
+  name: cSSRM-4
+  fullname: Clan Streak SRM-4
+  tech: Clan
+  type: M
   damage: 8
   heat: 3
   crits: 1
@@ -2522,14 +2741,16 @@ cssrm4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SSRM"
+  useAmmo: SSRM
   ammoPerTon: 25
-  specials: "ssrm"
+  specials: ssrm
+  bv: 79
+  ammo_bv: 10
 cssrm6:
-  name: "cSSRM-6"
-  fullname: "Clan Streak SRM-6"
-  tech: "Clan"
-  type: "M"
+  name: cSSRM-6
+  fullname: Clan Streak SRM-6
+  tech: Clan
+  type: M
   damage: 12
   heat: 4
   crits: 2
@@ -2540,14 +2761,16 @@ cssrm6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SSRM"
+  useAmmo: SSRM
   ammoPerTon: 15
-  specials: "ssrm"
+  specials: ssrm
+  bv: 118
+  ammo_bv: 15
 clrm5:
-  name: "cLRM-5"
-  fullname: "Clan LRM-5"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-5
+  fullname: Clan LRM-5
+  tech: Clan
+  type: M
   damage: 1
   damageAdj: 4
   heat: 2
@@ -2559,15 +2782,17 @@ clrm5:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 24
-  specials: "lrm"
+  specials: lrm
+  bv: 55
+  ammo_bv: 7
 clrm10:
-  name: "cLRM-10"
-  fullname: "Clan LRM-10"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-10
+  fullname: Clan LRM-10
+  tech: Clan
+  type: M
   damage: 3
   damageAdj: 7
   heat: 4
@@ -2579,15 +2804,17 @@ clrm10:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 12
-  specials: "lrm"
+  specials: lrm
+  bv: 109
+  ammo_bv: 14
 clrm15:
-  name: "cLRM-15"
-  fullname: "Clan LRM-15"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-15
+  fullname: Clan LRM-15
+  tech: Clan
+  type: M
   damage: 3
   damageAdj: 12
   heat: 5
@@ -2599,14 +2826,16 @@ clrm15:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 8
+  bv: 164
+  ammo_bv: 21
 clrm20:
-  name: "cLRM-20"
-  fullname: "Clan LRM-20"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-20
+  fullname: Clan LRM-20
+  tech: Clan
+  type: M
   damage: 9
   damageAdj: 11
   heat: 6
@@ -2618,15 +2847,17 @@ clrm20:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aivav"
-  useAmmo: "LRM"
+  useFCS: aivav
+  useAmmo: LRM
   ammoPerTon: 6
-  specials: "lrm"
+  specials: lrm
+  bv: 220
+  ammo_bv: 27
 cslrm5:
-  name: "cSLRM-5"
-  fullname: "Clan Streak LRM-5"
-  tech: "Clan"
-  type: "M"
+  name: cSLRM-5
+  fullname: Clan Streak LRM-5
+  tech: Clan
+  type: M
   damage: 1
   damageAdj: 4
   heat: 2
@@ -2638,14 +2869,15 @@ cslrm5:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "SLRM"
+  useAmmo: SLRM
   ammoPerTon: 24
-  specials: "slrm"
+  specials: slrm
+  bv: 86
 cslrm10:
-  name: "cSLRM-10"
-  fullname: "Clan Streak LRM-10"
-  tech: "Clan"
-  type: "M"
+  name: cSLRM-10
+  fullname: Clan Streak LRM-10
+  tech: Clan
+  type: M
   damage: 3
   damageAdj: 7
   heat: 4
@@ -2657,14 +2889,15 @@ cslrm10:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "SLRM"
+  useAmmo: SLRM
   ammoPerTon: 12
-  specials: "slrm"
+  specials: slrm
+  bv: 173
 cslrm15:
-  name: "cSLRM-15"
-  fullname: "Clan Streak LRM-15"
-  tech: "Clan"
-  type: "M"
+  name: cSLRM-15
+  fullname: Clan Streak LRM-15
+  tech: Clan
+  type: M
   damage: 3
   damageAdj: 12
   heat: 5
@@ -2676,14 +2909,15 @@ cslrm15:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "SLRM"
+  useAmmo: SLRM
   ammoPerTon: 8
-  specials: "slrm"
+  specials: slrm
+  bv: 259
 cslrm20:
-  name: "cSLRM-20"
-  fullname: "Clan Streak LRM-20"
-  tech: "Clan"
-  type: "M"
+  name: cSLRM-20
+  fullname: Clan Streak LRM-20
+  tech: Clan
+  type: M
   damage: 9
   damageAdj: 11
   heat: 6
@@ -2695,14 +2929,15 @@ cslrm20:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "SLRM"
+  useAmmo: SLRM
   ammoPerTon: 6
-  specials: "slrm"
+  specials: slrm
+  bv: 345
 catm3:
-  name: "cATM-3"
-  fullname: "Clan ATM-3"
-  tech: "Clan"
-  type: "M"
+  name: cATM-3
+  fullname: Clan ATM-3
+  tech: Clan
+  type: M
   damage: 7
   heat: 2
   crits: 2
@@ -2715,14 +2950,16 @@ catm3:
   varPBSdamage: 3
   varMdamage: 1
   varLXdamage: 0
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 20
-  specials: "atm var"
+  specials: atm var
+  bv: 53
+  ammo_bv: 14
 catm6:
-  name: "cATM-6"
-  fullname: "Clan ATM-6"
-  tech: "Clan"
-  type: "M"
+  name: cATM-6
+  fullname: Clan ATM-6
+  tech: Clan
+  type: M
   damage: 15
   heat: 4
   crits: 3
@@ -2736,14 +2973,16 @@ catm6:
   varPBSdamage: 5
   varMdamage: 1
   varLXdamage: 0
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 10
-  specials: "atm var"
+  specials: atm var
+  bv: 105
+  ammo_bv: 26
 catm9:
-  name: "cATM-9"
-  fullname: "Clan ATM-9"
-  tech: "Clan"
-  type: "M"
+  name: cATM-9
+  fullname: Clan ATM-9
+  tech: Clan
+  type: M
   damage: 24
   heat: 6
   crits: 4
@@ -2757,14 +2996,16 @@ catm9:
   varPBSdamage: 7
   varMdamage: 3
   varLXdamage: 0
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 7
-  specials: "atm var"
+  specials: atm var
+  bv: 147
+  ammo_bv: 36
 catm12:
-  name: "cATM-12"
-  fullname: "Clan ATM-12"
-  tech: "Clan"
-  type: "M"
+  name: cATM-12
+  fullname: Clan ATM-12
+  tech: Clan
+  type: M
   damage: 33
   heat: 8
   crits: 5
@@ -2778,14 +3019,16 @@ catm12:
   varPBSdamage: 14
   varMdamage: 9
   varLXdamage: 3
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 5
-  specials: "atm var"
+  specials: atm var
+  bv: 212
+  ammo_bv: 52
 ciatm3:
-  name: "ciATM-3"
-  fullname: "Clan iATM-3"
-  tech: "Clan"
-  type: "M"
+  name: ciATM-3
+  fullname: Clan iATM-3
+  tech: Clan
+  type: M
   damage: 7
   heat: 2
   crits: 2
@@ -2798,14 +3041,15 @@ ciatm3:
   varPBSdamage: 3
   varMdamage: 1
   varLXdamage: 0
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 20
-  specials: "iatm var"
+  specials: iatm var
+  bv: 64
 ciatm6:
-  name: "ciATM-6"
-  fullname: "Clan iATM-6"
-  tech: "Clan"
-  type: "M"
+  name: ciATM-6
+  fullname: Clan iATM-6
+  tech: Clan
+  type: M
   damage: 15
   heat: 4
   crits: 3
@@ -2819,14 +3063,15 @@ ciatm6:
   varPBSdamage: 5
   varMdamage: 1
   varLXdamage: 0
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 10
-  specials: "iatm var"
+  specials: iatm var
+  bv: 126
 ciatm9:
-  name: "ciATM-9"
-  fullname: "Clan iATM-9"
-  tech: "Clan"
-  type: "M"
+  name: ciATM-9
+  fullname: Clan iATM-9
+  tech: Clan
+  type: M
   damage: 24
   heat: 6
   crits: 4
@@ -2840,14 +3085,15 @@ ciatm9:
   varPBSdamage: 7
   varMdamage: 3
   varLXdamage: 0
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 7
-  specials: "iatm var"
+  specials: iatm var
+  bv: 176
 ciatm12:
-  name: "ciATM-12"
-  fullname: "Clan iATM-12"
-  tech: "Clan"
-  type: "M"
+  name: ciATM-12
+  fullname: Clan iATM-12
+  tech: Clan
+  type: M
   damage: 33
   heat: 8
   crits: 5
@@ -2861,14 +3107,15 @@ ciatm12:
   varPBSdamage: 14
   varMdamage: 9
   varLXdamage: 3
-  useAmmo: "ATM"
+  useAmmo: ATM
   ammoPerTon: 5
-  specials: "iatm var"
+  specials: iatm var
+  bv: 254
 csrt2:
-  name: "cSRT-2"
-  fullname: "Clan SRT-2"
-  tech: "Clan"
-  type: "M"
+  name: cSRT-2
+  fullname: Clan SRT-2
+  tech: Clan
+  type: M
   damage: 1
   damageAdj: 3
   heat: 2
@@ -2880,15 +3127,17 @@ csrt2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aiv"
-  useAmmo: "SRT"
+  useFCS: aiv
+  useAmmo: SRT
   ammoPerTon: 50
-  specials: "srt"
+  specials: srt
+  bv: 21
+  ammo_bv: 3
 csrt4:
-  name: "cSRT-4"
-  fullname: "Clan SRT-4"
-  tech: "Clan"
-  type: "M"
+  name: cSRT-4
+  fullname: Clan SRT-4
+  tech: Clan
+  type: M
   damage: 8
   heat: 3
   crits: 1
@@ -2899,15 +3148,17 @@ csrt4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aiv"
-  useAmmo: "SRT"
+  useFCS: aiv
+  useAmmo: SRT
   ammoPerTon: 25
-  specials: "srt"
+  specials: srt
+  bv: 39
+  ammo_bv: 5
 csrt6:
-  name: "cSRT-6"
-  fullname: "Clan SRT-6"
-  tech: "Clan"
-  type: "M"
+  name: cSRT-6
+  fullname: Clan SRT-6
+  tech: Clan
+  type: M
   damage: 12
   heat: 4
   crits: 1
@@ -2918,15 +3169,17 @@ csrt6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useFCS: "aiv"
-  useAmmo: "SRT"
+  useFCS: aiv
+  useAmmo: SRT
   ammoPerTon: 15
-  specials: "srt"
+  specials: srt
+  bv: 59
+  ammo_bv: 7
 clrt5:
-  name: "cLRT-5"
-  fullname: "Clan LRT-5"
-  tech: "Clan"
-  type: "M"
+  name: cLRT-5
+  fullname: Clan LRT-5
+  tech: Clan
+  type: M
   damage: 1
   damageAdj: 4
   heat: 2
@@ -2938,15 +3191,16 @@ clrt5:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 24
-  specials: "lrt"
+  specials: lrt
+  bv: 55
 clrt10:
-  name: "cLRT-10"
-  fullname: "Clan LRT-10"
-  tech: "Clan"
-  type: "M"
+  name: cLRT-10
+  fullname: Clan LRT-10
+  tech: Clan
+  type: M
   damage: 3
   damageAdj: 7
   heat: 4
@@ -2958,15 +3212,16 @@ clrt10:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 12
-  specials: "lrt"
+  specials: lrt
+  bv: 109
 clrt15:
-  name: "cLRT-15"
-  fullname: "Clan LRT-15"
-  tech: "Clan"
-  type: "M"
+  name: cLRT-15
+  fullname: Clan LRT-15
+  tech: Clan
+  type: M
   damage: 3
   damageAdj: 12
   heat: 5
@@ -2978,15 +3233,16 @@ clrt15:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 8
-  specials: "lrt"
+  specials: lrt
+  bv: 164
 clrt20:
-  name: "cLRT-20"
-  fullname: "Clan LRT-20"
-  tech: "Clan"
-  type: "M"
+  name: cLRT-20
+  fullname: Clan LRT-20
+  tech: Clan
+  type: M
   damage: 9
   damageAdj: 11
   heat: 6
@@ -2998,15 +3254,16 @@ clrt20:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useFCS: "aiv"
-  useAmmo: "LRT"
+  useFCS: aiv
+  useAmmo: LRT
   ammoPerTon: 6
-  specials: "lrt"
+  specials: lrt
+  bv: 220
 cnarc:
-  name: "cNarc"
-  fullname: "Clan Narc Missile Beacon"
-  tech: "Clan"
-  type: "M"
+  name: cNarc
+  fullname: Clan Narc Missile Beacon
+  tech: Clan
+  type: M
   damage: 0
   heat: 0
   crits: 1
@@ -3015,13 +3272,14 @@ cnarc:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "Narc"
+  useAmmo: Narc
   ammoPerTon: 6
+  bv: 30
 arrowiv:
-  name: "Arrow IV"
-  fullname: "Arrow IV Artillery"
-  tech: "IS"
-  type: "M"
+  name: Arrow IV
+  fullname: Arrow IV Artillery
+  tech: IS
+  type: M
   damage: 20
   heat: 10
   crits: 15
@@ -3032,14 +3290,15 @@ arrowiv:
   rangeM: 4
   rangeL: 4
   rangeX: 4
-  useAmmo: "ArrowIV"
+  useAmmo: ArrowIV
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 240
 carrowiv:
-  name: "cArrow IV"
-  fullname: "Clan Arrow IV Artillery"
-  tech: "Clan"
-  type: "M"
+  name: cArrow IV
+  fullname: Clan Arrow IV Artillery
+  tech: Clan
+  type: M
   damage: 20
   heat: 10
   crits: 12
@@ -3050,14 +3309,15 @@ carrowiv:
   rangeM: 4
   rangeL: 4
   rangeX: 4
-  useAmmo: "ArrowIV"
+  useAmmo: ArrowIV
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 240
 longtom:
-  name: "Long Tom"
-  fullname: "Long Tom Artillery"
-  tech: "IS"
-  type: "M"
+  name: Long Tom
+  fullname: Long Tom Artillery
+  tech: IS
+  type: M
   damage: 30
   heat: 20
   crits: 30
@@ -3068,14 +3328,15 @@ longtom:
   rangeM: 4
   rangeL: 4
   rangeX: 4
-  useAmmo: "Artillery"
+  useAmmo: Artillery
   ammoPerTon: 0
-  specials: "art"
+  specials: art
+  bv: 0
 sniper:
-  name: "Sniper"
-  fullname: "Sniper Artillery"
-  tech: "IS"
-  type: "M"
+  name: Sniper
+  fullname: Sniper Artillery
+  tech: IS
+  type: M
   damage: 20
   heat: 10
   crits: 20
@@ -3086,14 +3347,15 @@ sniper:
   rangeM: 4
   rangeL: 4
   rangeX: 4
-  useAmmo: "Artillery"
+  useAmmo: Artillery
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 0
 thumper:
-  name: "Thumper"
-  fullname: "Thumper Artillery"
-  tech: "IS"
-  type: "M"
+  name: Thumper
+  fullname: Thumper Artillery
+  tech: IS
+  type: M
   damage: 15
   heat: 6
   crits: 15
@@ -3104,14 +3366,15 @@ thumper:
   rangeM: 4
   rangeL: 4
   rangeX: 4
-  useAmmo: "Artillery"
+  useAmmo: Artillery
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 0
 longtomcannon:
-  name: "Long Tom Cannon"
-  fullname: "Long Tom Artillery Cannon"
-  tech: "IS"
-  type: "M"
+  name: Long Tom Cannon
+  fullname: Long Tom Artillery Cannon
+  tech: IS
+  type: M
   damage: 20
   heat: 20
   crits: 15
@@ -3122,14 +3385,15 @@ longtomcannon:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "Artillery"
+  useAmmo: Artillery
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 329
 snipercannon:
-  name: "Sniper Cannon"
-  fullname: "Sniper Artillery Cannon"
-  tech: "IS"
-  type: "M"
+  name: Sniper Cannon
+  fullname: Sniper Artillery Cannon
+  tech: IS
+  type: M
   damage: 10
   heat: 10
   crits: 10
@@ -3140,14 +3404,15 @@ snipercannon:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "Artillery"
+  useAmmo: Artillery
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 175
 thumpercannon:
-  name: "Thumper Cannon"
-  fullname: "Thumper Artillery Cannon"
-  tech: "IS"
-  type: "M"
+  name: Thumper Cannon
+  fullname: Thumper Artillery Cannon
+  tech: IS
+  type: M
   damage: 5
   heat: 6
   crits: 7
@@ -3157,165 +3422,178 @@ thumpercannon:
   rangeM: 2
   rangeL: 4
   rangeX: 9
-  useAmmo: "Artillery"
+  useAmmo: Artillery
   ammoPerTon: 0
-  specials: "artextraM"
+  specials: artextraM
+  bv: 110
 firedrake:
-  name: "FNeedler"
+  name: FNeedler
   fullname: '"Firedrake" Support Needler'
-  tech: "IS"
-  type: "B"
+  tech: IS
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
+  specials: ai
+  bv: 2
 david:
-  name: "DLGauss"
+  name: DLGauss
   fullname: '"David" Light Gauss Rifle'
-  tech: "IS"
-  type: "B"
+  tech: IS
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 7
 kdavid:
-  name: "KDLGauss"
+  name: KDLGauss
   fullname: '"King David" Light Gauss Rifle'
-  tech: "IS"
-  type: "B"
+  tech: IS
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 7
 gmauler:
-  name: "GM Gauss Cannon"
-  fullname: "Grand Mauler Gauss Cannon"
-  tech: "IS"
-  type: "B"
+  name: GM Gauss Cannon
+  fullname: Grand Mauler Gauss Cannon
+  tech: IS
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 6
 tsunami:
-  name: "T Gauss"
-  fullname: "Tsunami Gauss Rifle"
-  tech: "IS"
-  type: "B"
+  name: T Gauss
+  fullname: Tsunami Gauss Rifle
+  tech: IS
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 6
 mgrenade:
-  name: "mGrenade Launcher"
-  fullname: "Micro Grenade Launcher"
-  tech: "IS"
-  type: "B"
+  name: mGrenade Launcher
+  fullname: Micro Grenade Launcher
+  tech: IS
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 1
 hgrenade:
-  name: "HGrenade Launcher"
-  fullname: "Heavy Grenade Launcher"
-  tech: "Mixed"
-  type: "B"
+  name: HGrenade Launcher
+  fullname: Heavy Grenade Launcher
+  tech: Mixed
+  type: B
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 2
 lmortar:
-  name: "LMortar"
-  fullname: "Light Mortar"
-  tech: "Mixed"
-  type: "B"
+  name: LMortar
+  fullname: Light Mortar
+  tech: Mixed
+  type: B
   damage: 3
   rangePB: 2
   rangeS: 0
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 9
 hmortar:
-  name: "HMortar"
-  fullname: "Heavy Mortar"
-  tech: "Mixed"
-  type: "B"
+  name: HMortar
+  fullname: Heavy Mortar
+  tech: Mixed
+  type: B
   damage: 3
   rangePB: 2
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 17
 lrecoil:
-  name: "LRecoilless"
-  fullname: "Light Recoilless Rifle"
-  tech: "Mixed"
-  type: "B"
+  name: LRecoilless
+  fullname: Light Recoilless Rifle
+  tech: Mixed
+  type: B
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 12
 mrecoil:
-  name: "MRecoilless"
-  fullname: "Medium Recoilless Rifle"
-  tech: "Mixed"
-  type: "B"
+  name: MRecoilless
+  fullname: Medium Recoilless Rifle
+  tech: Mixed
+  type: B
   damage: 3
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 19
 hrecoil:
-  name: "HRecoilless"
-  fullname: "Heavy Recoilless Rifle"
-  tech: "Mixed"
-  type: "B"
+  name: HRecoilless
+  fullname: Heavy Recoilless Rifle
+  tech: Mixed
+  type: B
   damage: 3
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  specials: "ai"
-  baOnly: True
+  specials: ai
+  baOnly: true
+  bv: 22
 mpplasrifle:
-  name: "mpPlasmaRifle"
-  fullname: "Man-Portable Plasma Rifle"
-  tech: "IS"
-  type: "E"
+  name: mpPlasmaRifle
+  fullname: Man-Portable Plasma Rifle
+  tech: IS
+  type: E
   damage: 2
   rangePB: 0
   rangeS: 0
@@ -3323,49 +3601,54 @@ mpplasrifle:
   rangeL: 9
   rangeX: 9
   useH: 2
+  bv: 12
 sppc:
-  name: "SPPC"
-  fullname: "Support PPC"
-  tech: "IS"
-  type: "E"
+  name: SPPC
+  fullname: Support PPC
+  tech: IS
+  type: E
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 14
 compactnarc:
-  name: "Compact Narc"
-  fullname: "Compact Narc"
-  tech: "Mixed"
-  type: "M"
+  name: Compact Narc
+  fullname: Compact Narc
+  tech: Mixed
+  type: M
   damage: 0
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 16
 srm1:
-  name: "SRM-1"
-  fullname: "SRM-1"
-  tech: "IS"
-  type: "M"
+  name: SRM-1
+  fullname: SRM-1
+  tech: IS
+  type: M
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 50
-  baOnly: True
+  baOnly: true
+  bv: 15
+  ammo_bv: 2
 srm3:
-  name: "SRM-3"
-  fullname: "SRM-3"
-  tech: "IS"
-  type: "M"
+  name: SRM-3
+  fullname: SRM-3
+  tech: IS
+  type: M
   damage: 6
   damageM: 1
   shiftM: 0
@@ -3374,14 +3657,16 @@ srm3:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 25
-  baOnly: True
+  baOnly: true
+  bv: 30
+  ammo_bv: 4
 srm5:
-  name: "SRM-5"
-  fullname: "SRM-5"
-  tech: "IS"
-  type: "M"
+  name: SRM-5
+  fullname: SRM-5
+  tech: IS
+  type: M
   damage: 10
   damageM: 2
   shiftM: 1
@@ -3390,56 +3675,64 @@ srm5:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 15
-  baOnly: True
+  baOnly: true
+  bv: 47
+  ammo_bv: 6
 mrm1:
-  name: "MRM-1"
-  fullname: "MRM-1"
-  tech: "IS"
-  type: "M"
+  name: MRM-1
+  fullname: MRM-1
+  tech: IS
+  type: M
   damage: 1
   rangePB: 1
   rangeS: 1
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useAmmo: "MRM"
+  useAmmo: MRM
   ammoPerTon: 24
-  baOnly: True
+  baOnly: true
+  bv: 9
+  ammo_bv: 1
 mrm2:
-  name: "MRM-2"
-  fullname: "MRM-2"
-  tech: "IS"
-  type: "M"
+  name: MRM-2
+  fullname: MRM-2
+  tech: IS
+  type: M
   damage: 2
   rangePB: 1
   rangeS: 1
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useAmmo: "MRM"
+  useAmmo: MRM
   ammoPerTon: 24
-  baOnly: True
+  baOnly: true
+  bv: 13
+  ammo_bv: 2
 mrm3:
-  name: "MRM-3"
-  fullname: "MRM-3"
-  tech: "IS"
-  type: "M"
+  name: MRM-3
+  fullname: MRM-3
+  tech: IS
+  type: M
   damage: 3
   rangePB: 1
   rangeS: 1
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useAmmo: "MRM"
+  useAmmo: MRM
   ammoPerTon: 12
-  baOnly: True
+  baOnly: true
+  bv: 18
+  ammo_bv: 2
 mrm4:
-  name: "MRM-4"
-  fullname: "MRM-4"
-  tech: "IS"
-  type: "M"
+  name: MRM-4
+  fullname: MRM-4
+  tech: IS
+  type: M
   damage: 4
   damageM: 1
   shiftM: 0
@@ -3448,14 +3741,16 @@ mrm4:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useAmmo: "MRM"
+  useAmmo: MRM
   ammoPerTon: 8
-  baOnly: True
+  baOnly: true
+  bv: 23
+  ammo_bv: 3
 mrm5:
-  name: "MRM-5"
-  fullname: "MRM-5"
-  tech: "IS"
-  type: "M"
+  name: MRM-5
+  fullname: MRM-5
+  tech: IS
+  type: M
   damage: 5
   damageM: 1
   shiftM: 0
@@ -3464,56 +3759,64 @@ mrm5:
   rangeM: 3
   rangeL: 5
   rangeX: 9
-  useAmmo: "MRM"
+  useAmmo: MRM
   ammoPerTon: 6
-  baOnly: True
+  baOnly: true
+  bv: 28
+  ammo_bv: 4
 lrm1:
-  name: "LRM-1"
-  fullname: "LRM-1"
-  tech: "IS"
-  type: "M"
+  name: LRM-1
+  fullname: LRM-1
+  tech: IS
+  type: M
   damage: 1
   rangePB: 4
   rangeS: 2
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 24
-  baOnly: True
+  baOnly: true
+  bv: 14
+  ammo_bv: 2
 lrm2:
-  name: "LRM-2"
-  fullname: "LRM-2"
-  tech: "IS"
-  type: "M"
+  name: LRM-2
+  fullname: LRM-2
+  tech: IS
+  type: M
   damage: 2
   rangePB: 4
   rangeS: 2
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 24
-  baOnly: True
+  baOnly: true
+  bv: 20
+  ammo_bv: 3
 lrm3:
-  name: "LRM-3"
-  fullname: "LRM-3"
-  tech: "IS"
-  type: "M"
+  name: LRM-3
+  fullname: LRM-3
+  tech: IS
+  type: M
   damage: 3
   rangePB: 4
   rangeS: 2
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 12
-  baOnly: True
+  baOnly: true
+  bv: 29
+  ammo_bv: 4
 lrm4:
-  name: "LRM-4"
-  fullname: "LRM-4"
-  tech: "IS"
-  type: "M"
+  name: LRM-4
+  fullname: LRM-4
+  tech: IS
+  type: M
   damage: 4
   damageM: 1
   shiftM: 0
@@ -3522,53 +3825,58 @@ lrm4:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 8
-  baOnly: True
+  baOnly: true
+  bv: 38
+  ammo_bv: 5
 rl1:
-  name: "RL1"
-  fullname: "Rocket Launcher 1"
-  tech: "IS"
-  type: "M"
+  name: RL1
+  fullname: Rocket Launcher 1
+  tech: IS
+  type: M
   damage: 1
   rangePB: 1
   rangeS: 1
   rangeM: 3
   rangeL: 9
   rangeX: 9
-  specials: "os"
-  baOnly: True
+  specials: os
+  baOnly: true
+  bv: 2
 rl2:
-  name: "RL2"
-  fullname: "Rocket Launcher 2"
-  tech: "IS"
-  type: "M"
+  name: RL2
+  fullname: Rocket Launcher 2
+  tech: IS
+  type: M
   damage: 2
   rangePB: 1
   rangeS: 1
   rangeM: 3
   rangeL: 9
   rangeX: 9
-  specials: "os"
-  baOnly: True
+  specials: os
+  baOnly: true
+  bv: 3
 rl3:
-  name: "RL3"
-  fullname: "Rocket Launcher 3"
-  tech: "IS"
-  type: "M"
+  name: RL3
+  fullname: Rocket Launcher 3
+  tech: IS
+  type: M
   damage: 3
   rangePB: 1
   rangeS: 1
   rangeM: 3
   rangeL: 9
   rangeX: 9
-  specials: "os"
-  baOnly: True
+  specials: os
+  baOnly: true
+  bv: 4
 rl4:
-  name: "RL4"
-  fullname: "Rocket Launcher 4"
-  tech: "IS"
-  type: "M"
+  name: RL4
+  fullname: Rocket Launcher 4
+  tech: IS
+  type: M
   damage: 4
   damageM: 1
   shiftM: 0
@@ -3577,13 +3885,14 @@ rl4:
   rangeM: 3
   rangeL: 9
   rangeX: 9
-  specials: "os"
-  baOnly: True
+  specials: os
+  baOnly: true
+  bv: 5
 rl5:
-  name: "RL5"
-  fullname: "Rocket Launcher 5"
-  tech: "IS"
-  type: "M"
+  name: RL5
+  fullname: Rocket Launcher 5
+  tech: IS
+  type: M
   damage: 5
   damageM: 1
   shiftM: 0
@@ -3592,49 +3901,53 @@ rl5:
   rangeM: 3
   rangeL: 9
   rangeX: 9
-  specials: "os"
-  baOnly: True
+  specials: os
+  baOnly: true
+  bv: 6
 popmine:
-  name: "Mine Launcher"
-  fullname: "Pop-up Mine Launcher"
-  tech: "IS"
-  type: "M"
+  name: Mine Launcher
+  fullname: Pop-up Mine Launcher
+  tech: IS
+  type: M
   damage: 4
   rangePB: 0
   rangeS: 9
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 6
 taser:
-  name: "Taser"
-  fullname: "Battle Armor Taser"
-  tech: "IS"
-  type: "E"
+  name: Taser
+  fullname: Battle Armor Taser
+  tech: IS
+  type: E
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  baOnly: True
+  baOnly: true
+  bv: 0
 bearhunt:
-  name: "SH AC"
+  name: SH AC
   fullname: '"Bearhunter" Superheavy AC'
-  tech: "Clan"
-  type: "B"
+  tech: Clan
+  type: B
   damage: 3
   rangePB: 0
   rangeS: 2
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  specials: "ai"
+  specials: ai
+  bv: 4
 balb2:
-  name: "BA LB 2-X"
-  fullname: "BA LB 2-X Autocannon"
-  tech: "IS"
-  type: "B"
+  name: BA LB 2-X
+  fullname: BA LB 2-X Autocannon
+  tech: IS
+  type: B
   damage: 2
   heat: 1
   rangePB: 0
@@ -3643,14 +3956,15 @@ balb2:
   rangeL: 9
   rangeX: 9
   useTC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 45
   baOnly: true
+  bv: 0
 clbx:
-  name: "LB-X"
-  fullname: "BA LB-X Autocannon"
-  tech: "Clan"
-  type: "B"
+  name: LB-X
+  fullname: BA LB-X Autocannon
+  tech: Clan
+  type: B
   damage: 4
   rangePB: 0
   rangeS: 0
@@ -3658,37 +3972,41 @@ clbx:
   rangeL: 9
   rangeX: 9
   useC: 1
-  useAmmo: "LBX"
+  useAmmo: LBX
   ammoPerTon: 45
+  bv: 0
 csppc:
-  name: "cSPPC"
-  fullname: "Clan Support PPC"
-  tech: "Clan"
-  type: "E"
+  name: cSPPC
+  fullname: Clan Support PPC
+  tech: Clan
+  type: E
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 4
   rangeL: 9
   rangeX: 9
+  bv: 14
 csrm1:
-  name: "cSRM-1"
-  fullname: "Clan SRM-1"
-  tech: "Clan"
-  type: "M"
+  name: cSRM-1
+  fullname: Clan SRM-1
+  tech: Clan
+  type: M
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 50
+  bv: 15
+  ammo_bv: 2
 csrm3:
-  name: "cSRM-3"
-  fullname: "Clan SRM-3"
-  tech: "Clan"
-  type: "M"
+  name: cSRM-3
+  fullname: Clan SRM-3
+  tech: Clan
+  type: M
   damage: 6
   damageM: 1
   shiftM: 0
@@ -3697,13 +4015,15 @@ csrm3:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 25
+  bv: 30
+  ammo_bv: 4
 csrm5:
-  name: "cSRM-5"
-  fullname: "Clan SRM-5"
-  tech: "Clan"
-  type: "M"
+  name: cSRM-5
+  fullname: Clan SRM-5
+  tech: Clan
+  type: M
   damage: 10
   damageM: 2
   shiftM: 1
@@ -3712,26 +4032,30 @@ csrm5:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 15
+  bv: 47
+  ammo_bv: 6
 casrm1:
-  name: "aSRM-1"
-  fullname: "Clan Advanced SRM-1"
-  tech: "Clan"
-  type: "M"
+  name: aSRM-1
+  fullname: Clan Advanced SRM-1
+  tech: Clan
+  type: M
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 50
+  bv: 15
+  ammo_bv: 2
 casrm2:
-  name: "aSRM-2"
-  fullname: "Clan Advanced SRM-2"
-  tech: "Clan"
-  type: "M"
+  name: aSRM-2
+  fullname: Clan Advanced SRM-2
+  tech: Clan
+  type: M
   damage: 4
   damageM: 1
   shiftM: 0
@@ -3740,13 +4064,15 @@ casrm2:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 50
+  bv: 30
+  ammo_bv: 4
 casrm3:
-  name: "aSRM-3"
-  fullname: "Clan Advanced SRM-3"
-  tech: "Clan"
-  type: "M"
+  name: aSRM-3
+  fullname: Clan Advanced SRM-3
+  tech: Clan
+  type: M
   damage: 6
   damageM: 1
   shiftM: 0
@@ -3755,13 +4081,15 @@ casrm3:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 25
+  bv: 45
+  ammo_bv: 6
 casrm4:
-  name: "aSRM-4"
-  fullname: "Clan Advanced SRM-4"
-  tech: "Clan"
-  type: "M"
+  name: aSRM-4
+  fullname: Clan Advanced SRM-4
+  tech: Clan
+  type: M
   damage: 8
   damageM: 1
   shiftM: 0
@@ -3770,13 +4098,15 @@ casrm4:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 25
+  bv: 60
+  ammo_bv: 8
 casrm5:
-  name: "aSRM-5"
-  fullname: "Clan Advanced SRM-5"
-  tech: "Clan"
-  type: "M"
+  name: aSRM-5
+  fullname: Clan Advanced SRM-5
+  tech: Clan
+  type: M
   damage: 10
   damageM: 2
   shiftM: 1
@@ -3785,13 +4115,15 @@ casrm5:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 15
+  bv: 75
+  ammo_bv: 10
 casrm6:
-  name: "aSRM-6"
-  fullname: "Clan Advanced SRM-6"
-  tech: "Clan"
-  type: "M"
+  name: aSRM-6
+  fullname: Clan Advanced SRM-6
+  tech: Clan
+  type: M
   damage: 12
   damageM: 2
   shiftM: 1
@@ -3800,52 +4132,60 @@ casrm6:
   rangeM: 2
   rangeL: 9
   rangeX: 9
-  useAmmo: "SRM"
+  useAmmo: SRM
   ammoPerTon: 15
+  bv: 90
+  ammo_bv: 12
 clrm1:
-  name: "cLRM-1"
-  fullname: "Clan LRM-1"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-1
+  fullname: Clan LRM-1
+  tech: Clan
+  type: M
   damage: 1
   rangePB: 0
   rangeS: 0
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 24
+  bv: 17
+  ammo_bv: 2
 clrm2:
-  name: "cLRM-2"
-  fullname: "Clan LRM-2"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-2
+  fullname: Clan LRM-2
+  tech: Clan
+  type: M
   damage: 2
   rangePB: 0
   rangeS: 0
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 24
+  bv: 24
+  ammo_bv: 3
 clrm3:
-  name: "cLRM-3"
-  fullname: "Clan LRM-3"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-3
+  fullname: Clan LRM-3
+  tech: Clan
+  type: M
   damage: 3
   rangePB: 0
   rangeS: 0
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 12
+  bv: 34
+  ammo_bv: 4
 clrm4:
-  name: "cLRM-4"
-  fullname: "Clan LRM-4"
-  tech: "Clan"
-  type: "M"
+  name: cLRM-4
+  fullname: Clan LRM-4
+  tech: Clan
+  type: M
   damage: 4
   damageM: 1
   rangePB: 0
@@ -3853,26 +4193,29 @@ clrm4:
   rangeM: 0
   rangeL: 2
   rangeX: 4
-  useAmmo: "LRM"
+  useAmmo: LRM
   ammoPerTon: 8
+  bv: 46
+  ammo_bv: 6
 cbombrack:
-  name: "Bomb Rack"
-  fullname: "Clan Bomb Rack"
-  tech: "Clan"
-  type: "M"
+  name: Bomb Rack
+  fullname: Clan Bomb Rack
+  tech: Clan
+  type: M
   damage: 2
   rangePB: 0
   rangeS: 9
   rangeM: 9
   rangeL: 9
   rangeX: 9
-  useAmmo: "Bomb"
+  useAmmo: Bomb
   ammoPerTon: 0
+  bv: 11
 tsemp:
-  name: "TSEMP"
-  fullname: "Tight-Stream Electromagnetic Pulse Cannon"
-  tech: "IS"
-  type: "E"
+  name: TSEMP
+  fullname: Tight-Stream Electromagnetic Pulse Cannon
+  tech: IS
+  type: E
   damage: 2
   rangePB: 0
   rangeS: 2
@@ -3880,12 +4223,13 @@ tsemp:
   rangeL: 6
   rangeX: 9
   useH: 2
-  useOS: "yes"
+  useOS: 'yes'
+  bv: 488
 hatchet:
-  name: "Hatchet"
-  fullname: "Hatchet"
-  tech: "Mixed"
-  type: "P"
+  name: Hatchet
+  fullname: Hatchet
+  tech: Mixed
+  type: P
   damageTonnageDiv: 5
   heat: 0
   critsTonnageDiv: 15
@@ -3894,11 +4238,12 @@ hatchet:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
 sword:
-  name: "Sword"
-  fullname: "Sword"
-  tech: "Mixed"
-  type: "P"
+  name: Sword
+  fullname: Sword
+  tech: Mixed
+  type: P
   damageTonnageDiv: 10
   heat: 0
   critsTonnageDiv: 15
@@ -3907,11 +4252,12 @@ sword:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
 mace:
-  name: "Mace"
-  fullname: "Mace"
-  tech: "Mixed"
-  type: "P"
+  name: Mace
+  fullname: Mace
+  tech: Mixed
+  type: P
   damageTonnageDiv: 4
   heat: 0
   critsTonnageDiv: 10
@@ -3920,11 +4266,12 @@ mace:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
 claws:
-  name: "Claws"
-  fullname: "Claws"
-  tech: "Mixed"
-  type: "P"
+  name: Claws
+  fullname: Claws
+  tech: Mixed
+  type: P
   damageTonnageDiv: 7
   heat: 0
   critsTonnageDiv: 15
@@ -3933,11 +4280,12 @@ claws:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
 lance:
-  name: "Lance"
-  fullname: "Lance"
-  tech: "Mixed"
-  type: "P"
+  name: Lance
+  fullname: Lance
+  tech: Mixed
+  type: P
   damageTonnageDiv: 5
   heat: 0
   critsTonnageDiv: 20
@@ -3946,11 +4294,12 @@ lance:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
 retractable_blade:
-  name: "Retractable Blade"
-  fullname: "Retractable Blade"
-  tech: "Mixed"
-  type: "P"
+  name: Retractable Blade
+  fullname: Retractable Blade
+  tech: Mixed
+  type: P
   damageTonnageDiv: 5
   heat: 0
   critsTonnageDiv: 20
@@ -3959,11 +4308,12 @@ retractable_blade:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
 flail:
-  name: "Flail"
-  fullname: "Flail"
-  tech: "Mixed"
-  type: "P"
+  name: Flail
+  fullname: Flail
+  tech: Mixed
+  type: P
   damageTonnageDiv: 5
   heat: 0
   critsTonnageDiv: 20
@@ -3972,3 +4322,554 @@ flail:
   rangeM: 9
   rangeL: 9
   rangeX: 9
+  bv: 0
+mm1:
+  name: MM/1
+  fullname: Mech Mortar/1
+  tech: IS
+  type: B
+  damage: 2
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 24
+  bv: 10
+  ammo_bv: 2
+  useTC: 1
+mm2:
+  name: MM/2
+  fullname: Mech Mortar/2
+  tech: IS
+  type: B
+  damage: 2
+  heat: 1
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 12
+  bv: 14
+  ammo_bv: 2
+  useTC: 1
+mm4:
+  name: MM/4
+  fullname: Mech Mortar/4
+  tech: IS
+  type: B
+  damage: 2
+  heat: 3
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 6
+  bv: 26
+  ammo_bv: 2
+  useTC: 1
+mm8:
+  name: MM/8
+  fullname: Mech Mortar/8
+  tech: IS
+  type: B
+  damage: 2
+  heat: 5
+  crits: 6
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 4
+  bv: 50
+  ammo_bv: 2
+  useTC: 1
+cmm1:
+  name: cMM/1
+  fullname: Clan Mech Mortar/1
+  tech: Clan
+  type: B
+  damage: 2
+  heat: 1
+  crits: 1
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 24
+  bv: 10
+  ammo_bv: 2
+  useTC: 1
+cmm2:
+  name: cMM/2
+  fullname: Clan Mech Mortar/2
+  tech: Clan
+  type: B
+  damage: 2
+  heat: 1
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 12
+  bv: 14
+  ammo_bv: 2
+  useTC: 1
+cmm4:
+  name: cMM/4
+  fullname: Clan Mech Mortar/4
+  tech: Clan
+  type: B
+  damage: 2
+  heat: 3
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 6
+  bv: 26
+  ammo_bv: 2
+  useTC: 1
+cmm8:
+  name: cMM/8
+  fullname: Clan Mech Mortar/8
+  tech: Clan
+  type: B
+  damage: 2
+  heat: 5
+  crits: 6
+  rangePB: 0
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  useAmmo: MM
+  ammoPerTon: 4
+  bv: 50
+  ammo_bv: 2
+  useTC: 1
+bombast:
+  name: Bombast Laser
+  fullname: Bombast Laser
+  tech: IS
+  type: E
+  damage: 12
+  heat: 15
+  crits: 3
+  rangePB: 0
+  rangeS: 2
+  rangeM: 2
+  rangeL: 2
+  rangeX: 4
+  bv: 137
+  useTC: 1
+fluidgun:
+  name: Fluid Gun
+  fullname: Fluid Gun
+  tech: IS
+  type: B
+  damage: 1
+  heat: 1
+  crits: 2
+  rangePB: 2
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 6
+  useAmmo: FluidGun
+  ammoPerTon: 20
+btaser:
+  name: BM Taser
+  fullname: BattleMech Taser
+  tech: IS
+  type: E
+  damage: 1
+  heat: 6
+  crits: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 40
+  useTC: 1
+mtaser:
+  name: Mek Taser
+  fullname: Mek Taser
+  tech: IS
+  type: E
+  damage: 1
+  heat: 6
+  crits: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 40
+  useTC: 1
+tsempc:
+  name: TSEMP RC
+  fullname: TSEMP Repeating Cannon
+  tech: Mixed
+  type: E
+  damage: 1
+  heat: 15
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 9
+  bv: 600
+  useTC: 1
+rischl:
+  name: RISC HL
+  fullname: RISC Hyper Laser
+  tech: IS
+  type: E
+  damage: 20
+  heat: 24
+  crits: 4
+  rangePB: 0
+  rangeS: 0
+  rangeM: 2
+  rangeL: 2
+  rangeX: 9
+  bv: 596
+  useTC: 1
+lblazer:
+  name: Lt Blazer
+  fullname: Light Blazer
+  tech: IS
+  type: E
+  damage: 12
+  heat: 12
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+vgl:
+  name: VGL
+  fullname: Vehicular Grenade Launcher
+  tech: IS
+  type: B
+  damage: 1
+  heat: 1
+  crits: 1
+  rangePB: 4
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+  useAmmo: VGL
+  ammoPerTon: 0
+illas:
+  name: Imp. LLas
+  fullname: Improved Large Laser
+  tech: IS
+  type: E
+  damage: 8
+  heat: 8
+  crits: 2
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 9
+  rangeX: 9
+  bv: 123
+  useTC: 1
+igauss:
+  name: Imp. Gauss
+  fullname: Improved Gauss Rifle
+  tech: IS
+  type: B
+  damage: 15
+  heat: 1
+  crits: 7
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 2
+  rangeX: 2
+  bv: 320
+  useAmmo: Gauss
+  ammoPerTon: 8
+isrm6:
+  name: Imp. SRM6
+  fullname: Improved SRM 6
+  tech: IS
+  type: M
+  damage: 2
+  heat: 4
+  crits: 2
+  rangePB: 4
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 59
+  useAmmo: SRM
+  ammoPerTon: 15
+ilrm15:
+  name: Imp. LRM15
+  fullname: Improved LRM 15
+  tech: IS
+  type: M
+  damage: 1
+  heat: 5
+  crits: 3
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  bv: 136
+  useAmmo: LRM
+  ammoPerTon: 8
+ilrm20:
+  name: Imp. LRM20
+  fullname: Improved LRM 20
+  tech: IS
+  type: M
+  damage: 1
+  heat: 6
+  crits: 5
+  rangePB: 2
+  rangeS: 0
+  rangeM: 0
+  rangeL: 2
+  rangeX: 4
+  bv: 181
+  useAmmo: LRM
+  ammoPerTon: 6
+iac5:
+  name: Imp. AC/5
+  fullname: Improved Autocannon/5
+  tech: IS
+  type: B
+  damage: 5
+  heat: 1
+  crits: 4
+  rangePB: 2
+  rangeS: 0
+  rangeM: 2
+  rangeL: 4
+  rangeX: 9
+  bv: 70
+  useAmmo: AC
+  ammoPerTon: 20
+eppc:
+  name: Enh. PPC
+  fullname: Enhanced PPC
+  tech: IS
+  type: E
+  damage: 12
+  heat: 15
+  crits: 3
+  rangePB: 0
+  rangeS: 0
+  rangeM: 4
+  rangeL: 4
+  rangeX: 9
+  bv: 0
+mga:
+  name: MG Array
+  fullname: Machine Gun Array
+  tech: IS
+  type: B
+  damage: 6
+  heat: 1
+  crits: 1
+  rangePB: 9
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 10
+  useAmmo: MG
+  ammoPerTon: 200
+lmga:
+  name: LMG Array
+  fullname: Light Machine Gun Array
+  tech: IS
+  type: B
+  damage: 3
+  heat: 1
+  crits: 1
+  rangePB: 9
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 10
+  useAmmo: MG
+  ammoPerTon: 200
+hmga:
+  name: HMG Array
+  fullname: Heavy Machine Gun Array
+  tech: IS
+  type: B
+  damage: 9
+  heat: 1
+  crits: 1
+  rangePB: 9
+  rangeS: 0
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 12
+  useAmmo: MG
+  ammoPerTon: 200
+c3remotesensor:
+  name: C3 Remote
+  fullname: C3 Remote Sensor Launcher
+  tech: IS
+  type: B
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+riscapds:
+  name: RISC APDS
+  fullname: RISC Advanced Point Defense System
+  tech: IS
+  type: B
+  damage: 0
+  heat: 0
+  crits: 2
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+hrifle:
+  name: Hvy Rifle
+  fullname: Heavy Rifle (Cannon)
+  tech: IS
+  type: B
+  damage: 9
+  heat: 4
+  crits: 4
+  rangePB: 2
+  rangeS: 0
+  rangeM: 4
+  rangeL: 4
+  rangeX: 9
+  bv: 0
+  useAmmo: Rifle
+  ammoPerTon: 6
+chainsaw:
+  name: Chainsaw
+  fullname: Chainsaw
+  tech: IS
+  type: M
+  damage: 2
+  heat: 0
+  crits: 1
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 7
+shield_small:
+  name: Sm Shield
+  fullname: Small Shield
+  tech: IS
+  type: M
+  damage: 1
+  heat: 0
+  crits: 3
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+mass:
+  name: MASS
+  fullname: M.A.S.S. System
+  tech: IS
+  type: B
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+spikes:
+  name: Spikes
+  fullname: Spikes
+  tech: IS
+  type: M
+  damage: 1
+  heat: 0
+  crits: 1
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+remotesensor:
+  name: Rmt Sensor
+  fullname: Remote Sensor Dispenser
+  tech: IS
+  type: B
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0
+chaffpod:
+  name: Chaff Pod
+  fullname: Chaff Pod
+  tech: IS
+  type: B
+  damage: 0
+  heat: 0
+  crits: 1
+  rangePB: 9
+  rangeS: 9
+  rangeM: 9
+  rangeL: 9
+  rangeX: 9
+  bv: 0

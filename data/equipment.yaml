@@ -1,1742 +1,1765 @@
-# Equipment data structure converted from card_gen.js
-# Each entry represents a piece of equipment that can be installed on units
-
 ammo:
-  name: "Ammo"
-  fullname: "Ammo"
-  tech: "Mixed"
+  name: Ammo
+  fullname: Ammo
+  tech: Mixed
   hasLoc: true
   omit: false
-
+  bv: 0
 ac2_ammo:
-  name: "AC2 Ammo"
-  fullname: "AC2 Ammo"
-  tech: "Mixed"
+  name: AC2 Ammo
+  fullname: AC2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AC2"
+  specific_subtype: AC2
   shots_per_ton: 45
-
+  bv: 5
 ac5_ammo:
-  name: "AC5 Ammo"
-  fullname: "AC5 Ammo"
-  tech: "Mixed"
+  name: AC5 Ammo
+  fullname: AC5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AC5"
+  specific_subtype: AC5
   shots_per_ton: 20
-
+  bv: 9
 ac10_ammo:
-  name: "AC10 Ammo"
-  fullname: "AC10 Ammo"
-  tech: "Mixed"
+  name: AC10 Ammo
+  fullname: AC10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AC10"
+  specific_subtype: AC10
   shots_per_ton: 10
-
+  bv: 15
 ac20_ammo:
-  name: "AC20 Ammo"
-  fullname: "AC20 Ammo"
-  tech: "Mixed"
+  name: AC20 Ammo
+  fullname: AC20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AC20"
+  specific_subtype: AC20
   shots_per_ton: 5
-
+  bv: 22
 lbx2_ammo:
-  name: "LBX2 Ammo"
-  fullname: "LBX2 Ammo"
-  tech: "Mixed"
+  name: LBX2 Ammo
+  fullname: LBX2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LBX2"
+  specific_subtype: LBX2
   shots_per_ton: 45
-
+  bv: 5
 lbx5_ammo:
-  name: "LBX5 Ammo"
-  fullname: "LBX5 Ammo"
-  tech: "Mixed"
+  name: LBX5 Ammo
+  fullname: LBX5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LBX5"
+  specific_subtype: LBX5
   shots_per_ton: 20
-
+  bv: 10
 lbx10_ammo:
-  name: "LBX10 Ammo"
-  fullname: "LBX10 Ammo"
-  tech: "Mixed"
+  name: LBX10 Ammo
+  fullname: LBX10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LBX10"
+  specific_subtype: LBX10
   shots_per_ton: 10
-
+  bv: 19
 lbx20_ammo:
-  name: "LBX20 Ammo"
-  fullname: "LBX20 Ammo"
-  tech: "Mixed"
+  name: LBX20 Ammo
+  fullname: LBX20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LBX20"
+  specific_subtype: LBX20
   shots_per_ton: 5
-
+  bv: 30
 uac2_ammo:
-  name: "UAC2 Ammo"
-  fullname: "UAC2 Ammo"
-  tech: "Mixed"
+  name: UAC2 Ammo
+  fullname: UAC2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "UAC2"
+  specific_subtype: UAC2
   shots_per_ton: 45
-
+  bv: 7
 uac5_ammo:
-  name: "UAC5 Ammo"
-  fullname: "UAC5 Ammo"
-  tech: "Mixed"
+  name: UAC5 Ammo
+  fullname: UAC5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "UAC5"
+  specific_subtype: UAC5
   shots_per_ton: 20
-
+  bv: 14
 uac10_ammo:
-  name: "UAC10 Ammo"
-  fullname: "UAC10 Ammo"
-  tech: "Mixed"
+  name: UAC10 Ammo
+  fullname: UAC10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "UAC10"
+  specific_subtype: UAC10
   shots_per_ton: 10
-
+  bv: 26
 uac20_ammo:
-  name: "UAC20 Ammo"
-  fullname: "UAC20 Ammo"
-  tech: "Mixed"
+  name: UAC20 Ammo
+  fullname: UAC20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "UAC20"
+  specific_subtype: UAC20
   shots_per_ton: 5
-
+  bv: 35
 rac2_ammo:
-  name: "RAC2 Ammo"
-  fullname: "RAC2 Ammo"
-  tech: "Mixed"
+  name: RAC2 Ammo
+  fullname: RAC2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "RAC2"
+  specific_subtype: RAC2
   shots_per_ton: 45
-
+  bv: 21
 rac5_ammo:
-  name: "RAC5 Ammo"
-  fullname: "RAC5 Ammo"
-  tech: "Mixed"
+  name: RAC5 Ammo
+  fullname: RAC5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "RAC5"
+  specific_subtype: RAC5
   shots_per_ton: 20
-
+  bv: 43
 lac2_ammo:
-  name: "LAC2 Ammo"
-  fullname: "LAC2 Ammo"
-  tech: "Mixed"
+  name: LAC2 Ammo
+  fullname: LAC2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LAC2"
+  specific_subtype: LAC2
   shots_per_ton: 45
-
+  bv: 4
 lac5_ammo:
-  name: "LAC5 Ammo"
-  fullname: "LAC5 Ammo"
-  tech: "Mixed"
+  name: LAC5 Ammo
+  fullname: LAC5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LAC5"
+  specific_subtype: LAC5
   shots_per_ton: 20
-
+  bv: 8
 hvac2_ammo:
-  name: "HVAC2 Ammo"
-  fullname: "HVAC2 Ammo"
-  tech: "Mixed"
+  name: HVAC2 Ammo
+  fullname: HVAC2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HVAC2"
+  specific_subtype: HVAC2
   shots_per_ton: 45
-
+  bv: 5
 hvac5_ammo:
-  name: "HVAC5 Ammo"
-  fullname: "HVAC5 Ammo"
-  tech: "Mixed"
+  name: HVAC5 Ammo
+  fullname: HVAC5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HVAC5"
+  specific_subtype: HVAC5
   shots_per_ton: 20
-
+  bv: 10
 hvac10_ammo:
-  name: "HVAC10 Ammo"
-  fullname: "HVAC10 Ammo"
-  tech: "Mixed"
+  name: HVAC10 Ammo
+  fullname: HVAC10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HVAC10"
+  specific_subtype: HVAC10
   shots_per_ton: 10
-
+  bv: 15
 lrm5_ammo:
-  name: "LRM5 Ammo"
-  fullname: "LRM5 Ammo"
-  tech: "Mixed"
+  name: LRM5 Ammo
+  fullname: LRM5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRM5"
+  specific_subtype: LRM5
   shots_per_ton: 24
-
+  bv: 6
 lrm10_ammo:
-  name: "LRM10 Ammo"
-  fullname: "LRM10 Ammo"
-  tech: "Mixed"
+  name: LRM10 Ammo
+  fullname: LRM10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRM10"
+  specific_subtype: LRM10
   shots_per_ton: 12
-
+  bv: 11
 lrm15_ammo:
-  name: "LRM15 Ammo"
-  fullname: "LRM15 Ammo"
-  tech: "Mixed"
+  name: LRM15 Ammo
+  fullname: LRM15 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRM15"
+  specific_subtype: LRM15
   shots_per_ton: 8
-
+  bv: 17
 lrm20_ammo:
-  name: "LRM20 Ammo"
-  fullname: "LRM20 Ammo"
-  tech: "Mixed"
+  name: LRM20 Ammo
+  fullname: LRM20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRM20"
+  specific_subtype: LRM20
   shots_per_ton: 6
-
+  bv: 23
 srm2_ammo:
-  name: "SRM2 Ammo"
-  fullname: "SRM2 Ammo"
-  tech: "Mixed"
+  name: SRM2 Ammo
+  fullname: SRM2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SRM2"
+  specific_subtype: SRM2
   shots_per_ton: 50
-
+  bv: 3
 srm4_ammo:
-  name: "SRM4 Ammo"
-  fullname: "SRM4 Ammo"
-  tech: "Mixed"
+  name: SRM4 Ammo
+  fullname: SRM4 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SRM4"
+  specific_subtype: SRM4
   shots_per_ton: 25
-
+  bv: 5
 srm6_ammo:
-  name: "SRM6 Ammo"
-  fullname: "SRM6 Ammo"
-  tech: "Mixed"
+  name: SRM6 Ammo
+  fullname: SRM6 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SRM6"
+  specific_subtype: SRM6
   shots_per_ton: 15
-
+  bv: 7
 ssrm2_ammo:
-  name: "SSRM2 Ammo"
-  fullname: "SSRM2 Ammo"
-  tech: "Mixed"
+  name: SSRM2 Ammo
+  fullname: SSRM2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SSRM2"
+  specific_subtype: SSRM2
   shots_per_ton: 50
-
+  bv: 4
 ssrm4_ammo:
-  name: "SSRM4 Ammo"
-  fullname: "SSRM4 Ammo"
-  tech: "Mixed"
+  name: SSRM4 Ammo
+  fullname: SSRM4 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SSRM4"
+  specific_subtype: SSRM4
   shots_per_ton: 25
-
+  bv: 7
 ssrm6_ammo:
-  name: "SSRM6 Ammo"
-  fullname: "SSRM6 Ammo"
-  tech: "Mixed"
+  name: SSRM6 Ammo
+  fullname: SSRM6 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SSRM6"
+  specific_subtype: SSRM6
   shots_per_ton: 15
-
+  bv: 11
 mrm10_ammo:
-  name: "MRM10 Ammo"
-  fullname: "MRM10 Ammo"
-  tech: "Mixed"
+  name: MRM10 Ammo
+  fullname: MRM10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MRM10"
+  specific_subtype: MRM10
   shots_per_ton: 24
-
+  bv: 7
 mrm20_ammo:
-  name: "MRM20 Ammo"
-  fullname: "MRM20 Ammo"
-  tech: "Mixed"
+  name: MRM20 Ammo
+  fullname: MRM20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MRM20"
+  specific_subtype: MRM20
   shots_per_ton: 12
-
+  bv: 14
 mrm30_ammo:
-  name: "MRM30 Ammo"
-  fullname: "MRM30 Ammo"
-  tech: "Mixed"
+  name: MRM30 Ammo
+  fullname: MRM30 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MRM30"
+  specific_subtype: MRM30
   shots_per_ton: 8
-
+  bv: 21
 mrm40_ammo:
-  name: "MRM40 Ammo"
-  fullname: "MRM40 Ammo"
-  tech: "Mixed"
+  name: MRM40 Ammo
+  fullname: MRM40 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MRM40"
+  specific_subtype: MRM40
   shots_per_ton: 6
-
+  bv: 28
 mml3_ammo:
-  name: "MML3 Ammo"
-  fullname: "MML3 Ammo"
-  tech: "Mixed"
+  name: MML3 Ammo
+  fullname: MML3 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MML3"
+  specific_subtype: MML3
   shots_per_ton: 40
-
+  bv: 4
 mml5_ammo:
-  name: "MML5 Ammo"
-  fullname: "MML5 Ammo"
-  tech: "Mixed"
+  name: MML5 Ammo
+  fullname: MML5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MML5"
+  specific_subtype: MML5
   shots_per_ton: 24
-
+  bv: 6
 mml7_ammo:
-  name: "MML7 Ammo"
-  fullname: "MML7 Ammo"
-  tech: "Mixed"
+  name: MML7 Ammo
+  fullname: MML7 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MML7"
+  specific_subtype: MML7
   shots_per_ton: 17
-
+  bv: 8
 mml9_ammo:
-  name: "MML9 Ammo"
-  fullname: "MML9 Ammo"
-  tech: "Mixed"
+  name: MML9 Ammo
+  fullname: MML9 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MML9"
+  specific_subtype: MML9
   shots_per_ton: 13
-
+  bv: 11
 elrm5_ammo:
-  name: "ELRM5 Ammo"
-  fullname: "ELRM5 Ammo"
-  tech: "Mixed"
+  name: ELRM5 Ammo
+  fullname: ELRM5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ELRM5"
+  specific_subtype: ELRM5
   shots_per_ton: 24
-
+  bv: 6
 elrm10_ammo:
-  name: "ELRM10 Ammo"
-  fullname: "ELRM10 Ammo"
-  tech: "Mixed"
+  name: ELRM10 Ammo
+  fullname: ELRM10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ELRM10"
+  specific_subtype: ELRM10
   shots_per_ton: 12
-
+  bv: 11
 elrm15_ammo:
-  name: "ELRM15 Ammo"
-  fullname: "ELRM15 Ammo"
-  tech: "Mixed"
+  name: ELRM15 Ammo
+  fullname: ELRM15 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ELRM15"
+  specific_subtype: ELRM15
   shots_per_ton: 8
-
+  bv: 17
 elrm20_ammo:
-  name: "ELRM20 Ammo"
-  fullname: "ELRM20 Ammo"
-  tech: "Mixed"
+  name: ELRM20 Ammo
+  fullname: ELRM20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ELRM20"
+  specific_subtype: ELRM20
   shots_per_ton: 6
-
+  bv: 23
 slrm5_ammo:
-  name: "SLRM5 Ammo"
-  fullname: "SLRM5 Ammo"
-  tech: "Mixed"
+  name: SLRM5 Ammo
+  fullname: SLRM5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SLRM5"
+  specific_subtype: SLRM5
   shots_per_ton: 24
-
+  bv: 6
 slrm10_ammo:
-  name: "SLRM10 Ammo"
-  fullname: "SLRM10 Ammo"
-  tech: "Mixed"
+  name: SLRM10 Ammo
+  fullname: SLRM10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SLRM10"
+  specific_subtype: SLRM10
   shots_per_ton: 12
-
+  bv: 11
 slrm15_ammo:
-  name: "SLRM15 Ammo"
-  fullname: "SLRM15 Ammo"
-  tech: "Mixed"
+  name: SLRM15 Ammo
+  fullname: SLRM15 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SLRM15"
+  specific_subtype: SLRM15
   shots_per_ton: 8
-
+  bv: 17
 slrm20_ammo:
-  name: "SLRM20 Ammo"
-  fullname: "SLRM20 Ammo"
-  tech: "Mixed"
+  name: SLRM20 Ammo
+  fullname: SLRM20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SLRM20"
+  specific_subtype: SLRM20
   shots_per_ton: 6
-
+  bv: 23
 tbolt5_ammo:
-  name: "TBolt5 Ammo"
-  fullname: "TBolt5 Ammo"
-  tech: "Mixed"
+  name: TBolt5 Ammo
+  fullname: TBolt5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "TBolt5"
+  specific_subtype: TBolt5
   shots_per_ton: 24
-
+  bv: 6
 tbolt10_ammo:
-  name: "TBolt10 Ammo"
-  fullname: "TBolt10 Ammo"
-  tech: "Mixed"
+  name: TBolt10 Ammo
+  fullname: TBolt10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "TBolt10"
+  specific_subtype: TBolt10
   shots_per_ton: 12
-
+  bv: 11
 tbolt15_ammo:
-  name: "TBolt15 Ammo"
-  fullname: "TBolt15 Ammo"
-  tech: "Mixed"
+  name: TBolt15 Ammo
+  fullname: TBolt15 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "TBolt15"
+  specific_subtype: TBolt15
   shots_per_ton: 8
-
+  bv: 17
 tbolt20_ammo:
-  name: "TBolt20 Ammo"
-  fullname: "TBolt20 Ammo"
-  tech: "Mixed"
+  name: TBolt20 Ammo
+  fullname: TBolt20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "TBolt20"
+  specific_subtype: TBolt20
   shots_per_ton: 6
-
+  bv: 23
 srt2_ammo:
-  name: "SRT2 Ammo"
-  fullname: "SRT2 Ammo"
-  tech: "Mixed"
+  name: SRT2 Ammo
+  fullname: SRT2 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SRT2"
+  specific_subtype: SRT2
   shots_per_ton: 50
-
+  bv: 3
 srt4_ammo:
-  name: "SRT4 Ammo"
-  fullname: "SRT4 Ammo"
-  tech: "Mixed"
+  name: SRT4 Ammo
+  fullname: SRT4 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SRT4"
+  specific_subtype: SRT4
   shots_per_ton: 25
-
+  bv: 5
 srt6_ammo:
-  name: "SRT6 Ammo"
-  fullname: "SRT6 Ammo"
-  tech: "Mixed"
+  name: SRT6 Ammo
+  fullname: SRT6 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "SRT6"
+  specific_subtype: SRT6
   shots_per_ton: 15
-
+  bv: 7
 lrt5_ammo:
-  name: "LRT5 Ammo"
-  fullname: "LRT5 Ammo"
-  tech: "Mixed"
+  name: LRT5 Ammo
+  fullname: LRT5 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRT5"
+  specific_subtype: LRT5
   shots_per_ton: 24
-
+  bv: 6
 lrt10_ammo:
-  name: "LRT10 Ammo"
-  fullname: "LRT10 Ammo"
-  tech: "Mixed"
+  name: LRT10 Ammo
+  fullname: LRT10 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRT10"
+  specific_subtype: LRT10
   shots_per_ton: 12
-
+  bv: 11
 lrt15_ammo:
-  name: "LRT15 Ammo"
-  fullname: "LRT15 Ammo"
-  tech: "Mixed"
+  name: LRT15 Ammo
+  fullname: LRT15 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRT15"
+  specific_subtype: LRT15
   shots_per_ton: 8
-
+  bv: 17
 lrt20_ammo:
-  name: "LRT20 Ammo"
-  fullname: "LRT20 Ammo"
-  tech: "Mixed"
+  name: LRT20 Ammo
+  fullname: LRT20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LRT20"
+  specific_subtype: LRT20
   shots_per_ton: 6
-
+  bv: 23
 atm3_ammo:
-  name: "ATM3 Ammo"
-  fullname: "ATM3 Ammo"
-  tech: "Mixed"
+  name: ATM3 Ammo
+  fullname: ATM3 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ATM3"
+  specific_subtype: ATM3
   shots_per_ton: 20
-
+  bv: 14
 atm6_ammo:
-  name: "ATM6 Ammo"
-  fullname: "ATM6 Ammo"
-  tech: "Mixed"
+  name: ATM6 Ammo
+  fullname: ATM6 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ATM6"
+  specific_subtype: ATM6
   shots_per_ton: 10
-
+  bv: 26
 atm9_ammo:
-  name: "ATM9 Ammo"
-  fullname: "ATM9 Ammo"
-  tech: "Mixed"
+  name: ATM9 Ammo
+  fullname: ATM9 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ATM9"
+  specific_subtype: ATM9
   shots_per_ton: 7
-
+  bv: 36
 atm12_ammo:
-  name: "ATM12 Ammo"
-  fullname: "ATM12 Ammo"
-  tech: "Mixed"
+  name: ATM12 Ammo
+  fullname: ATM12 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ATM12"
+  specific_subtype: ATM12
   shots_per_ton: 5
-
+  bv: 52
 hag20_ammo:
-  name: "HAG20 Ammo"
-  fullname: "HAG20 Ammo"
-  tech: "Mixed"
+  name: HAG20 Ammo
+  fullname: HAG20 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HAG20"
+  specific_subtype: HAG20
   shots_per_ton: 6
-
+  bv: 33
 hag30_ammo:
-  name: "HAG30 Ammo"
-  fullname: "HAG30 Ammo"
-  tech: "Mixed"
+  name: HAG30 Ammo
+  fullname: HAG30 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HAG30"
+  specific_subtype: HAG30
   shots_per_ton: 4
-
+  bv: 50
 hag40_ammo:
-  name: "HAG40 Ammo"
-  fullname: "HAG40 Ammo"
-  tech: "Mixed"
+  name: HAG40 Ammo
+  fullname: HAG40 Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HAG40"
+  specific_subtype: HAG40
   shots_per_ton: 3
-
+  bv: 67
 narc_ammo:
-  name: "Narc Ammo"
-  fullname: "Narc Ammo"
-  tech: "Mixed"
+  name: Narc Ammo
+  fullname: Narc Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "Narc"
+  specific_subtype: Narc
   shots_per_ton: 6
-
+  bv: 0
 inarc_ammo:
-  name: "iNarc Ammo"
-  fullname: "iNarc Ammo"
-  tech: "Mixed"
+  name: iNarc Ammo
+  fullname: iNarc Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "iNarc"
+  specific_subtype: iNarc
   shots_per_ton: 4
-
+  bv: 0
 gauss_ammo:
-  name: "Gauss Ammo"
-  fullname: "Gauss Ammo"
-  tech: "Mixed"
+  name: Gauss Ammo
+  fullname: Gauss Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "Gauss"
+  specific_subtype: Gauss
   shots_per_ton: 8
-
+  bv: 40
 lgauss_ammo:
-  name: "LGauss Ammo"
-  fullname: "LGauss Ammo"
-  tech: "Mixed"
+  name: LGauss Ammo
+  fullname: LGauss Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "LGauss"
+  specific_subtype: LGauss
   shots_per_ton: 16
-
+  bv: 20
 hgauss_ammo:
-  name: "HGauss Ammo"
-  fullname: "HGauss Ammo"
-  tech: "Mixed"
+  name: HGauss Ammo
+  fullname: HGauss Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "HGauss"
+  specific_subtype: HGauss
   shots_per_ton: 4
-
+  bv: 43
 apgauss_ammo:
-  name: "APGauss Ammo"
-  fullname: "APGauss Ammo"
-  tech: "Mixed"
+  name: APGauss Ammo
+  fullname: APGauss Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "APGauss"
+  specific_subtype: APGauss
   shots_per_ton: 40
-
+  bv: 3
 mg_ammo:
-  name: "MG Ammo"
-  fullname: "MG Ammo"
-  tech: "Mixed"
+  name: MG Ammo
+  fullname: MG Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MG"
+  specific_subtype: MG
   shots_per_ton: 200
-
+  bv: 1
 lmg_ammo:
-  name: "LMG Ammo"
-  fullname: "LMG Ammo"
-  tech: "Mixed"
+  name: LMG Ammo
+  fullname: LMG Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MG"
+  specific_subtype: MG
   shots_per_ton: 100
-
+  bv: 1
 hmg_ammo:
-  name: "HMG Ammo"
-  fullname: "HMG Ammo"
-  tech: "Mixed"
+  name: HMG Ammo
+  fullname: HMG Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MG"
+  specific_subtype: MG
   shots_per_ton: 100
-
+  bv: 1
 ams_ammo:
-  name: "AMS Ammo"
-  fullname: "AMS Ammo"
-  tech: "Mixed"
+  name: AMS Ammo
+  fullname: AMS Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AMS"
+  specific_subtype: AMS
   shots_per_ton: 12
-
+  bv: 11
 arrowiv_ammo:
-  name: "Arrow IV Ammo"
-  fullname: "Arrow IV Ammo"
-  tech: "Mixed"
+  name: Arrow IV Ammo
+  fullname: Arrow IV Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ArrowIV"
+  specific_subtype: ArrowIV
   shots_per_ton: 5
-
+  bv: 24
 flamer_ammo:
-  name: "Flamer Ammo"
-  fullname: "Flamer Ammo"
-  tech: "Mixed"
+  name: Flamer Ammo
+  fullname: Flamer Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "Flamer"
+  specific_subtype: Flamer
   shots_per_ton: 10
-
+  bv: 1
 hflamer_ammo:
-  name: "Heavy Flamer Ammo"
-  fullname: "Heavy Flamer Ammo"
-  tech: "Mixed"
+  name: Heavy Flamer Ammo
+  fullname: Heavy Flamer Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "Flamer"
+  specific_subtype: Flamer
   shots_per_ton: 10
-
+  bv: 1
 plasrifle_ammo:
-  name: "Plasma Rifle Ammo"
-  fullname: "Plasma Rifle Ammo"
-  tech: "Mixed"
+  name: Plasma Rifle Ammo
+  fullname: Plasma Rifle Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "PlasmaRifle"
+  specific_subtype: PlasmaRifle
   shots_per_ton: 10
-
+  bv: 26
 plascannon_ammo:
-  name: "Plasma Cannon Ammo"
-  fullname: "Plasma Cannon Ammo"
-  tech: "Mixed"
+  name: Plasma Cannon Ammo
+  fullname: Plasma Cannon Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "PlasmaCannon"
+  specific_subtype: PlasmaCannon
   shots_per_ton: 10
-
+  bv: 21
 artillery_ammo:
-  name: "Artillery Ammo"
-  fullname: "Artillery Ammo"
-  tech: "Mixed"
+  name: Artillery Ammo
+  fullname: Artillery Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "Artillery"
+  specific_subtype: Artillery
   shots_per_ton: 10
-
+  bv: 0
 chemlaser_ammo:
-  name: "Chem Laser Ammo"
-  fullname: "Chem Laser Ammo"
-  tech: "Mixed"
+  name: Chem Laser Ammo
+  fullname: Chem Laser Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "ChemLaser"
+  specific_subtype: ChemLaser
   shots_per_ton: 30
-
+  bv: 0
 ihgauss_ammo:
-  name: "iHGauss Ammo"
-  fullname: "iHGauss Ammo"
-  tech: "Mixed"
+  name: iHGauss Ammo
+  fullname: iHGauss Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "Gauss"
+  specific_subtype: Gauss
   shots_per_ton: 4
-
+  bv: 40
 hrifle_ammo:
-  name: "Heavy Rifle Ammo"
-  fullname: "Heavy Rifle Ammo"
-  tech: "Mixed"
+  name: Heavy Rifle Ammo
+  fullname: Heavy Rifle Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AC"
+  specific_subtype: AC
   shots_per_ton: 6
-
+  bv: 0
 nailrivet_ammo:
-  name: "Nail/Rivet Ammo"
-  fullname: "Nail/Rivet Ammo"
-  tech: "Mixed"
+  name: Nail/Rivet Ammo
+  fullname: Nail/Rivet Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "MG"
+  specific_subtype: MG
   shots_per_ton: 200
-
+  bv: 0
 apds_ammo:
-  name: "APDS Ammo"
-  fullname: "APDS Ammo"
-  tech: "Mixed"
+  name: APDS Ammo
+  fullname: APDS Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "AMS"
+  specific_subtype: AMS
   shots_per_ton: 12
-
+  bv: 0
 fluidgun_ammo:
-  name: "Fluid Gun Ammo"
-  fullname: "Fluid Gun Ammo"
-  tech: "Mixed"
+  name: Fluid Gun Ammo
+  fullname: Fluid Gun Ammo
+  tech: Mixed
   hasLoc: true
   isLimited: true
   omit: false
-  specific_subtype: "FluidGun"
+  specific_subtype: FluidGun
   shots_per_ton: 20
-
+  bv: 0
 ammolimited:
-  name: "Ammo"
-  fullname: "Ammo (Limited)"
-  tech: "Mixed"
+  name: Ammo
+  fullname: Ammo (Limited)
+  tech: Mixed
   hasLoc: true
   omit: false
   isLimited: true
   subtypes:
-    AC: "Autocannon"
-    Gauss: "Gauss"
-    HAG: "Hyper-Assault Gauss"
-    LBX: "LB-X AC"
-    MG: "Machine Gun"
-    RAC: "Rotary AC"
-    UAC: "Ultra AC"
-    ATM: "ATM"
-    LRM: "LRM"
-    LRT: "LRT"
-    SLRM: "Streak LRM"
-    MML: "MML"
-    MRM: "MRM"
-    SRM: "SRM"
-    SRT: "SRT"
-    SSRM: "Streak SRM"
-    Narc: "Narc"
-    ArrowIV: "Arrow IV"
-    Artillery: "Artillery"
-    Flamer: "Flamer"
-    TBolt: "Thunderbolt"
-
+    AC: Autocannon
+    Gauss: Gauss
+    HAG: Hyper-Assault Gauss
+    LBX: LB-X AC
+    MG: Machine Gun
+    RAC: Rotary AC
+    UAC: Ultra AC
+    ATM: ATM
+    LRM: LRM
+    LRT: LRT
+    SLRM: Streak LRM
+    MML: MML
+    MRM: MRM
+    SRM: SRM
+    SRT: SRT
+    SSRM: Streak SRM
+    Narc: Narc
+    ArrowIV: Arrow IV
+    Artillery: Artillery
+    Flamer: Flamer
+    TBolt: Thunderbolt
+  bv: 0
 case:
-  name: "CASE"
-  fullname: "CASE"
-  tech: "Mixed"
+  name: CASE
+  fullname: CASE
+  tech: Mixed
   hasLoc: true
   omit: false
-
 freecase:
-  name: "CASE"
-  fullname: "Built-in CASE"
-  tech: "Clan"
+  name: CASE
+  fullname: Built-in CASE
+  tech: Clan
   hasLoc: false
+  fixedLocation: All
   omit: false
-
-freecase:
-  name: "CASE"
-  fullname: "Built-in CASE"
-  tech: "Clan"
-  hasLoc: false
-  fixedLocation: "All"
-  omit: false
-
 case2:
-  name: "CASE II"
-  fullname: "CASE II"
-  tech: "Mixed"
+  name: CASE II
+  fullname: CASE II
+  tech: Mixed
   hasLoc: true
   omit: false
-
 ams:
-  name: "AMS"
-  fullname: "Anti-Missile System"
-  tech: "Mixed"
+  name: AMS
+  fullname: Anti-Missile System
+  tech: Mixed
+  bv: 32
   hasLoc: false
   omit: false
-
 lams:
-  name: "LAMS"
-  fullname: "Laser AMS"
-  tech: "Mixed"
+  name: LAMS
+  fullname: Laser AMS
+  tech: Mixed
+  bv: 45
   hasLoc: false
   omit: false
-
 aiv:
-  name: "Artemis IV"
-  fullname: "Artemis IV FCS"
-  tech: "Mixed"
+  name: Artemis IV
+  fullname: Artemis IV FCS
+  tech: Mixed
   hasLoc: false
   omit: false
-
 av:
-  name: "Artemis V"
-  fullname: "Artemis V FCS"
-  tech: "Clan"
+  name: Artemis V
+  fullname: Artemis V FCS
+  tech: Clan
   hasLoc: false
   omit: false
-
 apollo:
-  name: "Apollo FCS"
-  fullname: "Apollo FCS"
-  tech: "IS"
+  name: Apollo FCS
+  fullname: Apollo FCS
+  tech: IS
   hasLoc: false
   omit: false
-
 probe:
-  name: "Beagle Probe"
-  fullname: "Beagle Active Probe"
-  tech: "IS"
+  name: Beagle Probe
+  fullname: Beagle Active Probe
+  tech: IS
+  bv: 10
   hasLoc: false
   omit: false
-
 bhprobe:
-  name: "Bloodhound Probe"
-  fullname: "Bloodhound Active Probe"
-  tech: "IS"
+  name: Bloodhound Probe
+  fullname: Bloodhound Active Probe
+  tech: IS
+  bv: 10
   hasLoc: false
   omit: false
-
 cprobe:
-  name: "Active Probe"
-  fullname: "Active Probe"
-  tech: "Clan"
+  name: Active Probe
+  fullname: Active Probe
+  tech: Clan
+  bv: 10
   hasLoc: false
   omit: false
-
 lprobe:
-  name: "Light Probe"
-  fullname: "Light Active Probe"
-  tech: "IS"
+  name: Light Probe
+  fullname: Light Active Probe
+  tech: IS
+  bv: 5
   hasLoc: false
   omit: false
-
 clprobe:
-  name: "Light Probe"
-  fullname: "Light Active Probe"
-  tech: "Clan"
+  name: Light Probe
+  fullname: Light Active Probe
+  tech: Clan
+  bv: 5
   hasLoc: false
   omit: false
-
 ecm:
-  name: "ECM"
-  fullname: "Guardian ECM Suite"
-  tech: "IS"
+  name: ECM
+  fullname: Guardian ECM Suite
+  tech: IS
+  bv: 61
   hasLoc: false
   omit: false
-
 cecm:
-  name: "ECM"
-  fullname: "ECM Suite"
-  tech: "Clan"
+  name: ECM
+  fullname: ECM Suite
+  tech: Clan
+  bv: 61
   hasLoc: false
   omit: false
-
 aecm:
-  name: "Angel ECM"
-  fullname: "Angel ECM Suite"
-  tech: "Mixed"
+  name: Angel ECM
+  fullname: Angel ECM Suite
+  tech: Mixed
+  bv: 100
   hasLoc: false
   omit: false
-
 cews:
-  name: "Active Probe, ECM"
-  fullname: "Watchdog CEWS"
-  tech: "Clan"
+  name: Active Probe, ECM
+  fullname: Watchdog CEWS
+  tech: Clan
+  bv: 68
   hasLoc: false
   omit: false
-
 c3s:
-  name: "C3S"
-  fullname: "C3 Slave Unit"
-  tech: "IS"
+  name: C3S
+  fullname: C3 Slave Unit
+  tech: IS
   hasLoc: true
   omit: false
-
 c3m:
-  name: "C3M"
-  fullname: "C3 Master Unit"
-  tech: "IS"
+  name: C3M
+  fullname: C3 Master Unit
+  tech: IS
   hasLoc: true
   omit: false
-
 c3bm:
-  name: "C3BM"
-  fullname: "C3 Boosted Master Unit"
-  tech: "IS"
+  name: C3BM
+  fullname: C3 Boosted Master Unit
+  tech: IS
   hasLoc: true
   omit: false
-
 c3bs:
-  name: "C3BS"
-  fullname: "C3 Boosted Slave Unit"
-  tech: "IS"
+  name: C3BS
+  fullname: C3 Boosted Slave Unit
+  tech: IS
   hasLoc: true
   omit: false
-
 c3i:
-  name: "C3i"
-  fullname: "C3 Computer (Improved)"
-  tech: "IS"
+  name: C3i
+  fullname: C3 Computer (Improved)
+  tech: IS
   hasLoc: false
   omit: false
-
 tag:
-  name: "TAG"
-  fullname: "Target Acquistion Gear"
-  tech: "Mixed"
+  name: TAG
+  fullname: Target Acquistion Gear
+  tech: Mixed
   hasLoc: false
   omit: false
-
 ltag:
-  name: "L-TAG"
-  fullname: "Light Target Acquistion Gear"
-  tech: "Mixed"
+  name: L-TAG
+  fullname: Light Target Acquistion Gear
+  tech: Mixed
   hasLoc: false
   omit: false
-
 tc:
-  name: "Targeting Computer"
-  fullname: "Targeting Computer"
-  tech: "Mixed"
+  name: Targeting Computer
+  fullname: Targeting Computer
+  tech: Mixed
   hasLoc: false
   omit: false
-
 jump:
-  name: "Jump Jets"
-  fullname: "Jump Jets"
-  tech: "Mixed"
+  name: Jump Jets
+  fullname: Jump Jets
+  tech: Mixed
   hasLoc: false
   omit: false
-
 ijump:
-  name: "Improved Jump Jets"
-  fullname: "Improved Jump Jets"
-  tech: "Mixed"
+  name: Improved Jump Jets
+  fullname: Improved Jump Jets
+  tech: Mixed
   hasLoc: false
   omit: false
-
 mechjumpbooster:
-  name: "Jump Boosters"
-  fullname: "Mechanical Jump Boosters"
-  tech: "IS"
+  name: Jump Boosters
+  fullname: Mechanical Jump Boosters
+  tech: IS
   hasLoc: false
   omit: false
-
 umu:
-  name: "UMU"
-  fullname: "Underwater Maneuvering Unit"
-  tech: "Mixed"
+  name: UMU
+  fullname: Underwater Maneuvering Unit
+  tech: Mixed
   hasLoc: false
   omit: false
-
 masc:
-  name: "MASC"
-  fullname: "MASC"
-  tech: "Mixed"
+  name: MASC
+  fullname: MASC
+  tech: Mixed
   hasLoc: false
   omit: false
-
 supercharger:
-  name: "Supercharger"
-  fullname: "Supercharger"
-  tech: "Mixed"
+  name: Supercharger
+  fullname: Supercharger
+  tech: Mixed
   hasLoc: false
   omit: false
-
 tsm:
-  name: "TSM"
-  fullname: "Triple-Strength Myomer"
-  tech: "Mixed"
+  name: TSM
+  fullname: Triple-Strength Myomer
+  tech: Mixed
   hasLoc: false
   omit: false
-
 aes:
-  name: "AES"
-  fullname: "Acutator Enhancement System"
-  tech: "Mixed"
+  name: AES
+  fullname: Acutator Enhancement System
+  tech: Mixed
   hasLoc: true
   omit: false
-
 partwing:
-  name: "Partial Wing"
-  fullname: "Partial Wing"
-  tech: "Mixed"
+  name: Partial Wing
+  fullname: Partial Wing
+  tech: Mixed
   hasLoc: false
   omit: false
-
 xle:
-  name: "XL Engine"
-  fullname: "XL Fusion Engine"
-  tech: "IS"
+  name: XL Engine
+  fullname: XL Fusion Engine
+  tech: IS
   hasLoc: false
   omit: false
-
 cxle:
-  name: "cXL Engine"
-  fullname: "Clan XL Fusion Engine"
-  tech: "Clan"
+  name: cXL Engine
+  fullname: Clan XL Fusion Engine
+  tech: Clan
   hasLoc: false
   omit: false
-
 xxle:
-  name: "XXL Engine"
-  fullname: "XXL Fusion Engine"
-  tech: "IS"
+  name: XXL Engine
+  fullname: XXL Fusion Engine
+  tech: IS
   hasLoc: false
   omit: false
-
 cxxle:
-  name: "cXXL Engine"
-  fullname: "Clan XXL Fusion Engine"
-  tech: "Clan"
+  name: cXXL Engine
+  fullname: Clan XXL Fusion Engine
+  tech: Clan
   hasLoc: false
   omit: false
-
 lfe:
-  name: "Light Engine"
-  fullname: "Light Fusion Engine"
-  tech: "IS"
+  name: Light Engine
+  fullname: Light Fusion Engine
+  tech: IS
   hasLoc: false
   omit: false
-
 hdgyro:
-  name: "HD Gyro"
-  fullname: "Heavy-Duty Gyro"
-  tech: "IS"
+  name: HD Gyro
+  fullname: Heavy-Duty Gyro
+  tech: IS
   hasLoc: false
   omit: false
-
 lasrefl:
-  name: "Reflective Armor"
-  fullname: "Laser-Reflective Armor"
-  tech: "Mixed"
+  name: Reflective Armor
+  fullname: Laser-Reflective Armor
+  tech: Mixed
   hasLoc: false
   omit: false
-
 reactive:
-  name: "Reactive Armor"
-  fullname: "Reactive Armor"
-  tech: "Mixed"
+  name: Reactive Armor
+  fullname: Reactive Armor
+  tech: Mixed
   hasLoc: false
   omit: false
-
 ballreinf:
-  name: "Ballistic-Reinforced Armor"
-  fullname: "Ballistic-Reinforced Armor"
-  tech: "IS"
+  name: Ballistic-Reinforced Armor
+  fullname: Ballistic-Reinforced Armor
+  tech: IS
   hasLoc: false
   omit: false
-
 stealth:
-  name: "Stealth Armor"
-  fullname: "Stealth Armor"
-  tech: "IS"
+  name: Stealth Armor
+  fullname: Stealth Armor
+  tech: IS
   hasLoc: false
   omit: false
-
 hardened:
-  name: "Hardened Armor"
-  fullname: "Hardened Armor"
-  tech: "Mixed"
+  name: Hardened Armor
+  fullname: Hardened Armor
+  tech: Mixed
   hasLoc: false
   omit: false
-
 ferolam:
-  name: "Ferro-Lam Armor"
-  fullname: "Ferro-Lamellor Armor"
-  tech: "Clan"
+  name: Ferro-Lam Armor
+  fullname: Ferro-Lamellor Armor
+  tech: Clan
   hasLoc: false
   omit: false
-
 composite:
-  name: "Composite Structure"
-  fullname: "Composite Structure"
-  tech: "IS"
+  name: Composite Structure
+  fullname: Composite Structure
+  tech: IS
   hasLoc: false
   omit: false
-
 reinforced:
-  name: "Reinforced Structure"
-  fullname: "Reinforced Structure"
-  tech: "Mixed"
+  name: Reinforced Structure
+  fullname: Reinforced Structure
+  tech: Mixed
   hasLoc: false
   omit: false
-
 ppccapacitor:
-  name: "PPC Capacitor"
-  fullname: "PPC Capacitor"
-  tech: "Mixed"
+  name: PPC Capacitor
+  fullname: PPC Capacitor
+  tech: Mixed
   hasLoc: true
   omit: false
-
 armcomp:
-  name: "Armored Components"
-  fullname: "Armored Components"
-  tech: "Mixed"
+  name: Armored Components
+  fullname: Armored Components
+  tech: Mixed
   hasLoc: true
   omit: false
-
 smcp:
-  name: "Small Cockpit"
-  fullname: "Small Cockpit"
-  tech: "Mixed"
+  name: Small Cockpit
+  fullname: Small Cockpit
+  tech: Mixed
   hasLoc: false
   omit: false
-
 tmcp:
-  name: "Torso Cockpit"
-  fullname: "Torso-Mounted Cockpit"
-  tech: "Mixed"
+  name: Torso Cockpit
+  fullname: Torso-Mounted Cockpit
+  tech: Mixed
   hasLoc: false
   omit: false
-
 cpod:
-  name: "Coolant Pods"
-  fullname: "Coolant Pods"
-  tech: "Mixed"
+  name: Coolant Pods
+  fullname: Coolant Pods
+  tech: Mixed
   hasLoc: false
   isLimited: true
   omit: false
-
 apod:
-  name: "A-Pods"
-  fullname: "Anti-Personnel Pods"
-  tech: "Mixed"
+  name: A-Pods
+  fullname: Anti-Personnel Pods
+  tech: Mixed
+  bv: 1
   hasLoc: false
   isLimited: true
   omit: false
-
 bpod:
-  name: "B-Pods"
-  fullname: "Anti-Battle Armor Pods"
-  tech: "Mixed"
+  name: B-Pods
+  fullname: Anti-Battle Armor Pods
+  tech: Mixed
+  bv: 1
   hasLoc: false
   omit: false
-
 mpod:
-  name: "M-Pods"
-  fullname: "Anti-BattleMech Pods"
-  tech: "Mixed"
+  name: M-Pods
+  fullname: Anti-BattleMech Pods
+  tech: Mixed
+  bv: 1
   hasLoc: false
   omit: false
-
 turret:
-  name: "Turret"
-  fullname: "Turret"
-  tech: "Mixed"
+  name: Turret
+  fullname: Turret
+  tech: Mixed
   hasLoc: true
   omit: false
-
 troopspace:
-  name: "IT"
-  fullname: "Infantry Transport (Tons)"
-  tech: "Mixed"
+  name: IT
+  fullname: Infantry Transport (Tons)
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 cargobay:
-  name: "Cargo Bay"
-  fullname: "Cargo Bay"
-  tech: "Mixed"
+  name: Cargo Bay
+  fullname: Cargo Bay
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 1stclassquarters:
-  name: "1st Class Quarters"
-  fullname: "1st Class Quarters"
-  tech: "Mixed"
+  name: 1st Class Quarters
+  fullname: 1st Class Quarters
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 2ndclassquarters:
-  name: "2nd Class Quarters"
-  fullname: "2nd Class Quarters"
-  tech: "Mixed"
+  name: 2nd Class Quarters
+  fullname: 2nd Class Quarters
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 crewquarters:
-  name: "Crew Quarters"
-  fullname: "Crew Quarters"
-  tech: "Mixed"
+  name: Crew Quarters
+  fullname: Crew Quarters
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 steeragequarters:
-  name: "Steerage Quarters"
-  fullname: "Steerage Quarters"
-  tech: "Mixed"
+  name: Steerage Quarters
+  fullname: Steerage Quarters
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 smallcraftbay:
-  name: "Small Craft Bay"
-  fullname: "Small Craft Bay"
-  tech: "Mixed"
+  name: Small Craft Bay
+  fullname: Small Craft Bay
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 dockingcollar:
-  name: "Docking Collar"
-  fullname: "Docking Collar"
-  tech: "Mixed"
+  name: Docking Collar
+  fullname: Docking Collar
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 mekbay:
-  name: "Mech Bay"
-  fullname: "Mech Bay"
-  tech: "Mixed"
+  name: Mech Bay
+  fullname: Mech Bay
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 asfbay:
-  name: "ASF Bay"
-  fullname: "Aerospace Fighter Bay"
-  tech: "Mixed"
+  name: ASF Bay
+  fullname: Aerospace Fighter Bay
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 dropshuttlebay:
-  name: "DropShuttle Bay"
-  fullname: "DropShuttle Bay"
-  tech: "Mixed"
+  name: DropShuttle Bay
+  fullname: DropShuttle Bay
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 navalrepairpressurized:
-  name: "Naval Repair (Pressurized)"
-  fullname: "Naval Repair Facility (Pressurized)"
-  tech: "Mixed"
+  name: Naval Repair (Pressurized)
+  fullname: Naval Repair Facility (Pressurized)
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 navalrepairunpressurized:
-  name: "Naval Repair (Unpressurized)"
-  fullname: "Naval Repair Facility (Unpressurized)"
-  tech: "Mixed"
+  name: Naval Repair (Unpressurized)
+  fullname: Naval Repair Facility (Unpressurized)
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 infantrybay:
-  name: "Infantry Bay"
-  fullname: "Infantry Bay"
-  tech: "Mixed"
+  name: Infantry Bay
+  fullname: Infantry Bay
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 ejectionseats:
-  name: "Ejection Seats"
-  fullname: "Ejection Seats"
-  tech: "Mixed"
+  name: Ejection Seats
+  fullname: Ejection Seats
+  tech: Mixed
   hasLoc: false
   omit: false
   isLimited: true
-
 bafireresist:
-  name: "Fire Resistant Armor"
-  fullname: "BA Fire Resistant Armor"
-  tech: "Mixed"
+  name: Fire Resistant Armor
+  fullname: BA Fire Resistant Armor
+  tech: Mixed
   hasLoc: false
   omit: false
-
 bamimetic:
-  name: "Mimetic Armor"
-  fullname: "BA Mimetic Armor"
-  tech: "IS"
+  name: Mimetic Armor
+  fullname: BA Mimetic Armor
+  tech: IS
   hasLoc: false
   omit: false
-
 bareactive:
-  name: "Reactive Armor"
-  fullname: "BA Reactive Armor"
-  tech: "Mixed"
+  name: Reactive Armor
+  fullname: BA Reactive Armor
+  tech: Mixed
   hasLoc: false
   omit: false
-
 bareflective:
-  name: "Reflective Armor"
-  fullname: "BA Reflective Armor"
-  tech: "Mixed"
+  name: Reflective Armor
+  fullname: BA Reflective Armor
+  tech: Mixed
   hasLoc: false
   omit: false
-
 bastealth:
-  name: "Stealth Armor"
-  fullname: "BA Stealth Armor"
-  tech: "IS"
+  name: Stealth Armor
+  fullname: BA Stealth Armor
+  tech: IS
   hasLoc: false
   omit: false
-
 jumpbooster:
-  name: "Jump Booster"
-  fullname: "Jump Booster"
-  tech: "Mixed"
+  name: Jump Booster
+  fullname: Jump Booster
+  tech: Mixed
   hasLoc: false
   omit: false
-
 apds:
-  name: "APDS"
-  fullname: "Advanced Point Defense System"
-  tech: "IS"
+  name: APDS
+  fullname: Advanced Point Defense System
+  tech: IS
   hasLoc: false
   omit: false
-
 dwp:
-  name: "DWPs"
-  fullname: "Detachable Weapon Pack(s)"
-  tech: "Mixed"
+  name: DWPs
+  fullname: Detachable Weapon Pack(s)
+  tech: Mixed
   hasLoc: false
   omit: false
-
 myomerboost:
-  name: "Myomer Booster"
-  fullname: "Myomer Booster"
+  name: Myomer Booster
+  fullname: Myomer Booster
   hasLoc: false
   omit: false
-
 missionequipment:
-  name: "Mission Equipment"
-  fullname: "Mission Equipment Storage"
-  tech: "Mixed"
+  name: Mission Equipment
+  fullname: Mission Equipment Storage
+  tech: Mixed
   hasLoc: false
-
 armmotivesys:
-  name: "Armored Motive"
-  fullname: "Armored Motive System"
-  tech: "Clan"
+  name: Armored Motive
+  fullname: Armored Motive System
+  tech: Clan
   hasLoc: false
   omit: true
-
 trailerhitch:
-  name: "Hitch"
-  fullname: "Trailer Hitch/Tractor"
-  tech: "Mixed"
+  name: Hitch
+  fullname: Trailer Hitch/Tractor
+  tech: Mixed
   hasLoc: false
   omit: true
-
 omni:
-  name: "Omni"
-  fullname: "Omni Chassis"
-  tech: "Mixed"
+  name: Omni
+  fullname: Omni Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 stol:
-  name: "STOL"
-  fullname: "STOL Chassis"
-  tech: "Mixed"
+  name: STOL
+  fullname: STOL Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 bicycle:
-  name: "Bicycle"
-  fullname: "Bicycle Chassis"
-  tech: "Mixed"
+  name: Bicycle
+  fullname: Bicycle Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 monocycle:
-  name: "Monocycle"
-  fullname: "Monocycle Chassis"
-  tech: "Mixed"
+  name: Monocycle
+  fullname: Monocycle Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 amphibious:
-  name: "Amphibious"
-  fullname: "Amphibious Chassis"
-  tech: "Mixed"
+  name: Amphibious
+  fullname: Amphibious Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 submersible:
-  name: "Submersible"
-  fullname: "Submersible Chassis"
-  tech: "Mixed"
+  name: Submersible
+  fullname: Submersible Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 ultralight:
-  name: "Ultra-Light"
-  fullname: "Ultra-Light Chassis"
-  tech: "Mixed"
+  name: Ultra-Light
+  fullname: Ultra-Light Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 offroad:
-  name: "Off-Road"
-  fullname: "Off-Road Chassis"
-  tech: "Mixed"
+  name: Off-Road
+  fullname: Off-Road Chassis
+  tech: Mixed
   hasLoc: false
   omit: true
-
 vtoljet:
-  name: "VTOL Jet Booster"
-  fullname: "VTOL Jet Booster"
-  tech: "Mixed"
+  name: VTOL Jet Booster
+  fullname: VTOL Jet Booster
+  tech: Mixed
   hasLoc: false
   omit: true
-
 minedispenser:
-  name: "Mine Dispenser"
-  fullname: "Vehicular Mine Dispenser"
-  tech: "Mixed"
+  name: Mine Dispenser
+  fullname: Vehicular Mine Dispenser
+  tech: Mixed
   hasLoc: false
   omit: true
-
 minesweeper:
-  name: "Mine Sweeper"
-  fullname: "Mine Sweeper"
-  tech: "Mixed"
+  name: Mine Sweeper
+  fullname: Mine Sweeper
+  tech: Mixed
   hasLoc: false
   omit: true
-
 lifthoist:
-  name: "Lift Hoist"
-  fullname: "Lift Hoist / Arresting Hoist"
-  tech: "Mixed"
+  name: Lift Hoist
+  fullname: Lift Hoist / Arresting Hoist
+  tech: Mixed
   hasLoc: false
   omit: false
-
 manipulator:
-  name: "Manipulator"
-  fullname: "Manipulator Arm"
-  tech: "Mixed"
+  name: Manipulator
+  fullname: Manipulator Arm
+  tech: Mixed
   hasLoc: false
   omit: true
-
 remotesensor:
-  name: "Remote Sensors"
-  fullname: "Remote Sensor Dispenser"
-  tech: "Mixed"
+  name: Remote Sensors
+  fullname: Remote Sensor Dispenser
+  tech: Mixed
   hasLoc: false
   omit: true
-
 searchlight:
-  name: "Searchlight"
-  fullname: "Searchlight"
-  tech: "Mixed"
+  name: Searchlight
+  fullname: Searchlight
+  tech: Mixed
   hasLoc: false
   omit: true
-
 comequip:
-  name: "Comm Equipment"
-  fullname: "Communications Equipment"
-  tech: "Mixed"
+  name: Comm Equipment
+  fullname: Communications Equipment
+  tech: Mixed
   hasLoc: false
   omit: false
-
 mash:
-  name: "MASH"
-  fullname: "Mobile Army Surgical Hospital"
-  tech: "Mixed"
+  name: MASH
+  fullname: Mobile Army Surgical Hospital
+  tech: Mixed
   hasLoc: false
   omit: false
-
 cmdconsole:
-  name: "Command Console"
-  fullname: "Tank Cockpit Command Console"
-  tech: "Mixed"
+  name: Command Console
+  fullname: Tank Cockpit Command Console
+  tech: Mixed
   hasLoc: false
   omit: true
-
 lmga:
-  name: "LMGA"
-  fullname: "Light Machine Gun Array"
-  tech: "IS"
+  name: LMGA
+  fullname: Light Machine Gun Array
+  tech: IS
   hasLoc: false
   omit: true
-
 standardseats:
-  name: "Standard Seats"
-  fullname: "Standard Seating"
-  tech: "Mixed"
+  name: Standard Seats
+  fullname: Standard Seating
+  tech: Mixed
   hasLoc: false
   omit: true
-
 pillionseats:
-  name: "Pillion Seats"
-  fullname: "Pillion Seating"
-  tech: "Mixed"
+  name: Pillion Seats
+  fullname: Pillion Seating
+  tech: Mixed
   hasLoc: false
   omit: true
-
 infantrysrm:
-  name: "Infantry SRM"
-  fullname: "Infantry Standard SRM"
-  tech: "Mixed"
+  name: Infantry SRM
+  fullname: Infantry Standard SRM
+  tech: Mixed
   hasLoc: false
   omit: true
-
-# ── Battle Armor equipment ────────────────────────────────────────────────────
-
 battleclaw:
-  name: "Battle Claw"
-  fullname: "Battle Armor Battle Claw"
-  tech: "Mixed"
+  name: Battle Claw
+  fullname: Battle Armor Battle Claw
+  tech: Mixed
   hasLoc: true
-
 heavybattleclaw:
-  name: "Heavy Battle Claw"
-  fullname: "Battle Armor Heavy Battle Claw"
-  tech: "Mixed"
+  name: Heavy Battle Claw
+  fullname: Battle Armor Heavy Battle Claw
+  tech: Mixed
   hasLoc: true
-
 vibrobattleclaw:
-  name: "Vibro Battle Claw"
-  fullname: "Battle Armor Vibro Battle Claw"
-  tech: "Mixed"
+  name: Vibro Battle Claw
+  fullname: Battle Armor Vibro Battle Claw
+  tech: Mixed
   hasLoc: true
-
 armoredglove:
-  name: "Armored Glove"
-  fullname: "Battle Armor Armored Glove"
-  tech: "Mixed"
+  name: Armored Glove
+  fullname: Battle Armor Armored Glove
+  tech: Mixed
   hasLoc: true
-
 salvagearm:
-  name: "Salvage Arm"
-  fullname: "Battle Armor Salvage Arm"
-  tech: "Mixed"
+  name: Salvage Arm
+  fullname: Battle Armor Salvage Arm
+  tech: Mixed
   hasLoc: true
-
 apmount:
-  name: "AP Mount"
-  fullname: "Anti-Personnel Weapon Mount"
-  tech: "Mixed"
+  name: AP Mount
+  fullname: Anti-Personnel Weapon Mount
+  tech: Mixed
   hasLoc: true
-
 cargolifter:
-  name: "Cargo Lifter"
-  fullname: "Battle Armor Cargo Lifter"
-  tech: "Mixed"
+  name: Cargo Lifter
+  fullname: Battle Armor Cargo Lifter
+  tech: Mixed
   hasLoc: true
-
 cuttingtorch:
-  name: "Cutting Torch"
-  fullname: "Battle Armor Cutting Torch"
-  tech: "Mixed"
+  name: Cutting Torch
+  fullname: Battle Armor Cutting Torch
+  tech: Mixed
   hasLoc: true
-
 extendedlifesupport:
-  name: "Ext. Life Support"
-  fullname: "Extended Life Support"
-  tech: "Mixed"
+  name: Ext. Life Support
+  fullname: Extended Life Support
+  tech: Mixed
   hasLoc: true
-
 spaceopsadaptation:
-  name: "Space Ops Adap."
-  fullname: "Space Operations Adaptation"
-  tech: "Mixed"
+  name: Space Ops Adap.
+  fullname: Space Operations Adaptation
+  tech: Mixed
   hasLoc: true
-
 improvedsensors:
-  name: "Imp. Sensors"
-  fullname: "Improved Sensors"
-  tech: "Mixed"
+  name: Imp. Sensors
+  fullname: Improved Sensors
+  tech: Mixed
   hasLoc: true
-
 camosystem:
-  name: "Camo System"
-  fullname: "Battle Armor Camo System"
-  tech: "Mixed"
+  name: Camo System
+  fullname: Battle Armor Camo System
+  tech: Mixed
   hasLoc: true
-
 magclamp:
-  name: "Mag Clamp"
-  fullname: "BA Magnetic Clamp"
-  tech: "Mixed"
+  name: Mag Clamp
+  fullname: BA Magnetic Clamp
+  tech: Mixed
   hasLoc: false
   omit: true
-
 harjel:
-  name: "HarJel"
-  fullname: "HarJel"
-  tech: "Mixed"
+  name: HarJel
+  fullname: HarJel
+  tech: Mixed
   hasLoc: false
   omit: false
+mm8_ammo:
+  name: MM8 Ammo
+  fullname: Mech Mortar/8 Ammo
+  tech: Mixed
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: MM
+  shots_per_ton: 4
+  bv: 7
+mm4_ammo:
+  name: MM4 Ammo
+  fullname: Mech Mortar/4 Ammo
+  tech: Mixed
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: MM
+  shots_per_ton: 6
+  bv: 4
+mm2_ammo:
+  name: MM2 Ammo
+  fullname: Mech Mortar/2 Ammo
+  tech: Mixed
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: MM
+  shots_per_ton: 12
+  bv: 2
+mm1_ammo:
+  name: MM1 Ammo
+  fullname: Mech Mortar/1 Ammo
+  tech: Mixed
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: MM
+  shots_per_ton: 24
+  bv: 1
+clrm5_ammo:
+  name: cLRM5 Ammo
+  fullname: Clan LRM5 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: LRM
+  shots_per_ton: 24
+  bv: 7
+clrm10_ammo:
+  name: cLRM10 Ammo
+  fullname: Clan LRM10 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: LRM
+  shots_per_ton: 12
+  bv: 14
+clrm15_ammo:
+  name: cLRM15 Ammo
+  fullname: Clan LRM15 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: LRM
+  shots_per_ton: 8
+  bv: 21
+clrm20_ammo:
+  name: cLRM20 Ammo
+  fullname: Clan LRM20 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: LRM
+  shots_per_ton: 6
+  bv: 27
+csrm2_ammo:
+  name: cSRM2 Ammo
+  fullname: Clan SRM2 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: SRM
+  shots_per_ton: 50
+  bv: 3
+csrm4_ammo:
+  name: cSRM4 Ammo
+  fullname: Clan SRM4 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: SRM
+  shots_per_ton: 25
+  bv: 5
+csrm6_ammo:
+  name: cSRM6 Ammo
+  fullname: Clan SRM6 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: SRM
+  shots_per_ton: 15
+  bv: 7
+cssrm2_ammo:
+  name: cSSRM2 Ammo
+  fullname: Clan Streak SRM2 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: SSRM
+  shots_per_ton: 50
+  bv: 5
+cssrm4_ammo:
+  name: cSSRM4 Ammo
+  fullname: Clan Streak SRM4 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: SSRM
+  shots_per_ton: 25
+  bv: 10
+cssrm6_ammo:
+  name: cSSRM6 Ammo
+  fullname: Clan Streak SRM6 Ammo
+  tech: Clan
+  hasLoc: true
+  isLimited: true
+  omit: false
+  specific_subtype: SSRM
+  shots_per_ton: 15
+  bv: 15

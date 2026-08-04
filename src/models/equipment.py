@@ -8,6 +8,7 @@ class Equipment:
     name: str
     fullname: str
     tech: str = "Mixed"
+    bv: int = 0             # Battle Value 2.0
     hasLoc: bool = False
     omit: bool = False
     isLimited: bool = False
@@ -23,6 +24,7 @@ class Equipment:
             name=data["name"],
             fullname=data.get("fullname", data["name"]),
             tech=data.get("tech", "Mixed"),
+            bv=int(data.get("bv", 0)),
             hasLoc=bool(data.get("hasLoc", False)),
             omit=bool(data.get("omit", False)),
             isLimited=bool(data.get("isLimited", False)),

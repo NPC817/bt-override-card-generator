@@ -160,6 +160,13 @@ class SettingsDialog(QDialog):
         ammo_max_form.addRow("Max ammo pips:", self._ammo_max_pips_sb)
         optional_layout.addLayout(ammo_max_form)
 
+        self._show_bv_cb = QCheckBox("Show Battle Value")
+        self._show_bv_cb.setToolTip(
+            "When enabled, the unit's Battle Value (BV) is displayed "
+            "in the stat block on the record sheet. It also activates the Total Force BV summary on the front page of the record sheet."
+        )
+        optional_layout.addWidget(self._show_bv_cb)
+
         optional_layout.addStretch()
         self._tabs.addTab(optional_tab, "Optional")
 
@@ -390,6 +397,8 @@ class SettingsDialog(QDialog):
         self._show_pips_cb.setChecked(p.show_tracking_pips)
         self._ammo_max_pips_sb.setEnabled(not is_default)
         self._ammo_max_pips_sb.setValue(p.ammo_max_pips)
+        self._show_bv_cb.setEnabled(not is_default)
+        self._show_bv_cb.setChecked(p.show_bv)
 
         self._populate_weapon_list()
         if self._current_weapon_key:
@@ -458,6 +467,7 @@ class SettingsDialog(QDialog):
         p.track_ammo = self._track_ammo_cb.isChecked()
         p.show_tracking_pips = self._show_pips_cb.isChecked()
         p.ammo_max_pips = self._ammo_max_pips_sb.value()
+        p.show_bv = self._show_bv_cb.isChecked()
         self._flush_weapon_editor_to(name)
 
     def _flush_weapon_editor_to(self, profile_name: str) -> None:

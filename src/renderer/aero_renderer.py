@@ -136,6 +136,7 @@ class AeroCardRenderer(BaseCardRenderer):
             move_label="Thrust:", move_x_offset=15, tmm_x_offset=15,
             sinks_val=0 if is_conv else None,
             heat_scale_max=profile.heat_scale_max,
+            bv_val=unit.battle_value if profile.show_bv else 0,
         )
 
         # Gunnery / Piloting labels

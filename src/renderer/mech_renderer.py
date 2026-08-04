@@ -404,6 +404,7 @@ class MechCardRenderer(BaseCardRenderer):
             move_str=_move_str, tmm_str=_tmm_str, sinks_val=_sinks_val,
             heat_scale_max=profile.heat_scale_max,
             jump_heat_val=_jump_heat_val,
+            bv_val=unit.battle_value if profile.show_bv else 0,
         )
 
         # Gunnery / Piloting header labels

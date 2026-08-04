@@ -92,6 +92,13 @@ class BatchProcessor(QThread):
                 resolved = resolve_weapons(unit, tonnage, profile=profile)
                 auto_assign_tics(resolved, is_ba=isinstance(unit, BattleArmor))
 
+                # Calculate Battle Value
+                try:
+                    from .bv_calculator import calculate_bv
+                    unit.battle_value = calculate_bv(unit)
+                except Exception:
+                    pass
+
                 if self._fmt == "OVR":
                     import json
                     base = os.path.splitext(os.path.basename(path))[0]

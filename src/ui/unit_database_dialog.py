@@ -106,16 +106,18 @@ class UnitDatabaseDialog(QDialog):
         root.addLayout(row2)
 
         # Results table
-        self._table = QTableWidget(0, 4)
-        self._table.setHorizontalHeaderLabels(["Name", "Type", "Tech", "Tonnage"])
+        self._table = QTableWidget(0, 5)
+        self._table.setHorizontalHeaderLabels(["Name", "Type", "Tech", "Tonnage", "BV"])
         hh = self._table.horizontalHeader()
         hh.setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
         hh.setSectionResizeMode(1, QHeaderView.ResizeMode.Fixed)
         hh.setSectionResizeMode(2, QHeaderView.ResizeMode.Fixed)
         hh.setSectionResizeMode(3, QHeaderView.ResizeMode.Fixed)
+        hh.setSectionResizeMode(4, QHeaderView.ResizeMode.Fixed)
         self._table.setColumnWidth(1, 130)
         self._table.setColumnWidth(2, 70)
         self._table.setColumnWidth(3, 80)
+        self._table.setColumnWidth(4, 70)
         self._table.setSortingEnabled(True)
         self._table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
         self._table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
@@ -246,6 +248,12 @@ class UnitDatabaseDialog(QDialog):
             ton_item.setData(Qt.ItemDataRole.DisplayRole, tonnage_str)
             ton_item.setData(Qt.ItemDataRole.UserRole, tonnage_raw)
             self._table.setItem(row, 3, ton_item)
+
+            bv_raw = int(rec.get("battle_value", 0))
+            bv_item = _NumericItem()
+            bv_item.setData(Qt.ItemDataRole.DisplayRole, str(bv_raw) if bv_raw else "—")
+            bv_item.setData(Qt.ItemDataRole.UserRole, bv_raw)
+            self._table.setItem(row, 4, bv_item)
 
         self._table.setSortingEnabled(True)
         self._table.sortByColumn(0, Qt.SortOrder.AscendingOrder)

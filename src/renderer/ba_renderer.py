@@ -92,7 +92,7 @@ class BattleArmorRenderer(BaseCardRenderer):
         canvas, painter = self._build_canvas()
 
         # Left panel: unit identity header (same positions as all other unit types)
-        self._draw_unit_header(painter, unit, mass_str=unit.mass_str)
+        self._draw_unit_header(painter, unit, mass_str=unit.mass_str, bv_val=unit.battle_value if profile.show_bv else 0)
 
         # Anti-Mech checkbox (computed, Bipeds only)
         if unit.motive_type == BattleArmor.BIPED:

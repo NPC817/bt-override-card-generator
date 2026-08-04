@@ -28,6 +28,9 @@ class Weapon:
     varMdamage: int = 0
     varLXdamage: int = 0
 
+    bv: int = 0        # Battle Value 2.0 (Tech Manual pp. 317-318)
+    ammo_bv: int = 0   # BV per ton of ammo (0 = not tracked)
+
     useH: Any = 0      # heat factor override
     useC: Any = 0      # cluster/flechette capable
     useR: Any = 0      # ROF for RAC
@@ -107,6 +110,8 @@ class Weapon:
             varPBSdamage=int(data.get("varPBSdamage", 0)),
             varMdamage=int(data.get("varMdamage", 0)),
             varLXdamage=int(data.get("varLXdamage", 0)),
+            bv=int(data.get("bv", 0)),
+            ammo_bv=int(data.get("ammo_bv", 0)),
             useH=data.get("useH", 0),
             useC=data.get("useC", 0),
             useR=data.get("useR", 0),

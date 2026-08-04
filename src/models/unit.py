@@ -31,6 +31,7 @@ class AbstractUnit(ABC):
         self.omni: bool = False
         self.gunnery: int = 4
         self.piloting: int = 5
+        self.battle_value: int = 0  # Battle Value 2.0
         self.weapons: list[UnitWeapon] = []
         self.equipment: list[UnitEquipment] = []
         self._equipment_keys_cache: tuple[int, frozenset[str]] = (0, frozenset())
@@ -75,6 +76,7 @@ class AbstractUnit(ABC):
             "omni": self.omni,
             "gunnery": self.gunnery,
             "piloting": self.piloting,
+            "battle_value": self.battle_value,
             "weapons": [
                 {
                     "weapon_key": w.weapon_key,
@@ -105,6 +107,7 @@ class AbstractUnit(ABC):
         self.omni = data.get("omni", False)
         self.gunnery = int(data.get("gunnery", 4))
         self.piloting = int(data.get("piloting", 5))
+        self.battle_value = int(data.get("battle_value", 0))
         self.weapons = [
             UnitWeapon(
                 weapon_key=w["weapon_key"],

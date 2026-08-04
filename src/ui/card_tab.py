@@ -157,6 +157,14 @@ class CardTab(QWidget):
         if not self.unit:
             return
 
+        # Calculate BV if not set (form.get_unit() creates a fresh unit)
+        if not self.unit.battle_value:
+            try:
+                from ..engine.bv_calculator import calculate_bv
+                self.unit.battle_value = calculate_bv(self.unit)
+            except Exception:
+                pass
+
         px = self.render_card()
         self._set_preview(px)
         self.unit_changed.emit()
