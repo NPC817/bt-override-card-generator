@@ -153,8 +153,10 @@ def parse_blk(path: str) -> ParseResult:
         else:
             warnings.append(f"Unknown transporter: {name!r}")
 
+    _transporter_keys: set[str] = set()
     for ekey, amount in transporter_uses.items():
-        vehicle.equipment.append(UnitEquipment(equipment_key=ekey, uses=amount))
+        vehicle.equipment.append(UnitEquipment(equipment_key=ekey, uses=math.ceil(amount)))
+        _transporter_keys.add(ekey)
 
     # Parse all equipment sections
     eq_section_names = [
@@ -225,7 +227,7 @@ def parse_blk(path: str) -> ParseResult:
         if not is_ammo:
             try:
                 eq_obj = _DS.equipment(e.equipment_key)
-                if eq_obj.isLimited:
+                if eq_obj.isLimited and e.equipment_key not in _transporter_keys:
                     sig = (e.equipment_key, e.location, e.subtype)
                     e.uses = float(sum(1 for o in _orig_eq
                                        if (o.equipment_key, o.location, o.subtype) == sig))
@@ -482,6 +484,31 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
 
     _detect_tech(tag, aero)
 
+    # Parse transporters (cargo bays, troop space, etc.)
+    transporter_lines = tag_lines("transporters")
+    transporter_uses: dict[str, float] = {}
+    for line in transporter_lines:
+        parts = line.split(":")
+        if len(parts) < 2:
+            continue
+        name = parts[0].strip()
+        try:
+            amount = float(parts[1])
+        except ValueError:
+            continue
+        if amount <= 0:
+            continue
+        ekey = normalize_equipment(name)
+        if ekey:
+            transporter_uses[ekey] = transporter_uses.get(ekey, 0.0) + amount
+        else:
+            warnings.append(f"Unknown transporter: {name!r}")
+
+    _aero_transporter_keys: set[str] = set()
+    for ekey, amount in transporter_uses.items():
+        aero.equipment.append(UnitEquipment(equipment_key=ekey, uses=math.ceil(amount)))
+        _aero_transporter_keys.add(ekey)
+
     armor_lines = tag_lines("armor")
     armor_keys = ["N", "LW", "RW", "A"]
     for i, val_str in enumerate(armor_lines[:4]):
@@ -558,7 +585,7 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
         if not is_ammo:
             try:
                 eq_obj = _DS.equipment(e.equipment_key)
-                if eq_obj.isLimited:
+                if eq_obj.isLimited and e.equipment_key not in _aero_transporter_keys:
                     sig = (e.equipment_key, e.location, e.subtype)
                     e.uses = float(sum(1 for o in _orig_eq
                                        if (o.equipment_key, o.location, o.subtype) == sig))
