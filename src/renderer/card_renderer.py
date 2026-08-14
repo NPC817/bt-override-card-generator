@@ -388,9 +388,9 @@ class BaseCardRenderer:
         if effective_sinks:
             draw_text(painter, 440, 365, sinks_label,          size=FS_LARGE, bold=True)
             draw_text(painter, 545, 365, str(effective_sinks), size=FS_LARGE)
-            if jump_heat_val is not None and heat_scale_max != 5:
+            if jump_heat_val is not None and jump_heat_val > 1 and heat_scale_max != 5:
                 draw_text(painter, 400, 415, "Jump Heat:", size=FS_LARGE, bold=True)
-                draw_text(painter, 600, 415, str(jump_heat_val), size=FS_LARGE)
+                draw_text(painter, 605, 415, str(jump_heat_val), size=FS_LARGE)
             # Heat Scale label (rotated)
             draw_text(painter, 650, 365, "Heat Scale", size=FS_LARGE, rotation=270)
             self._draw_heat_scale(painter, heat_scale_max)

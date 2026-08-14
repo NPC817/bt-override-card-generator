@@ -60,9 +60,9 @@ class ConversionEngine:
             base += coolant_bonus
         return base
 
-    def convert_jump_heat(self) -> int:
+    def convert_jump_heat(self, jump_mp: int) -> int:
         """Classic BT minimum jump heat (3) scaled by the heat divisor."""
-        return max(_r(3 / self.profile.heat_sink_divisor), 1)
+        return max(_r(jump_mp / self.profile.heat_sink_divisor), 1)
 
     def heat_scale_pips(self, heat_value: int) -> int:
         """Map a weapon heat value to pip count on the scaled heat track."""

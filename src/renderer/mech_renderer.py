@@ -396,7 +396,7 @@ class MechCardRenderer(BaseCardRenderer):
         _tmm_str = " / ".join(_tmm_parts)
         _cpods = int(sum(e.uses for e in unit.equipment if e.equipment_key == "cpod"))
         _sinks_val = engine.convert_heat_sinks(unit.sinks + _pw_sinks, unit.has_dhs, _cpods)
-        _jump_heat_val = engine.convert_jump_heat() if _eff_jump > 0 else None
+        _jump_heat_val = engine.convert_jump_heat(unit.jump_mp) if _eff_jump > 0 else None
 
         # Header
         self._draw_unit_header(
