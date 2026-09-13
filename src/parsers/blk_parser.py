@@ -597,6 +597,11 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
                 pass
     aero.equipment = deduped
 
+    # Every fighter carries bombs: 1 per 10 tons.
+    if not aero.is_equipped_with("bomb"):
+        aero.equipment.append(UnitEquipment(
+            equipment_key="bomb", uses=float(aero.bomb_capacity)))
+
     return ParseResult(unit=aero, warnings=warnings)
 
 

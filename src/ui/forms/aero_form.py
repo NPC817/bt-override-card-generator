@@ -8,7 +8,8 @@ from PyQt6.QtWidgets import (
     QTabWidget, QVBoxLayout, QWidget,
 )
 
-from ...models.aero import AeroSpaceFighter
+from ...models.aero import AeroSpaceFighter, bomb_capacity
+from ...models.unit import UnitEquipment
 
 
 class AeroForm(QWidget):
@@ -116,6 +117,7 @@ class AeroForm(QWidget):
         # Tonnage → weapons panel for auto-group
         self._tonnage.valueChanged.connect(
             lambda v: self._weapons_panel.set_tonnage(int(v)))
+        self._tonnage.valueChanged.connect(self._sync_bomb_row)
 
         self._tech.currentIndexChanged.connect(self._on_weapon_tech_changed)
         # Connect signals
@@ -132,6 +134,18 @@ class AeroForm(QWidget):
                 w.changed.connect(self._on_changed)
 
         layout.addStretch()
+
+        # Seed the Bomb row for New Card fighters (default 50 tons).
+        self._sync_bomb_row()
+
+    def _sync_bomb_row(self, *_args) -> None:
+        """Keep the Bomb row's Uses in sync with tonnage."""
+        if self._building:
+            return
+        uses = float(bomb_capacity(self._tonnage.value()))
+        if not self._equipment_panel.set_equipment_uses("bomb", uses):
+            self._equipment_panel.add_equipment(
+                UnitEquipment(equipment_key="bomb", uses=uses))
 
     def _on_weapon_tech_changed(self) -> None:
         self._weapons_panel.set_tech(self._tech.currentText())
@@ -172,6 +186,7 @@ class AeroForm(QWidget):
         self._equipment_panel.load_equipment(unit.equipment)
 
         self._building = False
+        self._sync_bomb_row()  # ensure old .ovr / import units show the row
 
     def get_unit(self) -> AeroSpaceFighter:
         unit = self._unit or AeroSpaceFighter()
@@ -192,4 +207,7 @@ class AeroForm(QWidget):
 
         unit.weapons = self._weapons_panel.get_weapons()
         unit.equipment = self._equipment_panel.get_equipment()
+        if not any(e.equipment_key == "bomb" for e in unit.equipment):
+            unit.equipment.append(UnitEquipment(
+                equipment_key="bomb", uses=float(bomb_capacity(unit.tonnage))))
         return unit

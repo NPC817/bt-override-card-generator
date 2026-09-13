@@ -4,6 +4,11 @@ from .unit import AbstractUnit
 from ..utils.math import _r, _tmm
 
 
+def bomb_capacity(tonnage: int) -> int:
+    """Bomb capacity: 1 bomb per 10 tons, rounded down."""
+    return math.floor(tonnage / 10)
+
+
 class AeroSpaceFighter(AbstractUnit):
     AEROSPACE    = "Aerospace"
     CONVENTIONAL = "Conventional"
@@ -27,6 +32,10 @@ class AeroSpaceFighter(AbstractUnit):
     @property
     def destiny_move(self) -> str:
         return str(self.safe_thrust)
+
+    @property
+    def bomb_capacity(self) -> int:
+        return bomb_capacity(self.tonnage)
 
     @property
     def destiny_sinks(self) -> int:

@@ -318,3 +318,17 @@ class EquipmentPanel(QWidget):
             self._add_row(eq)
         self._update_column_visibility()
         self._building = False
+
+    def set_equipment_uses(self, key: str, uses: float) -> bool:
+        """Set the Uses value of the row matching `key`. False if absent."""
+        for row in range(self._table.rowCount()):
+            eq_w = self._table.cellWidget(row, 0)
+            if eq_w and eq_w.currentData() == key:
+                uses_w = self._table.cellWidget(row, 3)
+                if uses_w:
+                    uses_w.setValue(uses)
+                    return True
+        return False
+
+    def add_equipment(self, eq: UnitEquipment) -> None:
+        self._add_row(eq)

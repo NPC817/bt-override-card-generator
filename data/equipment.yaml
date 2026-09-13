@@ -1251,6 +1251,13 @@ troopspace:
   hasLoc: false
   omit: false
   isLimited: true
+bomb:
+  name: Bomb
+  fullname: Bomb
+  tech: Mixed
+  hasLoc: false
+  omit: false
+  isLimited: true
 cargobay:
   name: Cargo Bay
   fullname: Cargo Bay
