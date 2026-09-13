@@ -45,3 +45,15 @@ data/backup/
 
 # Planning notes (local only)
 plans/
+
+# Local build/dev scripts (not distributed)
+scripts/
+bt_override.spec
+bugs.txt
+build.bat
+build_metadata.py
+build_units.bat
+debug_archer_fullres.png
+launch.bat
+parse_check_results.csv
+requirements.txt
