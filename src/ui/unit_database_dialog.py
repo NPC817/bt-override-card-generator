@@ -25,12 +25,14 @@ def _get_type_map() -> dict[str, Any]:
         from ..models.mech import BattleMech
         from ..models.vehicle import CombatVehicle
         from ..models.aero import AeroSpaceFighter
+        from ..models.dropship import Dropship
         from ..models.battle_armor import BattleArmor
         from ..models.infantry import Infantry
         _TYPE_MAP_CACHE.update({
             "BattleMech": BattleMech,
             "CombatVehicle": CombatVehicle,
             "AeroSpaceFighter": AeroSpaceFighter,
+            "Dropship": Dropship,
             "BattleArmor": BattleArmor,
             "Infantry": Infantry,
         })
@@ -79,7 +81,7 @@ class UnitDatabaseDialog(QDialog):
         self._type_combo = QComboBox()
         self._type_combo.addItems([
             "All", "BattleMech", "CombatVehicle", "AeroSpaceFighter",
-            "BattleArmor", "Infantry",
+            "Dropship", "BattleArmor", "Infantry",
         ])
         row1.addWidget(self._type_combo, stretch=1)
         row1.addWidget(QLabel("Tech:"))
@@ -92,13 +94,13 @@ class UnitDatabaseDialog(QDialog):
         row2 = QHBoxLayout()
         row2.addWidget(QLabel("Tonnage:"))
         self._ton_min = QSpinBox()
-        self._ton_min.setRange(0, 999)
+        self._ton_min.setRange(0, 99999)
         self._ton_min.setValue(0)
         self._ton_min.setSpecialValueText("—")
         row2.addWidget(self._ton_min)
         row2.addWidget(QLabel("to"))
         self._ton_max = QSpinBox()
-        self._ton_max.setRange(0, 999)
+        self._ton_max.setRange(0, 99999)
         self._ton_max.setValue(0)
         self._ton_max.setSpecialValueText("—")
         row2.addWidget(self._ton_max)

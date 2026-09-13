@@ -160,6 +160,22 @@ class SettingsDialog(QDialog):
         ammo_max_form.addRow("Max ammo pips:", self._ammo_max_pips_sb)
         optional_layout.addLayout(ammo_max_form)
 
+        tic_caps_box = QGroupBox("Dropship TIC Caps")
+        tic_caps_form = QFormLayout(tic_caps_box)
+        self._ds_tic_dmg = QSpinBox()
+        self._ds_tic_dmg.setRange(1, 30)
+        self._ds_tic_dmg.setValue(10)
+        self._ds_tic_dmg.setToolTip(
+            "Max combined damage for one TIC on Dropships (Override points).")
+        tic_caps_form.addRow("Dropship TIC damage max:", self._ds_tic_dmg)
+        self._ds_tic_msl = QSpinBox()
+        self._ds_tic_msl.setRange(1, 60)
+        self._ds_tic_msl.setValue(28)
+        self._ds_tic_msl.setToolTip(
+            "Max missile damage for one TIC on Dropships (Override points).")
+        tic_caps_form.addRow("Dropship TIC missile max:", self._ds_tic_msl)
+        optional_layout.addWidget(tic_caps_box)
+
         self._show_bv_cb = QCheckBox("Show Battle Value")
         self._show_bv_cb.setToolTip(
             "When enabled, the unit's Battle Value (BV) is displayed "
@@ -399,6 +415,10 @@ class SettingsDialog(QDialog):
         self._ammo_max_pips_sb.setValue(p.ammo_max_pips)
         self._show_bv_cb.setEnabled(not is_default)
         self._show_bv_cb.setChecked(p.show_bv)
+        self._ds_tic_dmg.setEnabled(not is_default)
+        self._ds_tic_dmg.setValue(p.dropship_tic_damage_max)
+        self._ds_tic_msl.setEnabled(not is_default)
+        self._ds_tic_msl.setValue(p.dropship_tic_missile_max)
 
         self._populate_weapon_list()
         if self._current_weapon_key:
@@ -468,6 +488,8 @@ class SettingsDialog(QDialog):
         p.show_tracking_pips = self._show_pips_cb.isChecked()
         p.ammo_max_pips = self._ammo_max_pips_sb.value()
         p.show_bv = self._show_bv_cb.isChecked()
+        p.dropship_tic_damage_max = self._ds_tic_dmg.value()
+        p.dropship_tic_missile_max = self._ds_tic_msl.value()
         self._flush_weapon_editor_to(name)
 
     def _flush_weapon_editor_to(self, profile_name: str) -> None:

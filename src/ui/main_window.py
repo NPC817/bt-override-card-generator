@@ -282,12 +282,14 @@ class MainWindow(QMainWindow):
         from ..models.mech import BattleMech
         from ..models.vehicle import CombatVehicle
         from ..models.aero import AeroSpaceFighter
+        from ..models.dropship import Dropship
         from ..models.battle_armor import BattleArmor
         from ..models.infantry import Infantry
         _type_map = {
             "BattleMech": BattleMech,
             "CombatVehicle": CombatVehicle,
             "AeroSpaceFighter": AeroSpaceFighter,
+            "Dropship": Dropship,
             "BattleArmor": BattleArmor,
             "Infantry": Infantry,
         }
@@ -335,12 +337,14 @@ class MainWindow(QMainWindow):
         from ..models.mech import BattleMech
         from ..models.vehicle import CombatVehicle
         from ..models.aero import AeroSpaceFighter
+        from ..models.dropship import Dropship
         from ..models.battle_armor import BattleArmor
         from ..models.infantry import Infantry
         _type_map = {
             "BattleMech": BattleMech,
             "CombatVehicle": CombatVehicle,
             "AeroSpaceFighter": AeroSpaceFighter,
+            "Dropship - Experimental": Dropship,
             "BattleArmor": BattleArmor,
             "Infantry": Infantry,
         }

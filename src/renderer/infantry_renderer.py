@@ -34,7 +34,7 @@ _IN = {
     "tmmLabel":       {"x": 60,  "y": 415},
     "tmm":            {"x": 190, "y": 415},
     "equipmentLabel": {"x": 60,  "y": 485},
-    "equipment":      {"x": 260, "y": 485},
+    "equipment":      {"x": 60, "y": 485},
     "troopsLabel":    {"x": 60,  "y": 565},
     "troopsRow":      {"yStart": 785, "yHeight": 120, "yDmgLabel": 685},
     "squadNumber":    {"x": 90,  "y": 825},
@@ -149,9 +149,9 @@ class InfantryCardRenderer(BaseCardRenderer):
             parts.extend(unit.field_guns)
         equip_text = ", ".join(parts)
         if equip_text:
-            wrapped = textwrap.fill(equip_text, width=65)
+            wrapped = textwrap.fill("                 " + equip_text, width=65)
             draw_text(painter, _IN["equipment"]["x"], _IN["equipment"]["y"],
-                      wrapped, size=_IN_FS_MEDIUM)
+                      wrapped, size=_IN_FS_LARGE)
 
     # ── Troopers section (mirrors _draw_ba_troopers) ──────────────────────────
 

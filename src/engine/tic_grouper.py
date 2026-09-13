@@ -27,6 +27,10 @@ _OPPOSITE_LOCS: dict[str, str] = {
     "LW": "RW", "RW": "LW",
 }
 
+# Dropship weapon-table rows (mech uses 9 TIC slots + melee row).
+# Hardcoded for now — profile field is a future option.
+DROPSHIP_TIC_SLOTS = 20
+
 
 def _fmt_rng(val: int) -> str:
     """Format a range bracket: ≥9→'—', <0→'-N', else '+N'."""
@@ -446,7 +450,9 @@ _SPECIAL_FLAGS = (
 )
 
 
-def _score_weapon_for_tic(rw: ResolvedWeapon, tig: TicGroup, tic_idx: int) -> float:
+def _score_weapon_for_tic(
+    rw: ResolvedWeapon, tig: TicGroup, tic_idx: int, tic_damage_max: int = 5,
+) -> float:
     """Score `rw` against TIC slot `tig`; mirrors JS _scoreWeaponForTicV5."""
     score = 100.0 - tic_idx
 
@@ -479,12 +485,12 @@ def _score_weapon_for_tic(rw: ResolvedWeapon, tig: TicGroup, tic_idx: int) -> fl
     if w.type == "P" or tig.has_physical:
         return 0.0
 
-    # Damage budget ≤ 5
+    # Damage budget ≤ tic_damage_max (standard 5; dropships use house-rule cap)
     if w.damageM > 0:
         combined = math.ceil(tig.damage / 3) + tig.damage_m + w.damageM
     else:
         combined = math.ceil((tig.damage + w.damage_value(rw.tonnage)) / 3) + tig.damage_m
-    if combined > 5:
+    if combined > tic_damage_max:
         return 0.0
 
     # Arc multiplier
@@ -522,9 +528,15 @@ def _sort_key_v5(rw: ResolvedWeapon) -> tuple:
 
 # ── TIC rule catalogue ────────────────────────────────────────────────────────
 
+def _tic_rule_1_text(tic_damage_max: int, tic_missile_max: int) -> str:
+    return (
+        f"A single TIC with multiple weapons cannot deal more than "
+        f"{tic_damage_max} points of damage (or {tic_missile_max} points "
+        f"of max missile damage)."
+    )
+
+
 TIC_RULES: dict[int, str] = {
-    1:  "A single TIC with multiple weapons cannot deal more than 5 points of damage "
-        "(or 14 points of max missile damage).",
     2:  "Rear-facing weapons can only be grouped with other rear-facing weapons.",
     3:  "Side-facing weapons can only be grouped with other same-side-facing weapons.",
     4:  "Missiles equipped with an Artemis Fire Control System cannot be grouped "
@@ -574,7 +586,11 @@ _FLAG_TO_RULE: dict[str, int] = {
 }
 
 
-def validate_tic_assignments(resolved: list[ResolvedWeapon]) -> list[str]:
+def validate_tic_assignments(
+    resolved: list[ResolvedWeapon],
+    tic_damage_max: int = 5,
+    tic_missile_max: int = 14,
+) -> list[str]:
     """
     Validate manual TIC assignments against the 13 grouping rules.
     Returns a list of human-readable violation messages.
@@ -637,10 +653,10 @@ def validate_tic_assignments(resolved: list[ResolvedWeapon]) -> list[str]:
         if 0 < os_count < len(weapons):
             violations.append(prefix + TIC_RULES[11])
 
-        # Rule 1 — damage budget ≤ 5 Override points (≤ 14 max missile damage)
+        # Rule 1 — damage budget ≤ tic_damage_max (≤ tic_missile_max missile damage)
         combined = math.ceil(grp.damage / 3) + grp.damage_m
-        if combined > 5:
-            violations.append(prefix + TIC_RULES[1])
+        if combined > tic_damage_max:
+            violations.append(prefix + _tic_rule_1_text(tic_damage_max, tic_missile_max))
         else:
             # Non-var missile weapons
             missile_ws = [
@@ -662,8 +678,8 @@ def validate_tic_assignments(resolved: list[ResolvedWeapon]) -> list[str]:
                     rw.weapon.damage_value(rw.tonnage) + rw.weapon.damageAdj
                     for rw in var_missile_ws
                 )
-                if math.ceil(max_dmg / 3) > 14:
-                    violations.append(prefix + TIC_RULES[1])
+                if math.ceil(max_dmg / 3) > tic_missile_max:
+                    violations.append(prefix + _tic_rule_1_text(tic_damage_max, tic_missile_max))
 
         # Rule 13 — AC/LAC weapons must share the same special ammo type
         ac_rws = [rw for rw in weapons if rw.weapon.useAmmo in _AC_AMMO_TYPES]
@@ -724,6 +740,20 @@ def resolve_weapons(
             aes=aes_eligible,
         ))
     return resolved
+
+
+def tic_caps_for(profile, is_dropship: bool) -> tuple[int, int]:
+    """Return (combined_damage_max, missile_damage_max) TIC caps for a unit.
+
+    Dropships use the active profile's house-rule caps (defaults 10/28);
+    all other unit types use the standard 5/14 Override caps.  `profile`
+    may be None or any object with the two dropship attributes.
+    """
+    if not is_dropship:
+        return (5, 14)
+    damage_max = int(getattr(profile, "dropship_tic_damage_max", 10) or 10)
+    missile_max = int(getattr(profile, "dropship_tic_missile_max", 28) or 28)
+    return (damage_max, missile_max)
 
 
 def group_weapons(resolved: list[ResolvedWeapon]) -> list[ResolvedWeapon]:
@@ -996,14 +1026,19 @@ def _override_damage_single(rw: ResolvedWeapon) -> int:
     return math.ceil(d / 3)
 
 
-def _chunk_fits(chunk: list[ResolvedWeapon]) -> bool:
+def _chunk_fits(
+    chunk: list[ResolvedWeapon],
+    tic_damage_max: int = 5,
+    tic_missile_max: int = 14,
+) -> bool:
     """Check if homogeneous chunk fits the TIC damage budget.
 
-    Rule 1: combined Override damage <= 5, and max missile damage <= 14.
+    Rule 1: combined Override damage <= tic_damage_max, and max missile
+    damage <= tic_missile_max.
     """
     grp = TicGroup(weapons=list(chunk))
     combined = math.ceil(grp.damage / 3) + grp.damage_m
-    if combined > 5:
+    if combined > tic_damage_max:
         return False
 
     # Check max missile damage for var+missile weapons (MML, ATM, eLRM)
@@ -1012,13 +1047,17 @@ def _chunk_fits(chunk: list[ResolvedWeapon]) -> bool:
         for rw in chunk
         if rw.weapon.damageM > 0
     )
-    if max_dmg > 0 and math.ceil(max_dmg / 3) > 14:
+    if max_dmg > 0 and math.ceil(max_dmg / 3) > tic_missile_max:
         return False
 
     return True
 
 
-def _split_into_even_groups(weapons: list[ResolvedWeapon]) -> list[list[ResolvedWeapon]]:
+def _split_into_even_groups(
+    weapons: list[ResolvedWeapon],
+    tic_damage_max: int = 5,
+    tic_missile_max: int = 14,
+) -> list[list[ResolvedWeapon]]:
     """Rule 3: split N identical weapons into fewest even-sized groups.
 
     Prefers exactly equal groups (N % G == 0). Falls back to size diff <= 1
@@ -1034,7 +1073,7 @@ def _split_into_even_groups(weapons: list[ResolvedWeapon]) -> list[list[Resolved
         if N % G != 0:
             continue
         size = N // G
-        if _chunk_fits(weapons[:size]):
+        if _chunk_fits(weapons[:size], tic_damage_max, tic_missile_max):
             result = [weapons[i:i + size] for i in range(0, N, size)]
             # If only equal split is all singletons, try uneven below
             if size == 1 and N > 1:
@@ -1046,7 +1085,7 @@ def _split_into_even_groups(weapons: list[ResolvedWeapon]) -> list[list[Resolved
         base = N // G
         rem = N % G
         sizes = [base + 1] * rem + [base] * (G - rem)
-        if not _chunk_fits(weapons[:sizes[0]]):
+        if not _chunk_fits(weapons[:sizes[0]], tic_damage_max, tic_missile_max):
             continue
         chunks = []
         idx = 0
@@ -1060,6 +1099,8 @@ def _split_into_even_groups(weapons: list[ResolvedWeapon]) -> list[list[Resolved
 
 def _pre_assign_location_groups(
     resolved: list[ResolvedWeapon],
+    tic_damage_max: int = 5,
+    tic_missile_max: int = 14,
 ) -> list[list[ResolvedWeapon]]:
     """Pre-assign weapons into TIC chunks based on location grouping rules.
 
@@ -1079,7 +1120,8 @@ def _pre_assign_location_groups(
     # Step B: split each group into even chunks
     all_chunks: list[list[ResolvedWeapon]] = []
     for weapons in groups.values():
-        all_chunks.extend(_split_into_even_groups(weapons))
+        all_chunks.extend(_split_into_even_groups(
+            weapons, tic_damage_max, tic_missile_max))
 
     if not all_chunks:
         return []
@@ -1128,7 +1170,7 @@ def _pre_assign_location_groups(
             while chunks_a and chunks_b:
                 ca, cb = chunks_a[0], chunks_b[0]
                 candidate = ca + cb
-                if _chunk_fits(candidate):
+                if _chunk_fits(candidate, tic_damage_max, tic_missile_max):
                     merged.append(candidate)
                     used.add(id(ca))
                     used.add(id(cb))
@@ -1151,6 +1193,9 @@ def _pre_assign_location_groups(
 def auto_assign_tics(
     resolved: list[ResolvedWeapon],
     is_ba: bool = False,
+    tic_damage_max: int = 5,
+    tic_missile_max: int = 14,
+    num_tics: int = 9,
 ) -> list[ResolvedWeapon]:
     """
     Auto-assign TIC values.
@@ -1160,6 +1205,7 @@ def auto_assign_tics(
              algorithm from card_gen.js autoGroupWeapons / _scoreWeaponForTicV5.
 
     For Battle Armor (is_ba=True), each weapon gets its own TIC — no grouping.
+    num_tics: number of TIC slots (9 default; dropships use DROPSHIP_TIC_SLOTS).
     """
     if is_ba:
         for i, rw in enumerate(resolved):
@@ -1167,15 +1213,14 @@ def auto_assign_tics(
             rw.unit_weapon.tic = rw.tic
         return resolved
 
-    NUM_TICS = 9
-    tics = [TicGroup() for _ in range(NUM_TICS)]
+    tics = [TicGroup() for _ in range(num_tics)]
 
     # Phase 1: Pre-assign location-based groups
-    chunks = _pre_assign_location_groups(resolved)
+    chunks = _pre_assign_location_groups(resolved, tic_damage_max, tic_missile_max)
     pre_assigned: set[int] = set()
 
     for tic_idx, chunk in enumerate(chunks):
-        if tic_idx >= NUM_TICS:
+        if tic_idx >= num_tics:
             break
         for rw in chunk:
             rw.tic = tic_idx + 1
@@ -1189,7 +1234,8 @@ def auto_assign_tics(
         ordered = sorted(remaining, key=_sort_key_v5)
 
         for rw in ordered:
-            scores = [_score_weapon_for_tic(rw, tics[i], i) for i in range(NUM_TICS)]
+            scores = [_score_weapon_for_tic(rw, tics[i], i, tic_damage_max)
+                      for i in range(num_tics)]
             best = scores.index(max(scores))
             rw.tic = best + 1
             tics[best].weapons.append(rw)

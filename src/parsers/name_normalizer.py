@@ -978,6 +978,7 @@ _ALIAS_MAP: dict[str, str] = {
     "insulatedcargobay": "cargobay",
     "refrigeratedcargobay": "cargobay",
     "lightvehiclebay": "cargobay",
+    "heavyvehiclebay": "cargobay",
     "livestockcargobay": "cargobay",
     "battlearmorbay": "infantrybay",
 

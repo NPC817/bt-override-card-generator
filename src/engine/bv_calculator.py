@@ -238,6 +238,7 @@ def calculate_bv(unit: AbstractUnit) -> int:
     from ..models.vehicle import CombatVehicle
     from ..models.battle_armor import BattleArmor
     from ..models.aero import AeroSpaceFighter
+    from ..models.dropship import Dropship
 
     if isinstance(unit, BattleMech):
         return _calculate_mech_bv(unit)
@@ -247,6 +248,8 @@ def calculate_bv(unit: AbstractUnit) -> int:
         return _calculate_ba_bv(unit)
     elif isinstance(unit, AeroSpaceFighter):
         return _calculate_aero_bv(unit)
+    elif isinstance(unit, Dropship):
+        return _calculate_dropship_bv(unit)
     return 0
 
 
@@ -702,9 +705,30 @@ def _calculate_aero_bv(unit) -> int:
     return max(final_bv, 1)
 
 
-def _aero_defensive_br(unit) -> float:
+def _aero_style_ammo_penalty(unit) -> float:
+    """Ammo penalty: -15 per ammo type (not per ton). Shared by aero + dropship."""
     from ..models.data_store import DataStore
 
+    has_case = unit.is_equipped_with("case") or unit.is_equipped_with("case2")
+    has_freecase = unit.is_equipped_with("freecase")
+    if has_case or has_freecase:
+        return 0.0
+
+    ammo_pen = 0.0
+    seen_types = set()
+    for e in unit.equipment:
+        try:
+            eq = DataStore.equipment(e.equipment_key)
+        except KeyError:
+            continue
+        if eq.shots_per_ton > 0 and eq.bv > 0:
+            if e.subtype not in seen_types:
+                seen_types.add(e.subtype)
+                ammo_pen += 15
+    return ammo_pen
+
+
+def _aero_defensive_br(unit) -> float:
     # Armor: sum all zones × 2.5
     total_armor = sum(unit.armor.values())
     armor_mod = _detect_armor_modifier(unit)
@@ -717,21 +741,7 @@ def _aero_defensive_br(unit) -> float:
     # Defensive equipment
     def_eq_bv = _defensive_equipment_bv(unit)
 
-    # Ammo penalty: -15 per ammo type (not per ton)
-    ammo_pen = 0.0
-    has_case = unit.is_equipped_with("case") or unit.is_equipped_with("case2")
-    has_freecase = unit.is_equipped_with("freecase")
-    if not has_case and not has_freecase:
-        seen_types = set()
-        for e in unit.equipment:
-            try:
-                eq = DataStore.equipment(e.equipment_key)
-            except KeyError:
-                continue
-            if eq.shots_per_ton > 0 and eq.bv > 0:
-                if e.subtype not in seen_types:
-                    seen_types.add(e.subtype)
-                    ammo_pen += 15
+    ammo_pen = _aero_style_ammo_penalty(unit)
 
     subtotal = armor_factor + si_factor + def_eq_bv - ammo_pen
     if subtotal < 1:
@@ -746,7 +756,7 @@ def _aero_defensive_br(unit) -> float:
     return subtotal * type_mod
 
 
-def _aero_offensive_br(unit) -> float:
+def _aero_offensive_br(unit, weight_divisor: float | None = None) -> float:
     from ..models.data_store import DataStore
     from collections import defaultdict
 
@@ -795,9 +805,56 @@ def _aero_offensive_br(unit) -> float:
             else:
                 wbr += w["bv"] * 0.5
 
-    # No weight contribution for aero
+    # No weight contribution for aero; dropships pass weight_divisor
+    # (ships are heavy — /10 keeps the term from dwarfing weapon BV)
+    if weight_divisor is not None:
+        wbr += unit.tonnage / weight_divisor
     sf = _speed_factor(unit.max_thrust, 0)
     return wbr * sf
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DropShip BV
+# ═══════════════════════════════════════════════════════════════════════════════
+
+
+def _calculate_dropship_bv(unit) -> int:
+    """Calculate BV 2.0 for a DropShip (house-ruled, mirrors aero)."""
+    dbr = _dropship_defensive_br(unit)
+    obr = _dropship_offensive_br(unit)
+    return max(round(dbr + obr), 1)
+
+
+def _dropship_defensive_br(unit) -> float:
+    from ..models.dropship import Dropship
+
+    # Armor: sum all zones × 2.5
+    total_armor = sum(unit.armor.values())
+    armor_mod = _detect_armor_modifier(unit)
+    armor_factor = total_armor * 2.5 * armor_mod
+
+    # SI: structural_integrity × 2.0 (instead of aero's thrust-based SI)
+    si_factor = unit.structural_integrity * 2.0
+
+    # Defensive equipment
+    def_eq_bv = _defensive_equipment_bv(unit)
+
+    ammo_pen = _aero_style_ammo_penalty(unit)
+
+    subtotal = armor_factor + si_factor + def_eq_bv - ammo_pen
+    if subtotal < 1:
+        subtotal = 1.0
+
+    # Type modifier: aerodyne more agile than spheroid
+    type_mod = 1.2 if unit.motive_type == Dropship.AERODYNE else 1.1
+    if unit.is_equipped_with("stealth"):
+        type_mod += 0.3
+
+    return subtotal * type_mod
+
+
+def _dropship_offensive_br(unit) -> float:
+    return _aero_offensive_br(unit, weight_divisor=10.0)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

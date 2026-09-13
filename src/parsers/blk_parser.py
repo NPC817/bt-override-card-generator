@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from ..models.vehicle import CombatVehicle
 from ..models.battle_armor import BattleArmor
 from ..models.aero import AeroSpaceFighter
+from ..models.dropship import Dropship, Transporter
 from ..models.infantry import Infantry
 from ..models.unit import UnitWeapon, UnitEquipment
 from .name_normalizer import normalize_weapon, normalize_equipment, normalize_ammo
@@ -12,7 +13,7 @@ from .name_normalizer import normalize_weapon, normalize_equipment, normalize_am
 
 @dataclass
 class ParseResult:
-    unit: CombatVehicle | BattleArmor | AeroSpaceFighter | Infantry
+    unit: CombatVehicle | BattleArmor | AeroSpaceFighter | Infantry | Dropship
     warnings: list[str] = field(default_factory=list)
 
 
@@ -77,6 +78,9 @@ def parse_blk(path: str) -> ParseResult:
 
     if "infantry" in unit_type_raw:
         return _parse_infantry(content, warnings)
+
+    if "dropship" in unit_type_raw:
+        return _parse_dropship(content, warnings)
 
     vehicle = CombatVehicle()
 
@@ -594,6 +598,185 @@ def _parse_aero(content: str, warnings: list[str]) -> ParseResult:
     aero.equipment = deduped
 
     return ParseResult(unit=aero, warnings=warnings)
+
+
+def _parse_dropship(content: str, warnings: list[str]) -> ParseResult:
+    tag       = lambda n: _tag(content, n)
+    tag_lines = lambda n: _tag_lines(content, n)
+
+    ds = Dropship()
+
+    ds.chassis = tag("Name") or ""
+    ds.variant = tag("Model") or ""
+
+    # Tonnage is float in dropship BLKs (e.g. 3600.0)
+    tonnage_str = tag("tonnage") or "3500"
+    try:
+        ds.tonnage = int(float(tonnage_str))
+    except ValueError:
+        warnings.append(f"Invalid tonnage: {tonnage_str!r}")
+
+    motion_raw = (tag("motion_type") or "Spheroid").lower()
+    ds.motive_type = (Dropship.AERODYNE if motion_raw == "aerodyne"
+                      else Dropship.SPHEROID)
+
+    try:
+        ds.safe_thrust = int(tag("SafeThrust") or "3")
+    except ValueError:
+        pass
+
+    # No MaxThrust tag in dropship BLKs
+    ds.max_thrust = int(math.ceil(ds.safe_thrust * 1.5))
+
+    try:
+        ds.sinks = int(tag("heatsinks") or "30")
+    except ValueError:
+        pass
+
+    try:
+        sink_type_val = int(tag("sink_type") or "0")
+        ds.has_dhs = (sink_type_val == 1)
+    except ValueError:
+        pass
+
+    try:
+        ds.structural_integrity = int(tag("structural_integrity") or "10")
+    except ValueError:
+        pass
+
+    try:
+        ds.fuel = int(tag("fuel") or "0")
+    except ValueError:
+        pass
+
+    _detect_tech(tag, ds)
+
+    # Transporters — line format: name:size:doors[:door_type...]
+    # Same-name lines aggregate counts AND doors (Union: mekbay:4.0:2 + mekbay:8.0:2
+    # → 12 bays, 4 doors). Fields after doors are ignored.
+    transporter_agg: dict[str, list] = {}   # ekey -> [amount, doors]
+    for line in tag_lines("transporters"):
+        parts = line.split(":")
+        if len(parts) < 2:
+            continue
+        name = parts[0].strip()
+        try:
+            amount = float(parts[1])
+        except ValueError:
+            continue
+        if amount <= 0:
+            continue  # MegaMek sentinel values (-1) and empty 0.0 lines
+        ekey = normalize_equipment(name)
+        if not ekey:
+            warnings.append(f"Unknown transporter: {name!r}")
+            continue
+        doors = 0
+        if len(parts) > 2:
+            try:
+                doors = int(float(parts[2]))
+            except ValueError:
+                doors = 0
+        agg = transporter_agg.setdefault(ekey, [0.0, 0])
+        agg[0] += amount
+        agg[1] += doors
+
+    _ds_transporter_keys: set[str] = set()
+    for ekey, (amount, doors) in transporter_agg.items():
+        ds.equipment.append(UnitEquipment(equipment_key=ekey, uses=math.ceil(amount)))
+        ds.transporters.append(Transporter(key=ekey, count=amount, doors=doors))
+        _ds_transporter_keys.add(ekey)
+
+    # Armor block: 4 positional lines → Nose, Left, Right, Aft
+    armor_lines = tag_lines("armor")
+    armor_keys = (["N", "LW", "RW", "A"] if ds.motive_type == Dropship.AERODYNE
+                  else ["N", "LS", "RS", "A"])
+    for i, val_str in enumerate(armor_lines[:4]):
+        try:
+            ds.armor[armor_keys[i]] = int(val_str)
+        except ValueError:
+            pass
+
+    # Equipment sections — aerodyne dropships also use "Side" names in the BLK;
+    # card labels map them to Wing via left_key/right_key.
+    eq_section_names = [
+        "Nose Equipment", "Left Side Equipment", "Right Side Equipment",
+        "Aft Equipment", "Hull Equipment", "Wings Equipment", "Fuselage Equipment",
+    ]
+    loc_map = {
+        "Nose Equipment": "N",
+        "Left Side Equipment": ds.left_key,
+        "Right Side Equipment": ds.right_key,
+        "Aft Equipment": "A",
+        "Hull Equipment": "", "Wings Equipment": "", "Fuselage Equipment": "",
+    }
+
+    for section_name in eq_section_names:
+        loc = loc_map[section_name]
+        for item_name in tag_lines(section_name):
+            ammo = normalize_ammo(item_name)
+            if ammo:
+                eq_key, subtype = ammo
+                ds.equipment.append(UnitEquipment(
+                    equipment_key=eq_key, subtype=subtype, location=loc,
+                ))
+                continue
+            wkey = normalize_weapon(item_name)
+            if wkey:
+                from ..models.data_store import DataStore
+                try:
+                    DataStore.weapon(wkey)
+                    ds.weapons.append(UnitWeapon(weapon_key=wkey, location=loc))
+                    continue
+                except KeyError:
+                    pass
+            ekey = normalize_equipment(item_name)
+            if ekey:
+                ds.equipment.append(UnitEquipment(equipment_key=ekey, location=loc))
+                if ekey in ("aiv", "av"):
+                    _link_fcs_to_weapon(ds.weapons, loc, ekey)
+                continue
+            if item_name and item_name.lower() not in ("-empty-", ""):
+                warnings.append(f"Unknown item in {section_name}: {item_name!r}")
+
+    # Deduplicate equipment by (key, location, subtype).
+    # For ammo entries, count tons into the `uses` field instead of dropping.
+    _AMMO_KEYS = frozenset({"ammo", "ammolimited"})
+    seen: set[tuple[str, str, str]] = set()
+    deduped: list[UnitEquipment] = []
+    ammo_counts: dict[tuple[str, str, str], int] = {}
+    for e in ds.equipment:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if is_ammo:
+            sig = (e.equipment_key, e.location, e.subtype)
+            ammo_counts[sig] = ammo_counts.get(sig, 0) + 1
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+        else:
+            sig = (e.equipment_key, e.location, e.subtype)
+            if sig not in seen:
+                seen.add(sig)
+                deduped.append(e)
+    for e in deduped:
+        sig = (e.equipment_key, e.location, e.subtype)
+        if sig in ammo_counts:
+            e.uses = float(ammo_counts[sig])
+    from ..models.data_store import DataStore as _DS
+    _orig_eq = ds.equipment
+    for e in deduped:
+        is_ammo = e.equipment_key in _AMMO_KEYS or e.equipment_key.endswith("_ammo")
+        if not is_ammo:
+            try:
+                eq_obj = _DS.equipment(e.equipment_key)
+                if eq_obj.isLimited and e.equipment_key not in _ds_transporter_keys:
+                    sig = (e.equipment_key, e.location, e.subtype)
+                    e.uses = float(sum(1 for o in _orig_eq
+                                       if (o.equipment_key, o.location, o.subtype) == sig))
+            except KeyError:
+                pass
+    ds.equipment = deduped
+
+    return ParseResult(unit=ds, warnings=warnings)
 
 
 def _map_inf_weapon(name: str) -> str:

@@ -9,16 +9,19 @@ from ..settings.profile_manager import ProfileManager
 from ..models.mech import BattleMech
 from ..models.vehicle import CombatVehicle
 from ..models.aero import AeroSpaceFighter
+from ..models.dropship import Dropship
 from ..models.battle_armor import BattleArmor
 from ..models.data_store import DataStore
 from ..renderer.mech_renderer import MechCardRenderer, QuadCardRenderer
 from ..renderer.vehicle_renderer import VehicleCardRenderer
 from ..renderer.aero_renderer import AeroCardRenderer
+from ..renderer.dropship_renderer import DropshipCardRenderer
 from ..renderer.ba_renderer import BattleArmorRenderer
 from ..renderer.png_exporter import export_png
 from ..renderer.pdf_exporter import export_pdf
 from ..engine.tic_grouper import (
     resolve_weapons, build_tic_rows, auto_assign_tics, ba_squad_damage_strs,
+    tic_caps_for, DROPSHIP_TIC_SLOTS,
 )
 
 
@@ -90,7 +93,12 @@ class BatchProcessor(QThread):
 
                 tonnage = getattr(unit, "tonnage", 0)
                 resolved = resolve_weapons(unit, tonnage, profile=profile)
-                auto_assign_tics(resolved, is_ba=isinstance(unit, BattleArmor))
+                dmg_cap, msl_cap = tic_caps_for(profile, isinstance(unit, Dropship))
+                auto_assign_tics(
+                    resolved, is_ba=isinstance(unit, BattleArmor),
+                    tic_damage_max=dmg_cap, tic_missile_max=msl_cap,
+                    num_tics=(DROPSHIP_TIC_SLOTS if isinstance(unit, Dropship)
+                              else 9))
 
                 # Calculate Battle Value
                 try:
@@ -131,6 +139,9 @@ class BatchProcessor(QThread):
                 elif isinstance(unit, AeroSpaceFighter):
                     pixmap = AeroCardRenderer().render(unit, profile, rows,
                                                        equipment_items=equipment_items)
+                elif isinstance(unit, Dropship):
+                    pixmap = DropshipCardRenderer().render(unit, profile, rows,
+                                                           equipment_items=equipment_items)
                 elif isinstance(unit, BattleArmor):
                     pixmap = BattleArmorRenderer().render(unit, profile, rows,
                                                           equipment_items=equipment_items)

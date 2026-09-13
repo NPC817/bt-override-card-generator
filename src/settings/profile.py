@@ -9,6 +9,8 @@ class ConversionProfile:
     vehicle_armor_divisor: float = 4.0
     aero_armor_divisor: float = 4.0
     heat_scale_max: int = 5          # pips on heat track (1-30)
+    dropship_tic_damage_max: int = 10    # max combined Override damage per TIC on Dropships
+    dropship_tic_missile_max: int = 28   # max missile damage per TIC on Dropships
     move_scale_multiplier: float = 1.0
     weapon_overrides: dict = field(default_factory=dict)  # {weapon_key: {field: value}}
     track_ammo: bool = False      # enable ammo shot-count display on cards
@@ -19,6 +21,8 @@ class ConversionProfile:
     def __post_init__(self) -> None:
         """Clamp heat_scale_max to valid range 1-30."""
         self.heat_scale_max = max(1, min(30, self.heat_scale_max))
+        self.dropship_tic_damage_max = max(1, min(30, self.dropship_tic_damage_max))
+        self.dropship_tic_missile_max = max(1, min(60, self.dropship_tic_missile_max))
 
     @property
     def heat_sink_divisor(self) -> float:
@@ -35,6 +39,8 @@ class ConversionProfile:
             "vehicle_armor_divisor": self.vehicle_armor_divisor,
             "aero_armor_divisor": self.aero_armor_divisor,
             "heat_scale_max": self.heat_scale_max,
+            "dropship_tic_damage_max": self.dropship_tic_damage_max,
+            "dropship_tic_missile_max": self.dropship_tic_missile_max,
             "move_scale_multiplier": self.move_scale_multiplier,
             "weapon_overrides": dict(self.weapon_overrides),
             "track_ammo": self.track_ammo,
@@ -51,6 +57,8 @@ class ConversionProfile:
             vehicle_armor_divisor=float(data.get("vehicle_armor_divisor", 4.0)),
             aero_armor_divisor=float(data.get("aero_armor_divisor", 4.0)),
             heat_scale_max=int(data.get("heat_scale_max", 5)),
+            dropship_tic_damage_max=int(data.get("dropship_tic_damage_max", 10)),
+            dropship_tic_missile_max=int(data.get("dropship_tic_missile_max", 28)),
             move_scale_multiplier=float(data.get("move_scale_multiplier", 1.0)),
             weapon_overrides=dict(data.get("weapon_overrides", {})),
             track_ammo=bool(data.get("track_ammo", False)),

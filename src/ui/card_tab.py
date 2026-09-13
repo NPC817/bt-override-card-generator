@@ -47,7 +47,7 @@ class CardTab(QWidget):
 
         self._type_combo = QComboBox()
         self._type_combo.addItems([
-            "BattleMech", "Combat Vehicle", "Fighter",
+            "BattleMech", "Combat Vehicle", "Fighter", "Dropship - Experimental",
             "Battle Armor", "Infantry",
         ])
         self._type_combo.currentIndexChanged.connect(self._on_type_changed)
@@ -82,17 +82,20 @@ class CardTab(QWidget):
         from .forms.mech_form import MechForm
         from .forms.vehicle_form import VehicleForm
         from .forms.aero_form import AeroForm
+        from .forms.dropship_form import DropshipForm
         from .forms.ba_form import BattleArmorForm
         from .forms.infantry_form import InfantryForm
 
         self._mech_form    = MechForm();          self._mech_form.changed.connect(self._schedule_render)
         self._vehicle_form = VehicleForm();       self._vehicle_form.changed.connect(self._schedule_render)
         self._aero_form    = AeroForm();          self._aero_form.changed.connect(self._schedule_render)
+        self._dropship_form = DropshipForm();     self._dropship_form.changed.connect(self._schedule_render)
         self._ba_form      = BattleArmorForm();   self._ba_form.changed.connect(self._schedule_render)
         self._inf_form     = InfantryForm();      self._inf_form.changed.connect(self._schedule_render)
 
         for f in [self._mech_form, self._vehicle_form,
-                  self._aero_form, self._ba_form, self._inf_form]:
+                  self._aero_form, self._dropship_form,
+                  self._ba_form, self._inf_form]:
             self._form_stack.addWidget(f)
 
     # ── Type switching ────────────────────────────────────────────────────────
@@ -108,9 +111,11 @@ class CardTab(QWidget):
         from ..models.mech import BattleMech
         from ..models.vehicle import CombatVehicle
         from ..models.aero import AeroSpaceFighter
+        from ..models.dropship import Dropship
         from ..models.battle_armor import BattleArmor
         from ..models.infantry import Infantry
-        from ..engine.tic_grouper import resolve_weapons, auto_assign_tics
+        from ..engine.tic_grouper import (
+            resolve_weapons, auto_assign_tics, tic_caps_for, DROPSHIP_TIC_SLOTS)
 
         # Auto-assign TICs only when none are set (fresh MTF/BLK parse has tic=0).
         # Saved .ovr/.force files carry user-set TIC values — preserve them.
@@ -118,14 +123,20 @@ class CardTab(QWidget):
             try:
                 tonnage = getattr(unit, "tonnage", 0)
                 resolved = resolve_weapons(unit, tonnage)
-                auto_assign_tics(resolved, is_ba=isinstance(unit, BattleArmor))
+                dmg_cap, msl_cap = tic_caps_for(
+                    ProfileManager.active(), isinstance(unit, Dropship))
+                auto_assign_tics(
+                    resolved, is_ba=isinstance(unit, BattleArmor),
+                    tic_damage_max=dmg_cap, tic_missile_max=msl_cap,
+                    num_tics=(DROPSHIP_TIC_SLOTS if isinstance(unit, Dropship)
+                              else 9))
             except Exception as exc:
                 logging.warning("TIC auto-assign failed: %s", exc)
 
         self.unit = unit
         type_map = {
             BattleMech: 0, CombatVehicle: 1,
-            AeroSpaceFighter: 2, BattleArmor: 3, Infantry: 4,
+            AeroSpaceFighter: 2, Dropship: 3, BattleArmor: 4, Infantry: 5,
         }
         idx = type_map.get(type(unit), 0)
         self._type_combo.blockSignals(True)
@@ -173,11 +184,13 @@ class CardTab(QWidget):
         from ..models.mech import BattleMech
         from ..models.vehicle import CombatVehicle
         from ..models.aero import AeroSpaceFighter
+        from ..models.dropship import Dropship
         from ..models.battle_armor import BattleArmor
         from ..models.infantry import Infantry
         from ..renderer.mech_renderer import MechCardRenderer, QuadCardRenderer
         from ..renderer.vehicle_renderer import VehicleCardRenderer
         from ..renderer.aero_renderer import AeroCardRenderer
+        from ..renderer.dropship_renderer import DropshipCardRenderer
         from ..renderer.ba_renderer import BattleArmorRenderer
         from ..engine.tic_grouper import resolve_weapons, build_tic_rows, auto_assign_tics
         from ..models.data_store import DataStore
@@ -223,6 +236,10 @@ class CardTab(QWidget):
                                    equipment_items=equipment_items)
         elif isinstance(self.unit, AeroSpaceFighter):
             renderer = AeroCardRenderer()
+            return renderer.render(self.unit, profile, weapons_rows,
+                                   equipment_items=equipment_items)
+        elif isinstance(self.unit, Dropship):
+            renderer = DropshipCardRenderer()
             return renderer.render(self.unit, profile, weapons_rows,
                                    equipment_items=equipment_items)
         elif isinstance(self.unit, BattleArmor):

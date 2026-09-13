@@ -4,6 +4,7 @@ Extracted from card_tab.py and batch_processor.py to avoid duplication
 and to support ammo tracking with inline pips.
 """
 from __future__ import annotations
+import math
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -12,6 +13,19 @@ if TYPE_CHECKING:
 
 from ..models.battle_armor import BattleArmor
 from ..models.data_store import DataStore
+from ..models.dropship import Dropship
+
+
+def _uses_suffix(unit: AbstractUnit, eq) -> str:
+    """'(N)' for generic uses; '(Nb-Dd)' for dropship true bays with door data."""
+    if not eq.uses:
+        return ""
+    if isinstance(unit, Dropship) and eq.equipment_key in Dropship.BAY_KEYS:
+        t = unit.transporter(eq.equipment_key)
+        if t is not None:
+            return f" ({math.ceil(eq.uses)}b-{t.doors}d)"
+    uses_str = str(int(eq.uses)) if eq.uses % 1 == 0 else f"{eq.uses:.1f}"
+    return f" ({uses_str})"
 
 
 def build_equipment_items(
@@ -81,9 +95,7 @@ def build_equipment_items(
                 and (eq_obj is None or eq_obj.hasLoc)):
             label += f" [{eq.location}]"
         if eq.uses and not is_ammo:
-            uses_str = (str(int(eq.uses)) if eq.uses % 1 == 0
-                        else f"{eq.uses:.1f}")
-            label += f" ({uses_str})"
+            label += _uses_suffix(unit, eq)
 
         items.append({
             "label": label,

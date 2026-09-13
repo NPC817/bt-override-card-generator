@@ -67,6 +67,21 @@ PIP_RADIUS  = 15                               # Ee
 PIP_H       = PIP_RADIUS * math.sqrt(3) + 1.5 # row spacing (~27.46)
 PIP_X_MULT  = 16.5                             # column spacing
 
+# Dense (dropship) pip constants — half-size pips, four per layout slot (2x2)
+PIP_DENSE_RADIUS   = PIP_RADIUS / 2            # 7.5 — half-size pips for condensed quads
+PIP_DENSE_OFFSET_X = PIP_X_MULT                # 16.5 — column spacing
+PIP_DENSE_OFFSET_Y = PIP_H / 2                 # 13.74 — row spacing
+
+# 2x2 quadrant offsets, centered on the layout slot (row-major). Halved so
+# the block's visual center sits where a full-size pip sits — no shift when
+# switching between normal and condensed modes.
+PIP_DENSE_QUADS = (
+    (-PIP_DENSE_OFFSET_X / 2, -PIP_DENSE_OFFSET_Y / 2),
+    (PIP_DENSE_OFFSET_X / 2,  -PIP_DENSE_OFFSET_Y / 2),
+    (-PIP_DENSE_OFFSET_X / 2,  PIP_DENSE_OFFSET_Y / 2),
+    (PIP_DENSE_OFFSET_X / 2,   PIP_DENSE_OFFSET_Y / 2),
+)
+
 # Ammo pip constants (75% of armor pip scale)
 AMMO_PIP_RADIUS   = 11        # 15 * 0.75 ≈ 11
 AMMO_PIP_H        = AMMO_PIP_RADIUS * math.sqrt(3) - 2.0  # row spacing ~23
@@ -137,11 +152,18 @@ def draw_pips(
     stroke_width: int = 3,
     slice_mode: str = "",
     struct_slice: bool = False,
+    radius: float = PIP_RADIUS,
+    condense: bool = False,
 ) -> None:
     """Draw `count` hexagonal pips using the step layout from card_gen.js.
 
     slice_mode: "" (none), "single" (hardened armor), "double" (ferro-lamellor).
     struct_slice: draw a red diagonal line through each pip (reinforced structure).
+
+    radius: base (full-size) pip radius. condense: when count exceeds the
+    layout's step capacity, switch to a 2x2 grid of half-size pips per step
+    (offsets ±PIP_DENSE_OFFSET_X / ±PIP_DENSE_OFFSET_Y), quadrupling capacity.
+    Used by dropship cards whose armor counts exceed their layouts.
     """
     if not pip_config or count <= 0:
         return
@@ -151,62 +173,93 @@ def draw_pips(
     x = float(pip_config["start"]["x"])
     y = float(pip_config["start"]["y"])
 
-    # Mask-based starting adjustment (shift first step when mask(count) is True)
-    if mask_fn and count < len(steps) and mask_fn(count):
+    # Condense only past layout capacity; compute before the mask pop.
+    condensed = condense and count > len(steps)
+
+    # Mask-based starting adjustment (shift first step when mask(slots) is True).
+    # Mask parity applies to step slots, not to condensed quarter-pips.
+    slots = math.ceil(count / 4) if condensed else count
+    if mask_fn and slots < len(steps) and mask_fn(slots):
         steps.pop(0)
 
-    c = PIP_RADIUS / 2
-    u = PIP_RADIUS * math.sqrt(3) / 2
+    r = radius / 2 if condensed else radius
+    c = r / 2
+    u = r * math.sqrt(3) / 2
+    sw = max(1, round(stroke_width * r / PIP_RADIUS))
+    slice_w = max(1, round(2 * r / PIP_RADIUS))
+
+    quads = PIP_DENSE_QUADS
 
     drawn = 0
-    for i, step in enumerate(steps):
+    for step in steps:
         if drawn >= count:
             break
         x += round(PIP_X_MULT * step["x"])
         y += round(step["y"] * PIP_H)
-        _draw_hex(painter, x, y, PIP_RADIUS, stroke, fill, stroke_width)
+        if condensed:
+            for ox, oy in quads:
+                if drawn >= count:
+                    break
+                _draw_hex(painter, x + ox, y + oy, r, stroke, fill, sw)
+                _draw_pip_marks(painter, x + ox, y + oy, c, u,
+                                slice_mode, struct_slice, slice_w)
+                drawn += 1
+        else:
+            _draw_hex(painter, x, y, r, stroke, fill, sw)
+            _draw_pip_marks(painter, x, y, c, u, slice_mode, struct_slice, slice_w)
+            drawn += 1
 
-        # Reinforced structure: red diagonal line through hex
-        if struct_slice:
-            painter.setPen(QPen(_parse_color("red"), 2))
-            painter.drawLine(
-                QPointF(round(x - c), round(y - u)),
-                QPointF(round(x + c), round(y + u)),
-            )
 
-        # Slice marks for special armor types
-        if slice_mode == "single":
-            # Hardened: diagonal line through hex
-            painter.setPen(QPen(_parse_color("rgba(0, 0, 0, 0.65)"), 2))
-            painter.drawLine(
-                QPointF(round(x - c), round(y - u)),
-                QPointF(round(x + c), round(y + u)),
-            )
-        elif slice_mode == "double":
-            # Ferro-Lamellor: 5-line asterisk through hex
-            painter.setPen(QPen(_parse_color("rgba(0, 0, 0, 0.5)"), 2))
-            # Center to bottom-left vertex
-            painter.drawLine(
-                QPointF(round(x), round(y)),
-                QPointF(round(x - c), round(y + u)),
-            )
-            # Center to bottom-right vertex
-            painter.drawLine(
-                QPointF(round(x), round(y)),
-                QPointF(round(x + c), round(y + u)),
-            )
-            # Horizontal through center
-            painter.drawLine(
-                QPointF(round(x - u), round(y)),
-                QPointF(round(x + u), round(y)),
-            )
-            # Center to top vertex
-            painter.drawLine(
-                QPointF(round(x), round(y)),
-                QPointF(round(x), round(y - u)),
-            )
+def _draw_pip_marks(
+    painter: QPainter,
+    x: float, y: float,
+    c: float, u: float,
+    slice_mode: str,
+    struct_slice: bool,
+    slice_w: int,
+) -> None:
+    """Overlay marks inside a single pip: reinforced-structure diagonal and
+    special-armor slice marks (hardened / ferro-lamellor). Geometry is
+    radius-relative via c/u so it scales with pip size."""
+    # Reinforced structure: red diagonal line through hex
+    if struct_slice:
+        painter.setPen(QPen(_parse_color("red"), slice_w))
+        painter.drawLine(
+            QPointF(round(x - c), round(y - u)),
+            QPointF(round(x + c), round(y + u)),
+        )
 
-        drawn += 1
+    # Slice marks for special armor types
+    if slice_mode == "single":
+        # Hardened: diagonal line through hex
+        painter.setPen(QPen(_parse_color("rgba(0, 0, 0, 0.65)"), slice_w))
+        painter.drawLine(
+            QPointF(round(x - c), round(y - u)),
+            QPointF(round(x + c), round(y + u)),
+        )
+    elif slice_mode == "double":
+        # Ferro-Lamellor: 5-line asterisk through hex
+        painter.setPen(QPen(_parse_color("rgba(0, 0, 0, 0.5)"), slice_w))
+        # Center to bottom-left vertex
+        painter.drawLine(
+            QPointF(round(x), round(y)),
+            QPointF(round(x - c), round(y + u)),
+        )
+        # Center to bottom-right vertex
+        painter.drawLine(
+            QPointF(round(x), round(y)),
+            QPointF(round(x + c), round(y + u)),
+        )
+        # Horizontal through center
+        painter.drawLine(
+            QPointF(round(x - u), round(y)),
+            QPointF(round(x + u), round(y)),
+        )
+        # Center to top vertex
+        painter.drawLine(
+            QPointF(round(x), round(y)),
+            QPointF(round(x), round(y - u)),
+        )
 
 
 def _parse_color(s: str) -> QColor:
@@ -324,6 +377,8 @@ class BaseCardRenderer:
 
     #: Filename of the card background (override in subclass)
     BASE_IMAGE = "card-base.png"
+    #: Fallback background when BASE_IMAGE file is missing (override in subclass)
+    BASE_IMAGE_FALLBACK: Optional[str] = None
     #: Filename of the unit silhouette (override in subclass)
     SILHOUETTE_IMAGE: Optional[str] = None
 
@@ -336,6 +391,8 @@ class BaseCardRenderer:
         painter.setRenderHint(QPainter.RenderHint.TextAntialiasing)
 
         base = _load_image(self.BASE_IMAGE)
+        if base is None and self.BASE_IMAGE_FALLBACK:
+            base = _load_image(self.BASE_IMAGE_FALLBACK)
         if base:
             painter.drawPixmap(0, 0, CARD_W, CARD_H, base)
 
@@ -504,12 +561,14 @@ class BaseCardRenderer:
                 draw_text(painter, LABEL_X, y + (CH + 20) // 2, "No Effect", size=FS_MEDIUM)
 
     def _draw_weapons_table(
-        self, painter: QPainter, resolved_weapons: list, has_heat: bool = True
+        self, painter: QPainter, resolved_weapons: list, has_heat: bool = True,
+        row_height: int = 60, font_size: int = FS_MEDIUM,
     ) -> None:
         """
         Draw the weapons table in the left panel.
         resolved_weapons: list of dicts with keys:
           name, damage, heat, location, rangePB, rangeS, rangeM, rangeL, rangeX
+        row_height/font_size: dropship uses 30/14 (half) for 20 compact rows.
         """
         # Column x positions (from card_gen.js)
         COL_NAME  = 68
@@ -523,11 +582,12 @@ class BaseCardRenderer:
         COL_X     = 1070
 
         Y_START   = 515  # Ye.y
-        ROW_H     = 60   # ya
+        ROW_H     = row_height
 
-        # Header row
+        # Header row — fixed at 60px tall; never shrinks with row_height
+        # (Y_START - 30 would collide with the WEAPONS label at y 490).
         draw_text(painter, 60, 490, "WEAPONS", size=FS_XLARGE, bold=True)
-        header_y = Y_START - ROW_H  # Ye.y - ya = 445
+        header_y = Y_START - 60  # Ye.y - ya = 455
         self._draw_weapon_row_header(painter, header_y, has_heat)
 
         # Weapon rows — None entries are empty slots (skip rendering)
@@ -535,18 +595,26 @@ class BaseCardRenderer:
             if w is None:
                 continue
             y = Y_START + i * ROW_H
-            draw_text(painter, COL_NAME, y-20, w.get("name", ""), size=FS_MEDIUM,
-                      width=360, height=ROW_H)
-            self._draw_centered(painter, COL_DMG, y, w.get("damage", ""), 220, FS_MEDIUM)
+            draw_text(painter, COL_NAME, y - ROW_H // 3, w.get("name", ""),
+                      size=font_size, width=360, height=ROW_H)
+            self._draw_centered(painter, COL_DMG, y, w.get("damage", ""), 220,
+                                font_size, height=ROW_H)
             if has_heat:
-                self._draw_centered(painter, COL_HT, y, str(w.get("heat", "")), 50, FS_MEDIUM)
+                self._draw_centered(painter, COL_HT, y, str(w.get("heat", "")),
+                                    50, font_size, height=ROW_H)
             loc_x = COL_LOC if has_heat else COL_LOC - 40
-            self._draw_centered(painter, loc_x, y, w.get("location", ""), 140, FS_MEDIUM)
-            self._draw_centered(painter, COL_PB, y, w.get("rangePB", "—"), 50, FS_MEDIUM)
-            self._draw_centered(painter, COL_S,  y, w.get("rangeS",  "—"), 50, FS_MEDIUM)
-            self._draw_centered(painter, COL_M,  y, w.get("rangeM",  "—"), 50, FS_MEDIUM)
-            self._draw_centered(painter, COL_L,  y, w.get("rangeL",  "—"), 50, FS_MEDIUM)
-            self._draw_centered(painter, COL_X,  y, w.get("rangeX",  "—"), 50, FS_MEDIUM)
+            self._draw_centered(painter, loc_x, y, w.get("location", ""), 140,
+                                font_size, height=ROW_H)
+            self._draw_centered(painter, COL_PB, y, w.get("rangePB", "—"), 50,
+                                font_size, height=ROW_H)
+            self._draw_centered(painter, COL_S,  y, w.get("rangeS",  "—"), 50,
+                                font_size, height=ROW_H)
+            self._draw_centered(painter, COL_M,  y, w.get("rangeM",  "—"), 50,
+                                font_size, height=ROW_H)
+            self._draw_centered(painter, COL_L,  y, w.get("rangeL",  "—"), 50,
+                                font_size, height=ROW_H)
+            self._draw_centered(painter, COL_X,  y, w.get("rangeX",  "—"), 50,
+                                font_size, height=ROW_H)
 
     def _draw_weapon_row_header(
         self, painter: QPainter, y: int, has_heat: bool
@@ -572,9 +640,9 @@ class BaseCardRenderer:
 
     def _draw_centered(
         self, painter: QPainter, x: int, y: int, text: str, width: int, size: int,
-        bold: bool = False, color: str = "black",
+        bold: bool = False, color: str = "black", height: int = 60,
     ) -> None:
-        rect = QRectF(x, y, width, 60)
+        rect = QRectF(x, y, width, height)
         painter.setFont(_font(size, bold=bold))
         painter.setPen(QColor(color))
         painter.drawText(rect,
@@ -586,6 +654,8 @@ class BaseCardRenderer:
         self, painter: QPainter, items: list[dict] | None,
         show_pips: bool = True,
         max_pip_shots: int = 50,
+        header_size: int = FS_LARGE,
+        item_size: int | None = None,
     ) -> None:
         """Draw equipment list with optional inline ammo pips.
 
@@ -593,13 +663,14 @@ class BaseCardRenderer:
         show_pips: if False, ammo shows only the [N] count, no hex pips.
         Items flow left-to-right, wrapping when they exceed max width.
         Ammo items draw hex pips inline after the label, then wrap to next line.
+        header_size/item_size: dropship passes ~75% sizes for compact cards.
         """
-        draw_text(painter, 60, 1165, "Equipment:", size=FS_LARGE, bold=True)
+        draw_text(painter, 60, 1165, "Equipment:", size=header_size, bold=True)
         if not items:
             return
 
         painter.save()
-        painter.setFont(_font(FS_LARGE - 4))
+        painter.setFont(_font(item_size if item_size else FS_LARGE - 4))
         painter.setPen(QColor("black"))
         painter.setBrush(Qt.BrushStyle.NoBrush)
 

@@ -12,7 +12,8 @@ from PyQt6.QtWidgets import (
 
 from ..models.unit import UnitWeapon
 from ..models.data_store import DataStore
-from ..engine.tic_grouper import ResolvedWeapon, validate_tic_assignments
+from ..engine.tic_grouper import ResolvedWeapon, validate_tic_assignments, tic_caps_for
+from ..settings.profile_manager import ProfileManager
 from .theme import BTN_DUP_STYLE, BTN_X_STYLE, ThemeManager
 
 _MECH_LOCATIONS   = ["T","LA","RA","LL","RL","HD","(R) T","(R) LL","(R) RL","(R) HD","--"]
@@ -26,6 +27,9 @@ _VEHICLE_LOCATIONS= ["FR","LS","RS","RR","TU","--"]
 _AC_AMMO_OPTIONS = ("Std", "Precision", "AP", "Flak", "Flechette", "Tracer")
 _BA_LOCATIONS      = ["Body","Arm","TU","DWP","--"]
 _AERO_LOCATIONS    = ["N","LW","RW","A","--"]
+# Both wing and side keys so dropship units keep valid entries across
+# subtype switches (tic_grouper maps LW/LS → left arc, RW/RS → right arc)
+_DROPSHIP_LOCATIONS = ["N","LW","RW","LS","RS","A","--"]
 
 _BTN_ARROW_STYLE = (
     "QPushButton { font-size: 12px; padding: 0; margin: 0; "
@@ -56,6 +60,8 @@ class WeaponsPanel(QWidget):
             self._locations = _BA_LOCATIONS
         elif unit_type in ("aero", "fighter"):
             self._locations = _AERO_LOCATIONS
+        elif unit_type == "dropship":
+            self._locations = _DROPSHIP_LOCATIONS
         else:
             self._locations = _VEHICLE_LOCATIONS
         self._tonnage: int = 0
@@ -72,8 +78,8 @@ class WeaponsPanel(QWidget):
         bar = QHBoxLayout()
         add_btn = QPushButton("Add");    add_btn.clicked.connect(self._add_row)
         bar.addWidget(add_btn)
-        # Auto-Group button (mech, vehicle, aero only)
-        if self._unit_type in ("mech", "vehicle", "aero"):
+        # Auto-Group button (mech, vehicle, aero, dropship only)
+        if self._unit_type in ("mech", "vehicle", "aero", "dropship"):
             grp_btn = QPushButton("Auto-Group")
             grp_btn.clicked.connect(self._auto_group)
             bar.addWidget(grp_btn)
@@ -160,7 +166,8 @@ class WeaponsPanel(QWidget):
             self._table.insertRow(row)
 
         # TIC spinner
-        tic = QSpinBox(); tic.setRange(1, 12)
+        tic = QSpinBox()
+        tic.setRange(1, 20 if self._unit_type == "dropship" else 12)
         if weapon:
             tic.setValue(weapon.tic)
         else:
@@ -321,7 +328,8 @@ class WeaponsPanel(QWidget):
         self.changed.emit()
 
     def _auto_group(self) -> None:
-        from ..engine.tic_grouper import auto_assign_tics
+        from ..engine.tic_grouper import (
+            auto_assign_tics, tic_caps_for, DROPSHIP_TIC_SLOTS)
 
         weapons = self.get_weapons()
         if not weapons:
@@ -339,7 +347,12 @@ class WeaponsPanel(QWidget):
                 one_shot=uw.one_shot, tonnage=self._tonnage,
             ))
 
-        assigned = auto_assign_tics(resolved)
+        dmg_cap, msl_cap = tic_caps_for(
+            ProfileManager.active(), self._unit_type == "dropship")
+        assigned = auto_assign_tics(
+            resolved, tic_damage_max=dmg_cap, tic_missile_max=msl_cap,
+            num_tics=(DROPSHIP_TIC_SLOTS if self._unit_type == "dropship"
+                      else 9))
         for row in range(self._table.rowCount()):
             if row >= len(assigned):
                 break
@@ -454,7 +467,10 @@ class WeaponsPanel(QWidget):
                     one_shot=uw.one_shot,
                     tonnage=self._tonnage,
                 ))
-            errors = validate_tic_assignments(resolved)
+            dmg_cap, msl_cap = tic_caps_for(
+                ProfileManager.active(), self._unit_type == "dropship")
+            errors = validate_tic_assignments(
+                resolved, tic_damage_max=dmg_cap, tic_missile_max=msl_cap)
         except Exception:
             errors = []
 

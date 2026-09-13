@@ -139,6 +139,14 @@ Profiles stored as YAML in `data/profiles/`. Built-in "Default" profile never pe
 2. Make plan for each bug listed
 3. Don't fix until plan approved
 
+## Change Log
+
+`dist/change_log.txt` is the user-facing changelog. When preparing a commit,
+first add an entry for the changes: newest entry at top, header
+`YYYY-MM-DD — <short title>`, blank line, then plain-English bullets (what
+changed and why — no code jargon) matching existing entries. Only then
+stage/commit.
+
 ## Testing
 
 Only run tests when requested.

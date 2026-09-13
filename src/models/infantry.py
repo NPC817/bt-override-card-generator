@@ -36,6 +36,10 @@ class Infantry(AbstractUnit):
         self.trooper_equipment: str = ""
         self.armor_kit: str = ""
         self.field_guns: list[str] = []
+        # User overrides — 0 = auto/derived, so existing behavior is unchanged
+        self.walk_mp_override: int = 0
+        self.run_mp_override: int = 0
+        self.mass_override: int = 0
 
     # ── Internal helpers ──────────────────────────────────────────────────────
 
@@ -54,6 +58,8 @@ class Infantry(AbstractUnit):
 
     @property
     def walk_mp(self) -> int:
+        if self.walk_mp_override:
+            return self.walk_mp_override
         base = self._motive()["walk"]
         # Mechanized Tracked ignores the move penalty per card_gen.js
         if self._weapon_reduces_move() and self.motion_type_key != "Mechanized Tracked":
@@ -62,6 +68,8 @@ class Infantry(AbstractUnit):
 
     @property
     def run_mp(self) -> int:
+        if self.run_mp_override:
+            return self.run_mp_override
         return self._js_round(1.5 * self.walk_mp) or 1
 
     @property
@@ -81,6 +89,8 @@ class Infantry(AbstractUnit):
 
     @property
     def tonnage(self) -> int:
+        if self.mass_override:
+            return self.mass_override
         bw = self._motive().get("base_weight", 0.085)
         return math.ceil(bw * self.squad_size * self.squad_count)
 
@@ -158,6 +168,9 @@ class Infantry(AbstractUnit):
             "trooper_equipment": self.trooper_equipment,
             "armor_kit": self.armor_kit,
             "field_guns": self.field_guns,
+            "walk_mp_override": self.walk_mp_override,
+            "run_mp_override": self.run_mp_override,
+            "mass_override": self.mass_override,
         })
         return d
 
@@ -174,4 +187,7 @@ class Infantry(AbstractUnit):
         inf.trooper_equipment = data.get("trooper_equipment", "")
         inf.armor_kit = data.get("armor_kit", "")
         inf.field_guns = list(data.get("field_guns", []))
+        inf.walk_mp_override = int(data.get("walk_mp_override", 0))
+        inf.run_mp_override = int(data.get("run_mp_override", 0))
+        inf.mass_override = int(data.get("mass_override", 0))
         return inf

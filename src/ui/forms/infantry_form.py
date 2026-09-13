@@ -4,7 +4,7 @@ from __future__ import annotations
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import (
     QComboBox, QFormLayout, QGroupBox,
-    QLabel, QLineEdit, QScrollArea, QSpinBox,
+    QLabel, QLineEdit, QPlainTextEdit, QScrollArea, QSpinBox,
     QVBoxLayout, QWidget,
 )
 
@@ -97,18 +97,42 @@ class InfantryForm(QWidget):
 
         layout.addWidget(weapon_group)
 
-        # ── Computed Stats ──────────────────────────────────────────────────
-        stats_group = QGroupBox("Computed Stats")
+        # ── Equipment ──────────────────────────────────────────────────────
+        equip_group = QGroupBox("Equipment")
+        self._trooper_equipment = QPlainTextEdit()
+        self._trooper_equipment.setFixedHeight(80)
+        self._trooper_equipment.setPlaceholderText(
+            "e.g. Flak armor, C-Bill optics — parsed from Trooper Equipment"
+        )
+        equip_form = QFormLayout(equip_group)
+        equip_form.addRow("Trooper Equipment:", self._trooper_equipment)
+        layout.addWidget(equip_group)
+
+        # ── Stats ──────────────────────────────────────────────────────────
+        stats_group = QGroupBox("Stats")
         stats_form = QFormLayout(stats_group)
+
+        self._walk_mp_override = QSpinBox()
+        self._walk_mp_override.setRange(0, 20)
+        self._walk_mp_override.setSpecialValueText("Auto")
+
+        self._run_mp_override = QSpinBox()
+        self._run_mp_override.setRange(0, 20)
+        self._run_mp_override.setSpecialValueText("Auto")
+
+        self._mass_override = QSpinBox()
+        self._mass_override.setRange(0, 99)
+        self._mass_override.setSpecialValueText("Auto")
 
         self._move_label    = QLabel()
         self._tmm_label     = QLabel()
-        self._mass_label    = QLabel()
         self._antimech_label = QLabel()
 
+        stats_form.addRow("Walk MP:", self._walk_mp_override)
+        stats_form.addRow("Run MP:", self._run_mp_override)
+        stats_form.addRow("Mass (Tons):", self._mass_override)
         stats_form.addRow("Move:", self._move_label)
         stats_form.addRow("TMM:", self._tmm_label)
-        stats_form.addRow("Mass:", self._mass_label)
         stats_form.addRow("Anti-Mech:", self._antimech_label)
 
         layout.addWidget(stats_group)
@@ -122,6 +146,10 @@ class InfantryForm(QWidget):
         self._chassis.textChanged.connect(self._on_changed)
         self._variant.textChanged.connect(self._on_changed)
         self._tech.currentIndexChanged.connect(self._on_changed)
+        self._trooper_equipment.textChanged.connect(self._on_changed)
+        self._walk_mp_override.valueChanged.connect(self._on_changed)
+        self._run_mp_override.valueChanged.connect(self._on_changed)
+        self._mass_override.valueChanged.connect(self._on_changed)
 
         self._update_constraints()
         self._update_computed_labels()
@@ -179,7 +207,6 @@ class InfantryForm(QWidget):
         tmp = self._build_temp_unit()
         self._move_label.setText(tmp.destiny_move)
         self._tmm_label.setText(tmp.destiny_tmm)
-        self._mass_label.setText(f"{tmp.tonnage} Tons")
         self._antimech_label.setText("Yes" if tmp.has_anti_mech else "No")
 
     def _build_temp_unit(self) -> Infantry:
@@ -187,6 +214,9 @@ class InfantryForm(QWidget):
         u.motion_type_key = self._motive_type.currentText()
         u.squad_size  = self._squad_size.value()
         u.squad_count = self._squad_count.value()
+        u.walk_mp_override = self._walk_mp_override.value()
+        u.run_mp_override  = self._run_mp_override.value()
+        u.mass_override    = self._mass_override.value()
         return u
 
     # ── Change propagation ────────────────────────────────────────────────────
@@ -221,6 +251,11 @@ class InfantryForm(QWidget):
                 self._weapon_type.setCurrentIndex(i)
                 break
 
+        self._trooper_equipment.setPlainText(unit.trooper_equipment)
+        self._walk_mp_override.setValue(unit.walk_mp_override)
+        self._run_mp_override.setValue(unit.run_mp_override)
+        self._mass_override.setValue(unit.mass_override)
+
         self._update_computed_labels()
         self._building = False
 
@@ -233,4 +268,8 @@ class InfantryForm(QWidget):
         unit.squad_size  = self._squad_size.value()
         unit.squad_count = self._squad_count.value()
         unit.weapon_type = self._weapon_type.currentData()
+        unit.trooper_equipment = self._trooper_equipment.toPlainText().strip()
+        unit.walk_mp_override = self._walk_mp_override.value()
+        unit.run_mp_override  = self._run_mp_override.value()
+        unit.mass_override    = self._mass_override.value()
         return unit
