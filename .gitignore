@@ -42,3 +42,6 @@ data/backup/
 
 # Claude Code
 .claude/
+
+# Planning notes (local only)
+plans/
